@@ -4,7 +4,8 @@ namespace Controller;
 
 use \W\Controller\Controller;
 use \W\Security\AuthentificationManager;
-use \Manager\UserManager;
+use \W\Manager\UserManager;
+use \Manager\UserManagerr;
 
 class UserController extends Controller
 {
@@ -18,12 +19,16 @@ class UserController extends Controller
 
     public function loginVal(){
         $usernameOrEmail = isset($_POST['usernameOrEmail']) ? trim(strip_tags($_POST['usernameOrEmail'])) : '';
-        $password = isset($_POST['password']) ? trim($_POST['password']) : '';
+        $password = isset($_POST['password']) ? trim(strip_tags($_POST['password'])) : '';
 
         $authManager = new AuthentificationManager();
         $usr_id = $authManager->isValidLoginInfo($usernameOrEmail, $password);
 
+        $userManager = new UserManager();
+        $foundUser = $userManager->getUserByUsernameOrEmail($usernameOrEmail);
+
         if($usr_id === 0){
+            print_r($foundUser) ;
             echo 'Arf :: login invalide <br/>';
         }
         else{
@@ -38,8 +43,6 @@ class UserController extends Controller
     }
 
     public function signupVal(){
-        //debug($_POST);
-
         $username = isset($_POST['userName']) ? trim(strip_tags($_POST['userName'])) : '';
         $lastName = isset($_POST['lastName']) ? trim(strip_tags($_POST['lastName'])) : '';
         $firstName = isset($_POST['firstName']) ? trim(strip_tags($_POST['firstName'])) : '';
@@ -54,10 +57,10 @@ class UserController extends Controller
         // Il manque la validation des données
 
         if ($password != '' && $password == $passwordVerif) {
-            $userManager = new UserManager();
-            $userManager->insert(['use_userName'=>$username, 'use_name'=>$lastName, 'use_firstName'=>$firstName, 'use_adress'=>$adress, 'use_postCode'=>$zip, 'use_phone'=>$phone, 'use_fax'=>$fax, 'use_email'=>$email, 'use_password'=>password_hash($password, PASSWORD_BCRYPT), 'use_role'=>'user', 'use_dateCreation'=>time()]);
-
-            $this->redirectToRoute('user_login');
+            $userManager = new UserManagerr();
+            if ($userManager->insert(['use_userName'=>$username, 'use_name'=>$lastName, 'use_firstName'=>$firstName, 'use_adress'=>$adress, 'use_postCode'=>$zip, 'use_phone'=>$phone, 'use_fax'=>$fax, 'use_email'=>$email, 'use_password'=>password_hash($password, PASSWORD_BCRYPT), 'use_role'=>'user', 'use_dateCreation'=>time()])){
+                $this->redirectToRoute('user_login');
+            }
         }
         else {
             echo 'Arf :: password vide!<br />';
