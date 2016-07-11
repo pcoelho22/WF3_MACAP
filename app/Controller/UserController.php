@@ -60,69 +60,87 @@ class UserController extends Controller {
         $passwordVerif = isset($_POST['passwordVerif']) ? trim(strip_tags($_POST['passwordVerif'])) : '';
 
         $error = array();
-
+        $vals = array();
         // Il manque la validation des données
         if (strlen($username) >= 5) {
             $usernameVal = true;
+            $vals['username'] = $username;
         }
         else{
             $error[] = 'username pas assez long';
+            $vals['username'] = '';
         }
 
         if ($lastName != '') {
             $lastNameVal = true;
+            $vals['lastName'] = $lastName;
         }
         else{
             $error[] = 'veuillez indiquez votre Nom';
+            $vals['lastName'] = '';
         }
 
         if ($firstName != '') {
             $firstNameVal = true;
+            $vals['firstName'] = $firstName;
         }
         else{
             $error[] = "veuillez entrer votre Prenom";
+            $vals['firstName'] = '';
         }
 
         if (strlen($adress) >= 10) {
             $adressVal = true;
+            $vals['adress'] = $adress;
         }
         else{
             $error[] = "veuillez indiquez votre code adresse";
+            $vals['adress'] = '';
         }
 
         if (strlen($zip) >= 4) {
             $zipVal = true;
+            $vals['zip'] = $zip;
         }
         else{
             $error[] = 'veuillez indiquez votre Code postal';
+            $vals['zip'] = '';
         }
 
         if (strlen($phone) >= 5) {
             $phoneVal = true;
+            $vals['phone'] = $phone;
         }
         else{
             $error[] = 'veuillez entrer numero de telephone valide';
+            $vals['phone'] = '';
         }
 
         if (strlen($fax) >= 5) {
             $faxVal = true;
+            $vals['fax'] = $fax;
         }
         else{
             $error[] = 'veuillez entrer un numero de fax valide';
+            $vals['fax'] = '';
         }
 
         if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $mailVal = true;
+            $vals['email'] = $email;
         }
         else {
             $error[] = 'veuillez entrer un email correcte';
+            $vals['email'] = '';
         }
 
         if ($password != '' && $password == $passwordVerif) {
             $passwordVal = true;
+            $vals['password'] = $password;
         }
         else{
             $error[] = "Mot de passe invalide";
+            $vals['password'] = '';
         }
 
         if ($usernameVal && $lastNameVal && $firstNameVal && $adressVal && $zipVal && $phoneVal && $faxVal && $mailVal && $passwordVal){
@@ -132,7 +150,7 @@ class UserController extends Controller {
             }
         }
         else{
-            $this->show('default/signUp', ["error"=>$error]);
+            $this->show('default/signUp', ["error"=>$error, "vals"=>$vals]);
         }
     }
 }
