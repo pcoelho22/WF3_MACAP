@@ -23,7 +23,8 @@ class UserController extends Controller {
         $usr_id = $authManager->isValidLoginInfo($usernameOrEmail, $password);
 
         if ($usr_id === 0) {
-            echo 'Arf :: login invalide <br/>';
+            $erreur = "Login ou Mot de passe invalide";
+            $this->show('default/login', ["erreur"=>$erreur]);
         } else {
             $userManager = new UserManager();
             $authManager->logUserIn($userManager->find($usr_id));
@@ -36,6 +37,17 @@ class UserController extends Controller {
     }
 
     public function signupVal() {
+
+        $usernameVal = false;
+        $lastNameVal = false;
+        $firstNameVal = false;
+        $adressVal = false;
+        $zipVal = false;
+        $phoneVal = false;
+        $faxVal = false;
+        $mailVal = false;
+        $passwordVal  = false;
+
         $username = isset($_POST['userName']) ? trim(strip_tags($_POST['userName'])) : '';
         $lastName = isset($_POST['lastName']) ? trim(strip_tags($_POST['lastName'])) : '';
         $firstName = isset($_POST['firstName']) ? trim(strip_tags($_POST['firstName'])) : '';
@@ -47,48 +59,80 @@ class UserController extends Controller {
         $password = isset($_POST['password']) ? trim(strip_tags($_POST['password'])) : '';
         $passwordVerif = isset($_POST['passwordVerif']) ? trim(strip_tags($_POST['passwordVerif'])) : '';
 
+        $error = array();
+
         // Il manque la validation des données
         if (strlen($username) >= 5) {
-            if ($lastName != '') {
-                if ($firstName != '') {
-                    if (strlen($adress) >= 10) {
-                        if (strlen($zip) >= 4) {
-                            if (strlen($phone) >= 5) {
-                                if (strlen($fax) >= 5) {
-                                    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                                        if ($password != '' && $password == $passwordVerif) {
-                                            $userManager = new UserManager();
-                                            if ($userManager->insert(['use_userName' => $username, 'use_name' => $lastName, 'use_firstName' => $firstName, 'use_adress' => $adress, 'use_postCode' => $zip, 'use_phone' => $phone, 'use_fax' => $fax, 'use_email' => $email, 'use_password' => password_hash($password, PASSWORD_BCRYPT), 'use_role' => 'user', 'use_dateCreation' => time()])) {
-                                                $this->redirectToRoute('user_login');
-                                            }
-                                        } else {
-                                            echo 'Arf :: password vide!<br />';
-                                            exit;
-                                        }
-                                    } else {
-                                        echo 'veuillez entrer un email correcte';
-                                    }
-                                } else {
-                                    echo 'veuillez entrer numero de fax valide';
-                                }
-                            } else {
-                                echo 'veuillez indiquez votre numero de telephone';
-                            }
-                        } else {
-                            echo "veuillez indiquez votre code postal";
-                        }
-                    } else {
-                        echo "veuillez entrer votre adresse";
-                    }
-                } else {
-                    echo 'veuillez indiquez votre Prenom';
-                }
-            } else {
-                echo 'veuillez indiquez votre Nom';
+            $usernameVal = true;
+        }
+        else{
+            $error[] = 'username pas assez long';
+        }
+
+        if ($lastName != '') {
+            $lastNameVal = true;
+        }
+        else{
+            $error[] = 'veuillez indiquez votre Nom';
+        }
+
+        if ($firstName != '') {
+            $firstNameVal = true;
+        }
+        else{
+            $error[] = "veuillez entrer votre Prenom";
+        }
+
+        if (strlen($adress) >= 10) {
+            $adressVal = true;
+        }
+        else{
+            $error[] = "veuillez indiquez votre code adresse";
+        }
+
+        if (strlen($zip) >= 4) {
+            $zipVal = true;
+        }
+        else{
+            $error[] = 'veuillez indiquez votre Code postal';
+        }
+
+        if (strlen($phone) >= 5) {
+            $phoneVal = true;
+        }
+        else{
+            $error[] = 'veuillez entrer numero de telephone valide';
+        }
+
+        if (strlen($fax) >= 5) {
+            $faxVal = true;
+        }
+        else{
+            $error[] = 'veuillez entrer un numero de fax valide';
+        }
+
+        if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $mailVal = true;
+        }
+        else {
+            $error[] = 'veuillez entrer un email correcte';
+        }
+
+        if ($password != '' && $password == $passwordVerif) {
+            $passwordVal = true;
+        }
+        else{
+            $error[] = "Mot de passe invalide";
+        }
+
+        if ($usernameVal && $lastNameVal && $firstNameVal && $adressVal && $zipVal && $phoneVal && $faxVal && $mailVal && $passwordVal){
+            $userManager = new UserManager();
+            if ($userManager->insert(['use_userName' => $username, 'use_name' => $lastName, 'use_firstName' => $firstName, 'use_adress' => $adress, 'use_postCode' => $zip, 'use_phone' => $phone, 'use_fax' => $fax, 'use_email' => $email, 'use_password' => password_hash($password, PASSWORD_BCRYPT), 'use_role' => 'user', 'use_dateCreation' => time()])) {
+                $this->redirectToRoute('user_login');
             }
-        } else {
-            echo 'username pas assez long';
+        }
+        else{
+            $this->show('default/signUp', ["error"=>$error]);
         }
     }
-
 }

@@ -12,6 +12,10 @@
 
     <input type="submit" value="Login">
 </form>
+<?php if (isset($erreur)){
+    echo $erreur;
+} ?>
+
 <br/>
 <a href="<?= $this->url('user_signup') ?>"><button>Se crée un compte</button></a>
 
