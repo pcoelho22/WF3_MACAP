@@ -5,6 +5,7 @@ namespace Controller;
 use \W\Controller\Controller;
 use \W\Security\AuthentificationManager;
 use \Manager\UserManager;
+require ('../vendor/phpmailer/phpmailer/PHPMailerAutoload.php');
 
 class UserController extends Controller {
 
@@ -36,7 +37,28 @@ class UserController extends Controller {
         $this->show('default/signUp');
     }
 
+    public static function email($to, $message, $attachment1='', $name1='', $attachment2='', $name2='', $attachment3='', $name3='',$subject=' '){
+        $mail = new \PHPMailer;
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'webdev.luxembourg@gmail.com';
+        $mail->Password = 'webforce3';
+        $mail->SMTPSecure = 'tls';
+        $mail->Port = 587;
+        $mail->addAttachment($attachment1, $name1);
+        $mail->addAttachment($attachment2, $name2);
+        $mail->addAttachment($attachment3, $name3);
+        $mail->setFrom('webdev.luxembourg@gmail.com');
+        $mail->addAddress($to);
+        $mail->Subject = $subject;
+        $mail->msgHTML($message);
+        $mail->send();
+    }
+
     public function signupVal() {
+        $absPath = realpath(dirname(__FILE__));
+        $userManager = new UserManager();
 
         $usernameVal = false;
         $lastNameVal = false;
@@ -44,9 +66,16 @@ class UserController extends Controller {
         $adressVal = false;
         $zipVal = false;
         $phoneVal = false;
-        $faxVal = false;
         $mailVal = false;
         $passwordVal  = false;
+        $roleVal = false;
+
+        $attachment1 = '';
+        $name1 = '';
+        $attachment2 = '';
+        $name2 = '';
+        $attachment3 = '';
+        $name3 = '';
 
         $username = isset($_POST['userName']) ? trim(strip_tags($_POST['userName'])) : '';
         $lastName = isset($_POST['lastName']) ? trim(strip_tags($_POST['lastName'])) : '';
@@ -58,16 +87,26 @@ class UserController extends Controller {
         $email = isset($_POST['email']) ? trim(strip_tags($_POST['email'])) : '';
         $password = isset($_POST['password']) ? trim(strip_tags($_POST['password'])) : '';
         $passwordVerif = isset($_POST['passwordVerif']) ? trim(strip_tags($_POST['passwordVerif'])) : '';
+        $role = isset($_POST['role']) ? $_POST['role'] : array();
+
+        $phone = str_replace(' ','',$phone);
+        $fax = str_replace(' ','',$fax);
 
         $error = array();
         $vals = array();
         // Il manque la validation des données
-        if (strlen($username) >= 5) {
-            $usernameVal = true;
-            $vals['username'] = $username;
+        if (strlen($username) >= 5 && strlen($username) <= 45) {
+            if ($userManager->findUserName($username) == true){
+                $error[] = 'username deja utilisé';
+                $vals['username'] = '';
+            }
+            else {
+                $usernameVal = true;
+                $vals['username'] = $username;
+            }
         }
         else{
-            $error[] = 'username pas assez long';
+            $error[] = 'username pas assez long ou trop long (de 5 a 45 characteères max)';
             $vals['username'] = '';
         }
 
@@ -89,7 +128,7 @@ class UserController extends Controller {
             $vals['firstName'] = '';
         }
 
-        if (strlen($adress) >= 10) {
+        if (strlen($adress) >= 5) {
             $adressVal = true;
             $vals['adress'] = $adress;
         }
@@ -98,7 +137,7 @@ class UserController extends Controller {
             $vals['adress'] = '';
         }
 
-        if (strlen($zip) >= 4) {
+        if (strlen($zip) >= 3) {
             $zipVal = true;
             $vals['zip'] = $zip;
         }
@@ -117,35 +156,83 @@ class UserController extends Controller {
         }
 
         if (strlen($fax) >= 5) {
-            $faxVal = true;
             $vals['fax'] = $fax;
         }
         else{
-            $error[] = 'veuillez entrer un numero de fax valide';
             $vals['fax'] = '';
         }
 
         if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $mailVal = true;
-            $vals['email'] = $email;
+            if ($userManager->findEmail($email) == true){
+                $error[] = 'email deja utilsé';
+                $vals['email'] = '';
+            }
+            else{
+                $mailVal = true;
+                $vals['email'] = $email;
+            }
         }
         else {
-            $error[] = 'veuillez entrer un email correcte';
+            $error[] = "l'email entré n'est pas sous le bon format";
             $vals['email'] = '';
         }
-
-        if ($password != '' && $password == $passwordVerif) {
-            $passwordVal = true;
-            $vals['password'] = $password;
+        if(preg_match('/^(?=.*\d)(?=.*[a-x])(?=.*[A-Z]).{6,}$/', $password)){
+            if ($password != '' && $password == $passwordVerif) {
+                $passwordVal = true;
+                $vals['password'] = $password;
+            }
+            else{
+                $error[] = "Mot de passe invalide";
+                $vals['password'] = '';
+            }
         }
         else{
             $error[] = "Mot de passe invalide";
             $vals['password'] = '';
         }
 
-        if ($usernameVal && $lastNameVal && $firstNameVal && $adressVal && $zipVal && $phoneVal && $faxVal && $mailVal && $passwordVal){
-            $userManager = new UserManager();
-            if ($userManager->insert(['use_userName' => $username, 'use_name' => $lastName, 'use_firstName' => $firstName, 'use_adress' => $adress, 'use_post_code' => $zip, 'use_phone' => $phone, 'use_fax' => $fax, 'use_email' => $email, 'use_password' => password_hash($password, PASSWORD_BCRYPT), 'use_role_opt1' => 'user', 'use_date_creation' => time()])) {
+        if (sizeof($role) >= 1){
+            $vals['role'] = array();
+            $roleVal = true;
+            if (in_array('participant', $role)){
+                $vals['role']['participant'] = 'checked';
+                $attachment1 = $absPath.'\docs\codeWifi.txt';
+                $name1 = 'participant.txt';
+            }
+            else{
+                $vals['role']['participant'] = '';
+            }
+
+            if (in_array('exposant', $role)){
+                $vals['role']['exposant'] = 'checked';
+                $attachment2 = $absPath.'\docs\codeWifi.txt';
+                $name2 = 'exposant.txt';
+            }
+            else{
+                $vals['role']['exposant'] = '';
+            }
+
+            if (in_array('sponsor', $role)){
+                $vals['role']['sponsor'] = 'checked';
+                $attachment3 = $absPath.'\docs\codeWifi.txt';
+                $name3 = 'sponsor.txt';
+            }
+            else{
+                $vals['role']['sponsor'] = '';
+            }
+        }
+        else{
+            $vals['role'] = array();
+            $vals['role']['participant'] = '';
+            $vals['role']['exposant'] = '';
+            $vals['role']['sponsor'] = '';
+            $error[] = "Veuillez cochez une case svp";
+        }
+
+        if ($usernameVal && $lastNameVal && $firstNameVal && $adressVal && $zipVal && $phoneVal && $mailVal && $passwordVal && $roleVal){
+
+            if ($userManager->insert(['use_userName' => $username, 'use_name' => $lastName, 'use_firstName' => $firstName, 'use_adress' => $adress, 'use_post_code' => $zip, 'use_phone' => $phone, 'use_fax' => $fax, 'use_email' => $email, 'use_password' => password_hash($password, PASSWORD_BCRYPT), 'use_role_opt1' => '2', 'use_date_creation' => time()])) {
+               self::email('prfabri@yahoo.fr', 'message', $attachment1, $name1, $attachment2, $name2, $attachment3, $name3);
                 $this->redirectToRoute('user_login');
             }
         }

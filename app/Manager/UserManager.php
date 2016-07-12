@@ -10,13 +10,38 @@ class UserManager extends \W\Manager\Manager{
         $this->setTable('users');
     }
 
-    /*public function findPronoPerMatch($idMatch){
-        $sql = "";
+    public function findEmail($email){
+        $sql = "SELECT * FROM users WHERE use_email = :email";
 
         $sth = $this->dbh->prepare($sql);
+        $sth->bindValue(':email', $email);
         $sth->execute();
 
-        return $sth->fetchAll();
-    }*/
+        $retour = $sth->fetch();
+
+        if(is_array($retour)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public function findUserName($userName){
+        $sql = "SELECT * FROM users WHERE use_userName = :userName";
+
+        $sth = $this->dbh->prepare($sql);
+        $sth->bindValue(':userName', $userName);
+        $sth->execute();
+
+        $retour = $sth->fetch();
+
+        if(is_array($retour)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 
 }

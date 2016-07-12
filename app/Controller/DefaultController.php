@@ -3,6 +3,7 @@
 namespace Controller;
 
 use \W\Controller\Controller;
+require ('../vendor/phpmailer/phpmailer/PHPMailerAutoload.php');
 
 class DefaultController extends Controller {
 
@@ -16,5 +17,4 @@ class DefaultController extends Controller {
     public function contact() {
         echo 'test';
     }
-
 }
