@@ -3,3 +3,5 @@
 /phpDocumentor.phar
 .idea/
 composer.lock
+/nbproject/
+index.php
