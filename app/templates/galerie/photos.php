@@ -2,9 +2,9 @@
 
 <?php $this->start('main_content') ?>
 	<h2>Photos de chaque galerie</h2>
-	<ul><br/>
+	<ul><br/><img src="">
 		<?php foreach ($photosGalerie as $key => $value) : ?>
-			<li><?= $value['pho_name'].'<br/> '.$value['pho_legend']?></li><br/>
+			<li><?= $value['pho_legend'].'<br/> '.$value['pho_name']?><br/><img src="<?= $value['pho_path']?>"></li><br/>
 		<?php endforeach ?>
 	</ul>
 	
