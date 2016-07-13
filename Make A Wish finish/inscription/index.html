@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<title>Homepage</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="css/reset.css">
+		<link rel="stylesheet" type="text/css" href="css/normalize.css">
+		<!-- IMPORT DU CSS -->
+		<link rel="stylesheet" type="text/css" href="lib/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="lib/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<header>
+
+			<div class="container">
+		        <div class="row"> 
+		            <div class="col-sm-4 text-left">
+		            	<ul class="list-inline no-margin-top small">
+		            	<li><a href="http://www.gdc.lu/" target="_blank"><img src="img/GDCI_logo.jpg" style="vertical-align: middle"></a></li>
+		            	<li><a href="http://www.fiva.org/newsite/" target="_blank"><img src="img/FIVA_logo.png" style="vertical-align: middle"></a></li>
+		            	</ul>
+		            </div>
+
+		            <div class="col-sm-4 text-center">                
+		                <a id="mainLogo" class="logo">
+						  <img src="img/MondorfLogoLast.jpg"></a>                
+		            </div>
+		                        
+		            <div class="col-sm-4 text-right">
+		            	<ul class="list-inline no-margin-top small">				
+			            	<a href="#" class="link-internal white small dropdown-toogle" data-toggle="dropdown"><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-log-in"></span> Login</button></a>
+			            	<div class="dropdown-menu containerlog">
+								<h1>Login</h1>
+								<form action="#" method="POST">
+									<input id="use_userName" type="text" placeholder="pseudo/email" name="user[username]" class="field">
+									<input id="use_password" type="password" placeholder="password" class="field">
+									<label for="use_remember_me"><input class="string optional" id="use_remember_me" type="checkbox" name="user[remember_me]" value="1" /> Remember me</label>
+									<input type="submit" value="login" class="btn">
+									<div class="pass-link">
+										<a href="#" >Lost your password?</a>
+									</div>	
+								</form>
+							</div>
+		            	</ul>
+		            </div>
+		        </div>
+	    	</div>
+
+			<div class="container">
+				<nav class="navbar navbar-default" role="navigation">
+					<div class="navbar-header">
+						<ul class="nav navbar-nav">
+							<li class=""><a href="#">HOME</a></li>
+							<li class="dropdown"><a href="#">MEDIA</a>
+								<ul class="dropdown-menu" role="menu">
+									<li><a href="">NEWS</a></li>
+									<li><a href="">REPORTAGES</a></li>
+									<li><a href="">MAGAZINE</a></li>
+								</ul>
+							</li>	                
+							<li><a href="#">EVENTS</a></li>	                
+							<li><a href="#">GALERIE</a></li>	                
+							<li><a href="#">CHARITE</a></li>	                
+							<li><a href="#">SPONSORS</a></li>	                
+							<li><a href="#">SHOP</a></li>
+							<li><a href="#">ABOUT US</a></li>	                
+						</ul>
+					</div>
+				</nav>
+			</div>
+
+		</header>
+		<main>
+			<div class="container">
+				<div class="col-sm-6 text-left">
+					<h1>Register</h1>
+					<form action="#" method="POST" class="form-horizontal" role="form">
+						<div class="form-group">							
+							<div class="col-sm-10">
+	      					<input type="text" class="form-control" id="pseudo" placeholder="Entrez pseudo">
+	    					</div>
+
+							<div class="col-sm-10">
+	      					<input type="text" class="form-control" id="pseudo" placeholder="Entrez nom">
+	    					</div>
+						
+							<div class="col-sm-10">
+	      					<input type="text" class="form-control" id="pseudo" placeholder="Entrez prénom">
+	    					</div>
+
+							<div class="col-sm-10">
+	      					<input type="text" class="form-control" id="pseudo" placeholder="Entrez n°, rue, ville">
+	    					</div>
+
+							<div class="col-sm-10">
+	      					<input type="text" class="form-control" id="pseudo" placeholder="Entrez code postal">
+	    					</div>
+
+							<div class="col-sm-10">
+	      					<input type="text" class="form-control" id="pseudo" placeholder="Entrez téléphone">
+	    					</div>
+
+							<div class="col-sm-10">
+	      					<input type="text" class="form-control" id="pseudo" placeholder="Entrez fax">
+	    					</div>
+
+							<div class="col-sm-10">
+	      					<input type="email" class="form-control" id="pseudo" placeholder="Entrez email">
+	    					</div>
+
+							<div class="col-sm-10">
+	      					<input type="password" class="form-control" id="pseudo" placeholder="Entrez password">
+	    					</div>
+
+							<div class="col-sm-10">
+	      					<input type="password" class="form-control" id="pseudo" placeholder="Re-Entrez password">
+	    					</div>
+						</div>
+						<button type="submit" value="login" class="btn">Enregistrer</button>
+					</form>
+					<br>
+				</div>
+			</div>
+		</main>
+		<footer id="footer">
+			<div class="container">
+				<br>
+		        <div class="row"> 
+		            <div class="col-sm-3 text-left">
+		               <ul class="list-inline small">
+							<li><a href="" class="link-internal grey small"><button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-home"></span> Home</button></a></li>                
+	                    </ul>
+		            </div>
+
+		            <div class="col-sm-6 text-center">                
+		                 <ul class="list-inline">
+		                    <li><a href="https://fr-fr.facebook.com/" target="_blank"><img src="img/logo/facebook.png"></img></a></li>
+		                    <li><a href="https://twitter.com/?lang=fr" target="_blank"><img src="img/logo/twitter.png"></img></a></li>
+		                    <li><a href="https://www.youtube.com/" target="_blank"><img src="img/logo/youtube.png"></img></a></li>
+		                    <li><a href="https://www.linkedin.com/" target="_blank"><img src="img/logo/linkedin.png"></img></a></li>
+		                    <li><a href="https://plus.google.com/explore" target="_blank"><img src="img/logo/google.png"></img></a></li>
+		                    <li><a href="https://www.instagram.com/" target="_blank"><img src="img/logo/instagram.png"></img></a></li>            
+	                    </ul>             
+		            </div>		                        
+			            <div class="col-sm-3 text-right">
+			            	<ul class="list-inline small">
+			            		<li><a href="http://www.make-a-wish.lu/" target="_blank"><img src="img/MAW.jpg"></a></li>
+			            	</ul>
+			            </div>
+	        		</div>
+
+		        	<div class="col-12 text-center">
+			            <ul class="list-inline no-margin-bottom small">
+		                    <li><a href="/contact us" class="small" target="_blank">Contact Us</a></li>
+		                    <li><a href="/terms-conditions" class="small" target="self">Terms &amp; Conditions</a></li>
+		                    <li><a href="/en/sitemap" class="small" target="self">Site Map</a></li>
+		                </ul>               
+		                <small><a href="http://www.wf3.fr" class="small" target="self">© McAPP 2016</a></small>
+                </div>
+	    	</div>
+		</footer>
+	</body>
+</html>
