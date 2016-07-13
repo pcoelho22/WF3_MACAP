@@ -14,7 +14,7 @@ class NewsController extends Controller {
      */
     public function liste() {
     	$newsListeManager = new NewsManager();
-        $newsListe = $newsListeManager->findAll();
+        $newsListe = $newsListeManager->contenuNews();
         //debug($newsListe);
 
 		$this->show('news/liste',
@@ -26,10 +26,10 @@ class NewsController extends Controller {
     public function newsDetails($id) {
     	//echo $id;
 		
-		$newsDetailsID = new NewsDetailsHasNewsDetailsManager();
-		$newsDetailsId = $newsDetailsID->findnewsDetailsId($id);
-        //debug($NewsDetailsId);
+		$newsDetailsID = new NewsManager();
+		$newsDetailsId = $newsDetailsID->findNewsId($id);
+        //debug($newsDetailsId);
 
-        $this->show('news/newsDetails',['NewsDetails' => $photosGalerieId]);
+        $this->show('news/newsDetails',['NewsDetails' => $newsDetailsId]);
     }
 }
