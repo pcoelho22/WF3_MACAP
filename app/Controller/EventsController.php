@@ -5,8 +5,6 @@ namespace Controller;
 use \W\Controller\Controller;
 use \Manager\EventsManager;
 
-
-
 class EventsController extends Controller {
 
     /**
@@ -19,5 +17,14 @@ class EventsController extends Controller {
 
 		$this->show('events/liste',
 			['eventsListe' => $eventsListe]);
+    }
+    public function galerieEvents($id) {
+        //echo $id;
+        
+        $events = new ContenuHasGaleriesManager();
+        $eventsGalerie = $events->findGaleriesId($id);
+        //debug($eventsGalerie);
+
+        $this->show('news/newsDetails',['newsDetails' => $eventsGalerie]);
     }
 }
