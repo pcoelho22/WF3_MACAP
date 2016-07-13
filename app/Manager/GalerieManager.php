@@ -11,5 +11,4 @@ class GalerieManager extends \W\Manager\Manager{
     }
 }
 
-/*public funtion photoByIdGalerie();*/
     

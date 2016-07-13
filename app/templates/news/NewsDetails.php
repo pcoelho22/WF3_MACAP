@@ -1,10 +1,10 @@
-<?php $this->layout('layout', ['title' => 'Photos !']) ?>
+<?php $this->layout('layout', ['title' => 'News Details  !']) ?>
 
 <?php $this->start('main_content') ?>
-	<h2>Photos de chaque galerie</h2>
+	<h2>Details</h2>
 	<ul><br/>
-		<?php foreach ($photosGalerie as $key => $value) : ?>
-			<li><?= $value['pho_name'].'<br/> '.$value['pho_legend']?></li><br/>
+		<?php foreach ($NewsDetails as $key => $value) : ?>
+			<li><?= $value['con_title'].'<br/> '.$value['con_description']?></li><br/>
 		<?php endforeach ?>
 	</ul>
 	
