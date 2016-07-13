@@ -11,4 +11,7 @@ $w_routes = array(
     ["POST", "/login/forgot", "User#forgotVal", "user_forgotval"],
     ["GET", "/login/forgot/[a:token]", "User#passReset", "user_passReset"],
     ["POST", "/login/forgot/[a:token]", "User#passResetVal", "user_passResetVal"],
+    ["GET", "/galerie/", "Galerie#liste", "galerie_liste"],
+    ["GET", "/galerie/[i:id]/", "Galerie#photos", "galerie_photos"],
+
 );
