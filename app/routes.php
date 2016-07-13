@@ -7,4 +7,8 @@ $w_routes = array(
     ["POST", "/login/", "User#loginVal", "user_loginval"],
     ["GET", "/login/signup", "User#signUp", "user_signup"],
     ["POST", "/login/signup", "User#signUpVal", "user_signupval"],
+    ["GET", "/login/forgot", "User#forgot", "user_forgot"],
+    ["POST", "/login/forgot", "User#forgotVal", "user_forgotval"],
+    ["GET", "/login/forgot/[a:token]", "User#passReset", "user_passReset"],
+    ["POST", "/login/forgot/[a:token]", "User#passResetVal", "user_passResetVal"],
 );

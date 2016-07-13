@@ -18,5 +18,6 @@
 
 <br/>
 <a href="<?= $this->url('user_signup') ?>"><button>Se crée un compte</button></a>
+<a href="<?= $this->url('user_forgot') ?>"><button>Mot de passe oublier</button></a>
 
 <?php $this->stop('main_content') ?>

@@ -4,6 +4,7 @@ namespace Controller;
 
 use \W\Controller\Controller;
 use \W\Security\AuthentificationManager;
+use \W\Security\AuthorizationManager;
 use \Manager\UserManager;
 require ('../vendor/phpmailer/phpmailer/PHPMailerAutoload.php');
 
@@ -59,6 +60,7 @@ class UserController extends Controller {
     public function signupVal() {
         $absPath = realpath(dirname(__FILE__));
         $userManager = new UserManager();
+        $authManager = new AuthorizationManager();
 
         $usernameVal = false;
         $lastNameVal = false;
@@ -233,11 +235,63 @@ class UserController extends Controller {
 
             if ($userManager->insert(['use_userName' => $username, 'use_name' => $lastName, 'use_firstName' => $firstName, 'use_adress' => $adress, 'use_post_code' => $zip, 'use_phone' => $phone, 'use_fax' => $fax, 'use_email' => $email, 'use_password' => password_hash($password, PASSWORD_BCRYPT), 'use_role_opt1' => '2', 'use_date_creation' => time()])) {
                self::email('prfabri@yahoo.fr', 'message', $attachment1, $name1, $attachment2, $name2, $attachment3, $name3);
-                $this->redirectToRoute('user_login');
+                $authManager->redirectToLogin();
             }
         }
         else{
             $this->show('default/signUp', ["error"=>$error, "vals"=>$vals]);
+        }
+    }
+
+    public function forgot(){
+        $this->show('default/forgot');
+    }
+
+    public function forgotVal(){
+        $userManager = new UserManager();
+        $email = isset($_POST['email']) ? trim(strip_tags($_POST['email'])) : '';
+
+        $token = $userManager->setToken($email);
+
+        if ($token == false){
+            $error = "Email pas trouver";
+            $this->show('default/forgot', ['error'=>$error]);
+        }
+        else{
+            self::email($email, "Confifurer votre nouveau mot de passe : <a href=\"http://localhost/Back-end/Projet-Final/public/login/forgot/$token\">Ici</a>");
+            $this->redirectToRoute('user_login');
+        }
+    }
+
+    public function passReset(){
+        $this->show('default/resetPassword');
+    }
+
+    public function passResetVal($token){
+        $userManager = new UserManager();
+        $passwordVal = false;
+        $password = isset($_POST['password']) ? trim(strip_tags($_POST['password'])) : '';
+        $passwordVerif = isset($_POST['passwordVal']) ? trim(strip_tags($_POST['passwordVal'])) : '';
+
+        if(preg_match('/^(?=.*\d)(?=.*[a-x])(?=.*[A-Z]).{6,}$/', $password)){
+            if ($password != '' && $password == $passwordVerif) {
+                $passwordVal = true;
+            }
+            else{
+                $error[] = "Les deux mot de passe de ne sont pas les mêmes";
+            }
+        }
+        else{
+            $error[] = "Mot de passe invalide";
+        }
+        
+        if ($passwordVal){
+            $password = password_hash($password, PASSWORD_BCRYPT);
+            $userManager->resetPassword($token, $password);
+            $this->redirectToRoute('user_login');
+        }
+        else{
+            $this->show('default/resetPassword',['error'=>$error]);
         }
     }
 }
