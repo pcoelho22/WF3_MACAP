@@ -7,8 +7,9 @@ $w_routes = array(
     ["POST", "/login/", "User#loginVal", "user_loginval"],
     ["GET", "/login/signup", "User#signUp", "user_signup"],
     ["POST", "/login/signup", "User#signUpVal", "user_signupval"],
-    ["GET", "/events/", "Events#liste", "events_liste"],
-    ["GET", "/galerie/", "Galerie#liste", "galerie_liste"],
-    ["GET", "/galerie/[i:id]/", "Galerie#photos", "galerie_photos"],
+    ["GET|POST", "/events/", "Events#liste", "events_liste"],
+    ["GET|POST", "/galerie/", "Galerie#liste", "galerie_liste"],
+    ["GET|POST", "/galerie/[i:id]/", "Galerie#photos", "galerie_photos"],
     ["GET|POST", "/news/", "News#liste", "news_liste"],
+    ["GET|POST", "/news/[i:id]", "News#newsDetails", "news_newsDetails"],
 );

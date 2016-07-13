@@ -9,7 +9,16 @@ class EventsManager extends \W\Manager\Manager{
         //je definis manuelement le nom de la table
         $this->setTable('contenus');
     }
-}
+    public function contenuEvent()
+    {
+        $sql = "
+	        SELECT * 
+	        FROM " . $this->table . " 
+	        WHERE contenus_type_id = 3
+        ";
+        $sth = $this->dbh->prepare($sql);
+        $sth->execute();
 
-/*public funtion photoByIdGalerie();*/
-    
+        return $sth->fetchAll();
+	}
+}

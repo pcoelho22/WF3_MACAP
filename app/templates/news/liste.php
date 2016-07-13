@@ -4,7 +4,7 @@
 	<h2>Liste des news</h2>
 	<ul><br/>
 		<?php foreach ($newsListe as $key => $value) : ?>
-			<li><a href="<?= $this->url('news_details',['id'=>$value['id']]) ?>"><?= $value['gal_name'].'<br/> '.$value['gal_legend']?></a></li><br/>
+			<li><a href="<?= $this->url('news_newsDetails',['id'=>$value['id']]) ?>"><?= $value['con_title'].'<br/> '.$value['con_synopsis']?></a></li><br/>
 		<?php endforeach ?>
 	</ul>
 	

@@ -14,22 +14,10 @@ class EventsController extends Controller {
      */
     public function liste() {
     	$eventsListeManager = new EventsManager();
-        $eventsListe = $eventsListeManager->findAll();
+        $eventsListe = $eventsListeManager->contenuEvent();
         //debug($galerieListe);
 
 		$this->show('events/liste',
 			['eventsListe' => $eventsListe]);
-    }
-    /**
-     * Page de photos de chaque galerie
-     */
-    public function photos($id) {
-    	//echo $id;
-		
-		$photosID = new GalerieHasPhotoManager();
-		$photosGalerieId = $photosID->findPhotoId($id);
-        //debug($photosGalerieId);
-
-        $this->show('galerie/photos',['photosGalerie' => $photosGalerieId]);
     }
 }

@@ -13,7 +13,7 @@
 			<li><a href="<?= $this->url('home') ?>">HOME</a></li>
 			<li><a href="#">MEDIA</a>
 				<ul>
-					<li><a href="">NEWS</a></li>
+					<li><a href="<?= $this->url('news_liste') ?>">NEWS</a></li>
 					<li><a href="">REPORTAGES</a></li>
 					<li><a href="">MAGAZINE</a></li>
 				</ul>
