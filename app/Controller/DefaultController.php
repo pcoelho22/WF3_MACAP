@@ -15,6 +15,6 @@ class DefaultController extends Controller {
     }
     
     public function contact() {
-        echo 'test';
+        $this->show('default/contact');
     }
 }
