@@ -5,6 +5,7 @@
 	<title><?= $this->e($title) ?></title>
 
 	<link rel="stylesheet" href="<?= $this->assetUrl('css/reset.css') ?>">
+	<link rel="stylesheet" href="<?= $this->assetUrl('galerie/photos/2015_concours_elegance') ?>">
 </head>
 <body>
 	
@@ -14,7 +15,7 @@
 			<li><a href="#">MEDIA</a>
 				<ul>
 					<li><a href="<?= $this->url('news_liste') ?>">NEWS</a></li>
-					<li><a href="">REPORTAGES</a></li>
+					<li><a href="<?= $this->url('reportage_liste') ?>">REPORTAGES</a></li>
 					<li><a href="">MAGAZINE</a></li>
 				</ul>
 			</li>	                

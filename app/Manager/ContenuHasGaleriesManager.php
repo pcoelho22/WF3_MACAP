@@ -2,26 +2,15 @@
 
 namespace Manager;
 
-class ReportageManager extends \W\Manager\Manager{
+class ContenuHasGaleriesManager extends \W\Manager\Manager{
 
     function __construct(){
         parent::__construct();
         //je definis manuelement le nom de la table
-        $this->setTable('contenus');
+        $this->setTable('contenus_has_galeries');
     }
-    public function contenuReportage()
-    {
-        $sql = "
-	        SELECT * 
-	        FROM " . $this->table . " 
-	        WHERE contenus_type_id = 2
-        ";
-        $sth = $this->dbh->prepare($sql);
-        $sth->execute();
 
-        return $sth->fetchAll();
-	}
-	public function findReportageId($id)
+    public function findGaleriesId($id)
     {
         if (!is_numeric($id)){
             return false;
@@ -30,8 +19,9 @@ class ReportageManager extends \W\Manager\Manager{
         $sql = "
         SELECT * 
         FROM " . $this->table . " 
-        WHERE id = :id
-        ";
+        INNER JOIN galeries ON galeries.id = contenus_has_galeries.galeries_id
+        WHERE contenus_id = :id"
+        ;
         $sth = $this->dbh->prepare($sql);
         $sth->bindValue(":id", $id);
         $sth->execute();
