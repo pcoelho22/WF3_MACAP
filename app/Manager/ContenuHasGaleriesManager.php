@@ -20,7 +20,7 @@ class ContenuHasGaleriesManager extends \W\Manager\Manager{
         SELECT * 
         FROM " . $this->table . " 
         INNER JOIN galeries ON galeries.id = contenus_has_galeries.galeries_id
-        WHERE galeries_id = :id"
+        WHERE contenus_id = :id"
         ;
         $sth = $this->dbh->prepare($sql);
         $sth->bindValue(":id", $id);

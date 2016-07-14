@@ -5,6 +5,7 @@
 	<title><?= $this->e($title) ?></title>
 
 	<link rel="stylesheet" href="<?= $this->assetUrl('css/reset.css') ?>">
+	<link rel="stylesheet" href="<?= $this->assetUrl('galerie/photos/2015_concours_elegance') ?>">
 </head>
 <body>
 	
