@@ -1,10 +1,10 @@
 <?php $this->layout('layout', ['title' => 'Reportages !']) ?>
 
 <?php $this->start('main_content') ?>
-	<h2>Reportages</h2>
+	<h2>Reportage</h2>
 	<ul><br/>
-		<?php foreach ($reportageListe as $key => $value) : ?>
-			<li><?= $value['contenus_name'].'<br/> '.$value['contenus_legend']?></li><br/>
+		<?php foreach ($reportageDetails as $key => $value) : ?>
+			<li><?= $value['con_title'].'<br/> '.$value['con_description']?></li><br/>
 		<?php endforeach ?>
 	</ul>
 	
