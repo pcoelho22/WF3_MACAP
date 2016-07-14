@@ -25,9 +25,14 @@ $w_routes = array(
     ["GET", "/news/delete/[i:id]", "News#delete", "news_delete"],
     ["GET", "/news/add", "News#add", "news_add"],
     ["POST", "/news/add", "News#addVal", "news_addval"],
+
     ["GET", "/reportages/update/[i:id]", "Reportages#update", "reportages_update"],
     ["POST", "/reportages/update/[i:id]", "Reportages#updateVal", "reportages_updateval"],
     ["GET", "/reportages/delete/[i:id]", "Reportages#delete", "reportages_delete"],
     ["GET", "/reportages/add", "Reportages#add", "reportages_add"],
     ["POST", "/reportages/add", "Reportages#addVal", "reportages_addval"],
+
+    ["GET", "/magazine/", "Magazine#liste", "magazine_liste"],
+
+
 );

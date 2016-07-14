@@ -15,8 +15,10 @@
 			<li><a href="#">MEDIA</a>
 				<ul>
 					<li><a href="<?= $this->url('news_liste') ?>">NEWS</a></li>
+
 					<li><a href="<?= $this->url('reportages_liste') ?>">REPORTAGES</a></li>
-					<li><a href="">MAGAZINE</a></li>
+					<li><a href="<?= $this->url('magazine_liste') ?>">MAGAZINE</a></li>
+
 				</ul>
 			</li>	                
 			<li><a href="<?= $this->url('events_liste') ?>">EVENTS</a></li>         
