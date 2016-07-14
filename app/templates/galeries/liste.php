@@ -4,7 +4,7 @@
 	<h2>Liste de galeries</h2>
 	<ul><br/>
 		<?php foreach ($galerieListe as $key => $value) : ?>
-			<li><a href="<?= $this->url('galerie_photos',['id'=>$value['id']]) ?>"><?= $value['gal_name'].'<br/> '.$value['gal_legend']?></a></li><br/>
+			<li><a href="<?= $this->url('galeries_photos',['id'=>$value['id']]) ?>"><?= $value['gal_name'].'<br/> '.$value['gal_legend']?></a></li><br/>
 		<?php endforeach ?>
 	</ul>
 	
