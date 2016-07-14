@@ -13,10 +13,19 @@ class ReportageController extends Controller {
      */
     public function liste() {
     	$reportageListeManager = new ReportageManager();
-        $reportageListe = $reportageListeManager->findAll();
+        $reportageListe = $reportageListeManager->contenuReportage();
         //debug($reportageListe);
 
 		$this->show('reportage/liste',
 			['reportageListe' => $reportageListe]);
+    }
+    public function reportageDetails($id) {
+        //echo $id;
+        
+        $reportageDetailsID = new ReportageManager();
+        $reportageDetailsId = $reportageDetailsID->findReportageId($id);
+        //debug($reportageDetailsId);
+
+        $this->show('reportage/ReportageDetails',['reportageDetails' => $reportageDetailsId]);
     }
 }
