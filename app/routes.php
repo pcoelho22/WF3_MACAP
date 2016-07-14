@@ -11,10 +11,11 @@ $w_routes = array(
     ["POST", "/login/forgot", "User#forgotVal", "user_forgotval"],
     ["GET", "/login/forgot/[a:token]", "User#passReset", "user_passReset"],
     ["POST", "/login/forgot/[a:token]", "User#passResetVal", "user_passResetVal"],
-    ["GET|POST", "/events/", "Events#liste", "events_liste"],
-    ["GET|POST", "/events/[i:id]", "Events#galerieEvents", "events_galerieEvents"],
     ["GET|POST", "/galerie/", "Galerie#liste", "galerie_liste"],
     ["GET|POST", "/galerie/[i:id]/", "Galerie#photos", "galerie_photos"],
+    ["GET|POST", "/events/", "Events#liste", "events_liste"],
+    ["GET|POST", "/events/galerie/[i:id]", "Events#galerieEvents", "events_galerieEvents"],
+    
     ["GET|POST", "/news/", "News#liste", "news_liste"],
     ["GET|POST", "/news/[i:id]", "News#newsDetails", "news_newsDetails"],
     ["GET|POST", "/reportage/", "Reportage#liste", "reportage_liste"],
