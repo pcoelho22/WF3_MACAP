@@ -6,7 +6,6 @@ use \W\Controller\Controller;
 use \Manager\GalerieManager;
 use \Manager\GalerieHasPhotoManager;
 
-
 class GalerieController extends Controller {
 
     /**
@@ -25,8 +24,7 @@ class GalerieController extends Controller {
      */
     public function photos($id) {
     	//echo $id;
-        
-		
+        		
 		$photosID = new GalerieHasPhotoManager();
 		$photosGalerieId = $photosID->findPhotoId($id);
         //debug($photosGalerieId);
