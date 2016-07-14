@@ -16,7 +16,7 @@ class GalerieController extends Controller {
         $galerieListe = $galerieListeManager->findAll();
         //debug($galerieListe);
 
-		$this->show('galerie/liste',
+		$this->show('galeries/liste',
 			['galerieListe' => $galerieListe]);
     }
     /**
@@ -29,6 +29,6 @@ class GalerieController extends Controller {
 		$photosGalerieId = $photosID->findPhotoId($id);
         //debug($photosGalerieId);
 
-        $this->show('galerie/photos',['photosGalerie' => $photosGalerieId]);
+        $this->show('galeries/photos',['photosGalerie' => $photosGalerieId]);
     }
 }
