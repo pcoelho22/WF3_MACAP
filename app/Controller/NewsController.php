@@ -30,6 +30,6 @@ class NewsController extends Controller {
 		$newsDetailsId = $newsDetailsID->findNewsId($id);
         //debug($newsDetailsId);
 
-        $this->show('news/newsDetails',['NewsDetails' => $newsDetailsId]);
+        $this->show('news/newsDetails',['newsDetails' => $newsDetailsId]);
     }
 }
