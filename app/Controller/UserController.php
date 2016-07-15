@@ -13,6 +13,13 @@ class UserController extends Controller {
     /**
      * Page d'accueil par défaut
      */
+    
+    public function logOut() {
+        $authManager = new AuthentificationManager();
+        $authManager->logUserOut();
+        $this->redirectToRoute('user_login');
+    }
+    
     public function login() {
         $this->show('default/login');
     }
@@ -27,7 +34,8 @@ class UserController extends Controller {
         if ($usr_id === 0) {
             $erreur = "Login ou Mot de passe invalide";
             $this->show('default/login', ["erreur"=>$erreur]);
-        } else {
+        } 
+        else {
             $userManager = new UserManager();
             $authManager->logUserIn($userManager->find($usr_id));
             $this->redirectToRoute('home');
@@ -38,7 +46,7 @@ class UserController extends Controller {
         $this->show('default/signUp');
     }
 
-    public static function email($to, $message, $attachment1='', $name1='', $attachment2='', $name2='', $attachment3='', $name3='',$subject=' '){
+    public static function email($to, $message, $subject=' ', $attachment1='', $name1='', $attachment2='', $name2='', $attachment3='', $name3=''){
         $mail = new \PHPMailer;
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
@@ -54,7 +62,7 @@ class UserController extends Controller {
         $mail->addAddress($to);
         $mail->Subject = $subject;
         $mail->msgHTML($message);
-        $mail->send();
+        //$mail->send();
     }
 
     public function signupVal() {
@@ -98,7 +106,7 @@ class UserController extends Controller {
         $vals = array();
         // Il manque la validation des données
         if (strlen($username) >= 5 && strlen($username) <= 45) {
-            if ($userManager->findUserName($username) == true){
+            if ($userManager->usernameExists($username) == true){
                 $error[] = 'username deja utilisé';
                 $vals['username'] = '';
             }
@@ -165,7 +173,7 @@ class UserController extends Controller {
         }
 
         if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            if ($userManager->findEmail($email) == true){
+            if ($userManager->emailExists($email) == true){
                 $error[] = 'email deja utilsé';
                 $vals['email'] = '';
             }
