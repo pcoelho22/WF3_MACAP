@@ -3,7 +3,6 @@
 <?php $this->start('main_content') ?>
 	<h2>Details</h2>
 	<ul><br/>
-
 			<li><?= $newsDetails['con_title'].'<br/> '.$newsDetails['con_description']?></li><br/>
 	</ul>
 	
