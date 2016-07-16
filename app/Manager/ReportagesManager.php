@@ -2,14 +2,14 @@
 
 namespace Manager;
 
-class ReportageManager extends \W\Manager\Manager{
+class ReportagesManager extends \W\Manager\Manager{
 
     function __construct(){
         parent::__construct();
         //je definis manuelement le nom de la table
         $this->setTable('contenus');
     }
-    public function contenuReportage()
+    public function contenuReportages()
     {
         $sql = "
 	        SELECT * 
@@ -21,7 +21,7 @@ class ReportageManager extends \W\Manager\Manager{
 
         return $sth->fetchAll();
 	}
-	public function findReportageId($id)
+	public function findReportagesId($id)
     {
         if (!is_numeric($id)){
             return false;
@@ -36,7 +36,7 @@ class ReportageManager extends \W\Manager\Manager{
         $sth->bindValue(":id", $id);
         $sth->execute();
 
-        return $sth->fetchAll();
+        return $sth->fetch();
 	}
 }
 
