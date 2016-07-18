@@ -1,7 +1,7 @@
-<?php $this->layout('layout', ['title' => 'Crée une news']) ?>
+<?php $this->layout('layout', ['title' => 'Crée un event']) ?>
 
 <?php $this->start('main_content') ?>
-<h2>Crée une news</h2>
+<h2>Crée un event</h2>
 <?php
 if (isset($error)){
     debug($error);

@@ -5,6 +5,7 @@ namespace Controller;
 use \W\Controller\Controller;
 use \Manager\GalerieManager;
 use \Manager\GalerieHasPhotoManager;
+use \Manager\ContenuHasGaleriesManager;
 
 class GalerieController extends Controller {
 
@@ -25,10 +26,13 @@ class GalerieController extends Controller {
     public function photos($id) {
     	//echo $id;
         		
-		$photosID = new GalerieHasPhotoManager();
-		$photosGalerieId = $photosID->findPhotoId($id);
+		$galerieHasPhotoManager = new GalerieHasPhotoManager();
+		$photosGalerieId = $galerieHasPhotoManager->findPhotoId($id);
         //debug($photosGalerieId);
+        $contenuHasGaleriesManager = new ContenuHasGaleriesManager();
+        $eventsIdGaleires = $contenuHasGaleriesManager->findGaleriesId($id);
+        //debug($eventsIdGaleires);
 
-        $this->show('galerie/photos',['photosGalerie' => $photosGalerieId]);
+        $this->show('galerie/photos',['photosGalerie' => $photosGalerieId, 'eventsIdGaleires'=> $eventsIdGaleires]);
     }
 }
