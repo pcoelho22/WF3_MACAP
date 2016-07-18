@@ -286,6 +286,133 @@ class UserController extends Controller {
         }
     }
 
+    public function edit($id){
+        $this->allowTo(['2', '1']);
+        $userManager = new UserManager();
+
+        $values = $userManager->find($id);
+        $this->show('default/edit',['values'=>$values]);
+    }
+
+    public function editVal($id){
+        $this->allowTo(['2', '1']);
+        $userManager = new UserManager();
+        $authManager = new AuthentificationManager();
+
+        $lastNameVal = false;
+        $firstNameVal = false;
+        $adressVal = false;
+        $cityVal = false;
+        $zipVal = false;
+        $phoneVal = false;
+        $passwordVal = false;
+
+        $lastName = isset($_POST['lastName']) ? trim(strip_tags($_POST['lastName'])) : '';
+        $firstName = isset($_POST['firstName']) ? trim(strip_tags($_POST['firstName'])) : '';
+        $adress = isset($_POST['adress']) ? trim(strip_tags($_POST['adress'])) : '';
+        $city = isset($_POST['city']) ? trim(strip_tags($_POST['city'])) : '';
+        $zip = isset($_POST['postCode']) ? trim(strip_tags($_POST['postCode'])) : '';
+        $phone = isset($_POST['phone']) ? trim(strip_tags($_POST['phone'])) : '';
+        $fax = isset($_POST['fax']) ? trim(strip_tags($_POST['fax'])) : '';
+        $password = isset($_POST['password']) ? trim(strip_tags($_POST['password'])) : '';
+        $passwordVerif = isset($_POST['passwordVerif']) ? trim(strip_tags($_POST['passwordVerif'])) : '';
+
+        $phone = str_replace(' ','',$phone);
+        $fax = str_replace(' ','',$fax);
+
+        $error = array();
+        $vals = array();
+        // Il manque la validation des données
+
+        if ($lastName != '') {
+            $lastNameVal = true;
+            $vals['use_name'] = $lastName;
+        }
+        else{
+            $error[] = 'veuillez indiquez votre Nom';
+            $vals['use_name'] = '';
+        }
+
+        if ($firstName != '') {
+            $firstNameVal = true;
+            $vals['use_firstName'] = $firstName;
+        }
+        else{
+            $error[] = "veuillez entrer votre Prenom";
+            $vals['use_firstName'] = '';
+        }
+
+        if (strlen($adress) >= 5) {
+            $adressVal = true;
+            $vals['use_adress'] = $adress;
+        }
+        else{
+            $error[] = "veuillez indiquez votre adresse";
+            $vals['use_adress'] = '';
+        }
+
+        if (strlen($city) != '') {
+            $cityVal = true;
+            $vals['use_city'] = $city;
+        }
+        else{
+            $error[] = "veuillez indiquez votre ville";
+            $vals['use_city'] = '';
+        }
+
+        if (strlen($zip) >= 3) {
+            $zipVal = true;
+            $vals['use_post_code'] = $zip;
+        }
+        else{
+            $error[] = 'veuillez indiquez votre Code postal';
+            $vals['use_post_code'] = '';
+        }
+
+        if (strlen($phone) >= 5) {
+            $phoneVal = true;
+            $vals['use_phone'] = $phone;
+        }
+        else{
+            $error[] = 'veuillez entrer numero de telephone valide';
+            $vals['use_phone'] = '';
+        }
+
+        if (strlen($fax) >= 5) {
+            $vals['use_fax'] = $fax;
+        }
+        else{
+            $vals['use_fax'] = '';
+        }
+
+        if(preg_match('/^(?=.*\d)(?=.*[a-x])(?=.*[A-Z]).{6,}$/', $password)){
+            if ($password != '' && $password == $passwordVerif) {
+                $passwordVal = true;
+                $vals['use_password'] = $password;
+            }
+            else{
+                $error[] = "Mot de passe invalide";
+                $vals['use_password'] = '';
+            }
+        }
+        else{
+            $error[] = "Mot de passe invalide";
+            $vals['use_password'] = '';
+        }
+
+
+        if ($lastNameVal && $firstNameVal && $adressVal && $cityVal && $zipVal && $phoneVal && $passwordVal){
+
+            if ($userManager->update($vals, $id)) {
+                $authManager->refreshUser();
+                $this->redirectToRoute('home');
+            }
+        }
+        else{
+            $this->show('default/edit', ["error"=>$error, "vals"=>$vals]);
+        }
+    }
+
     public function passReset(){
         $this->show('default/resetPassword');
     }
