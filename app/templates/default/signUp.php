@@ -45,6 +45,8 @@
             Exposant:<input type="checkbox" name="role[]" value="exposant" <?= $vals['role']['exposant'] ?> ><br>
 
             Sponsor:<input type="checkbox" name="role[]" value="sponsor" <?= $vals['role']['sponsor'] ?> ><br>
+
+            Rally:<input type="checkbox" name="role[]" value="rally" <?= $vals['role']['rally'] ?> ><br>
         </fieldset>
         <br>
 
@@ -91,6 +93,8 @@
             Exposant:<input type="checkbox" name="role[]" value="exposant"><br>
 
             Sponsor:<input type="checkbox" name="role[]" value="sponsor"><br>
+
+            Rally:<input type="checkbox" name="role[]" value="rally"><br>
         </fieldset>
         <br>
         <input type="submit" value="Sign Up">
