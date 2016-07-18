@@ -1,4 +1,5 @@
 /vendor/
+/public/assets/Concours-mondorf/
 /app/config.php
 /phpDocumentor.phar
 .idea/

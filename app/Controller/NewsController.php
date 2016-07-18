@@ -13,12 +13,6 @@ class NewsController extends Controller {
     /**
      * Page avec news
      */
-
-    public static function uploadUrl(){
-        $app = getApp();
-        return 'C:/xampp/htdocs'.$app->getConfig('base_url') . '/upload/';
-    }
-
     public function liste() {
     	$newsListeManager = new NewsManager();
         $newsListe = $newsListeManager->contenuNews();
@@ -155,7 +149,7 @@ class NewsController extends Controller {
         }
 
         if ($titreVal && $dateDebutVal && $dateFinVal && $synopsisVal && $descriptionVal && $photoVal && $dateDiffVal){
-            move_uploaded_file($fichier['tmp_name'],'C:\xampp\htdocs\Back-end\Projet-Final\public\uplaod/'.$string.$string2.'.'.$extension);
+            move_uploaded_file($fichier['tmp_name'],TMP.'/upload/'.$string.$string2.'.'.$extension);
             $vals['con_type'] = "News";
             $vals['users_id'] = 1;//user connecter
             $vals['users_role_id'] = 1;//role de l'user connecter
