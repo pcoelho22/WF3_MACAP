@@ -1,11 +1,11 @@
-<?php $this->layout('layout', ['title' => 'Modifier une news']) ?>
+<?php $this->layout('layout', ['title' => 'Modifier un event']) ?>
 
 <?php $this->start('main_content') ?>
 <?php debug($_FILES); ?>
-<?php if (isset($newsDetails)):?>
+<?php if (isset($eventsId)):?>
     <form action="" method="post" enctype="multipart/form-data">
         <label for="titre">Titre</label></br>
-        <input id="titre" type="text" name="titre" value="<?= $newsDetails['con_title'] ?>"></br></br>
+        <input id="titre" type="text" name="titre" value="<?= $eventsId['con_title'] ?>"></br></br>
 
         <label for="dateStart">Date de début</label></br>
         <input id="dateStart" type="date" name="dateStart" value="<?= $newsDetails['con_dateStart'] ?>"></br></br>

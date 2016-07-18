@@ -21,4 +21,5 @@ class EventsManager extends \W\Manager\Manager{
 
         return $sth->fetchAll();
 	}
+
 }

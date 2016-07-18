@@ -22,13 +22,19 @@ class EventsController extends Controller {
        /**
      * Page de chaque galerie pour events
      */
-    public function galerieEvents($id) {
+
+    public function eventsDetails($id) {
         //echo $id;
         
-        $events = new ContenuHasGaleriesManager();
-        $eventsGalerieListe = $events->findGaleriesId($id);
-        //debug($eventsGalerieListe);
+        $eventsManager = new EventsManager();
+        $eventsId = $eventsManager->find($id);
+        //debug($eventsId);
 
-        $this->show('galerie/listeParEvents',['eventsGalerieListe' => $eventsGalerieListe]);
+        $contenuHasGaleriesManager = new ContenuHasGaleriesManager();
+        $eventsIdGaleires = $contenuHasGaleriesManager->findGaleriesId($id);
+        //debug($eventsIdGaleires);
+        
+        $this->show('events/eventsDetails',['eventsId' => $eventsId, 'eventsIdGaleires' => $eventsIdGaleires]);
+   
     }
 }
