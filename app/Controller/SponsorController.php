@@ -37,7 +37,7 @@ class SponsorController extends Controller {
         $emailGeneralVal = false;
         $urlVal = false;
 
-        $nameSponsor = isset($_POST['nameSponsor']) ? trim(strip_tags($_POST['nameExposant'])) : '';
+        $nameSponsor = isset($_POST['nameSponsor']) ? trim(strip_tags($_POST['nameSponsor'])) : '';
         $lastNameInCharge = isset($_POST['lastNameInCharge']) ? trim(strip_tags($_POST['lastNameInCharge'])) : '';
         $firstNameInCharge = isset($_POST['firstNameInCharge']) ? trim(strip_tags($_POST['firstNameInCharge'])) : '';
         $adress = isset($_POST['adress']) ? trim(strip_tags($_POST['adress'])) : '';
@@ -225,7 +225,7 @@ class SponsorController extends Controller {
         $emailGeneralVal = false;
         $urlVal = false;
 
-        $nameSponsor = isset($_POST['nameSponsor']) ? trim(strip_tags($_POST['nameExposant'])) : '';
+        $nameSponsor = isset($_POST['nameSponsor']) ? trim(strip_tags($_POST['nameSponsor'])) : '';
         $lastNameInCharge = isset($_POST['lastNameInCharge']) ? trim(strip_tags($_POST['lastNameInCharge'])) : '';
         $firstNameInCharge = isset($_POST['firstNameInCharge']) ? trim(strip_tags($_POST['firstNameInCharge'])) : '';
         $adress = isset($_POST['adress']) ? trim(strip_tags($_POST['adress'])) : '';
@@ -363,7 +363,7 @@ class SponsorController extends Controller {
         if ($nameSponsorVal && $lastNameInChargeVal && $firstNameInChargeVal && $adressVal && $cityVal && $zipVal && $countryVal && $phoneVal && $mobileVal && $emailGeneralVal && $emailInChargeVal && $urlVal){
 
             if ($sponsorManager->update([
-                'spo_name_sponsors' => $nameExposant, 
+                'spo_name_sponsors' => $nameSponsor,
                 'spo_name_in_charge' => $lastNameInCharge, 
                 'spo_firs_name_in_charge' => $firstNameInCharge, 
                 'spo_adress' => $adress, 

@@ -6,7 +6,7 @@ use \W\Controller\Controller;
 use \W\Security\AuthentificationManager;
 use \W\Security\AuthorizationManager;
 use \Manager\UserManager;
-require ('../vendor/phpmailer/phpmailer/PHPMailerAutoload.php');
+
 
 class UserController extends Controller {
 
@@ -46,7 +46,7 @@ class UserController extends Controller {
         $this->show('default/signUp');
     }
 
-    public static function email($to, $message, $subject=' ', $attachment1='', $name1='', $attachment2='', $name2='', $attachment3='', $name3=''){
+    public static function email($to, $message, $subject=' ', $attachment1='', $attachment2='', $attachment3='', $attachment4=''){
         $mail = new \PHPMailer;
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
@@ -55,18 +55,18 @@ class UserController extends Controller {
         $mail->Password = 'webforce3';
         $mail->SMTPSecure = 'tls';
         $mail->Port = 587;
-        $mail->addAttachment($attachment1, $name1);
-        $mail->addAttachment($attachment2, $name2);
-        $mail->addAttachment($attachment3, $name3);
+        $mail->addAttachment($attachment1);
+        $mail->addAttachment($attachment2);
+        $mail->addAttachment($attachment3);
+        $mail->addAttachment($attachment4);
         $mail->setFrom('webdev.luxembourg@gmail.com');
         $mail->addAddress($to);
         $mail->Subject = $subject;
         $mail->msgHTML($message);
-        //$mail->send();
+        $mail->send();
     }
 
     public function signupVal() {
-        $absPath = realpath(dirname(__FILE__));
         $userManager = new UserManager();
         $authManager = new AuthorizationManager();
 
@@ -81,11 +81,9 @@ class UserController extends Controller {
         $roleVal = false;
 
         $attachment1 = '';
-        $name1 = '';
         $attachment2 = '';
-        $name2 = '';
         $attachment3 = '';
-        $name3 = '';
+        $attachment4 = '';
 
         $username = isset($_POST['userName']) ? trim(strip_tags($_POST['userName'])) : '';
         $lastName = isset($_POST['lastName']) ? trim(strip_tags($_POST['lastName'])) : '';
@@ -206,8 +204,7 @@ class UserController extends Controller {
             $roleVal = true;
             if (in_array('participant', $role)){
                 $vals['role']['participant'] = 'checked';
-                $attachment1 = $absPath.'\docs\codeWifi.txt';
-                $name1 = 'participant.txt';
+                $attachment1 = TMP.'/../formulaires/FR/CONCOURS-FR BIS 3-participant.pdf';
             }
             else{
                 $vals['role']['participant'] = '';
@@ -215,8 +212,7 @@ class UserController extends Controller {
 
             if (in_array('exposant', $role)){
                 $vals['role']['exposant'] = 'checked';
-                $attachment2 = $absPath.'\docs\codeWifi.txt';
-                $name2 = 'exposant.txt';
+                $attachment2 = TMP.'/../formulaires/FR/CLASSIC DAYS-FR BIS 3-exposant.pdf';
             }
             else{
                 $vals['role']['exposant'] = '';
@@ -224,11 +220,18 @@ class UserController extends Controller {
 
             if (in_array('sponsor', $role)){
                 $vals['role']['sponsor'] = 'checked';
-                $attachment3 = $absPath.'\docs\codeWifi.txt';
-                $name3 = 'sponsor.txt';
+                $attachment3 = TMP.'/../formulaires/codeWifi.txt';
             }
             else{
                 $vals['role']['sponsor'] = '';
+            }
+
+            if (in_array('rally', $role)){
+                $vals['role']['rally'] = 'checked';
+                $attachment4 = TMP.'/../formulaires/FR/GRAN TOUR-FR BIS 4-rally.pdf';
+            }
+            else{
+                $vals['role']['rally'] = '';
             }
         }
         else{
@@ -236,13 +239,14 @@ class UserController extends Controller {
             $vals['role']['participant'] = '';
             $vals['role']['exposant'] = '';
             $vals['role']['sponsor'] = '';
+            $vals['role']['rally'] = '';
             $error[] = "Veuillez cochez une case svp";
         }
 
         if ($usernameVal && $lastNameVal && $firstNameVal && $adressVal && $zipVal && $phoneVal && $mailVal && $passwordVal && $roleVal){
 
             if ($userManager->insert(['use_userName' => $username, 'use_name' => $lastName, 'use_firstName' => $firstName, 'use_adress' => $adress, 'use_post_code' => $zip, 'use_phone' => $phone, 'use_fax' => $fax, 'use_email' => $email, 'use_password' => password_hash($password, PASSWORD_BCRYPT), 'use_role_opt1' => '2', 'use_date_creation' => date("Y-m-d", time())])) {
-               self::email('prfabri@yahoo.fr', 'message', $attachment1, $name1, $attachment2, $name2, $attachment3, $name3);
+                self::email('prfabri@yahoo.fr', 'message', 'sujet du mail',$attachment1, $attachment2, $attachment3, $attachment4);
                 $authManager->redirectToLogin();
             }
         }
@@ -266,7 +270,7 @@ class UserController extends Controller {
             $this->show('default/forgot', ['error'=>$error]);
         }
         else{
-            self::email($email, "Confifurer votre nouveau mot de passe : <a href=\"http://localhost/Back-end/Projet-Final/public/login/forgot/$token\">Ici</a>");
+            self::email($email, "Confifurer votre nouveau mot de passe : <a href=\"http://localhost/Back-end/Projet-Final/public/login/forgot/$token\">Ici</a>", 'Mot de passe oublier?');
             $this->redirectToRoute('user_login');
         }
     }
