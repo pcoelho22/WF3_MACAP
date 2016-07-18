@@ -9,20 +9,21 @@ use Manager\SponsorManager;
 class SponsorController extends Controller {
     
     public function delete($id) {
+        $this->allowTo('2');
         $sponsorManager = new SponsorManager();
         $sponsorManager->delete($id);
         $this->redirectToRoute('home');
     }
     
     public function add() {
-        $authManager = new AuthorizationManager();
-        //$authManager->isGranted('admin');
+        $this->allowTo('2');
         $this->show('sponsor/add');
 
     }  
     
     public function addVal() {
         $sponsorManager = new SponsorManager();
+        $this->allowTo('2');
          
         $nameSponsorVal = false;
         $lastNameInChargeVal = false;
@@ -175,7 +176,7 @@ class SponsorController extends Controller {
         if ($nameSponsorVal && $lastNameInChargeVal && $firstNameInChargeVal && $adressVal && $cityVal && $zipVal && $countryVal && $phoneVal && $mobileVal && $emailGeneralVal && $emailInChargeVal && $urlVal){
 
             if ($sponsorManager->insert([
-                'spo_name_sponsors' => $nameExposant, 
+                'spo_name_sponsors' => $nameSponsor,
                 'spo_name_in_charge' => $lastNameInCharge, 
                 'spo_firs_name_in_charge' => $firstNameInCharge, 
                 'spo_adress' => $adress, 
@@ -204,6 +205,7 @@ class SponsorController extends Controller {
     }
     
     public function edit($id) {
+        $this->allowTo(['2', '5']);
         $sponsorManager = new SponsorManager();
         $values = $sponsorManager->find($id);
         $this->show('sponsor/edit',['values'=>$values]);
@@ -211,6 +213,7 @@ class SponsorController extends Controller {
     
     public function editVal($id) {
         $sponsorManager = new SponsorManager();
+        $this->allowTo(['2', '5']);
          
         $nameSponsorVal = false;
         $lastNameInChargeVal = false;

@@ -17,6 +17,9 @@
         <label for="adress">Adress</label><br/>
         <input id="adress" type="text" name="adress" value="<?= $vals['adress'] ?>" placeholder="Ex:9, Rue des Hauts Founeaux, Belval"><br/><br/>
 
+        <label for="city">City</label><br/>
+        <input id="city" type="text" name="city" value="<?= $vals['city'] ?>" placeholder="Ex: Belval"><br/><br/>
+
         <label for="postCode">Code Postal</label><br/>
         <input id="postCode" type="text" name="postCode" value="<?= $vals['zip'] ?>" placeholder="Ex: 4362 Esch-sur-Alzette"><br/><br/>
 
@@ -64,7 +67,10 @@
         <input id="firstName" type="text" name="firstName" value="" placeholder="Ex: Paul"><br/><br/>
 
         <label for="adress">Adress</label><br/>
-        <input id="adress" type="text" name="adress" value="" placeholder="Ex:9, Rue des Hauts Founeaux, Belval"><br/><br/>
+        <input id="adress" type="text" name="adress" value="" placeholder="Ex:9, Rue des Hauts Founeaux"><br/><br/>
+
+        <label for="city">Adress</label><br/>
+        <input id="city" type="text" name="city" value="" placeholder="Belval"><br/><br/>
 
         <label for="postCode">Code Postal</label><br/>
         <input id="postCode" type="text" name="postCode" value="" placeholder="Ex: 4362 Esch-sur-Alzette"><br/><br/>

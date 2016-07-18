@@ -63,7 +63,7 @@ class UserController extends Controller {
         $mail->addAddress($to);
         $mail->Subject = $subject;
         $mail->msgHTML($message);
-        $mail->send();
+        //$mail->send();
     }
 
     public function signupVal() {
@@ -74,6 +74,7 @@ class UserController extends Controller {
         $lastNameVal = false;
         $firstNameVal = false;
         $adressVal = false;
+        $cityVal = false;
         $zipVal = false;
         $phoneVal = false;
         $mailVal = false;
@@ -89,6 +90,7 @@ class UserController extends Controller {
         $lastName = isset($_POST['lastName']) ? trim(strip_tags($_POST['lastName'])) : '';
         $firstName = isset($_POST['firstName']) ? trim(strip_tags($_POST['firstName'])) : '';
         $adress = isset($_POST['adress']) ? trim(strip_tags($_POST['adress'])) : '';
+        $city = isset($_POST['city']) ? trim(strip_tags($_POST['city'])) : '';
         $zip = isset($_POST['postCode']) ? trim(strip_tags($_POST['postCode'])) : '';
         $phone = isset($_POST['phone']) ? trim(strip_tags($_POST['phone'])) : '';
         $fax = isset($_POST['fax']) ? trim(strip_tags($_POST['fax'])) : '';
@@ -141,8 +143,17 @@ class UserController extends Controller {
             $vals['adress'] = $adress;
         }
         else{
-            $error[] = "veuillez indiquez votre code adresse";
+            $error[] = "veuillez indiquez votre adresse";
             $vals['adress'] = '';
+        }
+
+        if (strlen($city) != '') {
+            $cityVal = true;
+            $vals['city'] = $city;
+        }
+        else{
+            $error[] = "veuillez indiquez votre ville";
+            $vals['city'] = '';
         }
 
         if (strlen($zip) >= 3) {
@@ -243,9 +254,9 @@ class UserController extends Controller {
             $error[] = "Veuillez cochez une case svp";
         }
 
-        if ($usernameVal && $lastNameVal && $firstNameVal && $adressVal && $zipVal && $phoneVal && $mailVal && $passwordVal && $roleVal){
+        if ($usernameVal && $lastNameVal && $firstNameVal && $adressVal && $cityVal && $zipVal && $phoneVal && $mailVal && $passwordVal && $roleVal){
 
-            if ($userManager->insert(['use_userName' => $username, 'use_name' => $lastName, 'use_firstName' => $firstName, 'use_adress' => $adress, 'use_post_code' => $zip, 'use_phone' => $phone, 'use_fax' => $fax, 'use_email' => $email, 'use_password' => password_hash($password, PASSWORD_BCRYPT), 'use_role_opt1' => '2', 'use_date_creation' => date("Y-m-d", time())])) {
+            if ($userManager->insert(['use_userName' => $username, 'use_name' => $lastName, 'use_firstName' => $firstName, 'use_adress' => $adress, 'use_city' => $city,'use_post_code' => $zip, 'use_phone' => $phone, 'use_fax' => $fax, 'use_email' => $email, 'use_password' => password_hash($password, PASSWORD_BCRYPT), 'use_role_opt1' => '1', 'use_date_creation' => date("Y-m-d", time())])) {
                 self::email('prfabri@yahoo.fr', 'message', 'sujet du mail',$attachment1, $attachment2, $attachment3, $attachment4);
                 $authManager->redirectToLogin();
             }
