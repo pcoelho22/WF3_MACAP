@@ -11,6 +11,7 @@ $w_routes = array(
     ["POST", "/login/forgot", "User#forgotVal", "user_forgotval"],
     ["GET", "/login/forgot/[a:token]", "User#passReset", "user_passReset"],
     ["POST", "/login/forgot/[a:token]", "User#passResetVal", "user_passResetVal"],
+    ["GET", "/logout/", "User#logOut", "user_logout"],
     ["GET|POST", "/galerie/", "Galerie#liste", "galerie_liste"],
     ["GET|POST", "/galerie/[i:id]/", "Galerie#photos", "galerie_photos"],
     ["GET|POST", "/events/", "Events#liste", "events_liste"],
@@ -33,6 +34,23 @@ $w_routes = array(
     ["POST", "/reportages/add", "Reportages#addVal", "reportages_addval"],
 
     ["GET", "/magazine/", "Magazine#liste", "magazine_liste"],
-
-
+    
+    ["GET", "/exposant/add", "Exposant#add", "exposant_add"],
+    ["POST", "/exposant/add", "Exposant#addVal", "exposant_addval"],
+    ["GET", "/exposant/edit/[i:id]", "Exposant#edit", "exposant_edit"],
+    ["POST", "/exposant/edit/[i:id]", "Exposant#editVal", "exposant_editval"],
+    ["GET", "/exposant/delete/[i:id]", "Exposant#delete", "exposant_delete"],
+    
+    
+    ["GET", "/participant/add", "Participant#add", "participant_add"],
+    ["POST", "/participant/add", "Participant#addVal", "participant_addval"],
+    ["GET", "/participant/edit/[i:id]", "Participant#edit", "participant_edit"],
+    ["POST", "/participant/edit/[i:id]", "Participant#editVal", "participant_editval"],
+    ["GET", "/particpant/delete/[i:id]", "Participant#delete", "participant_delete"],
+    
+    ["GET", "/sponsor/add", "Sponsor#add", "sponsor_add"],
+    ["POST", "/sponsor/add", "Sponsor#addVal", "sponsor_addval"],
+    ["GET", "/sponsor/edit/[i:id]", "Sponsor#edit", "sponsor_edit"],
+    ["POST", "/sponsor/edit/[i:id]", "Sponsor#editVal", "sponsor_editval"],
+    ["GET", "/sponsor/delete/[i:id]", "Sponsor#delete", "sponsor_delete"],
 );
