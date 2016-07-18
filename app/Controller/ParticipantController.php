@@ -9,18 +9,20 @@ use Manager\ParticipantManager;
 class ParticipantController extends Controller {
     
     public function delete($id) {
+        $this->allowTo('2');
         $participantManager = new ParticipantManager();
         $participantManager->delete($id);
         $this->redirectToRoute('home');
     }
     
     public function add() {
-        $authManager = new AuthorizationManager();
-        //$authManager->isGranted('admin');
+        $this->allowTo('2');
+
         $this->show('participant/add');
     }  
     
     public function addVal() {
+        $this->allowTo('2');
         $participantManager = new ParticipantManager();
         
         $lastNameVal = false;
@@ -156,12 +158,14 @@ class ParticipantController extends Controller {
     }
     
     public function edit($id) {
+        $this->allowTo(['2','3']);
         $participantManager = new ParticipantManager();
         $values = $participantManager->find($id);
         $this->show('participant/edit',['values'=>$values]);
     }
     
     public function editVal($id) {
+        $this->allowTo(['2','3']);
         $participantManager = new ParticipantManager();
         
         $lastNameVal = false;

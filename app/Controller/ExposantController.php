@@ -9,19 +9,20 @@ use Manager\ExposantManager;
 class ExposantController extends Controller {
     
     public function delete($id) {
-         $exposantManager = new ExposantManager();
-         $exposantManager->delete($id);
-         $this->redirectToRoute('home');
+        $this->allowTo('2');
+        $exposantManager = new ExposantManager();
+        $exposantManager->delete($id);
+        $this->redirectToRoute('home');
     }
 
     public function add() {
-        $authManager = new AuthorizationManager();
-        //$authManager->isGranted('admin');
+        $this->allowTo('2');
         $this->show('exposant/add');
     }  
     
     public function addVal() {
         $exposantManager = new ExposantManager();
+        $this->allowTo('2');
 
         $nameExposantVal = false;
         $lastNameInChargeVal = false;
@@ -216,6 +217,7 @@ class ExposantController extends Controller {
     }
     
     public function edit($id) {
+        $this->allowTo(['2','4']);
         $exposantManager = new ExposantManager();
         $values = $exposantManager->find($id);
         $this->show('exposant/edit',['values'=>$values]);
@@ -223,6 +225,7 @@ class ExposantController extends Controller {
     
     public function editVal($id) {
         $exposantManager = new ExposantManager();
+        $this->allowTo(['2','4']);
 
         $nameExposantVal = false;
         $lastNameInChargeVal = false;
