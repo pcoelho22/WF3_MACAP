@@ -149,7 +149,7 @@ class ReportagesController extends Controller {
             $vals['con_type'] = "Reportages";
             $vals['users_id'] = 1;//user connecter
             $vals['users_role_id'] = 1;//role de l'user connecter
-            $vals['contenus_type_id'] = 1;
+            $vals['contenus_type_id'] = 2;
             $reportagesManager->insert($vals);
             $this->redirectToRoute('reportages_liste');
             //$this->show('reportages/update', ['error' => $error, 'vals'=>$vals]);
