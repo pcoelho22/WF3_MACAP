@@ -40,5 +40,5 @@ class NewsManager extends \W\Manager\Manager{
 	}
 }
 
-/*public funtion photoByIdGalerie();*/
+
     
