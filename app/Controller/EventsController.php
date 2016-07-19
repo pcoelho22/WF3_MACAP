@@ -4,11 +4,12 @@ namespace Controller;
 
 use \W\Controller\Controller;
 use \Manager\EventsManager;
+use \Manager\ContenuHasGaleriesManager;
 
 class EventsController extends Controller {
 
     /**
-     * Page events
+     * Page liste events
      */
     public function liste() {
     	$eventsListeManager = new EventsManager();
@@ -18,13 +19,22 @@ class EventsController extends Controller {
 		$this->show('events/liste',
 			['eventsListe' => $eventsListe]);
     }
-    public function galerieEvents($id) {
+       /**
+     * Page de chaque galerie pour events
+     */
+
+    public function eventsDetails($id) {
         //echo $id;
         
-        $events = new ContenuHasGaleriesManager();
-        $eventsGalerie = $events->findGaleriesId($id);
-        //debug($eventsGalerie);
+        $eventsManager = new EventsManager();
+        $eventsId = $eventsManager->find($id);
+        //debug($eventsId);
 
-        $this->show('news/newsDetails',['newsDetails' => $eventsGalerie]);
+        $contenuHasGaleriesManager = new ContenuHasGaleriesManager();
+        $eventsIdGaleires = $contenuHasGaleriesManager->findGaleriesId($id);
+        //debug($eventsIdGaleires);
+        
+        $this->show('events/eventsDetails',['eventsId' => $eventsId, 'eventsIdGaleires' => $eventsIdGaleires]);
+   
     }
 }

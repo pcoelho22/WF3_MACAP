@@ -36,9 +36,9 @@ class NewsManager extends \W\Manager\Manager{
         $sth->bindValue(":id", $id);
         $sth->execute();
 
-        return $sth->fetchAll();
+        return $sth->fetch();
 	}
 }
 
-/*public funtion photoByIdGalerie();*/
+
     

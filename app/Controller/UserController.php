@@ -6,13 +6,20 @@ use \W\Controller\Controller;
 use \W\Security\AuthentificationManager;
 use \W\Security\AuthorizationManager;
 use \Manager\UserManager;
-require ('../vendor/phpmailer/phpmailer/PHPMailerAutoload.php');
+
 
 class UserController extends Controller {
 
     /**
      * Page d'accueil par défaut
      */
+    
+    public function logOut() {
+        $authManager = new AuthentificationManager();
+        $authManager->logUserOut();
+        $this->redirectToRoute('user_login');
+    }
+    
     public function login() {
         $this->show('default/login');
     }
@@ -27,7 +34,8 @@ class UserController extends Controller {
         if ($usr_id === 0) {
             $erreur = "Login ou Mot de passe invalide";
             $this->show('default/login', ["erreur"=>$erreur]);
-        } else {
+        } 
+        else {
             $userManager = new UserManager();
             $authManager->logUserIn($userManager->find($usr_id));
             $this->redirectToRoute('home');
@@ -38,7 +46,7 @@ class UserController extends Controller {
         $this->show('default/signUp');
     }
 
-    public static function email($to, $message, $attachment1='', $name1='', $attachment2='', $name2='', $attachment3='', $name3='',$subject=' '){
+    public static function email($to, $message, $subject=' ', $attachment1='', $attachment2='', $attachment3='', $attachment4=''){
         $mail = new \PHPMailer;
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
@@ -47,9 +55,10 @@ class UserController extends Controller {
         $mail->Password = 'webforce3';
         $mail->SMTPSecure = 'tls';
         $mail->Port = 587;
-        $mail->addAttachment($attachment1, $name1);
-        $mail->addAttachment($attachment2, $name2);
-        $mail->addAttachment($attachment3, $name3);
+        $mail->addAttachment($attachment1);
+        $mail->addAttachment($attachment2);
+        $mail->addAttachment($attachment3);
+        $mail->addAttachment($attachment4);
         $mail->setFrom('webdev.luxembourg@gmail.com');
         $mail->addAddress($to);
         $mail->Subject = $subject;
@@ -58,7 +67,6 @@ class UserController extends Controller {
     }
 
     public function signupVal() {
-        $absPath = realpath(dirname(__FILE__));
         $userManager = new UserManager();
         $authManager = new AuthorizationManager();
 
@@ -66,6 +74,7 @@ class UserController extends Controller {
         $lastNameVal = false;
         $firstNameVal = false;
         $adressVal = false;
+        $cityVal = false;
         $zipVal = false;
         $phoneVal = false;
         $mailVal = false;
@@ -73,16 +82,15 @@ class UserController extends Controller {
         $roleVal = false;
 
         $attachment1 = '';
-        $name1 = '';
         $attachment2 = '';
-        $name2 = '';
         $attachment3 = '';
-        $name3 = '';
+        $attachment4 = '';
 
         $username = isset($_POST['userName']) ? trim(strip_tags($_POST['userName'])) : '';
         $lastName = isset($_POST['lastName']) ? trim(strip_tags($_POST['lastName'])) : '';
         $firstName = isset($_POST['firstName']) ? trim(strip_tags($_POST['firstName'])) : '';
         $adress = isset($_POST['adress']) ? trim(strip_tags($_POST['adress'])) : '';
+        $city = isset($_POST['city']) ? trim(strip_tags($_POST['city'])) : '';
         $zip = isset($_POST['postCode']) ? trim(strip_tags($_POST['postCode'])) : '';
         $phone = isset($_POST['phone']) ? trim(strip_tags($_POST['phone'])) : '';
         $fax = isset($_POST['fax']) ? trim(strip_tags($_POST['fax'])) : '';
@@ -98,7 +106,7 @@ class UserController extends Controller {
         $vals = array();
         // Il manque la validation des données
         if (strlen($username) >= 5 && strlen($username) <= 45) {
-            if ($userManager->findUserName($username) == true){
+            if ($userManager->usernameExists($username) == true){
                 $error[] = 'username deja utilisé';
                 $vals['username'] = '';
             }
@@ -135,8 +143,17 @@ class UserController extends Controller {
             $vals['adress'] = $adress;
         }
         else{
-            $error[] = "veuillez indiquez votre code adresse";
+            $error[] = "veuillez indiquez votre adresse";
             $vals['adress'] = '';
+        }
+
+        if (strlen($city) != '') {
+            $cityVal = true;
+            $vals['city'] = $city;
+        }
+        else{
+            $error[] = "veuillez indiquez votre ville";
+            $vals['city'] = '';
         }
 
         if (strlen($zip) >= 3) {
@@ -165,7 +182,7 @@ class UserController extends Controller {
         }
 
         if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            if ($userManager->findEmail($email) == true){
+            if ($userManager->emailExists($email) == true){
                 $error[] = 'email deja utilsé';
                 $vals['email'] = '';
             }
@@ -198,8 +215,7 @@ class UserController extends Controller {
             $roleVal = true;
             if (in_array('participant', $role)){
                 $vals['role']['participant'] = 'checked';
-                $attachment1 = $absPath.'\docs\codeWifi.txt';
-                $name1 = 'participant.txt';
+                $attachment1 = TMP.'/../formulaires/FR/CONCOURS-FR BIS 3-participant.pdf';
             }
             else{
                 $vals['role']['participant'] = '';
@@ -207,8 +223,7 @@ class UserController extends Controller {
 
             if (in_array('exposant', $role)){
                 $vals['role']['exposant'] = 'checked';
-                $attachment2 = $absPath.'\docs\codeWifi.txt';
-                $name2 = 'exposant.txt';
+                $attachment2 = TMP.'/../formulaires/FR/CLASSIC DAYS-FR BIS 3-exposant.pdf';
             }
             else{
                 $vals['role']['exposant'] = '';
@@ -216,11 +231,18 @@ class UserController extends Controller {
 
             if (in_array('sponsor', $role)){
                 $vals['role']['sponsor'] = 'checked';
-                $attachment3 = $absPath.'\docs\codeWifi.txt';
-                $name3 = 'sponsor.txt';
+                $attachment3 = TMP.'/../formulaires/codeWifi.txt';
             }
             else{
                 $vals['role']['sponsor'] = '';
+            }
+
+            if (in_array('rally', $role)){
+                $vals['role']['rally'] = 'checked';
+                $attachment4 = TMP.'/../formulaires/FR/GRAN TOUR-FR BIS 4-rally.pdf';
+            }
+            else{
+                $vals['role']['rally'] = '';
             }
         }
         else{
@@ -228,13 +250,14 @@ class UserController extends Controller {
             $vals['role']['participant'] = '';
             $vals['role']['exposant'] = '';
             $vals['role']['sponsor'] = '';
+            $vals['role']['rally'] = '';
             $error[] = "Veuillez cochez une case svp";
         }
 
-        if ($usernameVal && $lastNameVal && $firstNameVal && $adressVal && $zipVal && $phoneVal && $mailVal && $passwordVal && $roleVal){
+        if ($usernameVal && $lastNameVal && $firstNameVal && $adressVal && $cityVal && $zipVal && $phoneVal && $mailVal && $passwordVal && $roleVal){
 
-            if ($userManager->insert(['use_userName' => $username, 'use_name' => $lastName, 'use_firstName' => $firstName, 'use_adress' => $adress, 'use_post_code' => $zip, 'use_phone' => $phone, 'use_fax' => $fax, 'use_email' => $email, 'use_password' => password_hash($password, PASSWORD_BCRYPT), 'use_role_opt1' => '2', 'use_date_creation' => time()])) {
-               self::email('prfabri@yahoo.fr', 'message', $attachment1, $name1, $attachment2, $name2, $attachment3, $name3);
+            if ($userManager->insert(['use_userName' => $username, 'use_name' => $lastName, 'use_firstName' => $firstName, 'use_adress' => $adress, 'use_city' => $city,'use_post_code' => $zip, 'use_phone' => $phone, 'use_fax' => $fax, 'use_email' => $email, 'use_password' => password_hash($password, PASSWORD_BCRYPT), 'use_role_opt1' => '1', 'use_date_creation' => date("Y-m-d", time())])) {
+                self::email($email, "Voici les formulaires d'inscription au événement que vous avez selectionné a envoyer par mail une fois completer", "Formulaires d'inscription a l'événement",$attachment1, $attachment2, $attachment3, $attachment4);
                 $authManager->redirectToLogin();
             }
         }
@@ -258,8 +281,141 @@ class UserController extends Controller {
             $this->show('default/forgot', ['error'=>$error]);
         }
         else{
-            self::email($email, "Confifurer votre nouveau mot de passe : <a href=\"http://localhost/Back-end/Projet-Final/public/login/forgot/$token\">Ici</a>");
+            $href = $this->generateUrl('user_passReset', ['token'=>$token]);
+            $actual_link = "http://$_SERVER[HTTP_HOST]$href";
+            /*self::email($email, "Confifurer votre nouveau mot de passe : <a href=\"http://localhost/Back-end/Projet-Final/public/login/forgot/$token\">Ici</a>", 'Mot de passe oublier?');*/
+
+            self::email($email, "Configurer votre nouveau mot de passe : <a href=\" $actual_link\">Ici</a>", 'Mot de passe oublier?');
             $this->redirectToRoute('user_login');
+            echo $actual_link;
+        }
+    }
+
+    public function edit($id){
+        $this->allowTo(['2', '1']);
+        $userManager = new UserManager();
+
+        $values = $userManager->find($id);
+        $this->show('default/edit',['values'=>$values]);
+    }
+
+    public function editVal($id){
+        $this->allowTo(['2', '1']);
+        $userManager = new UserManager();
+        $authManager = new AuthentificationManager();
+
+        $lastNameVal = false;
+        $firstNameVal = false;
+        $adressVal = false;
+        $cityVal = false;
+        $zipVal = false;
+        $phoneVal = false;
+        $passwordVal = false;
+
+        $lastName = isset($_POST['lastName']) ? trim(strip_tags($_POST['lastName'])) : '';
+        $firstName = isset($_POST['firstName']) ? trim(strip_tags($_POST['firstName'])) : '';
+        $adress = isset($_POST['adress']) ? trim(strip_tags($_POST['adress'])) : '';
+        $city = isset($_POST['city']) ? trim(strip_tags($_POST['city'])) : '';
+        $zip = isset($_POST['postCode']) ? trim(strip_tags($_POST['postCode'])) : '';
+        $phone = isset($_POST['phone']) ? trim(strip_tags($_POST['phone'])) : '';
+        $fax = isset($_POST['fax']) ? trim(strip_tags($_POST['fax'])) : '';
+        $password = isset($_POST['password']) ? trim(strip_tags($_POST['password'])) : '';
+        $passwordVerif = isset($_POST['passwordVerif']) ? trim(strip_tags($_POST['passwordVerif'])) : '';
+
+        $phone = str_replace(' ','',$phone);
+        $fax = str_replace(' ','',$fax);
+
+        $error = array();
+        $vals = array();
+        // Il manque la validation des données
+
+        if ($lastName != '') {
+            $lastNameVal = true;
+            $vals['use_name'] = $lastName;
+        }
+        else{
+            $error[] = 'veuillez indiquez votre Nom';
+            $vals['use_name'] = '';
+        }
+
+        if ($firstName != '') {
+            $firstNameVal = true;
+            $vals['use_firstName'] = $firstName;
+        }
+        else{
+            $error[] = "veuillez entrer votre Prenom";
+            $vals['use_firstName'] = '';
+        }
+
+        if (strlen($adress) >= 5) {
+            $adressVal = true;
+            $vals['use_adress'] = $adress;
+        }
+        else{
+            $error[] = "veuillez indiquez votre adresse";
+            $vals['use_adress'] = '';
+        }
+
+        if (strlen($city) != '') {
+            $cityVal = true;
+            $vals['use_city'] = $city;
+        }
+        else{
+            $error[] = "veuillez indiquez votre ville";
+            $vals['use_city'] = '';
+        }
+
+        if (strlen($zip) >= 3) {
+            $zipVal = true;
+            $vals['use_post_code'] = $zip;
+        }
+        else{
+            $error[] = 'veuillez indiquez votre Code postal';
+            $vals['use_post_code'] = '';
+        }
+
+        if (strlen($phone) >= 5) {
+            $phoneVal = true;
+            $vals['use_phone'] = $phone;
+        }
+        else{
+            $error[] = 'veuillez entrer numero de telephone valide';
+            $vals['use_phone'] = '';
+        }
+
+        if (strlen($fax) >= 5) {
+            $vals['use_fax'] = $fax;
+        }
+        else{
+            $vals['use_fax'] = '';
+        }
+
+        if(preg_match('/^(?=.*\d)(?=.*[a-x])(?=.*[A-Z]).{6,}$/', $password)){
+            if ($password != '' && $password == $passwordVerif) {
+                $passwordVal = true;
+                $vals['use_password'] = $password;
+            }
+            else{
+                $error[] = "Mot de passe invalide";
+                $vals['use_password'] = '';
+            }
+        }
+        else{
+            $error[] = "Mot de passe invalide";
+            $vals['use_password'] = '';
+        }
+
+
+        if ($lastNameVal && $firstNameVal && $adressVal && $cityVal && $zipVal && $phoneVal && $passwordVal){
+            $vals['use_password'] = password_hash($password, PASSWORD_BCRYPT);
+
+            if ($userManager->update($vals, $id)) {
+                $authManager->refreshUser();
+                $this->redirectToRoute('home');
+            }
+        }
+        else{
+            $this->show('default/edit', ["error"=>$error, "vals"=>$vals]);
         }
     }
 

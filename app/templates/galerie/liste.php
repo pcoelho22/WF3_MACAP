@@ -7,5 +7,5 @@
 			<li><a href="<?= $this->url('galerie_photos',['id'=>$value['id']]) ?>"><?= $value['gal_name'].'<br/> '.$value['gal_legend']?></a></li><br/>
 		<?php endforeach ?>
 	</ul>
-	
+		
 <?php $this->stop('main_content') ?>
