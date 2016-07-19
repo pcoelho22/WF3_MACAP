@@ -1,5 +1,4 @@
 <?php $this->layout('layout', ['title' => 'Magazine']) ?>
-
 <?php $this->start('main_content') ?>
 	<h2>Liste des magazines disponible</h2>
 	<ul><br/>
@@ -7,5 +6,4 @@
 			<li><a href="<?= $this->assetUrl($value['mag_path'])?>"><?= $value['mag_name'].'<br/> '.$value['mag_date']?><img width="300" height="400px" src="<?= $this->assetUrl($value['mag_couverture'])?>"></a></li><br/>
 		<?php endforeach ?>
 	</ul>
-	
 <?php $this->stop('main_content') ?>

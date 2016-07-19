@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="<?= $this->assetUrl('galerie/photos/2015_concours_elegance') ?>">
     </head>
     <body>
-        <?php debug($_SESSION); ?>
+        <!--<?php debug($_SESSION); ?>-->
         <nav>
             <ul>
                 <li><a href="<?= $this->url('home') ?>">HOME</a></li>
