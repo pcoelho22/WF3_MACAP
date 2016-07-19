@@ -54,6 +54,7 @@ class UserController extends Controller {
         $mail->Username = 'webdev.luxembourg@gmail.com';
         $mail->Password = 'webforce3';
         $mail->SMTPSecure = 'tls';
+        $mail->CharSet = 'UTF-8';
         $mail->Port = 587;
         $mail->addAttachment($attachment1);
         $mail->addAttachment($attachment2);
@@ -61,8 +62,10 @@ class UserController extends Controller {
         $mail->addAttachment($attachment4);
         $mail->setFrom('webdev.luxembourg@gmail.com');
         $mail->addAddress($to);
+        $mail->isHTML(true);
         $mail->Subject = $subject;
-        $mail->msgHTML($message);
+        $mail->Body = $message;
+
         $mail->send();
     }
 
