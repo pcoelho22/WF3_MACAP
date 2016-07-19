@@ -182,6 +182,9 @@ class NewsController extends Controller {
     public function updateVal($id){
         $newsManager = new NewsManager();
 
+        $string = StringUtils::randomString(10);
+        $string2 = StringUtils::randomString(10);
+
         $titreVal = false;
         $dateDebutVal = false;
         $dateFinVal = false;
@@ -263,15 +266,12 @@ class NewsController extends Controller {
                         //if (substr($fichier['name'], -4) != '.php') {
                         if (in_array($extension, $extensionAutorisees)) {
                             // Je déplace le fichier uploadé au bon endroit
-                            if (move_uploaded_file($fichier['tmp_name'],'C:\xampp\htdocs\Back-end\Projet-Final\public\uplaod/'.$titre.$id.'.'.$extension)) {
-                                $titre = str_ireplace(" ", '', $titre);
-                                $photo = 'upload/'.$titre.$id.'.'.$extension;
-                                echo 'fichier téléversé<br />';
-                                $vals['con_avatar'] = $photo;
-                            }
-                            else {
-                                $error[] = 'une erreur est survenue';
-                            }
+
+
+                            $photo = 'upload/'.$string.$string2.'.'.$extension;
+                            $photoVal = true;
+                            $vals['con_avatar'] = $photo;
+
                         }
                         else {
                             $error[] = 'extension interdite';
@@ -288,6 +288,7 @@ class NewsController extends Controller {
         }
 
         if ($titreVal && $dateDebutVal && $dateFinVal && $synopsisVal && $descriptionVal && $dateDiffVal){
+            move_uploaded_file($fichier['tmp_name'],TMP.'/upload/'.$string.$string2.'.'.$extension);
             $newsManager->update($vals, $id);
             $this->redirectToRoute('news_liste');
             //$this->show('news/update', ['error' => $error, 'vals'=>$vals]);
