@@ -69,7 +69,7 @@
         <label for="adress">Adress</label><br/>
         <input id="adress" type="text" name="adress" value="" placeholder="Ex:9, Rue des Hauts Founeaux"><br/><br/>
 
-        <label for="city">Adress</label><br/>
+        <label for="city">City</label><br/>
         <input id="city" type="text" name="city" value="" placeholder="Belval"><br/><br/>
 
         <label for="postCode">Code Postal</label><br/>

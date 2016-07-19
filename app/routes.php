@@ -2,7 +2,9 @@
 
 $w_routes = array(
     ['GET', '/', 'Default#home', 'home'],
+
     ["GET|POST", "/contact/", "Default#contact", "default_contact"],
+
     ["GET", "/login/", "User#login", "user_login"],
     ["POST", "/login/", "User#loginVal", "user_loginval"],
     ["GET", "/login/signup", "User#signUp", "user_signup"],
@@ -12,6 +14,7 @@ $w_routes = array(
     ["GET", "/login/forgot/[a:token]", "User#passReset", "user_passReset"],
     ["POST", "/login/forgot/[a:token]", "User#passResetVal", "user_passResetVal"],
     ["GET", "/logout/", "User#logOut", "user_logout"],
+
     ["GET|POST", "/galerie/", "Galerie#liste", "galerie_liste"],
     ["GET|POST", "/galerie/[i:id]/", "Galerie#photos", "galerie_photos"],
     
@@ -24,7 +27,7 @@ $w_routes = array(
     ["GET", "/events/delete/[i:id]", "Events#delete", "events_delete"],
     ["GET", "/events/add", "Events#add", "events_add"],
     ["POST", "/events/add", "Events#addVal", "events_addval"],
-    
+
     ["GET|POST", "/news/", "News#liste", "news_liste"],
     ["GET|POST", "/news/[i:id]", "News#newsDetails", "news_newsDetails"],
     ["GET", "/news/update/[i:id]", "News#update", "news_update"],
@@ -61,4 +64,7 @@ $w_routes = array(
     ["GET", "/sponsor/edit/[i:id]", "Sponsor#edit", "sponsor_edit"],
     ["POST", "/sponsor/edit/[i:id]", "Sponsor#editVal", "sponsor_editval"],
     ["GET", "/sponsor/delete/[i:id]", "Sponsor#delete", "sponsor_delete"],
+
+    ["GET", "/user/edit/[i:id]", "User#edit", "user_edit"],
+    ["POST", "/user/edit/[i:id]", "User#editVal", "user_editval"],
 );
