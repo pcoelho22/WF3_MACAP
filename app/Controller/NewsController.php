@@ -27,8 +27,8 @@ class NewsController extends Controller {
     public function newsDetails($id) {
     	//echo $id;
 		
-		$newsDetailsID = new NewsManager();
-		$newsDetailsId = $newsDetailsID->findNewsId($id);
+		$NewsManager = new NewsManager();
+		$newsDetailsId = $NewsManager->findNewsId($id);
         //debug($newsDetailsId);
 
         $this->show('news/newsDetails',['newsDetails' => $newsDetailsId]);
@@ -165,16 +165,16 @@ class NewsController extends Controller {
 
     public function delete($id){
 
-        $newsDetailsID = new NewsManager();
-        $newsDetailsID->delete($id);
+        $NewsManager = new NewsManager();
+        $NewsManager->delete($id);
 
         $this->redirectToRoute('news_liste');
     }
 
     public function update($id){
 
-        $newsDetailsID = new NewsManager();
-        $newsDetailsId = $newsDetailsID->findNewsId($id);
+        $NewsManager = new NewsManager();
+        $newsDetailsId = $NewsManager->findNewsId($id);
 
         $this->show('news/update', ['newsDetails' => $newsDetailsId]);
     }
