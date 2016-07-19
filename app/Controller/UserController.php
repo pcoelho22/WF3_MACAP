@@ -63,7 +63,7 @@ class UserController extends Controller {
         $mail->addAddress($to);
         $mail->Subject = $subject;
         $mail->msgHTML($message);
-        //$mail->send();
+        $mail->send();
     }
 
     public function signupVal() {
@@ -257,7 +257,7 @@ class UserController extends Controller {
         if ($usernameVal && $lastNameVal && $firstNameVal && $adressVal && $cityVal && $zipVal && $phoneVal && $mailVal && $passwordVal && $roleVal){
 
             if ($userManager->insert(['use_userName' => $username, 'use_name' => $lastName, 'use_firstName' => $firstName, 'use_adress' => $adress, 'use_city' => $city,'use_post_code' => $zip, 'use_phone' => $phone, 'use_fax' => $fax, 'use_email' => $email, 'use_password' => password_hash($password, PASSWORD_BCRYPT), 'use_role_opt1' => '1', 'use_date_creation' => date("Y-m-d", time())])) {
-                self::email('prfabri@yahoo.fr', 'message', 'sujet du mail',$attachment1, $attachment2, $attachment3, $attachment4);
+                self::email($email, "Voici les formulaires d'inscription au événement que vous avez selectionné a envoyer par mail une fois completer", "Formulaires d'inscription a l'événement",$attachment1, $attachment2, $attachment3, $attachment4);
                 $authManager->redirectToLogin();
             }
         }
@@ -281,8 +281,13 @@ class UserController extends Controller {
             $this->show('default/forgot', ['error'=>$error]);
         }
         else{
-            self::email($email, "Confifurer votre nouveau mot de passe : <a href=\"http://localhost/Back-end/Projet-Final/public/login/forgot/$token\">Ici</a>", 'Mot de passe oublier?');
+            $href = $this->generateUrl('user_passReset', ['token'=>$token]);
+            $actual_link = "http://$_SERVER[HTTP_HOST]$href";
+            /*self::email($email, "Confifurer votre nouveau mot de passe : <a href=\"http://localhost/Back-end/Projet-Final/public/login/forgot/$token\">Ici</a>", 'Mot de passe oublier?');*/
+
+            self::email($email, "Configurer votre nouveau mot de passe : <a href=\" $actual_link\">Ici</a>", 'Mot de passe oublier?');
             $this->redirectToRoute('user_login');
+            echo $actual_link;
         }
     }
 
@@ -402,6 +407,7 @@ class UserController extends Controller {
 
 
         if ($lastNameVal && $firstNameVal && $adressVal && $cityVal && $zipVal && $phoneVal && $passwordVal){
+            $vals['use_password'] = password_hash($password, PASSWORD_BCRYPT);
 
             if ($userManager->update($vals, $id)) {
                 $authManager->refreshUser();

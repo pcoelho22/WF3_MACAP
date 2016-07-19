@@ -2,7 +2,9 @@
 
 $w_routes = array(
     ['GET', '/', 'Default#home', 'home'],
+
     ["GET|POST", "/contact/", "Default#contact", "default_contact"],
+
     ["GET", "/login/", "User#login", "user_login"],
     ["POST", "/login/", "User#loginVal", "user_loginval"],
     ["GET", "/login/signup", "User#signUp", "user_signup"],
@@ -12,15 +14,17 @@ $w_routes = array(
     ["GET", "/login/forgot/[a:token]", "User#passReset", "user_passReset"],
     ["POST", "/login/forgot/[a:token]", "User#passResetVal", "user_passResetVal"],
     ["GET", "/logout/", "User#logOut", "user_logout"],
+
     ["GET|POST", "/galerie/", "Galerie#liste", "galerie_liste"],
     ["GET|POST", "/galerie/[i:id]/", "Galerie#photos", "galerie_photos"],
     ["GET|POST", "/events/", "Events#liste", "events_liste"],
     ["GET|POST", "/events/galerie/[i:id]", "Events#galerieEvents", "events_galerieEvents"],
-    
-    ["GET|POST", "/news/", "News#liste", "news_liste"],
-    ["GET|POST", "/news/[i:id]", "News#newsDetails", "news_newsDetails"],
+
     ["GET|POST", "/reportages/", "Reportages#liste", "reportages_liste"],
     ["GET|POST", "/reportages/[i:id]", "Reportages#reportagesDetails", "reportages_reportagesDetails"],
+
+    ["GET|POST", "/news/", "News#liste", "news_liste"],
+    ["GET|POST", "/news/[i:id]", "News#newsDetails", "news_newsDetails"],
     ["GET", "/news/update/[i:id]", "News#update", "news_update"],
     ["POST", "/news/update/[i:id]", "News#updateVal", "news_updateval"],
     ["GET", "/news/delete/[i:id]", "News#delete", "news_delete"],
