@@ -2,7 +2,7 @@
 
 namespace Manager;
 
-class UserManager extends \W\Manager\Manager{
+class UserManager extends \W\Manager\UserManager{
 
     function __construct(){
         parent::__construct();
@@ -10,13 +10,36 @@ class UserManager extends \W\Manager\Manager{
         $this->setTable('users');
     }
 
-    /*public function findPronoPerMatch($idMatch){
-        $sql = "";
+    public function setToken($email){
+        $sql = "SELECT id FROM users WHERE use_email = :email";
 
         $sth = $this->dbh->prepare($sql);
+        $sth->bindValue(':email', $email);
         $sth->execute();
 
-        return $sth->fetchAll();
-    }*/
+        $userId = $sth->fetch();
 
+        if (is_string($userId['id'])){
+            $token = md5(time().'tokenForgotHarissa'.$email);
+
+            $sqlUpdate = 'UPDATE users SET use_token = "'.$token.'" WHERE id = "'.$userId['id'].'"';
+
+            $this->dbh->exec($sqlUpdate);
+
+            return $token;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public function resetPassword($token, $password){
+        $sqlUpdatePassword = 'UPDATE users SET use_password = "'.$password.'" WHERE use_token = "'.$token.'"';
+        $this->dbh->exec($sqlUpdatePassword);
+
+        $sqlUpdateToken = 'UPDATE users SET use_token = "" WHERE use_token = "'.$token.'"';
+        $this->dbh->exec($sqlUpdateToken);
+
+
+    }
 }
