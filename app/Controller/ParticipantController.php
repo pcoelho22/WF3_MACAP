@@ -3,7 +3,7 @@
 namespace Controller;
 
 use \W\Controller\Controller;
-use \W\Security\AuthorizationManager;
+use \W\Security\StringUtils;
 use Manager\ParticipantManager;
 
 class ParticipantController extends Controller {
@@ -133,16 +133,16 @@ class ParticipantController extends Controller {
         if ($lastNameVal && $firstNameVal && $adressVal && $cityVal && $zipVal && $countryVal && $phoneVal && $emailVal){
 
             if ($participantManager->insert([
-                'par_name' => $lastName, 
-                'par_first_name' => $firstName, 
-                'par_adress' => $adress, 
-                'par_city' => $city, 
-                'par_post_code' => $zip, 
-                'par_country' => $country, 
-                'par_phone' => $phone,
-                'par_fax' => $fax, 
-                'par_email' => $email,
-                'users_id' => 1]
+                    'par_name' => $lastName,
+                    'par_first_name' => $firstName,
+                    'par_address' => $adress,
+                    'par_city' => $city,
+                    'par_post_code' => $zip,
+                    'par_country' => $country,
+                    'par_phone' => $phone,
+                    'par_fax' => $fax,
+                    'par_email' => $email,
+                    'users_id' => 1]
                 )) {
                 $this->redirectToRoute('home');
             }
@@ -167,7 +167,7 @@ class ParticipantController extends Controller {
     public function editVal($id) {
         $this->allowTo(['2','3']);
         $participantManager = new ParticipantManager();
-        
+        $extensionAutorisees = array('jpg', 'jpeg', 'png', 'gif');
         $lastNameVal = false;
         $firstNameVal = false;
         $adressVal = false;
@@ -190,6 +190,9 @@ class ParticipantController extends Controller {
 
         $phone = str_replace(' ','',$phone);
         $fax = str_replace(' ','',$fax);
+
+        $string = StringUtils::randomString(10);
+        $string2 = StringUtils::randomString(10);
 
         $error = array();
         $vals = array();
@@ -272,6 +275,36 @@ class ParticipantController extends Controller {
             $error[] = "l'email in charge entré n'est pas sous le bon format";
             $vals['email'] = '';
         }
+
+        if (!empty($_FILES['avatar']['name'])) {
+            foreach ($_FILES as $key => $fichier) {
+                // Je teste si le fichier a été uploadé
+                if (!empty($fichier) && !empty($fichier['name'])) {
+                    print_r($fichier);
+                    if ($fichier['size'] <= 500000) {
+                        $filename = $fichier['name'];
+                        $dotPos = strrpos($filename, '.');
+                        $extension = strtolower(substr($filename, $dotPos+1));
+                        if (in_array($extension, $extensionAutorisees)) {
+                            // Je déplace le fichier uploadé au bon endroit
+                            $photo = 'upload/'.$string.$string2.'.'.$extension;
+                            $photoVal = true;
+                            $vals['par_avatar'] = $photo;
+                        }
+                        else {
+                            $error[] = 'extension interdite';
+                        }
+                    }
+                    else {
+                        $error[] = 'fichier trop lourd';
+                    }
+                }
+            }
+        }
+        else{
+            $error[] = 'Pas de fichier selectioné';
+        }
+
 
         if ($lastNameVal && $firstNameVal && $adressVal && $cityVal && $zipVal && $countryVal && $phoneVal && $emailVal){
 

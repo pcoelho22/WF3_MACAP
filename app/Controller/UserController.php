@@ -259,7 +259,7 @@ class UserController extends Controller {
 
         if ($usernameVal && $lastNameVal && $firstNameVal && $adressVal && $cityVal && $zipVal && $phoneVal && $mailVal && $passwordVal && $roleVal){
 
-            if ($userManager->insert(['use_userName' => $username, 'use_name' => $lastName, 'use_firstName' => $firstName, 'use_adress' => $adress, 'use_city' => $city,'use_post_code' => $zip, 'use_phone' => $phone, 'use_fax' => $fax, 'use_email' => $email, 'use_password' => password_hash($password, PASSWORD_BCRYPT), 'use_role_opt1' => '1', 'use_date_creation' => date("Y-m-d", time())])) {
+            if ($userManager->insert(['use_userName' => $username, 'use_name' => $lastName, 'use_first_name' => $firstName, 'use_address' => $adress, 'use_city' => $city,'use_post_code' => $zip, 'use_phone' => $phone, 'use_fax' => $fax, 'use_email' => $email, 'use_password' => password_hash($password, PASSWORD_BCRYPT), 'use_role_opt1' => '1', 'use_date_creation' => date("Y-m-d", time())])) {
                 self::email($email, "Voici les formulaires d'inscription au événement que vous avez selectionné a envoyer par mail une fois completer", "Formulaires d'inscription a l'événement",$attachment1, $attachment2, $attachment3, $attachment4);
                 $authManager->redirectToLogin();
             }
