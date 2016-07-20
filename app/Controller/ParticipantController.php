@@ -142,6 +142,7 @@ class ParticipantController extends Controller {
                     'par_phone' => $phone,
                     'par_fax' => $fax,
                     'par_email' => $email,
+                    'par_avatar' => '/upload/default/avatar.png',
                     'users_id' => 1]
                 )) {
                 $this->redirectToRoute('home');
@@ -176,6 +177,7 @@ class ParticipantController extends Controller {
         $countryVal = false;
         $phoneVal = false;
         $emailVal = false;
+        $photoVal = true;
 
         
         $lastName = isset($_POST['lastName']) ? trim(strip_tags($_POST['lastName'])) : '';
@@ -217,11 +219,11 @@ class ParticipantController extends Controller {
 
         if (strlen($adress) >= 5) {
             $adressVal = true;
-            $vals['adress'] = $adress;
+            $vals['address'] = $adress;
         }
         else{
             $error[] = "veuillez indiquez l'adresse de l'exposant";
-            $vals['adress'] = '';
+            $vals['address'] = '';
         }
         
         if (strlen($city) >= 5) {
@@ -286,38 +288,41 @@ class ParticipantController extends Controller {
                         $dotPos = strrpos($filename, '.');
                         $extension = strtolower(substr($filename, $dotPos+1));
                         if (in_array($extension, $extensionAutorisees)) {
-                            // Je déplace le fichier uploadé au bon endroit
-                            $photo = 'upload/'.$string.$string2.'.'.$extension;
-                            $photoVal = true;
+                            $photo = '/upload/participants/'.$string.$string2.'.'.$extension;
                             $vals['par_avatar'] = $photo;
                         }
                         else {
+                            $photoVal = false;
                             $error[] = 'extension interdite';
                         }
                     }
                     else {
+                        $photoVal = false;
                         $error[] = 'fichier trop lourd';
                     }
                 }
             }
         }
-        else{
+        /*else{
+            $photoVal = false;
             $error[] = 'Pas de fichier selectioné';
-        }
+        }*/
 
 
-        if ($lastNameVal && $firstNameVal && $adressVal && $cityVal && $zipVal && $countryVal && $phoneVal && $emailVal){
+        if ($lastNameVal && $firstNameVal && $adressVal && $cityVal && $zipVal && $countryVal && $phoneVal && $emailVal && $photoVal){
 
             if ($participantManager->update([
                 'par_name' => $lastName, 
                 'par_first_name' => $firstName, 
-                'par_adress' => $adress, 
+                'par_address' => $adress,
                 'par_city' => $city, 
                 'par_post_code' => $zip, 
                 'par_country' => $country, 
                 'par_phone' => $phone,
-                'par_fax' => $fax, 
+                'par_fax' => $fax,
+                'par_avatar' => $photo,
                 'par_email' => $email], $id)){
+                move_uploaded_file($fichier['tmp_name'],TMP.'/upload/participants/'.$string.$string2.'.'.$extension);
                 $this->redirectToRoute('home');
             }
             else{

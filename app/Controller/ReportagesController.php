@@ -119,13 +119,8 @@ class ReportagesController extends Controller {
                         $filename = $fichier['name'];
                         $dotPos = strrpos($filename, '.');
                         $extension = strtolower(substr($filename, $dotPos+1));
-                        // Je test si c'est pas un hack (sur l'extension)
-                        //if (substr($fichier['name'], -4) != '.php') {
                         if (in_array($extension, $extensionAutorisees)) {
-                            // Je déplace le fichier uploadé au bon endroit
-
-
-                                $photo = 'upload/'.$string.$string2.'.'.$extension;
+                                $photo = 'upload/reportages/'.$string.$string2.'.'.$extension;
                                 $photoVal = true;
                                 $vals['con_avatar'] = $photo;
 
@@ -145,7 +140,7 @@ class ReportagesController extends Controller {
         }
 
         if ($titreVal && $dateDebutVal && $dateFinVal && $synopsisVal && $descriptionVal && $photoVal && $dateDiffVal){
-            move_uploaded_file($fichier['tmp_name'],'C:\xampp\htdocs\Back-end\Projet-Final\public\uplaod/'.$string.$string2.'.'.$extension);
+            move_uploaded_file($fichier['tmp_name'],TMP.'/upload/reportages/'.$string.$string2.'.'.$extension);
             $vals['con_type'] = "Reportages";
             $vals['users_id'] = 1;//user connecter
             $vals['users_role_id'] = 1;//role de l'user connecter
@@ -184,6 +179,7 @@ class ReportagesController extends Controller {
         $synopsisVal = false;
         $descriptionVal= false;
         $dateDiffVal = false;
+        $photoVal = true;
         $extensionAutorisees = array('jpg', 'jpeg', 'png', 'gif');
         $error = array();
         $vals = array();
@@ -193,6 +189,9 @@ class ReportagesController extends Controller {
         $dateFin = isset($_POST['dateEnd']) ? trim(strip_tags($_POST['dateEnd'])) : '';
         $synopsis = isset($_POST['synopsis']) ? trim(strip_tags($_POST['synopsis'])) : '';
         $description = isset($_POST['description']) ? trim(strip_tags($_POST['description'])) : '';
+
+        $string = StringUtils::randomString(10);
+        $string2 = StringUtils::randomString(10);
 
         if ($titre != '') {
             $titreVal = true;
@@ -255,35 +254,25 @@ class ReportagesController extends Controller {
                         $filename = $fichier['name'];
                         $dotPos = strrpos($filename, '.');
                         $extension = strtolower(substr($filename, $dotPos+1));
-                        // Je test si c'est pas un hack (sur l'extension)
-                        //if (substr($fichier['name'], -4) != '.php') {
                         if (in_array($extension, $extensionAutorisees)) {
-                            // Je déplace le fichier uploadé au bon endroit
-                            if (move_uploaded_file($fichier['tmp_name'],'C:\xampp\htdocs\Back-end\Projet-Final\public\uplaod/'.$titre.$id.'.'.$extension)) {
-                                $titre = str_ireplace(" ", '', $titre);
-                                $photo = 'upload/'.$titre.$id.'.'.$extension;
-                                echo 'fichier téléversé<br />';
-                                $vals['con_avatar'] = $photo;
-                            }
-                            else {
-                                $error[] = 'une erreur est survenue';
-                            }
+                            $photo = 'upload/reportages/'.$string.$string2.'.'.$extension;
+                            $vals['con_avatar'] = $photo;
                         }
                         else {
+                            $photoVal = false;
                             $error[] = 'extension interdite';
                         }
                     }
                     else {
+                        $photoVal = false;
                         $error[] = 'fichier trop lourd';
                     }
                 }
             }
         }
-        else{
-            $error[] = 'Pas de fichier selectioné';
-        }
 
-        if ($titreVal && $dateDebutVal && $dateFinVal && $synopsisVal && $descriptionVal && $dateDiffVal){
+        if ($titreVal && $dateDebutVal && $dateFinVal && $synopsisVal && $descriptionVal && $dateDiffVal && $photoVal){
+            move_uploaded_file($fichier['tmp_name'],TMP.'/upload/reportages/'.$string.$string2.'.'.$extension);
             $reportagesManager->update($vals, $id);
             $this->redirectToRoute('reportages_liste');
             //$this->show('reportages/update', ['error' => $error, 'vals'=>$vals]);

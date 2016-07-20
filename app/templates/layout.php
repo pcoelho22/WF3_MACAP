@@ -137,9 +137,7 @@
                             <a href="https://fr-fr.facebook.com/" target="_blank" class="social facebook">Facebook</a>
                             <a href="https://twitter.com/?lang=fr" target="_blank" class="social twitter">Twitter</a>
                             <a href="https://plus.google.com/explore" target="_blank" class="social google-plus">Google+</a>
-                            <a href="https://fr.pinterest.com/" target="_blank" class="social pinterest">Pinterest</a>
                             <a href="https://www.instagram.com/" target="_blank" class="social instagram">Instagram</a>
-                            <a href="https://www.linkedin.com/" target="_blank" class="social linked-in">LinkedIn</a>
                             <a href="https://www.youtube.com/" target="_blank" class="social youtube">Youtube</a>
                         </div>
                     </div>                      

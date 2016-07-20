@@ -1,7 +1,7 @@
 <?php $this->layout('layout', ['title' => 'Editer un exposant']) ?>
 
 <?php $this->start('main_content') ?>
-<?php debug($_POST); ?>
+<?php debug($_POST); debug($_FILES);?>
 <?php if (isset($error)){
      debug($error);
     } ?>
@@ -15,7 +15,7 @@
         <input id="firstName" type="text" name="firstName" value="<?= $vals['firstName'] ?>" placeholder="Ex:"><br/><br/>
 
         <label for="adress">Adress</label><br/>
-        <input id="adress" type="text" name="adress" value="<?= $vals['adress'] ?>" placeholder="Ex:9, Rue des Hauts Founeaux, Belval"><br/><br/>
+        <input id="adress" type="text" name="adress" value="<?= $vals['address'] ?>" placeholder="Ex:9, Rue des Hauts Founeaux, Belval"><br/><br/>
         
         <label for="city">City</label><br/>
         <input id="city" type="text" name="city" value="<?= $vals['city'] ?>" placeholder="Ex:"><br/><br/>
@@ -35,7 +35,11 @@
         <input id="fax" type="text" name="fax" value="<?= $vals['fax'] ?>" placeholder="Ex: 00352-11 11 11 11"><br/><br/>
 
         <label for="email">Email person in charge</label><br/>
-        <input id="email" type="email" name="email" value="<?= $vals['email'] ?>" placeholder="Ex: adedias@hotmail.com"><br/><br/>       
+        <input id="email" type="email" name="email" value="<?= $vals['email'] ?>" placeholder="Ex: adedias@hotmail.com"><br/><br/>
+
+        <label for="avatar">Photo</label><br/>
+        <input id="avatar" type="file" name="avatar"><br/><br/>
+
         <br>
         <input type="submit" value="Editer Participant">
     </form>
@@ -50,7 +54,7 @@
         <input id="firstName" type="text" name="firstName" value="<?= $values['par_first_name'] ?>" placeholder="Ex:"><br/><br/>
 
         <label for="adress">Adress</label><br/>
-        <input id="adress" type="text" name="adress" value="<?= $values['par_adress'] ?>" placeholder="Ex:9, Rue des Hauts Founeaux, Belval"><br/><br/>
+        <input id="adress" type="text" name="adress" value="<?= $values['par_address'] ?>" placeholder="Ex:9, Rue des Hauts Founeaux, Belval"><br/><br/>
         
         <label for="city">City</label><br/>
         <input id="city" type="text" name="city" value="<?= $values['par_city'] ?>" placeholder="Ex:"><br/><br/>
@@ -71,6 +75,9 @@
 
         <label for="email">Email person in charge</label><br/>
         <input id="email" type="email" name="email" value="<?= $values['par_email'] ?>" placeholder="Ex: adedias@hotmail.com"><br/><br/>
+
+        <label for="avatar">Photo</label><br/>
+        <input id="avatar" type="file" name="avatar"><br/><br/>
         
         <br>
         <input type="submit" value="Editer Participant">
