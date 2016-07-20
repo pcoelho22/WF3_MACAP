@@ -3,7 +3,7 @@
 namespace Controller;
 
 use \W\Controller\Controller;
-use \W\Security\AuthorizationManager;
+use \W\Security\StringUtils;
 use Manager\ExposantManager;
 
 class ExposantController extends Controller {
@@ -52,7 +52,6 @@ class ExposantController extends Controller {
         $emailGeneral = isset($_POST['emailGeneral']) ? trim(strip_tags($_POST['emailGeneral'])) : '';
         $description = isset($_POST['description']) ? trim(strip_tags($_POST['description'])) : '';
         $url = isset($_POST['url']) ? trim(strip_tags($_POST['url'])) : '';
-        $role = isset($_POST['role']) ? $_POST['role'] : array();
 
         $phone = str_replace(' ','',$phone);
         $fax = str_replace(' ','',$fax);
@@ -187,21 +186,22 @@ class ExposantController extends Controller {
         if ($nameExposantVal && $lastNameInChargeVal && $firstNameInChargeVal && $adressVal && $cityVal && $zipVal && $countryVal && $phoneVal && $mobileVal && $emailGeneralVal && $emailInChargeVal && $descriptionVal && $urlVal){
 
             if ($exposantManager->insert([
-                'exp_name_eposants' => $nameExposant, 
-                'exp_name_in_charge' => $lastNameInCharge, 
-                'exp_firs_name_in_charge' => $firstNameInCharge, 
-                'exp_adress' => $adress, 
-                'exp_city' => $city, 
-                'exp_post_code' => $zip, 
-                'spo_Country' => $country, 
-                'exp_phone' => $phone, 
-                'exp_mobile' => $mobile, 
-                'exp_fax' => $fax, 
-                'exp_email_incharge' => $emailInCharge, 
-                'exp_email_general' => $emailGeneral, 
-                'exp__description_sponsors' => $description, 
-                'exp_url' => $url, 
-                'users_id' => 1]
+                    'exp_name_exposants' => $nameExposant,
+                    'exp_name_in_charge' => $lastNameInCharge,
+                    'exp_first_name_in_charge' => $firstNameInCharge,
+                    'exp_address' => $adress,
+                    'exp_city' => $city,
+                    'exp_post_code' => $zip,
+                    'exp_country' => $country,
+                    'exp_phone' => $phone,
+                    'exp_mobile' => $mobile,
+                    'exp_fax' => $fax,
+                    'exp_email_incharge' => $emailInCharge,
+                    'exp_email_general' => $emailGeneral,
+                    'exp_description_exposants' => $description,
+                    'exp_url' => $url,
+                    'exp_avatar' => '/upload/default/avatar.png',
+                    'users_id' => 1]
                 )) {
                 $this->redirectToRoute('home');
             }
@@ -226,7 +226,7 @@ class ExposantController extends Controller {
     public function editVal($id) {
         $exposantManager = new ExposantManager();
         $this->allowTo(['2','4']);
-
+        $extensionAutorisees = array('jpg', 'jpeg', 'png', 'gif');
         $nameExposantVal = false;
         $lastNameInChargeVal = false;
         $firstNameInChargeVal = false;
@@ -240,6 +240,10 @@ class ExposantController extends Controller {
         $emailGeneralVal = false;
         $urlVal = false;
         $descriptionVal = false;
+        $photoVal = true;
+
+        $string = StringUtils::randomString(10);
+        $string2 = StringUtils::randomString(10);
 
         $nameExposant = isset($_POST['nameExposant']) ? trim(strip_tags($_POST['nameExposant'])) : '';
         $lastNameInCharge = isset($_POST['lastNameInCharge']) ? trim(strip_tags($_POST['lastNameInCharge'])) : '';
@@ -292,11 +296,11 @@ class ExposantController extends Controller {
 
         if (strlen($adress) >= 5) {
             $adressVal = true;
-            $vals['adress'] = $adress;
+            $vals['address'] = $adress;
         }
         else{
             $error[] = "veuillez indiquez l'adresse de l'exposant";
-            $vals['adress'] = '';
+            $vals['address'] = '';
         }
         
         if (strlen($city) >= 5) {
@@ -387,25 +391,52 @@ class ExposantController extends Controller {
             $vals['url'] = '';
         }
 
-        if ($nameExposantVal && $lastNameInChargeVal && $firstNameInChargeVal && $adressVal && $cityVal && $zipVal && $countryVal && $phoneVal && $mobileVal && $emailGeneralVal && $emailInChargeVal && $descriptionVal && $urlVal){
+        if (!empty($_FILES['avatar']['name'])) {
+            foreach ($_FILES as $key => $fichier) {
+                // Je teste si le fichier a été uploadé
+                if (!empty($fichier) && !empty($fichier['name'])) {
+                    print_r($fichier);
+                    if ($fichier['size'] <= 500000) {
+                        $filename = $fichier['name'];
+                        $dotPos = strrpos($filename, '.');
+                        $extension = strtolower(substr($filename, $dotPos+1));
+                        if (in_array($extension, $extensionAutorisees)) {
+                            $photo = '/upload/exposants/'.$string.$string2.'.'.$extension;
+                            $vals['spo_avatar'] = $photo;
+                        }
+                        else {
+                            $photoVal = false;
+                            $error[] = 'extension interdite';
+                        }
+                    }
+                    else {
+                        $photoVal = false;
+                        $error[] = 'fichier trop lourd';
+                    }
+                }
+            }
+        }
+
+        if ($nameExposantVal && $lastNameInChargeVal && $firstNameInChargeVal && $adressVal && $cityVal && $zipVal && $countryVal && $phoneVal && $mobileVal && $emailGeneralVal && $emailInChargeVal && $descriptionVal && $urlVal && $photoVal){
 
             if ($exposantManager->update([
-                'exp_name_eposants' => $nameExposant, 
+                'exp_name_exposants' => $nameExposant,
                 'exp_name_in_charge' => $lastNameInCharge, 
-                'exp_firs_name_in_charge' => $firstNameInCharge, 
-                'exp_adress' => $adress, 
+                'exp_first_name_in_charge' => $firstNameInCharge,
+                'exp_address' => $adress,
                 'exp_city' => $city, 
                 'exp_post_code' => $zip, 
-                'spo_Country' => $country, 
+                'exp_country' => $country,
                 'exp_phone' => $phone, 
                 'exp_mobile' => $mobile, 
                 'exp_fax' => $fax, 
                 'exp_email_incharge' => $emailInCharge, 
-                'exp_email_general' => $emailGeneral, 
-                'exp__description_sponsors' => $description, 
-                'exp_url' => $url, 
-                'users_id' => 1], 
+                'exp_email_general' => $emailGeneral,
+                'exp_avatar' => $photo,
+                'exp_description_exposants' => $description,
+                'exp_url' => $url],
                 $id)) {
+                move_uploaded_file($fichier['tmp_name'],TMP.'/upload/exposants/'.$string.$string2.'.'.$extension);
                 $this->redirectToRoute('home');
             }
             else{

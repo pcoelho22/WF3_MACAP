@@ -176,20 +176,21 @@ class SponsorController extends Controller {
         if ($nameSponsorVal && $lastNameInChargeVal && $firstNameInChargeVal && $adressVal && $cityVal && $zipVal && $countryVal && $phoneVal && $mobileVal && $emailGeneralVal && $emailInChargeVal && $urlVal){
 
             if ($sponsorManager->insert([
-                'spo_name_sponsors' => $nameSponsor,
-                'spo_name_in_charge' => $lastNameInCharge, 
-                'spo_first_name_in_charge' => $firstNameInCharge,
-                'spo_address' => $adress,
-                'spo_city' => $city, 
-                'spo_post_code' => $zip, 
-                'spo_country' => $country, 
-                'spo_phone' => $phone, 
-                'spo_mobile' => $mobile, 
-                'spo_fax' => $fax, 
-                'spo_email_incharge' => $emailInCharge, 
-                'spo_email_general' => $emailGeneral, 
-                'spo_url' => $url, 
-                'users_id' => 1]
+                    'spo_name_sponsors' => $nameSponsor,
+                    'spo_name_in_charge' => $lastNameInCharge,
+                    'spo_first_name_in_charge' => $firstNameInCharge,
+                    'spo_address' => $adress,
+                    'spo_city' => $city,
+                    'spo_post_code' => $zip,
+                    'spo_country' => $country,
+                    'spo_phone' => $phone,
+                    'spo_mobile' => $mobile,
+                    'spo_fax' => $fax,
+                    'spo_email_incharge' => $emailInCharge,
+                    'spo_email_general' => $emailGeneral,
+                    'spo_url' => $url,
+                    'spo_avatar' => '/upload/default/avatar.png',
+                    'users_id' => 1]
                 )) {
                 $this->redirectToRoute('home');
             }
@@ -227,7 +228,7 @@ class SponsorController extends Controller {
         $emailInChargeVal = false;
         $emailGeneralVal = false;
         $urlVal = false;
-        $photoVal = false;
+        $photoVal = true;
 
         $string = StringUtils::randomString(10);
         $string2 = StringUtils::randomString(10);
@@ -378,28 +379,26 @@ class SponsorController extends Controller {
                         $extension = strtolower(substr($filename, $dotPos+1));
                         if (in_array($extension, $extensionAutorisees)) {
                             // Je déplace le fichier uploadé au bon endroit
-                            $photo = 'upload/'.$string.$string2.'.'.$extension;
-                            $photoVal = true;
+                            $photo = '/upload/sponsors/'.$string.$string2.'.'.$extension;
                             $vals['spo_avatar'] = $photo;
                         }
                         else {
+                            $photoVal = false;
                             $error[] = 'extension interdite';
                         }
                     }
                     else {
+                        $photoVal = false;
                         $error[] = 'fichier trop lourd';
                     }
                 }
             }
         }
-        else{
-            $error[] = 'Pas de fichier selectioné';
-        }
 
-        if ($nameSponsorVal && $lastNameInChargeVal && $firstNameInChargeVal && $adressVal && $cityVal && $zipVal && $countryVal && $phoneVal && $mobileVal && $emailGeneralVal && $emailInChargeVal && $urlVal){
+        if ($nameSponsorVal && $lastNameInChargeVal && $firstNameInChargeVal && $adressVal && $cityVal && $zipVal && $countryVal && $phoneVal && $mobileVal && $emailGeneralVal && $emailInChargeVal && $urlVal && $photoVal){
 
             if ($sponsorManager->update($vals,$id)) {
-                move_uploaded_file($fichier['tmp_name'],TMP.'/upload/'.$string.$string2.'.'.$extension);
+                move_uploaded_file($fichier['tmp_name'],TMP.'/upload/sponsors/'.$string.$string2.'.'.$extension);
                 $this->redirectToRoute('home');
             }
             else{
