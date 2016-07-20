@@ -34,7 +34,7 @@
 		<div>
 			<span class="help-block"></span>
 			<p>
-			<a href="/WF3_MACAP/public/login/forgot"><button class="btn btn-default btn-md">Forgot password?</button></a>
+			<a href="<?= $this->url('user_forgot') ?>"><button class="btn btn-default btn-md">Forgot password?</button></a>
 			<a href="<?= $this->url('user_signup') ?>"><button class="btn btn-default btn-md">Register</button></a>
 			</p>
 		</div>
