@@ -98,18 +98,18 @@
 
                     <div class="collapse navbar-collapse" id="centerednav">
                         <ul class="nav navbar-nav">
-                            <li><a href="#">HOME</a></li>
-                            <li><a href="#">EVENTS</a></li>
+                            <li><a href="<?= $this->url('home')?>">HOME</a></li>
+                            <li><a href="<?= $this->url('events_liste')?>">EVENTS</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">MEDIA<b class="caret"></b></a>
                                 <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">NEWS</a></li>
-                                    <li><a href="#">REPORTAGES</a></li>
-                                    <li><a href="#">MAGAZINE</a></li>
+                                    <li><a href="<?= $this->url('news_liste')?>">NEWS</a></li>
+                                    <li><a href="<?= $this->url('reportages_liste')?>">REPORTAGES</a></li>
+                                    <li><a href="<?= $this->url('magazine_liste')?>">MAGAZINE</a></li>
                                 </ul>                 
                             </li>          
-                            <li><a href="#">SPONSORS</a></li>
-                            <li><a href="#">GALERIE</a></li>
+                            <li><a href="<?= $this->url('sponsor_liste')?>">SPONSORS</a></li>
+                            <li><a href="<?= $this->url('galerie_liste')?>">GALERIE</a></li>
                             <li><a href="#">SHOP</a></li>
                             <li><a href="#">CHARITÉ</a></li>
                             <li><a href="#">ABOUT US</a></li>
