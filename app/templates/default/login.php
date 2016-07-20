@@ -31,11 +31,14 @@
 			<fieldset class="nolegend">
 			<div class="errordesc">
 				<h4>There are problems with your profile</h4>
+				<ul class="last-child">
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
 			</div>
 		</div>
 		<?php endif; ?>
 	</div>
-
-
 
 <?php $this->stop('main_content') ?>
