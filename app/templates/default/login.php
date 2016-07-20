@@ -28,11 +28,11 @@
 
 		<?php if (isset($erreur)): ?>
 		<div class="col-md-6 text-left">
-			<div class="alert-message error">
-            <div class="box-icon"></div>
-            <p>This is an alert box<a href="" class="close">&times;</a>
-          </div>
-		</div>
+			<div class="form-group">
+				<textarea class="form-control alert-message error" rows="3" id="comment"></textarea>
+            	<p>This is an alert box<a href="" class="close">&times;</a>
+            </div>
+      	</div>
 		<?php endif; ?>
 	</div>
 
