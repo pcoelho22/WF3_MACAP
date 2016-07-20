@@ -8,6 +8,14 @@ use Manager\SponsorManager;
 
 class SponsorController extends Controller {
     
+    public function liste() {
+        $sponsorListeManager = new SponsorManager();
+        $sponsorListe = $sponsorListeManager->findAll();
+        //debug($sponsorListe);
+
+        $this->show('sponsor/liste',
+            ['sponsorListe' => $sponsorListe]);
+    }
     public function delete($id) {
         $this->allowTo('2');
         $sponsorManager = new SponsorManager();

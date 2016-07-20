@@ -58,6 +58,7 @@ $w_routes = array(
     ["POST", "/participant/edit/[i:id]", "Participant#editVal", "participant_editval"],
     ["GET", "/particpant/delete/[i:id]", "Participant#delete", "participant_delete"],
     
+    ["GET", "/sponsor/", "Sponsor#liste", "sponsor_liste"],
     ["GET", "/sponsor/add", "Sponsor#add", "sponsor_add"],
     ["POST", "/sponsor/add", "Sponsor#addVal", "sponsor_addval"],
     ["GET", "/sponsor/edit/[i:id]", "Sponsor#edit", "sponsor_edit"],
