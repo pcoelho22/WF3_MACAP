@@ -48,11 +48,11 @@
                     <div class="col-md-4 text-right">
                         <ul class="list-inline no-margin-top small">
 
-                            <li><a href="<?= $this->url('events_liste')?>" class="link-internal white small dropdown-toogle" data-toggle="dropdown"><button type="button" class="btn btn-default btn-sm"><span class="fa fa-user" aria-hidden="true"></span> Register</button></a>
+                            <li><a href="<?= $this->url('events_liste')?>"><button type="button" class="btn btn-default btn-sm"><span class="fa fa-user" aria-hidden="true"></span> Register</button></a>
                             </li>
 
                             <li class="no-margin-top small">                
-                                <a href="<?= $this->url('events_liste')?>" class="link-internal white small dropdown-toogle" data-toggle="dropdown"><button type="button" class="btn btn-default btn-sm"><span class="fa fa-sign-in" aria-hidden="true"></span> Login</button></a>
+                                <a href="<?= $this->url('events_liste')?>"><button type="button" class="btn btn-default btn-sm"><span class="fa fa-sign-in" aria-hidden="true"></span> Login</button></a>
                             </li>
                         </ul>
                     </div>
