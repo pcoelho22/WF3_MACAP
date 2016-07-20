@@ -108,7 +108,7 @@
                                     <li><a href="<?= $this->url('magazine_liste')?>">MAGAZINE</a></li>
                                 </ul>                 
                             </li>          
-                            <li><a href="<?= $this->url('sponsor_liste')?>">SPONSORS</a></li>
+                            <li><a href="#">SPONSORS</a></li>
                             <li><a href="<?= $this->url('galerie_liste')?>">GALERIE</a></li>
                             <li><a href="#">SHOP</a></li>
                             <li><a href="#">CHARITÉ</a></li>
