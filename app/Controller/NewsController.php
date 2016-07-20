@@ -262,16 +262,11 @@ class NewsController extends Controller {
                         $filename = $fichier['name'];
                         $dotPos = strrpos($filename, '.');
                         $extension = strtolower(substr($filename, $dotPos+1));
-                        // Je test si c'est pas un hack (sur l'extension)
-                        //if (substr($fichier['name'], -4) != '.php') {
                         if (in_array($extension, $extensionAutorisees)) {
                             // Je déplace le fichier uploadé au bon endroit
-
-
                             $photo = 'upload/'.$string.$string2.'.'.$extension;
                             $photoVal = true;
                             $vals['con_avatar'] = $photo;
-
                         }
                         else {
                             $error[] = 'extension interdite';
