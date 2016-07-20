@@ -6,8 +6,8 @@
 if (isset($error)){
     debug($error);
 }
-debug($_POST);
-debug($_FILES);?>
+//debug($_POST);
+//debug($_FILES);?>
 <?php if (isset($vals)): ?>
     <form action="" method="post" enctype="multipart/form-data">
         <label for="titre">Titre</label></br>
@@ -17,6 +17,7 @@ debug($_FILES);?>
         <input id="dateStart" type="date" name="dateStart" value="<?= $vals['con_date_start'] ?>"></br></br>
 
         <label for="dateEnd">Date de fin</label></br>
+
         <input id="dateEnd" type="date" name="dateEnd" value="<?= $vals['con_date_end'] ?>"></br></br>
 
         <label for="synopsis">Synopsis</label></br>
