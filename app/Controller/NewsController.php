@@ -154,6 +154,7 @@ class NewsController extends Controller {
             $vals['users_id'] = 1;//user connecter
             $vals['users_role_id'] = 1;//role de l'user connecter
             $vals['contenus_type_id'] = 1;
+            $vals['con_avatar'] = '/upload/default/avatar.png';
             $newsManager->insert($vals);
             $this->redirectToRoute('news_liste');
             //$this->show('news/update', ['error' => $error, 'vals'=>$vals]);
@@ -191,6 +192,7 @@ class NewsController extends Controller {
         $synopsisVal = false;
         $descriptionVal= false;
         $dateDiffVal = false;
+        $photoVal = true;
         $extensionAutorisees = array('jpg', 'jpeg', 'png', 'gif');
         $error = array();
         $vals = array();
@@ -264,26 +266,24 @@ class NewsController extends Controller {
                         $extension = strtolower(substr($filename, $dotPos+1));
                         if (in_array($extension, $extensionAutorisees)) {
                             // Je déplace le fichier uploadé au bon endroit
-                            $photo = 'upload/'.$string.$string2.'.'.$extension;
-                            $photoVal = true;
+                            $photo = 'upload/news/'.$string.$string2.'.'.$extension;
                             $vals['con_avatar'] = $photo;
                         }
                         else {
+                            $photoVal = false;
                             $error[] = 'extension interdite';
                         }
                     }
                     else {
+                        $photoVal = false;
                         $error[] = 'fichier trop lourd';
                     }
                 }
             }
         }
-        else{
-            $error[] = 'Pas de fichier selectioné';
-        }
 
-        if ($titreVal && $dateDebutVal && $dateFinVal && $synopsisVal && $descriptionVal && $dateDiffVal){
-            move_uploaded_file($fichier['tmp_name'],TMP.'/upload/'.$string.$string2.'.'.$extension);
+        if ($titreVal && $dateDebutVal && $dateFinVal && $synopsisVal && $descriptionVal && $dateDiffVal && $photoVal){
+            move_uploaded_file($fichier['tmp_name'],TMP.'/upload/news/'.$string.$string2.'.'.$extension);
             $newsManager->update($vals, $id);
             $this->redirectToRoute('news_liste');
             //$this->show('news/update', ['error' => $error, 'vals'=>$vals]);
