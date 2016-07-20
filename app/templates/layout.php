@@ -29,7 +29,7 @@
 
     </head>
     <body>
-        <!--<?php debug($_SESSION); ?>-->
+        <!-- <?php debug($_SESSION); ?> -->
         <header>
             <div class="container">
                 <div class="row"> 
@@ -46,6 +46,7 @@
                     </div>
                                 
                     <div class="col-md-4 text-right">
+                        <?php if (!isset($_SESSION['user'])): ?>
                         <ul class="list-inline no-margin-top small">
 
                             <li><a href="<?= $this->url('user_signup')?>"><button type="button" class="btn btn-default btn-sm"><span class="fa fa-user" aria-hidden="true"></span> Register</button></a>
@@ -55,6 +56,23 @@
                                 <a href="<?= $this->url('user_login')?>"><button type="button" class="btn btn-default btn-sm"><span class="fa fa-sign-in" aria-hidden="true"></span> Login</button></a>
                             </li>
                         </ul>
+                        <?php else: ?>
+                            <div class="no-margin-top small">
+                                <ul class="list-inline no-margin-top small">
+
+                                    <li>
+                                        <h4><img src="<?= $this->assetUrl('img/avatar.png') ?>" alt="avatar" width="30px" height="32px"> <?= $_SESSION['user']['use_userName'] ?></h4>
+                                    </li>
+
+                                    <li class="no-margin-top">
+                                        <a class="btn btn-link btn-md" href="<?= $this->url('user_logout')?>"><span class="fa fa-power-off" aria-hidden="true"></span> Se déconnecter</a>
+                                    </li>
+                                </ul>
+
+
+                            </div>
+
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
