@@ -48,33 +48,11 @@
                     <div class="col-md-4 text-right">
                         <ul class="list-inline no-margin-top small">
 
-                            <li><a href="#" class="link-internal white small dropdown-toogle" data-toggle="dropdown"><button type="button" class="btn btn-default btn-sm"><span class="fa fa-user" aria-hidden="true"></span> Register</button></a>      
+                            <li><a href="<?= $this->url('events_liste')?>" class="link-internal white small dropdown-toogle" data-toggle="dropdown"><button type="button" class="btn btn-default btn-sm"><span class="fa fa-user" aria-hidden="true"></span> Register</button></a>
                             </li>
 
                             <li class="no-margin-top small">                
-                                <a href="#" class="link-internal white small dropdown-toogle" data-toggle="dropdown"><button type="button" class="btn btn-default btn-sm"><span class="fa fa-sign-in" aria-hidden="true"></span> Login</button></a>
-                                <div class="dropdown-menu containerlog">
-                                <h1>Login</h1>
-                                    <form action="#" method="POST" role="form">
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                                            <input id="use_userName" type="text" placeholder="pseudo/email" name="user[username]" class="form-control text-left">
-                                        </div>
-                                        <span class="help-block"></span>
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><i class="fa fa-unlock" aria-hidden="true"></i></span>
-                                            <input id="use_password" type="password" placeholder="password" class="form-control text-left">
-                                        </div>
-                                        <span class="help-block"></span>
-                                        <button class="btn btn-primary btn-block btn-md" type="submit">Login</button>                                   
-                                        <div>
-                                            <span class="help-block"></span>
-                                            <p>
-                                            <a href="#">Forgot password?</a>
-                                            </p>
-                                        </div>
-                                    </form>
-                                </div>
+                                <a href="<?= $this->url('events_liste')?>" class="link-internal white small dropdown-toogle" data-toggle="dropdown"><button type="button" class="btn btn-default btn-sm"><span class="fa fa-sign-in" aria-hidden="true"></span> Login</button></a>
                             </li>
                         </ul>
                     </div>
@@ -92,7 +70,7 @@
                             <span class="icon-bar"></span>
                         </button>
                         <div class="visible-xs">
-                            <strong><a class="navbar-brand" href="#">concours-mondorf.lu</a></strong>
+                            <strong><a class="navbar-brand" href="<?= $this->url('home')?>">concours-mondorf.lu</a></strong>
                         </div>  
                     </div>
 
