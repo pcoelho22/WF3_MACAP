@@ -5,7 +5,7 @@
 	<ul><br/>
 		<a href="<?= $this->url('reportages_add') ?>"><button>Ajouter une reportages</button></a><br/><br/>
 		<?php foreach ($reportagesListe as $key => $value) : ?>
-			<li><a href="<?= $this->url('reportages_reportagesDetails',['id'=>$value['id']]) ?>"><?= $value['con_title'].'<br/> '.$value['con_synopsis']?></a></li><br/>
+			<li><a href="<?= $this->url('reportages_reportagesDetails',['id'=>$value['id']]) ?>"><?= $value['con_type'].'<br/> '.$value['con_title'].'<br/> '.$value['con_synopsis']?></a></li><br/>
 			<a href="<?= $this->url('reportages_update', ['id'=>$value['id']]) ?>"><button>Modifier</button></a>
 			<a href="<?= $this->url('reportages_delete', ['id'=>$value['id']]) ?>"><button>Delete</button></a>
 
