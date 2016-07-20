@@ -168,8 +168,15 @@ class EventsController extends Controller {
 
     public function delete($id){
 
+        $contenuHasGaleriesManager = new ContenuHasGaleriesManager();
+        $contenuHasGaleriesManager->delete($id);
+        debug($contenuHasGaleriesManager);
+
         $eventsManager = new EventsManager();
         $eventsManager->delete($id);
+        debug($eventsManager);
+
+
 
         $this->redirectToRoute('events_liste');
     }

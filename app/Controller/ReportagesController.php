@@ -114,7 +114,7 @@ class ReportagesController extends Controller {
             foreach ($_FILES as $key => $fichier) {
                 // Je teste si le fichier a été uploadé
                 if (!empty($fichier) && !empty($fichier['name'])) {
-                    print_r($fichier);
+                    //print_r($fichier);
                     if ($fichier['size'] <= 500000) {
                         $filename = $fichier['name'];
                         $dotPos = strrpos($filename, '.');
@@ -204,20 +204,20 @@ class ReportagesController extends Controller {
 
         if ($dateDebut != '') {
             $dateDebutVal = true;
-            $vals['con_dateStart'] = $dateDebut;
+            $vals['con_date_start'] = $dateDebut;
         }
         else{
             $error[] = 'veuillez entrer une date de debut';
-            $vals['con_dateStart'] = '';
+            $vals['con_date_start'] = '';
         }
 
         if ($dateFin != '') {
             $dateFinVal = true;
-            $vals['con_dateEnd'] = $dateFin;
+            $vals['con_date_end'] = $dateFin;
         }
         else{
             $error[] = 'veuillez entrer une date de debut';
-            $vals['con_dateEnd'] = '';
+            $vals['con_date_end'] = '';
         }
 
         if ($dateDebut <= $dateFin){
@@ -249,7 +249,7 @@ class ReportagesController extends Controller {
             foreach ($_FILES as $key => $fichier) {
                 // Je teste si le fichier a été uploadé
                 if (!empty($fichier) && !empty($fichier['name'])) {
-                    print_r($fichier);
+                   // print_r($fichier);
                     if ($fichier['size'] <= 500000) {
                         $filename = $fichier['name'];
                         $dotPos = strrpos($filename, '.');
