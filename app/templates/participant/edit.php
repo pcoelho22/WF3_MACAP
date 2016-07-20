@@ -6,7 +6,7 @@
      debug($error);
     } ?>
 <?php if (isset($vals)): ?>
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
 
         <label for="lastName">Last Name person in charge</label><br/>
         <input id="lastName" type="text" name="lastName" value="<?= $vals['lastName'] ?>" placeholder="Ex:"><br/><br/>
@@ -41,7 +41,7 @@
     </form>
 <?php elseif(isset($values)): ?>
 <?php debug($values); ?>
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
 
         <label for="lastNamee">Last Name person in charge</label><br/>
         <input id="lastName" type="text" name="lastName" value="<?= $values['par_name'] ?>" placeholder="Ex: "><br/><br/>
