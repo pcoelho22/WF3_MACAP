@@ -22,7 +22,7 @@
         <label for="avatar">Photo</label></br>
         <input id="avatar" type="file" name="avatar"></br></br>
 
-        <input type="submit" value="Modifier la news"></br></br>
+        <input type="submit" value="Modifier l'event"></br></br>
     </form>
     <?php elseif(isset($vals)): ?>
     <?php debug($error); ?>
@@ -46,7 +46,7 @@
         <label for="avatar">Photo</label></br>
         <input id="avatar" type="file" name="avatar"></br></br>
 
-        <input type="submit" value="Modifier la news"></br></br>
+        <input type="submit" value="Modifier l'event"></br></br>
     </form>
     <?php endif;?>
 <?php $this->stop('main_content') ?>

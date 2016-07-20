@@ -20,8 +20,7 @@ $w_routes = array(
     
     ["GET|POST", "/events/", "Events#liste", "events_liste"],
     ["GET|POST", "/events/[i:id]", "Events#eventsDetails", "events_eventsDetails"],
-    ["GET|POST", "/events/galerie/[i:id]", "Events#galerieEvents", "events_galerieEvents"],
-
+    
     ["GET", "/events/update/[i:id]", "Events#update", "events_update"],
     ["POST", "/events/update/[i:id]", "Events#updateVal", "events_updateval"],
     ["GET", "/events/delete/[i:id]", "Events#delete", "events_delete"],
