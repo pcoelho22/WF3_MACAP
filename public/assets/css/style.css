@@ -232,3 +232,22 @@ a.youtube:after {
 .icon-inflate a:hover {
   transform: scale(1.3);
 }
+/***********************News Details************************/
+.detailsTitle{
+  color:#11639b;
+  font-weight: bold;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #11639b;
+}
+.detailsText{
+  font-weight: bolder;
+  font-size: 16px;
+}
+.btn-default1{
+  background-color:#e0e0e0;
+  border-color: #ccc;
+  color:black;
+}
+.btn-default1:hover{
+  background-color:#ccc;
+}

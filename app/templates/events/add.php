@@ -17,7 +17,8 @@ if (isset($error)){
         <input id="dateStart" type="date" name="dateStart" value="<?= $vals['con_date_start'] ?>"></br></br>
 
         <label for="dateEnd">Date de fin</label></br>
-        <input id="date_end" type="date" name="dateEnd" value="<?= $vals['con_dateEnd'] ?>"></br></br>
+
+        <input id="dateEnd" type="date" name="dateEnd" value="<?= $vals['con_date_end'] ?>"></br></br>
 
         <label for="synopsis">Synopsis</label></br>
         <textarea name="synopsis" id="synopsis" cols="30" rows="10"><?= $vals['con_synopsis'] ?></textarea></br></br>

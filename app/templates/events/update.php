@@ -12,10 +12,12 @@
         <input id="titre" type="text" name="titre" value="<?= $eventsDetails['con_title'] ?>"></br></br>
 
         <label for="dateStart">Date de début</label></br>
+
         <input id="dateStart" type="date" name="dateStart" value="<?= $eventsDetails['con_date_start'] ?>"></br></br>
 
         <label for="dateEnd">Date de fin</label></br>
         <input id="dateEnd" type="date" name="dateEnd" value="<?= $eventsDetails['con_date_end'] ?>"></br></br>
+
 
         <label for="synopsis">Synopsis</label></br>
         <textarea name="synopsis" id="synopsis" cols="30" rows="10"><?= $eventsDetails['con_synopsis'] ?></textarea></br></br>

@@ -1,23 +1,41 @@
 <?php $this->layout('layout', ['title' => 'Login !']) ?>
 
 <?php $this->start('main_content') ?>
-<h2>Se connecter</h2>
 
-<form action="" method="post">
-    <label for="usernameOrEmail">Username Or Email</label><br/>
-    <input type="text" name="usernameOrEmail" value="" required><br/><br/>
+	<div class="row">
+		<div class="col-md-6 text-left">
+			<h1>Login</h1>
 
-    <label for="password">Password</label><br/>
-    <input type="password" name="password" value="" required><br/><br/>
+			<form action="#" method="POST" role="form">
+				<div class="input-group">
+					<span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+					<input type="text" name="usernameOrEmail" value="" required="" placeholder="username or email" class="form-control text-left">
+				</div>
 
-    <input type="submit" value="Login">
-</form>
-<?php if (isset($erreur)){
-    echo $erreur;
-} ?>
+				<span class="help-block"></span>
 
-<br/>
-<a href="<?= $this->url('user_signup') ?>"><button>Se crée un compte</button></a>
-<a href="<?= $this->url('user_forgot') ?>"><button>Mot de passe oublier</button></a>
+				<div class="input-group">
+					<span class="input-group-addon"><i class="fa fa-unlock" aria-hidden="true"></i></span>
+					<input type="password" name="password" value="" required="" placeholder="password" class="form-control text-left">
+				</div>
+				<span class="help-block"></span>
+				<button class="btn btn-primary btn-block btn-md" type="submit" value="Login">Login</button>	
+				<span class="help-block"></span>
+				<p><a href="<?= $this->url('user_forgot') ?>" class="btn btn-default btn-md">Forgot password?</a>
+				<a href="<?= $this->url('user_signup') ?>" class="btn btn-default btn-md">Register</a></p>
+			</form>
+		</div>
+
+		<?php if (isset($erreur)): ?>
+		<div class="col-md-6 text-left">
+			<fieldset class="nolegend">
+			<div class="errordesc">
+				<h4>There are problems with your profile</h4>
+			</div>
+		</div>
+		<?php endif; ?>
+	</div>
+
+
 
 <?php $this->stop('main_content') ?>
