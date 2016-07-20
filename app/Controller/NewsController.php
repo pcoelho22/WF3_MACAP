@@ -7,7 +7,6 @@ use \Manager\NewsManager;
 use \W\Security\StringUtils;
 
 
-
 class NewsController extends Controller {
 
     /**
@@ -72,21 +71,21 @@ class NewsController extends Controller {
 
         if ($dateDebut != '') {
             $dateDebutVal = true;
-            $vals['con_dateStart'] = $dateDebut;
+            $vals['con_date_start'] = $dateDebut;
         }
 
         else{
             $error[] = 'veuillez entrer une date de debut';
-            $vals['con_dateStart'] = '';
+            $vals['con_date_start'] = '';
         }
 
         if ($dateFin != '') {
             $dateFinVal = true;
-            $vals['con_dateEnd'] = $dateFin;
+            $vals['con_date_end'] = $dateFin;
         }
         else{
             $error[] = 'veuillez entrer une date de debut';
-            $vals['con_dateEnd'] = '';
+            $vals['con_date_end'] = '';
         }
 
         if ($dateDebut <= $dateFin){
@@ -212,20 +211,20 @@ class NewsController extends Controller {
 
         if ($dateDebut != '') {
             $dateDebutVal = true;
-            $vals['con_dateStart'] = $dateDebut;
+            $vals['con_date_start'] = $dateDebut;
         }
         else{
             $error[] = 'veuillez entrer une date de debut';
-            $vals['con_dateStart'] = '';
+            $vals['con_date_start'] = '';
         }
 
         if ($dateFin != '') {
             $dateFinVal = true;
-            $vals['con_dateEnd'] = $dateFin;
+            $vals['con_date_end'] = $dateFin;
         }
         else{
             $error[] = 'veuillez entrer une date de debut';
-            $vals['con_dateEnd'] = '';
+            $vals['con_date_end'] = '';
         }
 
         if ($dateDebut <= $dateFin){
