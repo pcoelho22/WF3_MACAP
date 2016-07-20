@@ -28,7 +28,7 @@ debug($_FILES);?>
         <label for="avatar">Photo</label></br>
         <input id="avatar" type="file" name="avatar"></br></br>
 
-        <input type="submit" value="Modifier la news"></br></br>
+        <input type="submit" value="Modifier l'event"></br></br>
     </form>
 <?php else: ?>
     <form action="" method="post" enctype="multipart/form-data">
@@ -50,7 +50,7 @@ debug($_FILES);?>
         <label for="avatar">Photo</label></br>
         <input id="avatar" type="file" name="avatar"></br></br>
 
-        <input type="submit" value="Modifier la news"></br></br>
+        <input type="submit" value="Modifier l'event"></br></br>
     </form>
 <?php endif; ?>
 
