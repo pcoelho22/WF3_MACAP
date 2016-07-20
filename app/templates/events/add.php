@@ -14,10 +14,10 @@ debug($_FILES);?>
         <input id="titre" type="text" name="titre" value="<?= $vals['con_title'] ?>"></br></br>
 
         <label for="dateStart">Date de début</label></br>
-        <input id="dateStart" type="date" name="dateStart" value="<?= $vals['con_dateStart'] ?>"></br></br>
+        <input id="dateStart" type="date" name="dateStart" value="<?= $vals['con_date_start'] ?>"></br></br>
 
         <label for="dateEnd">Date de fin</label></br>
-        <input id="dateEnd" type="date" name="dateEnd" value="<?= $vals['con_dateEnd'] ?>"></br></br>
+        <input id="dateEnd" type="date" name="dateEnd" value="<?= $vals['con_date_end'] ?>"></br></br>
 
         <label for="synopsis">Synopsis</label></br>
         <textarea name="synopsis" id="synopsis" cols="30" rows="10"><?= $vals['con_synopsis'] ?></textarea></br></br>
