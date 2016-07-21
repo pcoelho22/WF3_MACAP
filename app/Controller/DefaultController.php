@@ -17,4 +17,10 @@ class DefaultController extends Controller {
     public function contact() {
         $this->show('default/contact');
     }
+
+    public function confirmation(){
+    	$this show ('default_confirmation');
+    }
+
+
 }

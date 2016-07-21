@@ -166,10 +166,19 @@ class NewsController extends Controller {
     public function delete($id){
 
         $newsManager = new NewsManager();
+        $newsDetailsId = $newsManager->find($id);
+
+        $this->show('default/confirmation', ['newsDetails' => $newsDetailsId]);
+    }
+    /* à tester */
+    public function deleteVal($id){
+
+        $newsManager = new NewsManager();
         $newsManager->delete($id);
 
         $this->redirectToRoute('news_liste');
     }
+    /* ---- */
 
     public function update($id){
 

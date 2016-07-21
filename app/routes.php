@@ -72,4 +72,7 @@ $w_routes = array(
 
     ["GET", "/user/edit/[i:id]", "User#edit", "user_edit"],
     ["POST", "/user/edit/[i:id]", "User#editVal", "user_editval"],
+
+    ["GET", "/confirmation/[i:id]", "Default#confirmation", "default_confirmation"],
+    ["POST", "/confirmation/[i:id]", "Default#confirmationVal", "default_confirmationVal"],
 );
