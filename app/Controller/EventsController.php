@@ -13,8 +13,8 @@ class EventsController extends Controller {
      * Page liste events
      */
     public function liste() {
-    	$eventsListeManager = new EventsManager();
-        $eventsListe = $eventsListeManager->contenuEvent();
+    	$eventsManager = new EventsManager();
+        $eventsListe = $eventsManager->contenuEvent();
         //debug($galerieListe);
 
 		$this->show('events/liste',
@@ -28,14 +28,14 @@ class EventsController extends Controller {
         //echo $id;
         
         $eventsManager = new EventsManager();
-        $eventsId = $eventsManager->find($id);
+        $eventsDetailsId = $eventsManager->find($id);
         //debug($eventsId);
 
         $contenuHasGaleriesManager = new ContenuHasGaleriesManager();
         $eventsIdGaleires = $contenuHasGaleriesManager->findGaleriesId($id);
         //debug($eventsIdGaleires);
         
-        $this->show('events/eventsDetails',['eventsId' => $eventsId, 'eventsIdGaleires' => $eventsIdGaleires]);
+        $this->show('events/eventsDetails',['eventsId' => $eventsDetailsId, 'eventsIdGaleires' => $eventsIdGaleires]);
     }
     public function add(){
         $this->show('events/add');
@@ -185,7 +185,7 @@ class EventsController extends Controller {
 
         $eventsManager = new EventsManager();
         $eventsDetailsId = $eventsManager->find($id);
-        debug ($eventsDetailsId);
+        //debug ($eventsDetailsId);
         $this->show('events/update', ['eventsDetails' => $eventsDetailsId]);
     }
 
@@ -219,20 +219,20 @@ class EventsController extends Controller {
 
         if ($dateDebut != '') {
             $dateDebutVal = true;
-            $vals['con_dateStart'] = $dateDebut;
+            $vals['con_date_start'] = $dateDebut;
         }
         else{
             $error[] = 'veuillez entrer une date de debut';
-            $vals['con_dateStart'] = '';
+            $vals['con_date_start'] = '';
         }
 
         if ($dateFin != '') {
             $dateFinVal = true;
-            $vals['con_dateEnd'] = $dateFin;
+            $vals['con_date_end'] = $dateFin;
         }
         else{
             $error[] = 'veuillez entrer une date de debut';
-            $vals['con_dateEnd'] = '';
+            $vals['con_date_end'] = '';
         }
 
         if ($dateDebut <= $dateFin){

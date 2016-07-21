@@ -3,7 +3,7 @@
 namespace Controller;
 
 use \W\Controller\Controller;
-require ('../vendor/phpmailer/phpmailer/PHPMailerAutoload.php');
+use \Manager\AuthorizationManager;
 
 class DefaultController extends Controller {
 
@@ -16,5 +16,19 @@ class DefaultController extends Controller {
     
     public function contact() {
         $this->show('default/contact');
+    }
+
+    public function allowTo($roles){
+        if (!is_array($roles)){
+            $roles = [$roles];
+        }
+        $authorizationManager = new AuthorizationManager();
+        foreach($roles as $role){
+            if ($authorizationManager->isGranted($role, $_SESSION['user']['id'])){
+                return true;
+            }
+        }
+
+        $this->showForbidden();
     }
 }

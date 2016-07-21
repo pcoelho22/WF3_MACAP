@@ -6,8 +6,8 @@
 if (isset($error)){
     debug($error);
 }
-debug($_POST);
-debug($_FILES);?>
+//debug($_POST);
+//debug($_FILES);?>
 <?php if (isset($vals)): ?>
     <form action="" method="post" enctype="multipart/form-data">
         <label for="titre">Titre</label></br>
@@ -28,7 +28,7 @@ debug($_FILES);?>
         <label for="avatar">Photo</label></br>
         <input id="avatar" type="file" name="avatar"></br></br>
 
-        <input type="submit" value="Modifier la news"></br></br>
+        <input type="submit" value="Créer la news"></br></br>
     </form>
 <?php else: ?>
     <form action="" method="post" enctype="multipart/form-data">
@@ -50,7 +50,7 @@ debug($_FILES);?>
         <label for="avatar">Photo</label></br>
         <input id="avatar" type="file" name="avatar"></br></br>
 
-        <input type="submit" value="Modifier la news"></br></br>
+        <input type="submit" value="Créer la news"></br></br>
     </form>
 <?php endif; ?>
 
