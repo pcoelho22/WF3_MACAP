@@ -185,7 +185,7 @@ class EventsController extends Controller {
 
         $eventsManager = new EventsManager();
         $eventsDetailsId = $eventsManager->find($id);
-        debug ($eventsDetailsId);
+        //debug ($eventsDetailsId);
         $this->show('events/update', ['eventsDetails' => $eventsDetailsId]);
     }
 
@@ -219,20 +219,20 @@ class EventsController extends Controller {
 
         if ($dateDebut != '') {
             $dateDebutVal = true;
-            $vals['con_dateStart'] = $dateDebut;
+            $vals['con_date_start'] = $dateDebut;
         }
         else{
             $error[] = 'veuillez entrer une date de debut';
-            $vals['con_dateStart'] = '';
+            $vals['con_date_start'] = '';
         }
 
         if ($dateFin != '') {
             $dateFinVal = true;
-            $vals['con_dateEnd'] = $dateFin;
+            $vals['con_date_end'] = $dateFin;
         }
         else{
             $error[] = 'veuillez entrer une date de debut';
-            $vals['con_dateEnd'] = '';
+            $vals['con_date_end'] = '';
         }
 
         if ($dateDebut <= $dateFin){
