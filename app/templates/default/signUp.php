@@ -64,39 +64,37 @@
                     <input id="passwordVerif" type="password" name="passwordVerif" value="<?= $vals['password'] ?>" placeholder="Re-enter Password (minumum 6 charactères avec au moins 1 majuscule et 1 chiffre)" class="form-control text-left">
                 </div>
                 
-                <h4>Dans quel catégorie souhaitez-vous participez? (plusieurs choix possibles)</h4>
+                    <h4>Dans quel catégorie souhaitez-vous participez? (plusieurs choix possibles)</h4>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="role[]" value="participant" <?= $vals['role']['participant'] ?> > Participant
+                        </label>
+                    </div>
                 
-                <div class="checkbox">
-                    <label><input type="checkbox" name="role[]" value="participant" <?= $vals['role']['participant'] ?>Participant</label>
-                </div>
-                <div class="checkbox">
-                    <label><input type="checkbox" name="role[]" value="exposant" <?= $vals['role']['exposant'] ?>Exposant</label>
-                </div>
-                <div class="checkbox disabled">
-                    <label><input type="checkbox" name="role[]" value="sponsor" <?= $vals['role']['sponsor'] ?>Sponsor</label>
-                </div>
-                <div class="checkbox disabled">
-                    <label><input type="checkbox" name="role[]" value="rally" <?= $vals['role']['rally'] ?>Rally</label>
-                </div>
+                <!-- <fieldset> 
+                   
+                    Exposant: <input type="checkbox" name="role[]" value="exposant" <?= $vals['role']['exposant'] ?> ><br>
+                    Sponsor: <input type="checkbox" name="role[]" value="sponsor" <?= $vals['role']['sponsor'] ?> ><br>
+                    Rally: <input type="checkbox" name="role[]" value="rally" <?= $vals['role']['rally'] ?> ><br>
+                </fieldset>-->
+                <span class="help-block"></span>
                 <button class="btn btn-primary btn-sm active" type="submit" value="Créer mon compte" href="#"><i class="fa fa-user fa-fw"></i> Créer mon compte</button>
-                <br>
+                <span class="help-block"></span>
                 <h4>Une fois l'inscription validée, vous serez redirigé vers la page d'accueil</h4>
             </form>
+            <?php if (isset($error)): ?>
+            <div class="col-md-5 text-left">
+                <div class="alert alert-danger fade in" rows="auto">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>Erreur!</strong><br><?php foreach ($error as $value) {
+                           echo $value."<br>";
+                        } ?>
+                </div>
+            </div> 
+            <?php endif; ?> 
         </div> 
-
-        <div class="col-md-5 text-left">
-            <div class="form-group">
-            <textarea class="form-control alert-message error" rows="23" id="comment"></textarea>
-            <?php if (isset($error)){
-            foreach ($error as $value){
-            echo $value."</br>";
-                }
-            }
-            print_r($_POST)?>
-            <!-- <p>This is an alert box<a href="" class="close">&times;</a> -->
-            </div>
-        </div>  
     </div>
+    
 <?php else: ?>
 
     <div class="row">
@@ -157,20 +155,20 @@
                     <input id="passwordVerif" type="password" name="passwordVerif" value="" placeholder="Re-enter Password (minumum 6 charactères avec au moins 1 majuscule et 1 chiffre)" class="form-control text-left">
                 </div>
                 
-                <h4>Dans quel catégorie souhaitez-vous participez? (plusieurs choix possibles)</h4>
-                
+                    <h4>Dans quel catégorie souhaitez-vous participez? (plusieurs choix possibles)</h4>
                 <div class="checkbox">
-                    <label><input type="checkbox" name="role[]" value="participant">Participant</label>
-                </div>
-                <div class="checkbox">
-                    <label><input type="checkbox" name="role[]" value="exposant">Exposant</label>
-                </div>
-                <div class="checkbox disabled">
-                    <label><input type="checkbox" name="role[]" value="sponsor">Sponsor</label>
-                </div>
-                <div class="checkbox disabled">
-                    <label><input type="checkbox" name="role[]" value="rally">Rally</label>
-                </div>
+                        <label>
+                            <input type="checkbox" name="role[]" value="participant" > Participant
+                        </label>
+                    </div>
+                    
+                <!-- <fieldset> 
+                    Participant:<input type="checkbox" name="role[]" value="participant" ><br>
+                    Exposant:<input type="checkbox" name="role[]" value="exposant" ><br>
+                    Sponsor:<input type="checkbox" name="role[]" value="sponsor" ><br>
+                    Rally:<input type="checkbox" name="role[]" value="rally" ><br>
+                </fieldset>-->
+                <span class="help-block"></span>
                 <button class="btn btn-primary btn-sm active" type="submit" value="Créer mon compte" href="#"><i class="fa fa-user fa-fw"></i> Créer mon compte</button>
                 <br>
                 <h4>Une fois l'inscription validée, vous serez redirigé vers la page d'accueil</h4>

@@ -4,7 +4,7 @@
 
 <div class="row">
 	<div class="col-md-5 text-left">
-		<h4>Veuillez introduire votre adresse email afin de pouvoir réinitialisater votre mot de passe</h4>
+		<h4>Veuillez introduire votre adresse email afin de pouvoir réinitialiser votre mot de passe</h4>
 
 		<form action="#" method="POST" role="form">
 			<div class="input-group">
@@ -25,7 +25,5 @@
 <?php if (isset($error)){
     echo $error;
 } ?>
-
-<br/>
 
 <?php $this->stop('main_content') ?>
