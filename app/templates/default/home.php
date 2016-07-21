@@ -63,19 +63,19 @@
 					<div class="col-md-4 text-center">
 						<div class="caption">
 							<img src="<?= $this->assetUrl('img/pic1.jpg') ?>" class="img-responsive img-rounded" />
-							<a href="#"><h3>News</h3></a>
+							<a href="<?= $this->url('news_liste')?>"><h3>News</h3></a>
 						</div>
 					</div>
 					<div class="col-md-4 text-center">
 						<div class="caption">
 							<img src="<?= $this->assetUrl('img/pic2.jpg') ?>" class="img-responsive img-rounded"/>
-							<a href="#"><h3>Events</h3></a>
+							<a href="<?= $this->url('events_liste')?>"><h3>Events</h3></a>
 						</div>
 					</div>
 					<div class="col-md-4 text-center">
 						<div class="caption">
 							<img src="<?= $this->assetUrl('img/pic3.jpg') ?>" class="img-responsive img-rounded"/>
-							<a href="#"><h3>Sponsors</h3></a>
+							<a href="<?= $this->url('sponsor_liste')?>"><h3>Sponsors</h3></a>
 						</div>
 					</div>
 				</div>
