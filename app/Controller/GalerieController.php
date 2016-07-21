@@ -26,8 +26,8 @@ class GalerieController extends Controller {
     public function photos($id) {
     	//echo $id;
         		
-		$galerieHasPhotoManager = new GalerieHasPhotoManager();
-		$photosGalerieId = $galerieHasPhotoManager->findPhotoId($id);
+		//$galerieHasPhotoManager = new GalerieHasPhotoManager();
+		//$photosGalerieId = $galerieHasPhotoManager->findPhotoId($id);
         //debug($photosGalerieId);
         $contenuHasGaleriesManager = new ContenuHasGaleriesManager();
         $eventsIdGaleires = $contenuHasGaleriesManager->findGaleriesId($id);
