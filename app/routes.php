@@ -17,6 +17,11 @@ $w_routes = array(
 
     ["GET|POST", "/galerie/", "Galerie#liste", "galerie_liste"],
     ["GET|POST", "/galerie/[i:id]/", "Galerie#photos", "galerie_photos"],
+    ["GET", "/galerie/update/[i:id]", "Galerie#update", "galerie_update"],
+    ["POST", "/galerie/update/[i:id]", "Galerie#updateVal", "galerie_updateval"],
+    ["GET", "/galerie/delete/[i:id]", "Galerie#delete", "galerie_delete"],
+    ["GET", "/galerie/add", "Galerie#add", "galerie_add"],
+    ["POST", "/galerie/add", "Galerie#addVal", "galerie_addval"],
     
     ["GET|POST", "/events/", "Events#liste", "events_liste"],
     ["GET|POST", "/events/[i:id]", "Events#eventsDetails", "events_eventsDetails"],
