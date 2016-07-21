@@ -76,13 +76,13 @@ $w_routes = array(
     ["POST", "/sponsor/edit/", "Sponsor#editVal", "sponsor_editval"],
     ["GET", "/sponsor/delete/[i:id]", "Sponsor#delete", "sponsor_delete"],
 
-    ["GET", "/user/edit/[i:id]", "User#edit", "user_edit"],
-    ["POST", "/user/edit/[i:id]", "User#editVal", "user_editval"],
 
     ["GET", "/confirmation/[i:id]", "Default#confirmation", "default_confirmation"],
     ["POST", "/confirmation/[i:id]", "Default#confirmationVal", "default_confirmationVal"],
 
     ["GET", "/user/edit/[i:id]", "User#adminEdit", "user_admin_edit"],
     ["POST", "/user/edit/[i:id]", "User#adminEditVal", "user_admin_editval"],
+    ["GET", "/user/edit/", "User#edit", "user_edit"],
+    ["POST", "/user/edit/", "User#editVal", "user_editval"],
 
 );
