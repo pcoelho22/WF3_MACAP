@@ -5,6 +5,8 @@ namespace Controller;
 use \W\Controller\Controller;
 use \W\Security\StringUtils;
 use Manager\SponsorManager;
+use \Manager\AuthorizationManager;
+use \Manager\UserHasRoleManager;
 
 class SponsorController extends Controller {
     
@@ -182,7 +184,7 @@ class SponsorController extends Controller {
         }
 
         if ($nameSponsorVal && $lastNameInChargeVal && $firstNameInChargeVal && $adressVal && $cityVal && $zipVal && $countryVal && $phoneVal && $mobileVal && $emailGeneralVal && $emailInChargeVal && $urlVal){
-
+            $userId = $sponsorManager->getUserId($emailInCharge);
             if ($sponsorManager->insert([
                     'spo_name_sponsors' => $nameSponsor,
                     'spo_name_in_charge' => $lastNameInCharge,
@@ -198,8 +200,11 @@ class SponsorController extends Controller {
                     'spo_email_general' => $emailGeneral,
                     'spo_url' => $url,
                     'spo_avatar' => '/upload/default/avatar.png',
-                    'users_id' => 1]
+                    'users_id' => $userId['id']]
                 )) {
+
+                $userHasRoleManager = new UserHasRoleManager();
+                $userHasRoleManager->insert(['users_id'=>$userId['id'], 'role_id'=>AuthorizationManager::ROLESPONSOR]);
                 $this->redirectToRoute('home');
             }
             else{
@@ -213,16 +218,18 @@ class SponsorController extends Controller {
         }
     }
     
-    public function edit($id) {
-        $this->allowTo(['2', '5']);
+    public function edit() {
+        $defaultController = new DefaultController();
+        $defaultController->allowTo([AuthorizationManager::ROLEADMIN, AuthorizationManager::ROLESPONSOR]);
         $sponsorManager = new SponsorManager();
-        $values = $sponsorManager->find($id);
+        $values = $sponsorManager->find($_SESSION['user']['id']);
         $this->show('sponsor/edit',['values'=>$values]);
     }
     
-    public function editVal($id) {
+    public function editVal() {
+        $defaultController = new DefaultController();
+        $defaultController->allowTo([AuthorizationManager::ROLEADMIN, AuthorizationManager::ROLESPONSOR]);
         $sponsorManager = new SponsorManager();
-        $this->allowTo(['2', '5']);
         $extensionAutorisees = array('jpg', 'jpeg', 'png', 'gif');
         $nameSponsorVal = false;
         $lastNameInChargeVal = false;
@@ -405,7 +412,7 @@ class SponsorController extends Controller {
 
         if ($nameSponsorVal && $lastNameInChargeVal && $firstNameInChargeVal && $adressVal && $cityVal && $zipVal && $countryVal && $phoneVal && $mobileVal && $emailGeneralVal && $emailInChargeVal && $urlVal && $photoVal){
 
-            if ($sponsorManager->update($vals,$id)) {
+            if ($sponsorManager->update($vals,$_SESSION['user']['id'])) {
                 move_uploaded_file($fichier['tmp_name'],TMP.'/upload/sponsors/'.$string.$string2.'.'.$extension);
                 $this->redirectToRoute('home');
             }
@@ -419,5 +426,213 @@ class SponsorController extends Controller {
             $this->show('sponsor/edit', ["error"=>$error, "vals"=>$vals]);
         }
         
-    }    
+    }
+
+    public function adminEdit($id) {
+        $this->allowTo(['2']);
+        $sponsorManager = new SponsorManager();
+        $values = $sponsorManager->find($id);
+        $this->show('sponsor/edit',['values'=>$values]);
+    }
+
+    public function adminEditVal($id) {
+        $sponsorManager = new SponsorManager();
+        $this->allowTo(['2']);
+        $extensionAutorisees = array('jpg', 'jpeg', 'png', 'gif');
+        $nameSponsorVal = false;
+        $lastNameInChargeVal = false;
+        $firstNameInChargeVal = false;
+        $adressVal = false;
+        $cityVal = false;
+        $zipVal = false;
+        $countryVal = false;
+        $phoneVal = false;
+        $mobileVal = false;
+        $emailInChargeVal = false;
+        $emailGeneralVal = false;
+        $urlVal = false;
+        $photoVal = true;
+
+        $string = StringUtils::randomString(10);
+        $string2 = StringUtils::randomString(10);
+
+        $nameSponsor = isset($_POST['nameSponsor']) ? trim(strip_tags($_POST['nameSponsor'])) : '';
+        $lastNameInCharge = isset($_POST['lastNameInCharge']) ? trim(strip_tags($_POST['lastNameInCharge'])) : '';
+        $firstNameInCharge = isset($_POST['firstNameInCharge']) ? trim(strip_tags($_POST['firstNameInCharge'])) : '';
+        $adress = isset($_POST['adress']) ? trim(strip_tags($_POST['adress'])) : '';
+        $city = isset($_POST['city']) ? trim(strip_tags($_POST['city'])) : '';
+        $zip = isset($_POST['postCode']) ? trim(strip_tags($_POST['postCode'])) : '';
+        $country = isset($_POST['country']) ? trim(strip_tags($_POST['country'])) : '';
+        $phone = isset($_POST['phone']) ? trim(strip_tags($_POST['phone'])) : '';
+        $mobile = isset($_POST['mobile']) ? trim(strip_tags($_POST['mobile'])) : '';
+        $fax = isset($_POST['fax']) ? trim(strip_tags($_POST['fax'])) : '';
+        $emailInCharge = isset($_POST['emailInCharge']) ? trim(strip_tags($_POST['emailInCharge'])) : '';
+        $emailGeneral = isset($_POST['emailGeneral']) ? trim(strip_tags($_POST['emailGeneral'])) : '';
+        $url = isset($_POST['url']) ? trim(strip_tags($_POST['url'])) : '';
+
+        $phone = str_replace(' ','',$phone);
+        $fax = str_replace(' ','',$fax);
+
+        $error = array();
+        $vals = array();
+        // Il manque la validation des données
+        if ($nameSponsor != '') {
+            $nameSponsorVal = true;
+            $vals['spo_name_sponsors'] = $nameSponsor;
+        }
+        else{
+            $error[] = "veuillez entrer le nom du sposnor";
+            $vals['spo_name_sponsors'] = '';
+        }
+
+        if ($lastNameInCharge != '') {
+            $lastNameInChargeVal = true;
+            $vals['spo_name_in_charge'] = $lastNameInCharge;
+        }
+        else{
+            $error[] = 'veuillez indiquez le Nom de la personne en charge';
+            $vals['spo_name_in_charge'] = '';
+        }
+
+        if ($firstNameInCharge != '') {
+            $firstNameInChargeVal = true;
+            $vals['spo_first_name_in_charge'] = $firstNameInCharge;
+        }
+        else{
+            $error[] = "veuillez entrer le Prenom de la personne en charge";
+            $vals['spo_first_name_in_charge'] = '';
+        }
+
+        if (strlen($adress) >= 5) {
+            $adressVal = true;
+            $vals['spo_address'] = $adress;
+        }
+        else{
+            $error[] = "veuillez indiquez l'adresse de l'exposant";
+            $vals['spo_address'] = '';
+        }
+
+        if (strlen($city) >= 5) {
+            $cityVal = true;
+            $vals['spo_city'] = $city;
+        }
+        else{
+            $error[] = "veuillez indiquez la ville de l'exposant";
+            $vals['spo_city'] = '';
+        }
+
+        if (strlen($country) >= 5) {
+            $countryVal = true;
+            $vals['spo_country'] = $country;
+        }
+        else{
+            $error[] = "veuillez un pays pour l'exposantt";
+            $vals['spo_country'] = '';
+        }
+
+        if (strlen($zip) >= 3) {
+            $zipVal = true;
+            $vals['spo_post_code'] = $zip;
+        }
+        else{
+            $error[] = 'veuillez indiquez votre Code postal';
+            $vals['spo_post_code'] = '';
+        }
+
+        if (strlen($phone) >= 5) {
+            $phoneVal = true;
+            $vals['spo_phone'] = $phone;
+        }
+        else{
+            $error[] = 'veuillez entrer numero de telephone valide';
+            $vals['spo_phone'] = '';
+        }
+
+        if (strlen($mobile) >= 5) {
+            $mobileVal = true;
+            $vals['spo_mobile'] = $mobile;
+        }
+        else{
+            $error[] = 'veuillez entrer numero de telephone valide';
+            $vals['spo_mobile'] = '';
+        }
+
+        if (strlen($fax) >= 5) {
+            $vals['spo_fax'] = $fax;
+        }
+        else{
+            $vals['spo_fax'] = '';
+        }
+
+        if (filter_var($emailInCharge, FILTER_VALIDATE_EMAIL)) {
+            $emailInChargeVal = true;
+            $vals['spo_email_incharge'] = $emailInCharge;
+        }
+        else {
+            $error[] = "l'email in charge entré n'est pas sous le bon format";
+            $vals['spo_email_incharge'] = '';
+        }
+
+        if (filter_var($emailGeneral, FILTER_VALIDATE_EMAIL)) {
+            $emailGeneralVal = true;
+            $vals['spo_email_general'] = $emailGeneral;
+        }
+        else {
+            $error[] = "l'email general entré n'est pas sous le bon format";
+            $vals['spo_email_general'] = '';
+        }
+
+        if (preg_match("~^(http|ftp)(s)?\:\/\/((([a-z0-9]{1,25})(\.)?){2,7})($|/.*$)~",$url)) {
+            $urlVal = true;
+            $vals['spo_url'] = $url;
+        }
+        else {
+            $error[] = 'url invalide';
+            $vals['spo_url'] = '';
+        }
+
+        if (!empty($_FILES['avatar']['name'])) {
+            foreach ($_FILES as $key => $fichier) {
+                // Je teste si le fichier a été uploadé
+                if (!empty($fichier) && !empty($fichier['name'])) {
+                    print_r($fichier);
+                    if ($fichier['size'] <= 500000) {
+                        $filename = $fichier['name'];
+                        $dotPos = strrpos($filename, '.');
+                        $extension = strtolower(substr($filename, $dotPos+1));
+                        if (in_array($extension, $extensionAutorisees)) {
+                            // Je déplace le fichier uploadé au bon endroit
+                            $photo = '/upload/sponsors/'.$string.$string2.'.'.$extension;
+                            $vals['spo_avatar'] = $photo;
+                        }
+                        else {
+                            $photoVal = false;
+                            $error[] = 'extension interdite';
+                        }
+                    }
+                    else {
+                        $photoVal = false;
+                        $error[] = 'fichier trop lourd';
+                    }
+                }
+            }
+        }
+
+        if ($nameSponsorVal && $lastNameInChargeVal && $firstNameInChargeVal && $adressVal && $cityVal && $zipVal && $countryVal && $phoneVal && $mobileVal && $emailGeneralVal && $emailInChargeVal && $urlVal && $photoVal){
+
+            if ($sponsorManager->update($vals,$id)) {
+                move_uploaded_file($fichier['tmp_name'],TMP.'/upload/sponsors/'.$string.$string2.'.'.$extension);
+                $this->redirectToRoute('home');
+            }
+            else{
+                $error[] = "requete fail";
+                $this->show('sponsor/edit', ["error"=>$error, "vals"=>$vals]);
+            }
+        }
+        else{
+            $error[] = "fail inconnu";
+            $this->show('sponsor/edit', ["error"=>$error, "vals"=>$vals]);
+        }
+
+    }
 }
