@@ -235,7 +235,7 @@ class UserController extends Controller {
 
             if (in_array('sponsor', $role)){
                 $vals['role']['sponsor'] = 'checked';
-                $attachment3 = TMP.'/../formulaires/codeWifi.txt';
+                $attachment3 = TMP.'/../formulaires/sponsorFR.pdf';
             }
             else{
                 $vals['role']['sponsor'] = '';
