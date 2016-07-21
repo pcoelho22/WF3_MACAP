@@ -17,11 +17,6 @@
 	</div>
 </div>
 
-<!-- <form action="" method="post"> 
-    <label for="email">Email</label><br/>
-    <input type="email" name="email" value="" required><br/><br/>
-    <input type="submit" value="Valider">
-</form>-->
 <?php if (isset($error)){
     echo $error;
 } ?>
