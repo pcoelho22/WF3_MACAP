@@ -10,6 +10,16 @@ class UserManager extends \W\Manager\UserManager{
         $this->setTable('users');
     }
 
+    public function getUserId($email){
+        $sql = "SELECT id FROM users WHERE use_email = :email";
+
+        $sth = $this->dbh->prepare($sql);
+        $sth->bindValue(':email', $email);
+        $sth->execute();
+
+        return $sth->fetch();
+    }
+
     public function setToken($email){
         $sql = "SELECT id FROM users WHERE use_email = :email";
 

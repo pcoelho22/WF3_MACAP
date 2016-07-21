@@ -14,10 +14,10 @@ debug($_POST);
         <input id="name" type="text" name="lastName" value="<?= $vals['use_name'] ?>" placeholder="Ex: Reuter"><br/><br/>
 
         <label for="firstName">First Name</label><br/>
-        <input id="firstName" type="text" name="firstName" value="<?= $vals['use_firstName'] ?>" placeholder="Ex: Paul"><br/><br/>
+        <input id="firstName" type="text" name="firstName" value="<?= $vals['use_first_name'] ?>" placeholder="Ex: Paul"><br/><br/>
 
         <label for="adress">Adress</label><br/>
-        <input id="adress" type="text" name="adress" value="<?= $vals['use_adress'] ?>" placeholder="Ex:9, Rue des Hauts Founeaux, Belval"><br/><br/>
+        <input id="adress" type="text" name="adress" value="<?= $vals['use_address'] ?>" placeholder="Ex:9, Rue des Hauts Founeaux, Belval"><br/><br/>
 
         <label for="city">City</label><br/>
         <input id="city" type="text" name="city" value="<?= $vals['use_city'] ?>" placeholder="Ex: Belval"><br/><br/>
@@ -51,10 +51,10 @@ debug($_POST);
         <input id="name" type="text" name="lastName" value="<?= $values['use_name'] ?>" placeholder="Ex: Reuter"><br/><br/>
 
         <label for="firstName">First Name</label><br/>
-        <input id="firstName" type="text" name="firstName" value="<?= $values['use_firstName'] ?>" placeholder="Ex: Paul"><br/><br/>
+        <input id="firstName" type="text" name="firstName" value="<?= $values['use_first_name'] ?>" placeholder="Ex: Paul"><br/><br/>
 
         <label for="adress">Adress</label><br/>
-        <input id="adress" type="text" name="adress" value="<?= $values['use_adress'] ?>" placeholder="Ex:9, Rue des Hauts Founeaux"><br/><br/>
+        <input id="adress" type="text" name="adress" value="<?= $values['use_address'] ?>" placeholder="Ex:9, Rue des Hauts Founeaux"><br/><br/>
 
         <label for="city">City</label><br/>
         <input id="city" type="text" name="city" value="<?= $values['use_city'] ?>" placeholder="Belval"><br/><br/>
