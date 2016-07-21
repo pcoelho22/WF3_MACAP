@@ -2,9 +2,9 @@
 
 <?php $this->start('main_content') ?>
 
+	<h1>Login</h1>
 	<div class="row">
 		<div class="col-md-6 text-left">
-			<h1>Login</h1>
 
 			<form action="#" method="POST" role="form">
 				<div class="input-group">
@@ -27,9 +27,9 @@
 
 		<?php if (isset($erreur)): ?>
 		<div class="col-md-6 text-left">
-			<div class="form-group">
-				<textarea class="form-control alert-message error" rows="3" id="comment"></textarea>
-            	<p>This is an alert box<a href="" class="close">&times;</a>
+			<div class="alert alert-danger fade in" rows="auto">
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				<strong>Erreur!</strong><br><?= $erreur ?>
             </div>
       	</div>
 		<?php endif; ?>
