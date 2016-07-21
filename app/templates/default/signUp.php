@@ -41,12 +41,12 @@
                 <span class="help-block"></span>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-phone fa-fw" aria-hidden="true"></i></span>
-                    <input id="phone" type="text" name="phone" value="<?= $vals['phone'] ?>" placeholder="N° de Téléphone (Format: (00 + Code Pays)-Votre numero) Ex: 00352-11 11 11 11" class="form-control text-left">
+                    <input id="phone" type="text" name="phone" value="<?= $vals['phone'] ?>" placeholder="N° de téléphone (Format: (00 + Code Pays) + votre numéro) Ex: 00352-11 11 11 11" class="form-control text-left">
                 </div>
                 <span class="help-block"></span>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-fax fa-fw" aria-hidden="true"></i></span>
-                    <input id="fax" type="text" name="fax" value="<?= $vals['fax'] ?>" placeholder="N° de Fax (Optionel - Format: (00 + Code Pays)-Votre numero) Ex: 00352-11 11 11 11" class="form-control text-left">
+                    <input id="fax" type="text" name="fax" value="<?= $vals['fax'] ?>" placeholder="N° de fax (Optionel - Format: (00 + Code Pays) + votre numéro) Ex: 00352-11 11 11 11" class="form-control text-left">
                 </div>
                 <span class="help-block"></span>
                 <div class="input-group">
@@ -103,7 +103,7 @@
     
         <?php else: ?>
     
-        <div class="col-md-6 text-left">
+
             <form action="#" method="post" role="form">
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-user-plus fa-fw" aria-hidden="true"></i></span>
@@ -137,12 +137,12 @@
                 <span class="help-block"></span>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-phone fa-fw" aria-hidden="true"></i></span>
-                    <input id="phone" type="text" name="phone" value="" placeholder="N° de Téléphone (Format: (00 + Code Pays)-Votre numero) Ex: 00352-11 11 11 11" class="form-control text-left">
+                    <input id="phone" type="text" name="phone" value="" placeholder="N° de téléphone (Format: (00 + Code Pays)+ votre numéro) Ex: 00352-11 11 11 11" class="form-control text-left">
                 </div>
                 <span class="help-block"></span>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-fax fa-fw" aria-hidden="true"></i></span>
-                    <input id="fax" type="text" name="fax" value="" placeholder="N° de Fax (Optionel - Format: (00 + Code Pays)-Votre numero) Ex: 00352-11 11 11 11" class="form-control text-left">
+                    <input id="fax" type="text" name="fax" value="" placeholder="N° de Fax (Optionel - Format: (00 + Code Pays)+ votre numéro) Ex: 00352-11 11 11 11" class="form-control text-left">
                 </div>
                 <span class="help-block"></span>
                 <div class="input-group">
@@ -182,7 +182,7 @@
                 <br>
                 <h4>Une fois l'inscription validée, vous serez redirigé vers la page d'accueil</h4>
             </form>
-        </div>
+
         <?php endif; ?>
     </div>
 <?php $this->stop('main_content') ?>
