@@ -29,7 +29,6 @@
 
     </head>
     <body>
-        <!-- <?php debug($_SESSION); ?> -->
         <header>
             <div class="container">
                 <div class="row"> 

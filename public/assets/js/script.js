@@ -1,48 +1,19 @@
-/*$(function() {
-    $.getJSON('https://maps.googleapis.com/maps/api/geocode/json?address=Avenue des Bains, Mondorf-les-Bains&key=AIzaSyCSN97AbSZ0KcmYVo5-eOZO2RvuZY6DZzI', function(json, textStatus) {
-        lat = json.results[0].geometry.location.lat;
-        lng = json.results[0].geometry.location.lng;
-    });
-});*/
-
 var locationLat=0;
 var locationLng=0;
 var adressValue = '';
-/*jQuery.get( "https://maps.googleapis.com/maps/api/geocode/json?address=Avenue des Bains, Mondorf-les-Bains&key=AIzaSyCSN97AbSZ0KcmYVo5-eOZO2RvuZY6DZzI", function(json, textStatus) {
-    locationLat = json.results[0].geometry.location.lat;
-    locationLng = json.results[0].geometry.location.lng;
-
-    //lancement itinéraire
-
-    //return [locationLat, locationLng];
-} );*/
-
-
 
 function initMap() {
 
-    /*jQuery.get( "https://maps.googleapis.com/maps/api/geocode/json?address=Avenue des Bains, Mondorf-les-Bains&key=AIzaSyCSN97AbSZ0KcmYVo5-eOZO2RvuZY6DZzI", function(json, textStatus) {
-        global:locationLat = json.results[0].geometry.location.lat;
-        global:locationLng = json.results[0].geometry.location.lng;
-
-        console.log(locationLat);
-        console.log(locationLng);
-    } );*/
-
     jQuery('#button').click(function (event){
         adressValue = jQuery('#adresse').val();
-        console.log(adressValue);
+        //console.log(adressValue);
 
         jQuery.get( "https://maps.googleapis.com/maps/api/geocode/json?address="+ adressValue+"&key=AIzaSyAs9-9EPpqbSPCd1_r5_lgpmNjc6EuR6Xg", function(json, textStatus) {
             locationLat = json.results[0].geometry.location.lat;
             locationLng = json.results[0].geometry.location.lng;
 
-            console.log(locationLat);
-            console.log(locationLng);
-            //lancement itinéraire
-
-            //return [locationLat, locationLng];
-
+            //console.log(locationLat);
+            //console.log(locationLng);
 
             var concours = {lat: 49.5030743, lng: 6.2818691};
             var pos = {lat: locationLat, lng: locationLng};
