@@ -7,7 +7,12 @@
     } ?>
 <?php if (isset($vals)): ?>
     <form action="" method="post" enctype="multipart/form-data">
-
+        <span class="help-block"></span>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
+            <input id="lastname" type="text" name="lastName" value="<?= $vals['lastName'] ?>" required="" placeholder="Nom" class="form-control text-left">
+        </div>
+        
         <label for="lastName">Last Name person in charge</label><br/>
         <input id="lastName" type="text" name="lastName" value="<?= $vals['lastName'] ?>" placeholder="Ex:"><br/><br/>
 
