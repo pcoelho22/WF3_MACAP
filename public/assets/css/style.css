@@ -232,16 +232,41 @@ a.youtube:after {
 .icon-inflate a:hover {
   transform: scale(1.3);
 }
-/***********************News Details************************/
+/***********************News & Reportage Details************************/
 .detailsTitle{
   color:#11639b;
+  font-size: 60px;
   font-weight: bold;
-  padding-bottom: 10px;
-  border-bottom: 2px solid #11639b;
+
+  position: absolute;
+
+  padding-top: auto;
+  display: inline;
+}
+@media screen and (max-width: 600px) {
+  .detailsTitle{font-size: 32px;}
+}
+@media screen and (max-width: 400px) {
+  .detailsTitle{font-size: 24px;}
+}
+.detailsdate{
+  color: #11639b;
+  border-top: 2px solid #11639b;
+
+  padding-top: 10px;
+}
+.detailsdate2{
+  color: #11639b;
 }
 .detailsText{
+  clear: both;
+  display: block;
+
   font-weight: bolder;
   font-size: 16px;
+
+  padding-top: 50px;
+  border-top: 2px solid #11639b;
 }
 .btn-default1{
   background-color:#e0e0e0;
@@ -250,4 +275,16 @@ a.youtube:after {
 }
 .btn-default1:hover{
   background-color:#ccc;
+}
+.avatar{
+  float: left;
+  position: relative;
+
+  width: 150px;
+  height:175px;
+  
+  margin-right: 10px;
+  margin-bottom: 30px;
+
+  border: 2px solid #11639b;
 }

@@ -6,16 +6,16 @@
 //debug($_POST);
 
 //debug($_FILES); ?>
-<?php if (isset($eventsDetails)):?>
+<?php if (isset($galerieDetails)):?>
     <form action="" method="post" enctype="multipart/form-data">
         <label for="titre">Titre</label></br>
-        <input id="titre" type="text" name="titre" value="<?= $eventsDetails['gal_title'] ?>"></br></br>
+        <input id="titre" type="text" name="titre" value="<?= $galerieDetails['gal_name'] ?>"></br></br>
 
         <label for="legend">Legend</label></br>
-         <input id="legend" type="text" name="legend" value="<?= $eventsDetails['gal_legend'] ?>"></br></br>
+         <input id="legend" type="text" name="legend" value="<?= $galerieDetails['gal_legend'] ?>"></br></br>
 
         <label for="description">Description</label></br>
-        <textarea name="description" id="description" cols="30" rows="10"><?= $eventsDetails['gal_description'] ?></textarea></br></br>
+        <textarea name="description" id="description" cols="30" rows="10"><?= $galerieDetails['gal_description'] ?></textarea></br></br>
 
         <input type="submit" value="Modifier la galerie"></br></br>
     </form>
@@ -24,13 +24,13 @@
     <?php debug($vals); ?>
     <form action="" method="post" enctype="multipart/form-data">
         <label for="titre">Titre</label></br>
-        <input id="titre" type="text" name="titre" value="<?= $vals['con_title'] ?>"></br></br>
+        <input id="titre" type="text" name="titre" value="<?= $vals['con_name'] ?>"></br></br>
 
-        <label for="synopsis">Legend</label></br>
-        <textarea name="synopsis" id="synopsis" cols="30" rows="10"><?= $vals['con_synopsis'] ?></textarea></br></br>
+        <label for="legend">Legend</label></br>
+        <textarea name="legend" id="legend" cols="30" rows="10"><?= $vals['gal_legend'] ?></textarea></br></br>
 
         <label for="description">Description</label></br>
-        <textarea name="description" id="description" cols="30" rows="10"><?= $vals['con_description'] ?></textarea></br></br>
+        <textarea name="description" id="description" cols="30" rows="10"><?= $vals['gal_description'] ?></textarea></br></br>
 
         <input type="submit" value="Modifier la galerie"></br></br>
     </form>
