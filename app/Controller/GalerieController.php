@@ -147,9 +147,9 @@ class GalerieController extends Controller {
             $vals['gal_description'] = '';
         }
 
-        if ($titreVal && $synopsisVal && $descriptionVal){
+        if ($titreVal && $legendVal && $descriptionVal){
             
-            $newsManager->update($vals, $id);
+            $galerieManager->update($vals, $id);
             $this->redirectToRoute('galerie_liste');
             //$this->show('galerie/update', ['error' => $error, 'vals'=>$vals]);
         }
