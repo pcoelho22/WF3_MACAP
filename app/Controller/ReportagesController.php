@@ -24,7 +24,7 @@ class ReportagesController extends Controller {
         //echo $id;
         
         $reportagesManager = new ReportagesManager();
-        $reportagesDetailsId = $reportagesManager->findReportagesId($id);
+        $reportagesDetailsId = $reportagesManager->find($id);
         //debug($reportagesDetailsId);
 
         $this->show('reportages/reportagesDetails',['reportagesDetails' => $reportagesDetailsId]);
@@ -165,7 +165,7 @@ class ReportagesController extends Controller {
     public function update($id){
 
         $reportagesManager = new ReportagesManager();
-        $reportagesDetailsId = $reportagesManager->findReportagesId($id);
+        $reportagesDetailsId = $reportagesManager->find($id);
 
         $this->show('reportages/update', ['reportagesDetails' => $reportagesDetailsId]);
     }

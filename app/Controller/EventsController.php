@@ -13,8 +13,8 @@ class EventsController extends Controller {
      * Page liste events
      */
     public function liste() {
-    	$eventsListeManager = new EventsManager();
-        $eventsListe = $eventsListeManager->contenuEvent();
+    	$eventsManager = new EventsManager();
+        $eventsListe = $eventsManager->contenuEvent();
         //debug($galerieListe);
 
 		$this->show('events/liste',
@@ -28,14 +28,14 @@ class EventsController extends Controller {
         //echo $id;
         
         $eventsManager = new EventsManager();
-        $eventsId = $eventsManager->find($id);
+        $eventsDetailsId = $eventsManager->find($id);
         //debug($eventsId);
 
         $contenuHasGaleriesManager = new ContenuHasGaleriesManager();
         $eventsIdGaleires = $contenuHasGaleriesManager->findGaleriesId($id);
         //debug($eventsIdGaleires);
         
-        $this->show('events/eventsDetails',['eventsId' => $eventsId, 'eventsIdGaleires' => $eventsIdGaleires]);
+        $this->show('events/eventsDetails',['eventsId' => $eventsDetailsId, 'eventsIdGaleires' => $eventsIdGaleires]);
     }
     public function add(){
         $this->show('events/add');

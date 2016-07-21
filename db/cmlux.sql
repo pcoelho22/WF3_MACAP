@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost
--- Généré le :  Mer 20 Juillet 2016 à 10:57
+-- Généré le :  Jeu 21 Juillet 2016 à 11:11
 -- Version du serveur :  5.7.13-log
 -- Version de PHP :  5.6.21
 
@@ -33,8 +33,8 @@ CREATE TABLE `contenus` (
   `con_date_start` varchar(45) NOT NULL,
   `con_date_end` varchar(45) NOT NULL,
   `con_synopsis` varchar(45) NOT NULL,
-  `con_description` varchar(45) DEFAULT NULL,
-  `con_avatar` varchar(45) NOT NULL,
+  `con_description` text,
+  `con_avatar` varchar(150) NOT NULL,
   `con_gallery` varchar(45) DEFAULT NULL,
   `users_id` int(11) NOT NULL,
   `users_role_id` int(11) NOT NULL,
@@ -46,18 +46,11 @@ CREATE TABLE `contenus` (
 --
 
 INSERT INTO `contenus` (`id`, `con_type`, `con_title`, `con_date_start`, `con_date_end`, `con_synopsis`, `con_description`, `con_avatar`, `con_gallery`, `users_id`, `users_role_id`, `contenus_type_id`) VALUES
-(2, 'News', 'Test Patrick Modifiééééé', '2016-07-06', '2016-07-21', 'Test petite phrase modifié', 'Connexion avec la base de donnée modifié', 'upload/TestPatrickModifiééééé2.gif', 'patrick', 1, 2, 1),
-(3, 'Reportages', 'NOVO EVENTO', '2016-07-21', '2016-10-27', 'synopsis', 'dqsdsqdsqdqsdqdq', '', NULL, 1, 1, 2),
-(4, 'Events', 'Sueca - sobe e desce - Poker', '2016-07-28', '2016-07-30', 'Comes e bebes à parte', 'Comes e bebes à parte zerzerzzerzer azerzae', '', NULL, 2, 2, 3),
-(5, 'Events', 'Bilhar de bolso', '2016-07-14', '2016-10-20', 'Desafio total', 'Desafio total  todas as Bolas nos buracos ', '', NULL, 1, 2, 3),
-(6, 'News', 'AQUI vou EU para a costa', '2016-08-15', '2016-09-14', 'praia praia praia', 'agua+ sal + areia = comichao', '', NULL, 2, 1, 1),
-(12, 'News', 'sdfsdf', '2016-07-06', '2016-07-30', 'ssdfsdfsdfs', 'sdfdsfsdf', 'upload/EP-nl7c8lkfOzcu6BCX_.jpg', NULL, 1, 1, 1),
-(13, 'News', 'zerze', '2016-07-15', '2016-07-31', 'zerzerzerzer', 'zerzerzerzer', 'upload/DKnqrZ-QUE558YKB__zG.jpg', NULL, 1, 1, 1),
-(14, 'Reportages', 'vamos ver se funciona', '2016-07-23', '2016-07-24', 'eyer', 'zerzerzer', 'upload/CPxOsGyOa_AQyJfP2FeD.jpg', NULL, 1, 1, 2),
-(15, 'News', 'vamos la', '2016-07-23', '2016-07-31', 'azeazeaz', 'azazaaazeaze4646464645', 'upload/cN1OBaYB_LGzQY50HN23.jpg', NULL, 1, 1, 1),
-(18, 'News', 'rep nao news', '2016-07-20', '2016-07-31', '2121qsde21qs2d1s2d12sd', '23a2z3a2z3a2z3az23a2', 'upload/bLYxh4Gs7w2B7jBDJu40.jpg', NULL, 1, 1, 1),
-(19, 'Reportages', 'agora simmmmm', '2016-07-21', '2016-07-31', 'agora simmmmmmm', 'EURO 23016', 'upload/0q6JEP0CuKzRJ4JzMMLE.jpg', NULL, 1, 1, 2),
-(20, 'News', 'Ajout d\'une image Patrick', '2016-07-19', '2016-07-20', 'Test Patrick', 'Insertion d\'une image', 'upload/DrUPBI7gPTYj0r_tmhPv.jpg', NULL, 1, 1, 1);
+(2, 'News', 'Test Patrick Modifiééééé', '2016-07-06', '2016-07-21', 'Test petite phrase modifié', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\nLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '/patrickPHP/WF3_MACAP/public/upload/news/logo1.jpg', 'patrick', 1, 2, 1),
+(4, 'Events', 'Sueca - sobe e desce - Poker', '2016-07-28', '2016-07-30', 'Comes e bebes à parte', 'Comes e bebes à parte zerzerzzerzer azerzae', 'upload/0xQ2eVOWWk-tmwY3rIIRq.jpg', NULL, 2, 2, 3),
+(5, 'Events', 'Bilhar de bolso', '2016-07-14', '2016-10-20', 'Desafio total', 'Desafio total  todas as Bolas nos buracos ', 'upload/0xQ2eVOWWk-gmwY3rIIRq.jpg', NULL, 1, 2, 3),
+(21, 'Reportages', 'Nova rep', '2016-07-15', '2016-07-23', 'pequena reportagem', 'GRANDE REPORTAGEM', '/patrickPHP/WF3_MACAP/public/upload/reportages/logo1.jpg', NULL, 1, 1, 2),
+(35, 'Reportages', 'rep teste', '2016-07-21', '2016-07-23', 'zada', 'qsdqsd', 'upload/reportages/PnvZxpvbiqGp5aQtl84t.jpg', NULL, 1, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -111,7 +104,7 @@ INSERT INTO `contenus_type` (`id`, `ty_name`, `ty_description`) VALUES
 
 CREATE TABLE `exposants` (
   `id` int(11) NOT NULL,
-  `exp_name_eposants` varchar(45) NOT NULL,
+  `exp_name_exposants` varchar(45) NOT NULL,
   `exp_name_in_charge` varchar(45) NOT NULL,
   `exp_firs_name_in_charge` varchar(45) NOT NULL,
   `exp_address` varchar(45) NOT NULL,
@@ -125,7 +118,7 @@ CREATE TABLE `exposants` (
   `exp_email_general` varchar(45) DEFAULT NULL,
   `exp_avatar` varchar(45) DEFAULT NULL,
   `exp_gallery` varchar(45) DEFAULT NULL,
-  `exp__description_sponsors` varchar(45) DEFAULT NULL,
+  `exp_description_exposants` varchar(45) DEFAULT NULL,
   `exp_url` varchar(45) DEFAULT NULL,
   `exp_pagote` varchar(45) DEFAULT NULL,
   `users_id` int(11) NOT NULL
@@ -3491,7 +3484,8 @@ INSERT INTO `users` (`id`, `use_userName`, `use_name`, `use_first_name`, `use_ad
 (3, 'raven095', 'Reuter', 'Marc', '4a rue du cimetière', '3350', 'Leudelange', '621149680', '', 'marc.reuter095@gmail.com', '$2y$10$Le3vp0KfS2zId6WIl9k7Eu2rYyF583oIikZRJiUVQyyU2LJ509Hsi', NULL, '2016-07-14', NULL, '2', NULL),
 (4, 'pcoelho', 'Coelho', 'Patrick', '39 rue Sigefroi', '3280', 'Bettembourg', '00352621000000', '', 'pcoelho@psgroup.lu', '$2y$10$ycfmnFQfGzVpYh20VKACn.MqYEMBtrzfdfQZZcDeLZ5so5c.iVh72', '', '2016-07-14', NULL, '2', NULL),
 (5, 'pfabri', 'Fabri', 'Paul', '2, rue Jean Engling', '1466', 'Luxembourg', '00352-661400070', '', 'prfabri@yahoo.fr', '$2y$10$r.wOx/rY9pVmJiYY.jyil.aIPIFxEfLH.RRV4zSM9FDD1BpYYKlX6', '', '2016-07-18', NULL, '2', NULL),
-(6, 'Claudio', 'Raimundo', 'Claudio', '226B, route d\'Arlon', '8010', 'Strassen', '691462124', '691462124', 'craimundo75@gmail.com', '$2y$10$Pv3CoPJhzIrD2NlfIRLXY.WfeybGGWteZI1W3efM4.MvCzPUPBOaa', NULL, '2016-07-19', NULL, '2', NULL);
+(6, 'Claudio', 'Raimundo', 'Claudio', '226B, route d\'Arlon', '8010', 'Strassen', '691462124', '691462124', 'craimundo75@gmail.com', '$2y$10$Pv3CoPJhzIrD2NlfIRLXY.WfeybGGWteZI1W3efM4.MvCzPUPBOaa', NULL, '2016-07-19', NULL, '2', NULL),
+(7, 'Kcarneiro', 'Dias', 'Adelino', '4, Impasse Bedigem', 'L-9160', 'Ingeldorf', '621359937', '', 'kcarneiro74pro@gmail.com', '$2y$10$x/hb3xY31VDIGuV2HP2BOuNNTxfFMuxBeb/KX3zNECCNdAPF80sFe', NULL, '2016-07-20', NULL, '2', NULL);
 
 -- --------------------------------------------------------
 
@@ -3744,7 +3738,7 @@ ALTER TABLE `users_has_sponsors`
 -- AUTO_INCREMENT pour la table `contenus`
 --
 ALTER TABLE `contenus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 --
 -- AUTO_INCREMENT pour la table `contenus_has_galeries`
 --
@@ -3804,7 +3798,7 @@ ALTER TABLE `typ_sponsors`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- Contraintes pour les tables exportées
 --
