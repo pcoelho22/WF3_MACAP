@@ -6,8 +6,8 @@
 if (isset($error)){
     debug($error);
 }
-debug($_POST);
-debug($_FILES);?>
+//debug($_POST);
+//debug($_FILES);?>
 <?php if (isset($vals)): ?>
     <form action="" method="post" enctype="multipart/form-data">
         <label for="titre">Titre</label></br>

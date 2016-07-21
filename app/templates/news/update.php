@@ -1,7 +1,7 @@
 <?php $this->layout('layout', ['title' => 'Modifier une news']) ?>
 
 <?php $this->start('main_content') ?>
-<?php debug($_FILES); ?>
+<?php //debug($_FILES); ?>
 <?php if (isset($newsDetails)):?>
     <form action="" method="post" enctype="multipart/form-data">
         <label for="titre">Titre</label></br>
