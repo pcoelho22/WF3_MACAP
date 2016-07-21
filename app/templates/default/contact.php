@@ -6,6 +6,6 @@
     <input id="adresse" type="text">
     <input id="button" type="button" value="Intinéraire">
 </form>
-<div style="width: 500px; height: 500px;" id="map"></div>
+<div id="map" class=""></div>
 
 <?php $this->stop('main_content') ?>

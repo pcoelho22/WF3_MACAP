@@ -251,3 +251,9 @@ a.youtube:after {
 .btn-default1:hover{
   background-color:#ccc;
 }
+
+/****************Page contact****************/
+#map{
+    width: 600px;
+    height: 600px;
+}
