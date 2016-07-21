@@ -1,4 +1,4 @@
-<?php $this->layout('testApi', ['title' => 'Contact !']) ?>
+<?php $this->layout('layoutContact', ['title' => 'Contact !']) ?>
 
 <?php $this->start('main_content') ?>
 <h2>Nous contacter.</h2>

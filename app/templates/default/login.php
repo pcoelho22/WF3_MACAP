@@ -28,14 +28,12 @@
 
 		<?php if (isset($erreur)): ?>
 		<div class="col-md-6 text-left">
-			<fieldset class="nolegend">
-			<div class="errordesc">
-				<h4>There are problems with your profile</h4>
-			</div>
-		</div>
+			<div class="form-group">
+				<textarea class="form-control alert-message error" rows="3" id="comment"></textarea>
+            	<p>This is an alert box<a href="" class="close">&times;</a>
+            </div>
+      	</div>
 		<?php endif; ?>
 	</div>
-
-
 
 <?php $this->stop('main_content') ?>
