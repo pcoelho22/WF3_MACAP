@@ -79,7 +79,6 @@
 
     <div class="navbar navbar-default" role="navigation">
         <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
                     <span class="sr-only">Toggle navigation</span>
@@ -110,8 +109,8 @@
                     <li><a href="#">CHARITÉ</a></li>
                     <li><a href="#">ABOUT US</a></li>
                 </ul>
-            </div><!--/.nav-collapse -->
-        </div> <!-- /.container -->
+            </div>
+        </div>
     </div>
 </header>
 
