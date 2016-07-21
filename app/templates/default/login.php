@@ -9,7 +9,7 @@
 			<form action="#" method="POST" role="form">
 				<div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
-                    <input id="usernameOrEmail" type="text" name="userName" value="" required="" placeholder="username or email" class="form-control text-left">
+                    <input id="usernameOrEmail" type="text" name="usernameOrEmail" value="" required="" placeholder="username or email" class="form-control text-left">
                 </div>
                 <span class="help-block"></span>
 				<div class="input-group">
