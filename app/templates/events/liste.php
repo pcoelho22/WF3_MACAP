@@ -2,7 +2,6 @@
 
 <?php $this->start('main_content') ?>
 	<h2>Liste de events</h2>
-
 	<div class="row">
 		<div class="col-md-12 text-left">
 			<?php foreach ($eventsListe as $key => $value) : ?>

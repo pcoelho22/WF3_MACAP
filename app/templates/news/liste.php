@@ -10,6 +10,10 @@
 						<a href="<?= $this->url('news_add') ?>"><button class="btn btn-default btn-sm" >Ajouter une news</button></a>
 					</li>
 					<li  class="list-group-item">
+						<img width="120px" heigth="120px" src="<?= $value['con_avatar']?>">
+						<div class="detailsTitleevents"><?= $value['con_title']?>
+					</li>
+					<li class="list-group-item">
 						<a href="<?= $this->url('news_newsDetails',['id'=>$value['id']]) ?>"><?= $value['con_type'].'<br/> '.$value['con_title'].'<br/> '.$value['con_synopsis']?></a>
 					</li>
 					<li class="list-group-item">

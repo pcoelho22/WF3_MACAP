@@ -38,10 +38,12 @@ class EventsController extends Controller {
         $this->show('events/eventsDetails',['eventsId' => $eventsDetailsId, 'eventsIdGaleires' => $eventsIdGaleires]);
     }
     public function add(){
+        $this->allowTo('2');
         $this->show('events/add');
     }
 
     public function addVal(){
+        $this->allowTo('2');
         $eventsManager = new EventsManager();
 
         $string = StringUtils::randomString(10);
@@ -167,6 +169,7 @@ class EventsController extends Controller {
     }
 
     public function deleteConfirmation($id){
+        $this->allowTo('2');
 
         $eventsManager = new EventsManager();
         $eventsDetailsId = $eventsManager->find($id);
@@ -175,6 +178,7 @@ class EventsController extends Controller {
     }
    
     public function delete($id){
+        $this->allowTo('2');
 
         $eventsManager = new EventsManager();
         $eventsManager->delete($id);
@@ -183,6 +187,7 @@ class EventsController extends Controller {
     }
 
     public function update($id){
+        $this->allowTo('2');
 
         $eventsManager = new EventsManager();
         $eventsDetailsId = $eventsManager->find($id);
@@ -191,6 +196,7 @@ class EventsController extends Controller {
     }
 
     public function updateVal($id){
+        $this->allowTo('2');
         $eventsManager = new EventsManager();
 
         $titreVal = false;
