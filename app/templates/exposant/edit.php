@@ -107,7 +107,6 @@
 
     <?php elseif(isset($values)): ?>
 
-
     <form action="" method="post" enctype="multipart/form-data" role="form">
         <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
