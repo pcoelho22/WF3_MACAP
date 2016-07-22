@@ -53,6 +53,9 @@ $w_routes = array(
     ["POST", "/reportages/add", "Reportages#addVal", "reportages_addval"],
 
     ["GET", "/magazine/", "Magazine#liste", "magazine_liste"],
+    ["GET", "/magazine/add", "Magazine#add", "magazine_add"],
+    ["GET", "/magazine/update/[i:id]", "Magazine#update", "magazine_update"],
+    ["GET", "/magazine/delete/[i:id]", "Magazine#delete", "magazine_delete"],
     
     ["GET", "/exposant/add", "Exposant#add", "exposant_add"],
     ["POST", "/exposant/add", "Exposant#addVal", "exposant_addval"],
@@ -88,5 +91,9 @@ $w_routes = array(
     ["POST", "/user/edit/[i:id]", "User#adminEditVal", "user_admin_editval"],
     ["GET", "/user/edit/", "User#edit", "user_edit"],
     ["POST", "/user/edit/", "User#editVal", "user_editval"],
+
+    ["GET", "/charite/", "Default#charite", "default_charite"],
+
+    ["GET", "/aboutUs/", "Default#aboutUs", "default_aboutus"],
 
 );
