@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost
--- Généré le :  Ven 22 Juillet 2016 à 14:19
+-- Généré le :  Ven 22 Juillet 2016 à 14:27
 -- Version du serveur :  5.7.13-log
 -- Version de PHP :  5.6.21
 
@@ -30,8 +30,8 @@ CREATE TABLE `contenus` (
   `id` int(11) NOT NULL,
   `con_type` varchar(45) NOT NULL,
   `con_title` varchar(45) NOT NULL,
-  `con_dateStart` varchar(45) NOT NULL,
-  `con_dateEnd` varchar(45) NOT NULL,
+  `con_date_start` varchar(45) NOT NULL,
+  `con_date_end` varchar(45) NOT NULL,
   `con_synopsis` varchar(45) NOT NULL,
   `con_description` text,
   `con_avatar` varchar(150) NOT NULL,
@@ -45,7 +45,7 @@ CREATE TABLE `contenus` (
 -- Contenu de la table `contenus`
 --
 
-INSERT INTO `contenus` (`id`, `con_type`, `con_title`, `con_dateStart`, `con_dateEnd`, `con_synopsis`, `con_description`, `con_avatar`, `con_gallery`, `users_id`, `users_role_id`, `contenus_type_id`) VALUES
+INSERT INTO `contenus` (`id`, `con_type`, `con_title`, `con_date_start`, `con_date_end`, `con_synopsis`, `con_description`, `con_avatar`, `con_gallery`, `users_id`, `users_role_id`, `contenus_type_id`) VALUES
 (2, 'News', 'Test Patrick Modifiééééé', '', '', 'Test petite phrase modifié', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\nLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '/patrickPHP/WF3_MACAP/public/upload/news/logo1.jpg', 'patrick', 1, 2, 1),
 (4, 'Events', 'Sueca - sobe e desce - Poker', '', '', 'Comes e bebes à parte', 'Comes e bebes à parte zerzerzzerzer azerzae', '/patrickPHP/WF3_MACAP/public/upload/events/02.jpg', NULL, 2, 2, 3),
 (21, 'Reportages', 'Nova rep', '', '', 'pequena reportagem', 'GRANDE REPORTAGEM', '/patrickPHP/WF3_MACAP/public/upload/reportages/logo1.jpg', NULL, 1, 1, 2),
