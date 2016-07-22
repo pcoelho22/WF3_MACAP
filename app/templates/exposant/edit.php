@@ -178,7 +178,7 @@
             <input id="url" type="text" name="url" value="<?= $values['exp_url'] ?>" placeholder="Site web de l'exposant" class="form-control text-left">
         </div>
         <span class="help-block"></span>
-        <h5><strong>Veuillez sélectionner une photo à ajouter à votre profil.</strong></h5>
+        <h5><strong>Veuillez sélectionner une photo à ajouter à votre profil (optionnel).</strong></h5>
         <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-picture-o fa-fw"></i></span>
             <input id="avatar" type="file" name="avatar" class="form-control text-left">
