@@ -31,12 +31,13 @@ class ReportagesController extends Controller {
     }
 
     public function add(){
+        $this->allowTo('2');
         $this->show('reportages/add');
     }
 
     public function addVal(){
+        $this->allowTo('2');
         $reportagesManager = new ReportagesManager();
-
         $string = StringUtils::randomString(10);
         $string2 = StringUtils::randomString(10);
 
@@ -155,7 +156,7 @@ class ReportagesController extends Controller {
     }
 
     public function deleteConfirmation($id){
-
+        $this->allowTo('2');
         $reportagesmanager = new ReportagesManager();
         $reportagesDetailsId = $reportagesmanager->find($id);
         //debug($reportagesDetailsId);
@@ -163,7 +164,7 @@ class ReportagesController extends Controller {
     }
    
     public function delete($id){
-
+        $this->allowTo('2');
         $reportagesmanager = new ReportagesManager();
         $reportagesmanager->delete($id);
             
@@ -171,7 +172,7 @@ class ReportagesController extends Controller {
     }
 
     public function update($id){
-
+        $this->allowTo('2');
         $reportagesManager = new ReportagesManager();
         $reportagesDetailsId = $reportagesManager->find($id);
 
@@ -179,8 +180,8 @@ class ReportagesController extends Controller {
     }
 
     public function updateVal($id){
+        $this->allowTo('2');
         $reportagesManager = new ReportagesManager();
-
         $titreVal = false;
         $dateDebutVal = false;
         $dateFinVal = false;
