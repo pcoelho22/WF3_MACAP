@@ -9,8 +9,12 @@
 					<li class="list-group-item">
 						<a href="<?= $this->url('events_add') ?>"><button class="btn btn-default btn-sm" >Ajouter une news</button></a>
 					</li>
+					<li class="list-group-item">
+						<img width="120px" heigth="120px" src="<?= $value['con_avatar']?>">
+						<div class="detailsTitleevents"><?= $value['con_title']?>
+					</li>
 					<li  class="list-group-item">
-						<a href="<?= $this->url('events_eventsDetails',['id'=>$value['id']]) ?>"><?= $value['con_title'].'<br/> '.$value['con_synopsis'].'<br/> '.$value['con_synopsis']?></a>
+						<a href="<?= $this->url('events_eventsDetails',['id'=>$value['id']]) ?>">Title: <?= $value['con_title'].'<br/> '.'Synopsis: '.$value['con_synopsis']?></a>
 					</li>
 					<li class="list-group-item">
 						<a  href="<?= $this->url('events_update', ['id'=>$value['id']]) ?>"><button class="btn btn-default btn-sm">Modifier</button></a>
