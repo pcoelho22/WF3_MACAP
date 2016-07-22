@@ -20,7 +20,7 @@ class DefaultController extends Controller {
 
 
     public function confirmation(){
-    	$this show ('default_confirmation');
+    	$this->show ('default_confirmation');
     }
 
     public function allowTo($roles){
