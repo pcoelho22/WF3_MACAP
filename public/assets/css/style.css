@@ -243,6 +243,18 @@ a.youtube:after {
   padding-top: auto;
   display: inline;
 }
+.detailsTitleevents{
+  color:#11639b;
+  font-size: 48px;
+  font-weight: bold;
+
+  position: absolute;
+
+  padding-top: auto;
+  margin-top: 30px;
+  margin-left: 30px;
+  display: inline;
+}
 @media screen and (max-width: 600px) {
   .detailsTitle{font-size: 32px;}
 }
