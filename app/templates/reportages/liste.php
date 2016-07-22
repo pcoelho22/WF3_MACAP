@@ -16,7 +16,7 @@
 						</li>
 						<li class="list-group-item">
 							<a  href="<?= $this->url('reportages_update', ['id'=>$value['id']]) ?>"><button class="btn btn-default btn-sm">Modifier</button></a>
-							<a  href="<?= $this->url('reportages_delete', ['id'=>$value['id']]) ?>"><button class="btn btn-default btn-sm">Delete</button></a>
+							<a  href="<?= $this->url('reportages_deleteConfirmation', ['id'=>$value['id']]) ?>"><button class="btn btn-default btn-sm">Delete</button></a>
 						</li>
 					</ul>
 			<?php endforeach ?>
