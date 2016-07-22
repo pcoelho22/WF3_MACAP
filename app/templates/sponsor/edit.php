@@ -72,13 +72,13 @@
                 <input id="url" type="text" name="url" value="<?= $vals['spo_url'] ?>" placeholder="Site web du sponsor" class="form-control text-left">
             </div>
             <span class="help-block"></span>
-            <h5><strong>Veuillez sélectionner une photo à ajouter à votre profil.</strong></h5>
+            <h5><strong>Veuillez sélectionner une photo à ajouter à votre profil (optionnel).</strong></h5>
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-picture-o fa-fw"></i></span>
                 <input id="avatar" type="file" name="avatar" class="form-control text-left">
             </div>
             <span class="help-block"></span>
-            <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Sponsor" href="#"><i class="fa fa-user fa-fw"></i> Editer un sponsor</button>
+            <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Sponsor" href="#"><i class="fa fa-user fa-fw"></i> Editer Sponsor</button>
             <br>
             <h4>Une fois l'édition validée, vous serez redirigé vers la page d'accueil.</h4>
         </form>
@@ -166,13 +166,13 @@
             <input id="url" type="text" name="url" value="<?= $values['spo_url'] ?>" placeholder="Site web du sponsor" class="form-control text-left">
         </div>
         <span class="help-block"></span>
-        <h5><strong>Veuillez sélectionner une photo à ajouter à votre profil.</strong></h5>
+        <h5><strong>Veuillez sélectionner une photo à ajouter à votre profil (optionnel).</strong></h5>
         <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-picture-o fa-fw"></i></span>
             <input id="avatar" type="file" name="avatar" class="form-control text-left">
         </div>
         <span class="help-block"></span>
-        <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Sponsor" href="#"><i class="fa fa-user fa-fw"></i> Editer un sponsor</button>
+        <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Sponsor" href="#"><i class="fa fa-user fa-fw"></i> Editer Sponsor</button>
         <br>
         <h4>Une fois l'édition validée, vous serez redirigé vers la page d'accueil.</h4>
     </form>
