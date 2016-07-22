@@ -29,7 +29,6 @@
 
 </head>
 <body>
-<!-- <?php debug($_SESSION); ?> -->
 <header>
     <div class="container">
         <div class="row">
@@ -56,6 +55,7 @@
                             <a href="<?= $this->url('user_login')?>"><button type="button" class="btn btn-default btn-sm"><span class="fa fa-sign-in" aria-hidden="true"></span> Login</button></a>
                         </li>
                     </ul>
+                    <a href="<?= $this->url('default_contact')?>"><button type="button" class="btn btn-default btn-sm"><span class="fa fa-phone" aria-hidden="true"></span> Nous contacter</button></a>
                 <?php else: ?>
                     <div class="no-margin-top small">
                         <ul class="list-inline no-margin-top small">
@@ -68,8 +68,7 @@
                                 <a class="btn btn-link btn-md" href="<?= $this->url('user_logout')?>"><span class="fa fa-power-off" aria-hidden="true"></span> Se déconnecter</a>
                             </li>
                         </ul>
-
-
+                        <a href="<?= $this->url('default_contact')?>"><button type="button" class="btn btn-default btn-sm"><span class="fa fa-phone" aria-hidden="true"></span> Nous contacter</button></a>
                     </div>
 
                 <?php endif; ?>
@@ -125,7 +124,7 @@
             <div class="col-sm-4 text-center">
                 <br>
                 <ul class="list-inline small">
-                    <li><a href="" class="link-internal grey small"><button type="button" class="btn btn-default btn-sm"><span class="fa fa-home" aria-hidden="true"></span> Home</button></a></li>
+                    <li><a href="" class="link-internal grey small"><button type="button" class="btn btn-default btn-sm"><span class="fa fa-home" aria-hidden="true"></span> Top</button></a></li>
                 </ul>
             </div>
 

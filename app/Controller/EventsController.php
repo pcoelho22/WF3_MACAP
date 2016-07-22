@@ -166,18 +166,19 @@ class EventsController extends Controller {
         }
     }
 
-    public function delete($id){
+    public function deleteConfirmation($id){
 
-        $contenuHasGaleriesManager = new ContenuHasGaleriesManager();
-        $contenuHasGaleriesManager->delete($id);
-        debug($contenuHasGaleriesManager);
+        $eventsManager = new EventsManager();
+        $eventsDetailsId = $eventsManager->find($id);
+        //debug($eventsDetailsId);
+        $this->show('default/confirmation', ['eventsDetails' => $eventsDetailsId]);
+    }
+   
+    public function delete($id){
 
         $eventsManager = new EventsManager();
         $eventsManager->delete($id);
-        debug($eventsManager);
-
-
-
+              
         $this->redirectToRoute('events_liste');
     }
 

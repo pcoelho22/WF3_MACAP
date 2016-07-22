@@ -154,11 +154,19 @@ class ReportagesController extends Controller {
         }
     }
 
+    public function deleteConfirmation($id){
+
+        $reportagesmanager = new ReportagesManager();
+        $reportagesDetailsId = $reportagesmanager->find($id);
+        //debug($reportagesDetailsId);
+        $this->show('default/confirmation', ['reportagesDetails' => $reportagesDetailsId]);
+    }
+   
     public function delete($id){
 
-        $reportagesManager = new ReportagesManager();
-        $reportagesManager->delete($id);
-
+        $reportagesmanager = new ReportagesManager();
+        $reportagesmanager->delete($id);
+            
         $this->redirectToRoute('reportages_liste');
     }
 

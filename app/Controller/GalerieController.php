@@ -91,11 +91,19 @@ class GalerieController extends Controller {
         }
     }
 
+    public function deleteConfirmation($id){
+
+        $galerieManager = new GalerieManager();
+        $galerieDetailsId = $galerieManager->find($id);
+        //debug($galerieDetailsId);
+        $this->show('default/confirmation', ['galerieDetails' => $galerieDetailsId]);
+    }
+   
     public function delete($id){
 
         $galerieManager = new GalerieManager();
         $galerieManager->delete($id);
-
+              
         $this->redirectToRoute('galerie_liste');
     }
 
