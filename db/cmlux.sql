@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost
--- Généré le :  Ven 22 Juillet 2016 à 14:19
+-- Généré le :  Ven 22 Juillet 2016 à 15:49
 -- Version du serveur :  5.7.13-log
 -- Version de PHP :  5.6.21
 
@@ -30,9 +30,9 @@ CREATE TABLE `contenus` (
   `id` int(11) NOT NULL,
   `con_type` varchar(45) NOT NULL,
   `con_title` varchar(45) NOT NULL,
-  `con_dateStart` varchar(45) NOT NULL,
-  `con_dateEnd` varchar(45) NOT NULL,
-  `con_synopsis` varchar(45) NOT NULL,
+  `con_date_start` varchar(45) DEFAULT NULL,
+  `con_date_end` varchar(45) DEFAULT NULL,
+  `con_synopsis` varchar(200) NOT NULL,
   `con_description` text,
   `con_avatar` varchar(150) NOT NULL,
   `con_gallery` varchar(45) DEFAULT NULL,
@@ -45,11 +45,12 @@ CREATE TABLE `contenus` (
 -- Contenu de la table `contenus`
 --
 
-INSERT INTO `contenus` (`id`, `con_type`, `con_title`, `con_dateStart`, `con_dateEnd`, `con_synopsis`, `con_description`, `con_avatar`, `con_gallery`, `users_id`, `users_role_id`, `contenus_type_id`) VALUES
-(2, 'News', 'Test Patrick Modifiééééé', '', '', 'Test petite phrase modifié', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\nLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '/patrickPHP/WF3_MACAP/public/upload/news/logo1.jpg', 'patrick', 1, 2, 1),
-(4, 'Events', 'Sueca - sobe e desce - Poker', '', '', 'Comes e bebes à parte', 'Comes e bebes à parte zerzerzzerzer azerzae', '/patrickPHP/WF3_MACAP/public/upload/events/02.jpg', NULL, 2, 2, 3),
-(21, 'Reportages', 'Nova rep', '', '', 'pequena reportagem', 'GRANDE REPORTAGEM', '/patrickPHP/WF3_MACAP/public/upload/reportages/logo1.jpg', NULL, 1, 1, 2),
-(39, 'News', 'noticia teste', '', '', 'bbebebebebe', 'hkzherozehruzehfouusdhfushdfqshsduqhiguhdqipfghdfpiughdfhgmdfhgpoh ohfgpouqhd piurehgodfhg opdroughq eoeghqdrpog hpdofgh pdofgh pordq', '/upload/default/avatar.png', NULL, 1, 1, 1);
+INSERT INTO `contenus` (`id`, `con_type`, `con_title`, `con_date_start`, `con_date_end`, `con_synopsis`, `con_description`, `con_avatar`, `con_gallery`, `users_id`, `users_role_id`, `contenus_type_id`) VALUES
+(2, 'News', 'Test Patrick Modifiééééé', '01/01/2016', '01/01/2016', 'Test petite phrase modifié', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\nLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '/patrickPHP/WF3_MACAP/public/upload/news/logo1.jpg', 'patrick', 1, 2, 1),
+(4, 'Events', 'Sueca - sobe e desce - Poker', '2016-07-07', '2016-07-22', 'Comes e bebes à parte', 'Comes e bebes à parte zerzerzzerzer azerzae', '/patrickPHP/WF3_MACAP/public/upload/events/02.jpg', NULL, 2, 2, 3),
+(21, 'Reportages', 'Nova rep', '01/01/2016', '01/01/2016', 'pequena reportagem', 'GRANDE REPORTAGEM', '/patrickPHP/WF3_MACAP/public/upload/reportages/logo1.jpg', NULL, 1, 1, 2),
+(39, 'News', 'noticia teste', '01/01/2016', '01/01/2016', 'bbebebebebe', 'hkzherozehruzehfouusdhfushdfqshsduqhiguhdqipfghdfpiughdfhgmdfhgpoh ohfgpouqhd piurehgodfhg opdroughq eoeghqdrpog hpdofgh pdofgh pordq', '/upload/default/avatar.png', NULL, 1, 1, 1),
+(40, 'Events', 'Luxembourg Grand Tour Casino 2000', '27/08/2016 00:00:00', '27/08/2015 00:00:00', 'Rally au départ du Casino 2000 à Mondorf les Bains', 'Inscription\n07:00 - 08:30\nGalerie CASINO 2000\nRue Th. Flammang, L-5618 Mondorf-Les-Bains;\n\nDépart Etape 1\n08:30 - 09h30\nDépart du 1er concurrent, Etape 1\nGalerie CASINO 2000\nRue Th. Flammang, L-5618 Mondorf-Les-Bains;', '/patrickPHP/WF3_MACAP/public/upload/events/rally2016.jpg', NULL, 2, 2, 3);
 
 -- --------------------------------------------------------
 
@@ -3397,8 +3398,8 @@ CREATE TABLE `sponsors` (
   `id` int(11) NOT NULL,
   `spo_name_sponsors` varchar(45) NOT NULL,
   `spo_name_in_charge` varchar(45) NOT NULL,
-  `spo_firs_name_in_charge` varchar(45) NOT NULL,
-  `spo_adress` varchar(45) NOT NULL,
+  `spo_first_name_in_charge` varchar(45) NOT NULL,
+  `spo_address` varchar(45) NOT NULL,
   `spo_city` varchar(45) NOT NULL,
   `spo_post_code` varchar(45) NOT NULL,
   `spo_country` varchar(45) NOT NULL,
@@ -3757,7 +3758,7 @@ ALTER TABLE `users_has_sponsors`
 -- AUTO_INCREMENT pour la table `contenus`
 --
 ALTER TABLE `contenus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 --
 -- AUTO_INCREMENT pour la table `contenus_has_galeries`
 --
