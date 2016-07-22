@@ -1,4 +1,4 @@
-<?php $this->layout('layout', ['title' => 'Crée une galerie']) ?>
+<?php $this->layout('layout', ['title' => 'Créer une galerie']) ?>
 
 <?php $this->start('main_content') ?>
 <h2>Crée une galerie</h2>
