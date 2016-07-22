@@ -85,4 +85,8 @@ $w_routes = array(
     ["GET", "/user/edit/", "User#edit", "user_edit"],
     ["POST", "/user/edit/", "User#editVal", "user_editval"],
 
+    ["GET", "/charite/", "Default#charite", "default_charite"],
+
+    ["GET", "/aboutUs/", "Default#aboutUs", "default_aboutus"],
+
 );

@@ -279,8 +279,13 @@ a.youtube:after {
 
 /****************Page contact****************/
 #map{
-    width: 600px;
-    height: 600px;
+    width: 300px;
+    height: 300px;
+}
+
+#mapStatic{
+    width: 300px;
+    height: 300px;
 }
 
 .avatar{
