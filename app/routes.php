@@ -19,7 +19,8 @@ $w_routes = array(
     ["GET|POST", "/galerie/[i:id]/", "Galerie#photos", "galerie_photos"],
     ["GET", "/galerie/update/[i:id]", "Galerie#update", "galerie_update"],
     ["POST", "/galerie/update/[i:id]", "Galerie#updateVal", "galerie_updateval"],
-    ["GET", "/galerie/delete/[i:id]", "Galerie#delete", "galerie_delete"],
+    ["GET", "/galerie/delete/[i:id]", "Galerie#deleteConfirmation", "galerie_deleteConfirmation"],
+    ["GET|POST", "/galerie/deleteConfirmation/[i:id]", "Galerie#delete", "galerie_delete"],
     ["GET", "/galerie/add", "Galerie#add", "galerie_add"],
     ["POST", "/galerie/add", "Galerie#addVal", "galerie_addval"],
     
@@ -28,7 +29,8 @@ $w_routes = array(
     
     ["GET", "/events/update/[i:id]", "Events#update", "events_update"],
     ["POST", "/events/update/[i:id]", "Events#updateVal", "events_updateval"],
-    ["GET", "/events/delete/[i:id]", "Events#delete", "events_delete"],
+    ["GET", "/events/delete/[i:id]", "Events#deleteConfirmation", "events_deleteConfirmation"],
+    ["GET|POST", "/events/deleteConfirmation/[i:id]", "Events#delete", "events_delete"],
     ["GET", "/events/add", "Events#add", "events_add"],
     ["POST", "/events/add", "Events#addVal", "events_addval"],
 
@@ -36,7 +38,8 @@ $w_routes = array(
     ["GET|POST", "/news/[i:id]", "News#newsDetails", "news_newsDetails"],
     ["GET", "/news/update/[i:id]", "News#update", "news_update"],
     ["POST", "/news/update/[i:id]", "News#updateVal", "news_updateval"],
-    ["GET", "/news/delete/[i:id]", "News#delete", "news_delete"],
+    ["GET", "/news/delete/[i:id]", "News#deleteConfirmation", "news_deleteConfirmation"],
+    ["GET|POST", "/news/deleteConfirmation/[i:id]", "News#delete", "news_delete"],
     ["GET", "/news/add", "News#add", "news_add"],
     ["POST", "/news/add", "News#addVal", "news_addval"],
 
@@ -44,7 +47,8 @@ $w_routes = array(
     ["GET|POST", "/reportages/[i:id]", "Reportages#reportagesDetails", "reportages_reportagesDetails"],
     ["GET", "/reportages/update/[i:id]", "Reportages#update", "reportages_update"],
     ["POST", "/reportages/update/[i:id]", "Reportages#updateVal", "reportages_updateval"],
-    ["GET", "/reportages/delete/[i:id]", "Reportages#delete", "reportages_delete"],
+    ["GET", "/reportages/delete/[i:id]", "Reportages#deleteConfirmation", "reportages_deleteConfirmation"],
+    ["GET|POST", "/reportages/deleteConfirmation/[i:id]", "Reportages#delete", "reportages_delete"],
     ["GET", "/reportages/add", "Reportages#add", "reportages_add"],
     ["POST", "/reportages/add", "Reportages#addVal", "reportages_addval"],
 
@@ -65,7 +69,7 @@ $w_routes = array(
     ["POST", "/participant/edit/[i:id]", "Participant#adminEditVal", "participant_admin_editval"],
     ["GET", "/participant/edit/", "Participant#edit", "participant_edit"],
     ["POST", "/participant/edit/", "Participant#editVal", "participant_editval"],
-    ["GET", "/particpant/delete/[i:id]", "Participant#delete", "participant_delete"],
+    ["GET", "/participant/delete/[i:id]", "Participant#delete", "participant_delete"],
     
     ["GET", "/sponsor/", "Sponsor#liste", "sponsor_liste"],
     ["GET", "/sponsor/add", "Sponsor#add", "sponsor_add"],

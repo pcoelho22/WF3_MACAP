@@ -7,7 +7,7 @@
 		<?php foreach ($eventsListe as $key => $value) : ?>
 			<li><a href="<?= $this->url('events_eventsDetails',['id'=>$value['id']]) ?>"><?= $value['con_title'].'<br/>'.$value['con_synopsis']?></a></li><br/>
 			<a href="<?= $this->url('events_update', ['id'=>$value['id']]) ?>"><button>Modifier</button></a>
-			<a href="<?= $this->url('events_delete', ['id'=>$value['id']]) ?>"><button>Delete</button></a>
+			<a href="<?= $this->url('events_deleteConfirmation', ['id'=>$value['id']]) ?>"><button>Delete</button></a>
 		<?php endforeach ?>
 	</ul>
 	
