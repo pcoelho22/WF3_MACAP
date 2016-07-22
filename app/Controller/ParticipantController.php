@@ -29,7 +29,7 @@ class ParticipantController extends Controller {
         
         $lastNameVal = false;
         $firstNameVal = false;
-        $adressVal = false;
+        $addressVal = false;
         $cityVal = false;
         $zipVal = false;
         $countryVal = false;
@@ -39,7 +39,7 @@ class ParticipantController extends Controller {
         
         $lastName = isset($_POST['lastName']) ? trim(strip_tags($_POST['lastName'])) : '';
         $firstName = isset($_POST['firstName']) ? trim(strip_tags($_POST['firstName'])) : '';
-        $adress = isset($_POST['adress']) ? trim(strip_tags($_POST['adress'])) : '';
+        $address = isset($_POST['address']) ? trim(strip_tags($_POST['address'])) : '';
         $city = isset($_POST['city']) ? trim(strip_tags($_POST['city'])) : '';
         $zip = isset($_POST['postCode']) ? trim(strip_tags($_POST['postCode'])) : '';
         $country = isset($_POST['country']) ? trim(strip_tags($_POST['country'])) : '';
@@ -71,13 +71,13 @@ class ParticipantController extends Controller {
             $vals['firstName'] = '';
         }
 
-        if (strlen($adress) >= 5) {
-            $adressVal = true;
-            $vals['adress'] = $adress;
+        if (strlen($address) >= 5) {
+            $addressVal = true;
+            $vals['address'] = $address;
         }
         else{
-            $error[] = "veuillez indiquez l'adresse de l'exposant";
-            $vals['adress'] = '';
+            $error[] = "veuillez indiquez l'addresse de l'exposant";
+            $vals['address'] = '';
         }
         
         if (strlen($city) >= 5) {
@@ -132,12 +132,12 @@ class ParticipantController extends Controller {
             $vals['email'] = '';
         }
 
-        if ($lastNameVal && $firstNameVal && $adressVal && $cityVal && $zipVal && $countryVal && $phoneVal && $emailVal){
+        if ($lastNameVal && $firstNameVal && $addressVal && $cityVal && $zipVal && $countryVal && $phoneVal && $emailVal){
             $userId = $participantManager->getUserId($email);
             if ($participantManager->insert([
                     'par_name' => $lastName,
                     'par_first_name' => $firstName,
-                    'par_address' => $adress,
+                    'par_address' => $address,
                     'par_city' => $city,
                     'par_post_code' => $zip,
                     'par_country' => $country,
@@ -177,7 +177,7 @@ class ParticipantController extends Controller {
         $extensionAutorisees = array('jpg', 'jpeg', 'png', 'gif');
         $lastNameVal = false;
         $firstNameVal = false;
-        $adressVal = false;
+        $addressVal = false;
         $cityVal = false;
         $zipVal = false;
         $countryVal = false;
@@ -188,7 +188,7 @@ class ParticipantController extends Controller {
         
         $lastName = isset($_POST['lastName']) ? trim(strip_tags($_POST['lastName'])) : '';
         $firstName = isset($_POST['firstName']) ? trim(strip_tags($_POST['firstName'])) : '';
-        $adress = isset($_POST['adress']) ? trim(strip_tags($_POST['adress'])) : '';
+        $address = isset($_POST['address']) ? trim(strip_tags($_POST['address'])) : '';
         $city = isset($_POST['city']) ? trim(strip_tags($_POST['city'])) : '';
         $zip = isset($_POST['postCode']) ? trim(strip_tags($_POST['postCode'])) : '';
         $country = isset($_POST['country']) ? trim(strip_tags($_POST['country'])) : '';
@@ -223,12 +223,12 @@ class ParticipantController extends Controller {
             $vals['firstName'] = '';
         }
 
-        if (strlen($adress) >= 5) {
-            $adressVal = true;
-            $vals['address'] = $adress;
+        if (strlen($address) >= 5) {
+            $addressVal = true;
+            $vals['address'] = $address;
         }
         else{
-            $error[] = "veuillez indiquez l'adresse de l'exposant";
+            $error[] = "veuillez indiquez l'addresse de l'exposant";
             $vals['address'] = '';
         }
         
@@ -315,12 +315,12 @@ class ParticipantController extends Controller {
         }*/
 
 
-        if ($lastNameVal && $firstNameVal && $adressVal && $cityVal && $zipVal && $countryVal && $phoneVal && $emailVal && $photoVal){
+        if ($lastNameVal && $firstNameVal && $addressVal && $cityVal && $zipVal && $countryVal && $phoneVal && $emailVal && $photoVal){
 
             if ($participantManager->update([
                 'par_name' => $lastName, 
                 'par_first_name' => $firstName, 
-                'par_address' => $adress,
+                'par_address' => $address,
                 'par_city' => $city, 
                 'par_post_code' => $zip, 
                 'par_country' => $country, 
@@ -355,7 +355,7 @@ class ParticipantController extends Controller {
         $extensionAutorisees = array('jpg', 'jpeg', 'png', 'gif');
         $lastNameVal = false;
         $firstNameVal = false;
-        $adressVal = false;
+        $addressVal = false;
         $cityVal = false;
         $zipVal = false;
         $countryVal = false;
@@ -366,7 +366,7 @@ class ParticipantController extends Controller {
 
         $lastName = isset($_POST['lastName']) ? trim(strip_tags($_POST['lastName'])) : '';
         $firstName = isset($_POST['firstName']) ? trim(strip_tags($_POST['firstName'])) : '';
-        $adress = isset($_POST['adress']) ? trim(strip_tags($_POST['adress'])) : '';
+        $address = isset($_POST['address']) ? trim(strip_tags($_POST['address'])) : '';
         $city = isset($_POST['city']) ? trim(strip_tags($_POST['city'])) : '';
         $zip = isset($_POST['postCode']) ? trim(strip_tags($_POST['postCode'])) : '';
         $country = isset($_POST['country']) ? trim(strip_tags($_POST['country'])) : '';
@@ -401,12 +401,12 @@ class ParticipantController extends Controller {
             $vals['firstName'] = '';
         }
 
-        if (strlen($adress) >= 5) {
-            $adressVal = true;
-            $vals['address'] = $adress;
+        if (strlen($address) >= 5) {
+            $addressVal = true;
+            $vals['address'] = $address;
         }
         else{
-            $error[] = "veuillez indiquez l'adresse de l'exposant";
+            $error[] = "veuillez indiquez l'addresse de l'exposant";
             $vals['address'] = '';
         }
 
@@ -493,12 +493,12 @@ class ParticipantController extends Controller {
         }*/
 
 
-        if ($lastNameVal && $firstNameVal && $adressVal && $cityVal && $zipVal && $countryVal && $phoneVal && $emailVal && $photoVal){
+        if ($lastNameVal && $firstNameVal && $addressVal && $cityVal && $zipVal && $countryVal && $phoneVal && $emailVal && $photoVal){
 
             if ($participantManager->update([
                 'par_name' => $lastName,
                 'par_first_name' => $firstName,
-                'par_address' => $adress,
+                'par_address' => $address,
                 'par_city' => $city,
                 'par_post_code' => $zip,
                 'par_country' => $country,

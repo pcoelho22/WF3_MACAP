@@ -1,7 +1,7 @@
 <?php $this->layout('layout', ['title' => 'Ajouter un participant']) ?>
 
 <?php $this->start('main_content') ?>
-<h1>Ajout participant</h1>
+<h1>Ajouter un participant</h1>
 <div class="row">
 
     <div class="col-md-7 text-left">
@@ -20,7 +20,7 @@
             <span class="help-block"></span>
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-road fa-fw" aria-hidden="true"></i></span>
-                <input id="adress" type="text" name="adress" value="<?= $vals['adress'] ?>" placeholder="N° et rue" class="form-control text-left">
+                <input id="address" type="text" name="address" value="<?= $vals['address'] ?>" placeholder="N° et rue" class="form-control text-left">
             </div>
             <span class="help-block"></span>
             <div class="input-group">
@@ -75,57 +75,57 @@
 
     <?php else: ?>
 
-        <form action="" method="post" role="form">
-            <span class="help-block"></span>
-            <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
-                <input id="lastname" type="text" name="lastName" value="" required="" placeholder="Nom" class="form-control text-left">
-            </div>
-            <span class="help-block"></span>
-            <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
-                <input id="firstName" type="text" name="firstName" value="" placeholder="Prénom" class="form-control text-left">
-            </div>
-            <span class="help-block"></span>
-            <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-road fa-fw" aria-hidden="true"></i></span>
-                <input id="adress" type="text" name="adress" value="" placeholder="N° et rue" class="form-control text-left">
-            </div>
-            <span class="help-block"></span>
-            <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-home fa-fw" aria-hidden="true"></i></span>
-                <input id="city" type="text" name="city" value="" placeholder="Ville" class="form-control text-left">
-            </div>
-            <span class="help-block"></span>
-            <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-tags fa-fw" aria-hidden="true"></i></span>
-                <input id="postCode" type="text" name="postCode" value="" placeholder="Code postal" class="form-control text-left">
-            </div>
-            <span class="help-block"></span>
-            <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-globe fa-fw" aria-hidden="true"></i></span>
-                <input id="country" type="text" name="country" value="" placeholder="Pays" class="form-control text-left">
-            </div>
-            <span class="help-block"></span>
-            <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-phone fa-fw" aria-hidden="true"></i></span>
-                <input id="phone" type="text" name="phone" value="" placeholder="N° de téléphone (Format: (00 + Code Pays)+ votre numéro) Ex: 00352-11 11 11 11" class="form-control text-left">
-            </div>
-            <span class="help-block"></span>
-            <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-fax fa-fw" aria-hidden="true"></i></span>
-                <input id="fax" type="text" name="fax" value="" placeholder="N° de Fax (Optionel - Format: (00 + Code Pays)+ votre numéro) Ex: 00352-11 11 11 11" class="form-control text-left">
-            </div>
-            <span class="help-block"></span>
-            <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
-                <input id="email" type="email" name="email" value="" placeholder="Email" class="form-control text-left">
-            </div>
-            <span class="help-block"></span>
-            <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Participant" href="#"><i class="fa fa-user fa-fw"></i> Ajouter Participant</button>
-            <br>
-            <h4>Une fois l'inscription validée, vous serez redirigé vers la page d'accueil.</h4>
-        </form>
+    <form action="" method="post" role="form">
+        <span class="help-block"></span>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
+            <input id="lastname" type="text" name="lastName" value="" required="" placeholder="Nom" class="form-control text-left">
+        </div>
+        <span class="help-block"></span>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
+            <input id="firstName" type="text" name="firstName" value="" placeholder="Prénom" class="form-control text-left">
+        </div>
+        <span class="help-block"></span>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-road fa-fw" aria-hidden="true"></i></span>
+            <input id="address" type="text" name="address" value="" placeholder="N° et rue" class="form-control text-left">
+        </div>
+        <span class="help-block"></span>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-home fa-fw" aria-hidden="true"></i></span>
+            <input id="city" type="text" name="city" value="" placeholder="Ville" class="form-control text-left">
+        </div>
+        <span class="help-block"></span>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-tags fa-fw" aria-hidden="true"></i></span>
+            <input id="postCode" type="text" name="postCode" value="" placeholder="Code postal" class="form-control text-left">
+        </div>
+        <span class="help-block"></span>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-globe fa-fw" aria-hidden="true"></i></span>
+            <input id="country" type="text" name="country" value="" placeholder="Pays" class="form-control text-left">
+        </div>
+        <span class="help-block"></span>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-phone fa-fw" aria-hidden="true"></i></span>
+            <input id="phone" type="text" name="phone" value="" placeholder="N° de téléphone (Format: (00 + Code Pays)+ votre numéro) Ex: 00352-11 11 11 11" class="form-control text-left">
+        </div>
+        <span class="help-block"></span>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-fax fa-fw" aria-hidden="true"></i></span>
+            <input id="fax" type="text" name="fax" value="" placeholder="N° de Fax (Optionel - Format: (00 + Code Pays)+ votre numéro) Ex: 00352-11 11 11 11" class="form-control text-left">
+        </div>
+        <span class="help-block"></span>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+            <input id="email" type="email" name="email" value="" placeholder="Email" class="form-control text-left">
+        </div>
+        <span class="help-block"></span>
+        <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Participant" href="#"><i class="fa fa-user fa-fw"></i> Ajouter Participant</button>
+        <br>
+        <h4>Une fois l'inscription validée, vous serez redirigé vers la page d'accueil.</h4>
+    </form>
 
     <?php endif; ?>
 </div>

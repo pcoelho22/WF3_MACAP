@@ -1,4 +1,4 @@
-<?php $this->layout('layout', ['title' => 'Se crée un compte']) ?>
+<?php $this->layout('layout', ['title' => 'Créer un compte']) ?>
 
 <?php $this->start('main_content') ?>
 
