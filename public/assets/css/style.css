@@ -243,6 +243,18 @@ a.youtube:after {
   padding-top: auto;
   display: inline;
 }
+.detailsTitleevents{
+  color:#11639b;
+  font-size: 48px;
+  font-weight: bold;
+
+  position: absolute;
+
+  padding-top: auto;
+  margin-top: 30px;
+  margin-left: 30px;
+  display: inline;
+}
 @media screen and (max-width: 600px) {
   .detailsTitle{font-size: 32px;}
 }
@@ -279,8 +291,13 @@ a.youtube:after {
 
 /****************Page contact****************/
 #map{
-    width: 600px;
-    height: 600px;
+    width: 300px;
+    height: 300px;
+}
+
+#mapStatic{
+    width: 300px;
+    height: 300px;
 }
 
 .avatar{
