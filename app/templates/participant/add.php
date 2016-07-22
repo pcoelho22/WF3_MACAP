@@ -24,13 +24,13 @@
             </div>
             <span class="help-block"></span>
             <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-home fa-fw" aria-hidden="true"></i></span>
-                <input id="city" type="text" name="city" value="<?= $vals['city'] ?>" placeholder="Ville" class="form-control text-left">
+                <span class="input-group-addon"><i class="fa fa-tags fa-fw" aria-hidden="true"></i></span>
+                <input id="postCode" type="text" name="postCode" value="<?= $vals['zip'] ?>" placeholder="Code postal" class="form-control text-left">
             </div>
             <span class="help-block"></span>
             <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-tags fa-fw" aria-hidden="true"></i></span>
-                <input id="postCode" type="text" name="postCode" value="<?= $vals['zip'] ?>" placeholder="Code postal" class="form-control text-left">
+                <span class="input-group-addon"><i class="fa fa-home fa-fw" aria-hidden="true"></i></span>
+                <input id="city" type="text" name="city" value="<?= $vals['city'] ?>" placeholder="Ville" class="form-control text-left">
             </div>
             <span class="help-block"></span>
             <div class="input-group">
@@ -55,7 +55,7 @@
             <span class="help-block"></span>
             <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Participant" href="#"><i class="fa fa-user fa-fw"></i> Ajouter Participant</button>
             <br>
-            <h4>Une fois l'inscription validée, vous serez redirigé vers la page d'accueil.</h4>
+            <h4>Une fois l'ajout validé, vous serez redirigé vers la page d'accueil.</h4>
         </form>
     </div>
 
@@ -93,13 +93,13 @@
         </div>
         <span class="help-block"></span>
         <div class="input-group">
-            <span class="input-group-addon"><i class="fa fa-home fa-fw" aria-hidden="true"></i></span>
-            <input id="city" type="text" name="city" value="" placeholder="Ville" class="form-control text-left">
+            <span class="input-group-addon"><i class="fa fa-tags fa-fw" aria-hidden="true"></i></span>
+            <input id="postCode" type="text" name="postCode" value="" placeholder="Code postal" class="form-control text-left">
         </div>
         <span class="help-block"></span>
         <div class="input-group">
-            <span class="input-group-addon"><i class="fa fa-tags fa-fw" aria-hidden="true"></i></span>
-            <input id="postCode" type="text" name="postCode" value="" placeholder="Code postal" class="form-control text-left">
+            <span class="input-group-addon"><i class="fa fa-home fa-fw" aria-hidden="true"></i></span>
+            <input id="city" type="text" name="city" value="" placeholder="Ville" class="form-control text-left">
         </div>
         <span class="help-block"></span>
         <div class="input-group">
@@ -124,7 +124,7 @@
         <span class="help-block"></span>
         <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Participant" href="#"><i class="fa fa-user fa-fw"></i> Ajouter Participant</button>
         <br>
-        <h4>Une fois l'inscription validée, vous serez redirigé vers la page d'accueil.</h4>
+        <h4>Une fois l'ajout validé, vous serez redirigé vers la page d'accueil.</h4>
     </form>
 
     <?php endif; ?>
