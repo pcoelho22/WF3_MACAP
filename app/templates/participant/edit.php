@@ -52,10 +52,11 @@
                 <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
                 <input id="email" type="email" name="email" value="<?= $vals['email'] ?>" placeholder="Email" class="form-control text-left">
             </div>
-
-            <label for="avatar">Photo</label><br/>
-            <input id="avatar" type="file" name="avatar"><br/><br/>
-
+            <h5><strong>Veuillez sélectionner une photo à ajouter à votre profil (optionnel).</strong></h5>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-picture-o fa-fw"></i></span>
+                <input id="avatar" type="file" name="avatar" value="<?= $vals['email'] ?>" placeholder="Veuillez ajouter une photo" class="form-control text-left">
+            </div>
             <span class="help-block"></span>
             <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Participant" href="#"><i class="fa fa-user fa-fw"></i> Editer Participant</button>
             <br>
@@ -125,7 +126,7 @@
             <input id="email" type="email" name="email" value="<?= $values['par_email'] ?>" placeholder="Email de la personne en charge" class="form-control text-left">
         </div>
         <span class="help-block"></span>
-        <h5><strong>Veuillez sélectionner une photo à ajouter à votre profil.</strong></h5>
+        <h5><strong>Veuillez sélectionner une photo à ajouter à votre profil (optionnel).</strong></h5>
         <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-picture-o fa-fw"></i></span>
             <input id="avatar" type="file" name="avatar" value="<?= $vals['email'] ?>" placeholder="Veuillez ajouter une photo" class="form-control text-left">
