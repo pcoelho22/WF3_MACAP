@@ -123,7 +123,7 @@
                     <div class="col-sm-4 text-center">
                     <br>
                        <ul class="list-inline small">
-                            <li><a href="" class="link-internal grey small"><button type="button" class="btn btn-default btn-sm"><span class="fa fa-home" aria-hidden="true"></span> Home</button></a></li>                
+                            <li><a href="" class="link-internal grey small"><button type="button" class="btn btn-default btn-sm"><span class="fa fa-home" aria-hidden="true"></span> Top</button></a></li>                
                         </ul>
                     </div>
 
