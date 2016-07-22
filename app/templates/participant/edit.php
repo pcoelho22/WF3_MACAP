@@ -24,13 +24,13 @@
             </div>
             <span class="help-block"></span>
             <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-home fa-fw" aria-hidden="true"></i></span>
-                <input id="city" type="text" name="city" value="<?= $vals['city'] ?>" placeholder="Ville" class="form-control text-left">
+                <span class="input-group-addon"><i class="fa fa-tags fa-fw" aria-hidden="true"></i></span>
+                <input id="postCode" type="text" name="postCode" value="<?= $vals['zip'] ?>" placeholder="Code postal" class="form-control text-left">
             </div>
             <span class="help-block"></span>
             <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-tags fa-fw" aria-hidden="true"></i></span>
-                <input id="postCode" type="text" name="postCode" value="<?= $vals['zip'] ?>" placeholder="Code postal" class="form-control text-left">
+                <span class="input-group-addon"><i class="fa fa-home fa-fw" aria-hidden="true"></i></span>
+                <input id="city" type="text" name="city" value="<?= $vals['city'] ?>" placeholder="Ville" class="form-control text-left">
             </div>
             <span class="help-block"></span>
             <div class="input-group">
@@ -96,13 +96,13 @@
         </div>
         <span class="help-block"></span>
         <div class="input-group">
-            <span class="input-group-addon"><i class="fa fa-home fa-fw" aria-hidden="true"></i></span>
-            <input id="city" type="text" name="city" value="<?= $values['par_city'] ?>" placeholder="Ville" class="form-control text-left">
+            <span class="input-group-addon"><i class="fa fa-tags fa-fw" aria-hidden="true"></i></span>
+            <input id="postCode" type="text" name="postCode" value="<?= $values['par_post_code'] ?>" placeholder="Code postal" class="form-control text-left">
         </div>
         <span class="help-block"></span>
         <div class="input-group">
-            <span class="input-group-addon"><i class="fa fa-tags fa-fw" aria-hidden="true"></i></span>
-            <input id="postCode" type="text" name="postCode" value="<?= $values['par_post_code'] ?>" placeholder="Code postal" class="form-control text-left">
+            <span class="input-group-addon"><i class="fa fa-home fa-fw" aria-hidden="true"></i></span>
+            <input id="city" type="text" name="city" value="<?= $values['par_city'] ?>" placeholder="Ville" class="form-control text-left">
         </div>
         <span class="help-block"></span>
         <div class="input-group">
@@ -127,7 +127,7 @@
         <span class="help-block"></span>
         <h5><strong>Veuillez sélectionner une photo à ajouter à votre profil.</strong></h5>
         <div class="input-group">
-            <span class="input-group-addon"><i class="fa fa-picture-o"></i></span>
+            <span class="input-group-addon"><i class="fa fa-picture-o fa-fw"></i></span>
             <input id="avatar" type="file" name="avatar" value="<?= $vals['email'] ?>" placeholder="Veuillez ajouter une photo" class="form-control text-left">
         </div>
         <span class="help-block"></span>
