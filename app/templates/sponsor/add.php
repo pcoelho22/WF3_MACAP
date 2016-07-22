@@ -156,11 +156,6 @@
         </div>
         <span class="help-block"></span>
         <div class="input-group">
-            <span class="input-group-addon"><i class="fa fa-align-left fa-fw"></i></span>
-            <textarea id="description" type="email" name="description" rows="10" value="" placeholder="Description" class="form-control text-left"></textarea>
-        </div>
-        <span class="help-block"></span>
-        <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-globe fa-fw"></i></span>
             <input id="url" type="text" name="url" value="" placeholder="Site web du sponsor" class="form-control text-left">
         </div>
