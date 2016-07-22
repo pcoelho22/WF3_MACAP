@@ -36,4 +36,12 @@ class DefaultController extends Controller {
 
         $this->showForbidden();
     }
+
+    public function charite(){
+        $this->show('default/charite');
+    }
+
+    public function aboutUS(){
+        $this->show('default/aboutUs');
+    }
 }

@@ -1,117 +1,194 @@
 <?php $this->layout('layout', ['title' => 'Editer un exposant']) ?>
 
 <?php $this->start('main_content') ?>
-<?php debug($_POST); debug($_FILES);?>
-<?php if (isset($error)){
-     debug($error);
-    } ?>
-<?php if (isset($vals)): ?>
-    <form action="" method="post" enctype="multipart/form-data">
-        <label for="nameExposant">Nom de l'Exposant</label><br/>
-        <input id="nameExposant" type="text" name="nameExposant" value="<?= $vals['nameExposant'] ?>" placeholder="Ex: "><br/><br/>
+<h1>Editer un exposant</h1>
+<div class="row">
 
-        <label for="lastNameInCharge">Last Name person in charge</label><br/>
-        <input id="lastNameInCharge" type="text" name="lastNameInCharge" value="<?= $vals['lastNameInCharge'] ?>" placeholder="Ex: "><br/><br/>
+    <div class="col-md-7 text-left">
+        <?php if (isset($vals)): ?>
+        <form action="" method="post" role="form">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
+                <input id="nameExposant" type="text" name="nameExposant" value="<?= $vals['nameExposant'] ?>" required="" placeholder="Nom de l'exposant" class="form-control text-left">
+            </div>
+            <span class="help-block"></span>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
+                <input id="lastNameInCharge" type="text" name="lastNameInCharge" value="<?= $vals['lastNameInCharge'] ?>" required="" placeholder="Nom de la personne en charge" class="form-control text-left">
+            </div>
+            <span class="help-block"></span>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
+                <input id="firstNameInCharge" type="text" name="firstNameInCharge" value="<?= $vals['firstNameInCharge'] ?>" required="" placeholder="Prénom de la personne en charge" class="form-control text-left">
+            </div>
+            <span class="help-block"></span>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-road fa-fw" aria-hidden="true"></i></span>
+                <input id="address" type="text" name="address" value="<?= $vals['address'] ?>" placeholder="N° et rue" class="form-control text-left">
+            </div>
+            <span class="help-block"></span>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-tags fa-fw" aria-hidden="true"></i></span>
+                <input id="postCode" type="text" name="postCode" value="<?= $vals['zip'] ?>" placeholder="Code postal" class="form-control text-left">
+            </div>
+            <span class="help-block"></span>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-home fa-fw" aria-hidden="true"></i></span>
+                <input id="city" type="text" name="city" value="<?= $vals['city'] ?>" placeholder="Ville" class="form-control text-left">
+            </div>
+            <span class="help-block"></span>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-globe fa-fw" aria-hidden="true"></i></span>
+                <input id="country" type="text" name="country" value="<?= $vals['country'] ?>" placeholder="Pays" class="form-control text-left">
+            </div>
+            <span class="help-block"></span>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-phone fa-fw" aria-hidden="true"></i></span>
+                <input id="phone" type="text" name="phone" value="<?= $vals['phone'] ?>" placeholder="N° de téléphone (Format: (00 + Code Pays)+ votre numéro) Ex: 00352-11 11 11 11" class="form-control text-left">
+            </div>
+            <span class="help-block"></span>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-phone fa-fw" aria-hidden="true"></i></span>
+                <input id="mobile" type="text" name="mobile" value="<?= $vals['mobile'] ?>" placeholder="N° de GSM (Format: (00 + Code Pays)+ votre numéro) Ex: 00352-6xx-00 00 00" class="form-control text-left">
+            </div>
+            <span class="help-block"></span>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-fax fa-fw" aria-hidden="true"></i></span>
+                <input id="fax" type="text" name="fax" value="<?= $vals['fax'] ?>" placeholder="N° de Fax (Optionel - Format: (00 + Code Pays)+ votre numéro) Ex: 00352-11 11 11 11" class="form-control text-left">
+            </div>
+            <span class="help-block"></span>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+                <input id="emailInCharge" type="email" name="emailInCharge" value="<?= $vals['emailInCharge'] ?>" placeholder="Email de la personne en charge" class="form-control text-left">
+            </div>
+            <span class="help-block"></span>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+                <input id="emailGeneral" type="email" name="emailGeneral" value="<?= $vals['emailGeneral'] ?>" placeholder="Email principal" class="form-control text-left">
+            </div>
+            <span class="help-block"></span>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-align-left"></i></span>
+                <textarea id="description" type="email" name="description" rows="10" value="<?= $vals['description'] ?>" placeholder="Description" class="form-control text-left"></textarea>
+            </div>
 
-        <label for="firstNameInCharge">First Name person in charge</label><br/>
-        <input id="firstNameInCharge" type="text" name="firstNameInCharge" value="<?= $vals['firstNameInCharge'] ?>" placeholder="Ex:"><br/><br/>
-
-        <label for="adress">Adress</label><br/>
-        <input id="adress" type="text" name="adress" value="<?= $vals['address'] ?>" placeholder="Ex:9, Rue des Hauts Founeaux, Belval"><br/><br/>
         
-        <label for="city">City</label><br/>
-        <input id="city" type="text" name="city" value="<?= $vals['city'] ?>" placeholder="Ex:"><br/><br/>
+            <label for="description">Description</label><br/>
+            <textarea id="description" name="description" rows="10" cols="40"><?= $vals['description'] ?></textarea><br/><br/>
+            <span class="help-block"></span>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-globe"></i></span>
+                <input id="url" type="text" name="url" value="<?= $vals['url'] ?>" placeholder="Site web de l'exposant" class="form-control text-left">
+            </div>
 
-        <label for="postCode">Code Postal</label><br/>
-        <input id="postCode" type="text" name="postCode" value="<?= $vals['zip'] ?>" placeholder="Ex: 4362 Esch-sur-Alzette"><br/><br/>
-        
-         <label for="country">Country</label><br/>
-        <input id="country" type="text" name="country" value="<?= $vals['country'] ?>" placeholder="Ex:"><br/><br/>
+            <label for="url">Site internet</label><br/>
+            <input id="url" type="text" name="url" value="<?= $vals['url'] ?>" placeholder="Ex: http://www.votresite.com"><br/><br/>
 
-        <label for="phone">Numéro de Téléphone Fixe(Format: (00 + Code Pays)-Votre numero)</label><br/>
-        <label for="phone">Exemple: 00352-11 11 11 11</label><br/>
-        <input id="phone" type="text" name="phone" value="<?= $vals['phone'] ?>" placeholder="Ex: 00352-11 11 11 11"><br/><br/>
-        
-        <label for="mobile">Numéro de Téléphone/GSM (Format: (00 + Code Pays)-Votre numero)</label><br/>
-        <label for="mobile">Exemple: 00352-11 11 11 11</label><br/>
-        <input id="mobile" type="text" name="mobile" value="<?= $vals['mobile'] ?>" placeholder="Ex: 00352-11 11 11 11"><br/><br/>
+            <span class="help-block"></span>
+            <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Exposant" href="#"><i class="fa fa-user fa-fw"></i> Editer Exposant</button>
+            <br>
+            <h4>Une fois l'édition validée, vous serez redirigé vers la page d'accueil.</h4>
+        </form>
+    </div>
 
-        <label for="fax">Numéro de Fax (Optionel - Format: (00 + Code Pays)-Votre numero)</label><br/>
-        <label for="fax">Exemple: 00352-11 11 11 11</label><br/>
-        <input id="fax" type="text" name="fax" value="<?= $vals['fax'] ?>" placeholder="Ex: 00352-11 11 11 11"><br/><br/>
+    <?php if (isset($error)): ?>
+    <div class="col-md-5 text-left">
+        <div class="alert alert-danger fade in" rows="auto">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Erreur!</strong><br>
+            <ul>
+                <?php foreach ($error as $value):?>
+                    <li><?= $value ?></li>
+                <?php endforeach; ?>    
+            </ul>
+        </div>
+    </div> 
+    <?php endif; ?>  
 
-        <label for="emailInCharge">Email person in charge</label><br/>
-        <input id="emailInCharge" type="email" name="emailInCharge" value="<?= $vals['emailInCharge'] ?>" placeholder="Ex: adedias@hotmail.com"><br/><br/>
-        
-        <label for="emailGeneral">Email Genral</label><br/>
-        <input id="emailGeneral" type="email" name="emailGeneral" value="<?= $vals['emailGeneral'] ?>" placeholder="Ex: adedias@hotmail.com"><br/><br/>
-        
-        <label for="description">Descriotion</label><br/>
-        <textarea id="description" name="description" rows="10" cols="40"><?= $vals['description'] ?></textarea><br/><br/>
-        
-        <label for="url">Site internet</label><br/>
-        <input id="url" type="text" name="url" value="<?= $vals['url'] ?>" placeholder="Ex: http://www.votresite.com"><br/><br/>
+    <?php elseif(isset($values)): ?>
 
-        <label for="avatar">Photo</label><br/>
-        <input id="avatar" type="file" name="avatar"><br/><br/>
-
+    <form action="" method="post" enctype="multipart/form-data" role="form">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
+            <input id="nameExposant" type="text" name="nameExposant" value="<?= $values['exp_name_exposants'] ?>" required="" placeholder="Nom de l'exposant" class="form-control text-left">
+        </div>
+        <span class="help-block"></span>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
+            <input id="lastNameInCharge" type="text" name="lastNameInCharge" value="<?= $values['exp_name_in_charge'] ?>" required="" placeholder="Nom de la personne en charge" class="form-control text-left">
+        </div>
+        <span class="help-block"></span>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
+            <input id="firstNameInCharge" type="text" name="firstNameInCharge" value="<?= $values['exp_first_name_in_charge'] ?>" required="" placeholder="Prénom de la personne en charge" class="form-control text-left">
+        </div>
+        <span class="help-block"></span>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-road fa-fw" aria-hidden="true"></i></span>
+            <input id="address" type="text" name="address" value="<?= $values['exp_address'] ?>" placeholder="N° et rue" class="form-control text-left">
+        </div>
+        <span class="help-block"></span>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-tags fa-fw" aria-hidden="true"></i></span>
+            <input id="postCode" type="text" name="postCode" value="<?= $values['exp_post_code'] ?>" placeholder="Code postal" class="form-control text-left">
+        </div>
+        <span class="help-block"></span>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-home fa-fw" aria-hidden="true"></i></span>
+            <input id="city" type="text" name="city" value="<?= $values['exp_city'] ?>" placeholder="Ville" class="form-control text-left">
+        </div>
+        <span class="help-block"></span>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-globe fa-fw" aria-hidden="true"></i></span>
+            <input id="country" type="text" name="country" value="<?= $values['exp_country'] ?>" placeholder="Pays" class="form-control text-left">
+        </div>
+        <span class="help-block"></span>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-phone fa-fw" aria-hidden="true"></i></span>
+            <input id="phone" type="text" name="phone" value="<?= $values['exp_phone'] ?>" placeholder="N° de téléphone (Format: (00 + Code Pays)+ votre numéro) Ex: 00352-11 11 11 11" class="form-control text-left">
+        </div>
+        <span class="help-block"></span>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-phone fa-fw" aria-hidden="true"></i></span>
+            <input id="mobile" type="text" name="mobile" value="<?= $values['exp_mobile'] ?>" placeholder="N° de GSM (Format: (00 + Code Pays)+ votre numéro) Ex: 00352-6xx-00 00 00" class="form-control text-left">
+        </div>
+        <span class="help-block"></span>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-fax fa-fw" aria-hidden="true"></i></span>
+            <input id="fax" type="text" name="fax" value="<?= $values['exp_fax'] ?>" placeholder="N° de Fax (Optionel - Format: (00 + Code Pays)+ votre numéro) Ex: 00352-11 11 11 11" class="form-control text-left">
+        </div>
+        <span class="help-block"></span>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+            <input id="emailInCharge" type="email" name="emailInCharge" value="<?= $values['exp_email_incharge'] ?>" placeholder="Email de la personne en charge" class="form-control text-left">
+        </div>
+        <span class="help-block"></span>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+            <input id="emailGeneral" type="email" name="emailGeneral" value="<?= $values['exp_email_general'] ?>" placeholder="Email principal" class="form-control text-left">
+        </div>
+        <span class="help-block"></span>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-align-left fa-fw"></i></span>
+            <textarea id="description" type="email" name="description" rows="10" value="<?= $values['exp_description_exposants'] ?>" placeholder="Description" class="form-control text-left"></textarea>
+        </div>
+        <span class="help-block"></span>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-globe fa-fw"></i></span>
+            <input id="url" type="text" name="url" value="<?= $values['exp_url'] ?>" placeholder="Site web de l'exposant" class="form-control text-left">
+        </div>
+        <span class="help-block"></span>
+        <h5><strong>Veuillez sélectionner une photo à ajouter à votre profil (optionnel).</strong></h5>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-picture-o fa-fw"></i></span>
+            <input id="avatar" type="file" name="avatar" class="form-control text-left">
+        </div>
+        <span class="help-block"></span>
+        <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Exposant" href="#"><i class="fa fa-user fa-fw"></i> Editer Exposant</button>
         <br>
-        <input type="submit" value="Editer Exposant">
+        <h4>Une fois l'édition validée, vous serez redirigé vers la page d'accueil.</h4>
     </form>
-<?php elseif(isset($values)): ?>
-<?php debug($values); ?>
-    <form action="" method="post" enctype="multipart/form-data">
-        <label for="nameExposant">Nom de l'Exposant</label><br/>
-        <input id="nameExposant" type="text" name="nameExposant" value="<?= $values['exp_name_exposants'] ?>" placeholder="Ex: "><br/><br/>
-
-        <label for="lastNameInCharge">Last Name person in charge</label><br/>
-        <input id="lastNameInCharge" type="text" name="lastNameInCharge" value="<?= $values['exp_name_in_charge'] ?>" placeholder="Ex: "><br/><br/>
-
-        <label for="firstNameInCharge">First Name person in charge</label><br/>
-        <input id="firstNameInCharge" type="text" name="firstNameInCharge" value="<?= $values['exp_first_name_in_charge'] ?>" placeholder="Ex:"><br/><br/>
-
-        <label for="adress">Adress</label><br/>
-        <input id="adress" type="text" name="adress" value="<?= $values['exp_address'] ?>" placeholder="Ex:9, Rue des Hauts Founeaux, Belval"><br/><br/>
         
-        <label for="city">City</label><br/>
-        <input id="city" type="text" name="city" value="<?= $values['exp_city'] ?>" placeholder="Ex:"><br/><br/>
-
-        <label for="postCode">Code Postal</label><br/>
-        <input id="postCode" type="text" name="postCode" value="<?= $values['exp_post_code'] ?>" placeholder="Ex: 4362 Esch-sur-Alzette"><br/><br/>
-        
-         <label for="country">Country</label><br/>
-        <input id="country" type="text" name="country" value="<?= $values['exp_country'] ?>" placeholder="Ex:"><br/><br/>
-
-        <label for="phone">Numéro de Téléphone Fixe(Format: (00 + Code Pays)-Votre numero)</label><br/>
-        <label for="phone">Exemple: 00352-11 11 11 11</label><br/>
-        <input id="phone" type="text" name="phone" value="<?= $values['exp_phone'] ?>" placeholder="Ex: 00352-11 11 11 11"><br/><br/>
-        
-        <label for="mobile">Numéro de Téléphone/GSM (Format: (00 + Code Pays)-Votre numero)</label><br/>
-        <label for="mobile">Exemple: 00352-11 11 11 11</label><br/>
-        <input id="mobile" type="text" name="mobile" value="<?= $values['exp_mobile'] ?>" placeholder="Ex: 00352-11 11 11 11"><br/><br/>
-
-        <label for="fax">Numéro de Fax (Optionel - Format: (00 + Code Pays)-Votre numero)</label><br/>
-        <label for="fax">Exemple: 00352-11 11 11 11</label><br/>
-        <input id="fax" type="text" name="fax" value="<?= $values['exp_fax'] ?>" placeholder="Ex: 00352-11 11 11 11"><br/><br/>
-
-        <label for="emailInCharge">Email person in charge</label><br/>
-        <input id="emailInCharge" type="email" name="emailInCharge" value="<?= $values['exp_email_incharge'] ?>" placeholder="Ex: adedias@hotmail.com"><br/><br/>
-        
-        <label for="emailGeneral">Email general</label><br/>
-        <input id="emailGeneral" type="email" name="emailGeneral" value="<?= $values['exp_email_general'] ?>" placeholder="Ex: adedias@hotmail.com"><br/><br/>
-
-        <label for="description">Description</label><br/>
-        <textarea id="description" name="description" rows="10" cols="40"><?= $values['exp_description_exposants'] ?></textarea><br/><br/>
-        
-        <label for="url">Site exposant</label><br/>
-        <input id="url" type="text" name="url" value="<?= $values['exp_url'] ?>" placeholder="Ex: http://www.votresite.com"><br/><br/>
-
-        <label for="avatar">Photo</label><br/>
-        <input id="avatar" type="file" name="avatar"><br/><br/>
-        
-        <br>
-        <input type="submit" value="Editer Exposant">
-    </form>
 <?php endif; ?>
-
+</div>
 <?php $this->stop('main_content') ?>

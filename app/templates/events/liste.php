@@ -24,4 +24,6 @@
 			<?php endforeach ?>
 		</div>
 	</div>	
+
+	
 <?php $this->stop('main_content') ?>
