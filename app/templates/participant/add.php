@@ -1,11 +1,10 @@
 <?php $this->layout('layout', ['title' => 'Ajouter un participant']) ?>
 
 <?php $this->start('main_content') ?>
-
 <h1>Ajout participant</h1>
 <div class="row">
 
-    <div class="col-md7- text-left">
+    <div class="col-md-7 text-left">
         <?php if (isset($vals)): ?>
         <form action="" method="post" role="form">
             <span class="help-block"></span>
