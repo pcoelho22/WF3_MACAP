@@ -1,80 +1,132 @@
 <?php $this->layout('layout', ['title' => 'Ajouter un participant']) ?>
 
 <?php $this->start('main_content') ?>
-<?php debug($_POST); ?>
-<?php if (isset($error)){
-     debug($error);
-    } ?>
-<?php if (isset($vals)): ?>
-    <form action="" method="post">
+<h1>Ajout participant</h1>
+<div class="row">
 
-        <label for="lastName">Last Name Participant</label><br/>
-        <input id="lastName" type="text" name="lastName" value="<?= $vals['lastName'] ?>" placeholder="Ex: "><br/><br/>
+    <div class="col-md-7 text-left">
+        <?php if (isset($vals)): ?>
+        <form action="" method="post" role="form">
+            <span class="help-block"></span>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
+                <input id="lastname" type="text" name="lastName" value="<?= $vals['lastName'] ?>" required="" placeholder="Nom" class="form-control text-left">
+            </div>
+            <span class="help-block"></span>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
+                <input id="firstName" type="text" name="firstName" value="<?= $vals['firstName'] ?>" placeholder="Prénom" class="form-control text-left">
+            </div>
+            <span class="help-block"></span>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-road fa-fw" aria-hidden="true"></i></span>
+                <input id="adress" type="text" name="adress" value="<?= $vals['adress'] ?>" placeholder="N° et rue" class="form-control text-left">
+            </div>
+            <span class="help-block"></span>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-home fa-fw" aria-hidden="true"></i></span>
+                <input id="city" type="text" name="city" value="<?= $vals['city'] ?>" placeholder="Ville" class="form-control text-left">
+            </div>
+            <span class="help-block"></span>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-tags fa-fw" aria-hidden="true"></i></span>
+                <input id="postCode" type="text" name="postCode" value="<?= $vals['zip'] ?>" placeholder="Code postal" class="form-control text-left">
+            </div>
+            <span class="help-block"></span>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-globe fa-fw" aria-hidden="true"></i></span>
+                <input id="country" type="text" name="country" value="<?= $vals['country'] ?>" placeholder="Pays" class="form-control text-left">
+            </div>
+            <span class="help-block"></span>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-phone fa-fw" aria-hidden="true"></i></span>
+                <input id="phone" type="text" name="phone" value="<?= $vals['phone'] ?>" placeholder="N° de téléphone (Format: (00 + Code Pays)+ votre numéro) Ex: 00352-11 11 11 11" class="form-control text-left">
+            </div>
+            <span class="help-block"></span>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-fax fa-fw" aria-hidden="true"></i></span>
+                <input id="fax" type="text" name="fax" value="<?= $vals['fax'] ?>" placeholder="N° de Fax (Optionel - Format: (00 + Code Pays)+ votre numéro) Ex: 00352-11 11 11 11" class="form-control text-left">
+            </div>
+            <span class="help-block"></span>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+                <input id="email" type="email" name="email" value="<?= $vals['email'] ?>" placeholder="Email" class="form-control text-left">
+            </div>
+            <span class="help-block"></span>
+            <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Participant" href="#"><i class="fa fa-user fa-fw"></i> Ajouter Participant</button>
+            <br>
+            <h4>Une fois l'inscription validée, vous serez redirigé vers la page d'accueil.</h4>
+        </form>
+    </div>
 
-        <label for="firstName">First Name Participant</label><br/>
-        <input id="firstNamee" type="text" name="firstName" value="<?= $vals['firstName'] ?>" placeholder="Ex:"><br/><br/>
+    <?php if (isset($error)): ?>
+    <div class="col-md-5 text-left">
+        <div class="alert alert-danger fade in" rows="auto">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Erreur!</strong><br>
+            <ul>
+                <?php foreach ($error as $value):?>
+                    <li><?= $value ?></li>
+                <?php endforeach; ?>    
+            </ul>
+        </div>
+    </div> 
+    <?php endif; ?>
 
-        <label for="adress">Adress</label><br/>
-        <input id="adress" type="text" name="adress" value="<?= $vals['adress'] ?>" placeholder="Ex:9, Rue des Hauts Founeaux, Belval"><br/><br/>
-        
-        <label for="city">City</label><br/>
-        <input id="city" type="text" name="city" value="<?= $vals['city'] ?>" placeholder="Ex:"><br/><br/>
+    <?php else: ?>
 
-        <label for="postCode">Code Postal</label><br/>
-        <input id="postCode" type="text" name="postCode" value="<?= $vals['zip'] ?>" placeholder="Ex: 4362 Esch-sur-Alzette"><br/><br/>
-        
-         <label for="country">Country</label><br/>
-        <input id="country" type="text" name="country" value="<?= $vals['country'] ?>" placeholder="Ex:"><br/><br/>
+        <form action="" method="post" role="form">
+            <span class="help-block"></span>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
+                <input id="lastname" type="text" name="lastName" value="" required="" placeholder="Nom" class="form-control text-left">
+            </div>
+            <span class="help-block"></span>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
+                <input id="firstName" type="text" name="firstName" value="" placeholder="Prénom" class="form-control text-left">
+            </div>
+            <span class="help-block"></span>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-road fa-fw" aria-hidden="true"></i></span>
+                <input id="adress" type="text" name="adress" value="" placeholder="N° et rue" class="form-control text-left">
+            </div>
+            <span class="help-block"></span>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-home fa-fw" aria-hidden="true"></i></span>
+                <input id="city" type="text" name="city" value="" placeholder="Ville" class="form-control text-left">
+            </div>
+            <span class="help-block"></span>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-tags fa-fw" aria-hidden="true"></i></span>
+                <input id="postCode" type="text" name="postCode" value="" placeholder="Code postal" class="form-control text-left">
+            </div>
+            <span class="help-block"></span>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-globe fa-fw" aria-hidden="true"></i></span>
+                <input id="country" type="text" name="country" value="" placeholder="Pays" class="form-control text-left">
+            </div>
+            <span class="help-block"></span>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-phone fa-fw" aria-hidden="true"></i></span>
+                <input id="phone" type="text" name="phone" value="" placeholder="N° de téléphone (Format: (00 + Code Pays)+ votre numéro) Ex: 00352-11 11 11 11" class="form-control text-left">
+            </div>
+            <span class="help-block"></span>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-fax fa-fw" aria-hidden="true"></i></span>
+                <input id="fax" type="text" name="fax" value="" placeholder="N° de Fax (Optionel - Format: (00 + Code Pays)+ votre numéro) Ex: 00352-11 11 11 11" class="form-control text-left">
+            </div>
+            <span class="help-block"></span>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+                <input id="email" type="email" name="email" value="" placeholder="Email" class="form-control text-left">
+            </div>
+            <span class="help-block"></span>
+            <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Participant" href="#"><i class="fa fa-user fa-fw"></i> Ajouter Participant</button>
+            <br>
+            <h4>Une fois l'inscription validée, vous serez redirigé vers la page d'accueil.</h4>
+        </form>
 
-        <label for="phone">Numéro de Téléphone Fixe(Format: (00 + Code Pays)-Votre numero)</label><br/>
-        <label for="phone">Exemple: 00352-11 11 11 11</label><br/>
-        <input id="phone" type="text" name="phone" value="<?= $vals['phone'] ?>" placeholder="Ex: 00352-11 11 11 11"><br/><br/>
-
-        <label for="fax">Numéro de Fax (Optionel - Format: (00 + Code Pays)-Votre numero)</label><br/>
-        <label for="fax">Exemple: 00352-11 11 11 11</label><br/>
-        <input id="fax" type="text" name="fax" value="<?= $vals['fax'] ?>" placeholder="Ex: 00352-11 11 11 11"><br/><br/>
-
-        <label for="email">Email Participant</label><br/>
-        <input id="email" type="email" name="email" value="<?= $vals['email'] ?>" placeholder="Ex: adedias@hotmail.com"><br/><br/>
-       
-        <br>
-        <input type="submit" value="Ajouter Participant">
-    </form>
-<?php else: ?>
-    <form action="" method="post">
-        
-        <label for="lastName">Last Name du participant</label><br/>
-        <input id="lastName" type="text" name="lastName" value="" placeholder="Ex: "><br/><br/>
-
-        <label for="firstName">First Name du participant</label><br/>
-        <input id="firstName" type="text" name="firstName" value="" placeholder="Ex:"><br/><br/>
-
-        <label for="adress">Adress</label><br/>
-        <input id="adress" type="text" name="adress" value="" placeholder="Ex:9, Rue des Hauts Founeaux, Belval"><br/><br/>
-        
-        <label for="city">City</label><br/>
-        <input id="city" type="text" name="city" value="" placeholder="Ex:"><br/><br/>
-
-        <label for="postCode">Code Postal</label><br/>
-        <input id="postCode" type="text" name="postCode" value="" placeholder="Ex: 4362 Esch-sur-Alzette"><br/><br/>
-        
-         <label for="country">Country</label><br/>
-        <input id="country" type="text" name="country" value="" placeholder="Ex:"><br/><br/>
-
-        <label for="phone">Numéro de Téléphone Fixe(Format: (00 + Code Pays)-Votre numero)</label><br/>
-        <label for="phone">Exemple: 00352-11 11 11 11</label><br/>
-        <input id="phone" type="text" name="phone" value="" placeholder="Ex: 00352-11 11 11 11"><br/><br/>
-      
-        <label for="fax">Numéro de Fax (Optionel - Format: (00 + Code Pays)-Votre numero)</label><br/>
-        <label for="fax">Exemple: 00352-11 11 11 11</label><br/>
-        <input id="fax" type="text" name="fax" value="" placeholder="Ex: 00352-11 11 11 11"><br/><br/>
-
-        <label for="email">Email du participant</label><br/>
-        <input id="email" type="email" name="email" value="" placeholder="Ex: adedias@hotmail.com"><br/><br/>
-                
-        <br>
-        <input type="submit" value="Ajouter Participant">
-    </form>
-<?php endif; ?>
-
+    <?php endif; ?>
+</div>
 <?php $this->stop('main_content') ?>
