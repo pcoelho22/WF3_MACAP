@@ -9,7 +9,7 @@
 						<a href="<?= $this->url('magazine_add') ?>"><button class="btn btn-default btn-sm" >Ajouter un magazine</button></a>
 					</li>
 					<li class="list-group-item">
-						<img width="300" height="400px" src="<?= $this->assetUrl($value['mag_couverture'])?>">
+						<a href="<?= $this->assetUrl($value['mag_path'])?>"><img width="300" height="400px" src="<?= $this->assetUrl($value['mag_couverture'])?>"></a>
 					</li>
 					<li  class="list-group-item">
 						<a href="<?= $this->assetUrl($value['mag_path'])?>"><?= $value['mag_name'].'<br/> '.$value['mag_date']?></a>
