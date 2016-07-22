@@ -72,33 +72,45 @@
                 <input id="url" type="text" name="url" value="<?= $vals['spo_url'] ?>" placeholder="Site web du sponsor" class="form-control text-left">
             </div>
             <span class="help-block"></span>
-            <h5><strong>Veuillez sélectionner une photo à ajouter à votre profil.</strong></h5>
+            <h5><strong>Veuillez sélectionner une photo à ajouter à votre profil (optionnel).</strong></h5>
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-picture-o fa-fw"></i></span>
                 <input id="avatar" type="file" name="avatar" class="form-control text-left">
             </div>
+
+            <?php if ($_SESSION['users']['use_role_opt1'] === '2'): ?>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-globe fa-fw"></i></span>
+                <select name="type" id="type">
+                    <?php foreach ($listTypeSponsor as $type): ?>
+                        <option value="<?= $type['id'] ?>"><?= $type['typ_spon_name'] ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            <?php endif; ?>
+
             <span class="help-block"></span>
-            <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Sponsor" href="#"><i class="fa fa-user fa-fw"></i> Editer un sponsor</button>
+            <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Sponsor" href="#"><i class="fa fa-user fa-fw"></i> Editer Sponsor</button>
             <br>
             <h4>Une fois l'édition validée, vous serez redirigé vers la page d'accueil.</h4>
         </form>
     </div>
 
-    <?php if (isset($error)): ?>
-    <div class="col-md-5 text-left">
-        <div class="alert alert-danger fade in" rows="auto">
-            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            <strong>Erreur!</strong><br>
-            <ul>
-                <?php foreach ($error as $value):?>
-                    <li><?= $value ?></li>
-                <?php endforeach; ?>    
-            </ul>
+        <?php if (isset($error)): ?>
+        <div class="col-md-5 text-left">
+            <div class="alert alert-danger fade in" rows="auto">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Erreur!</strong><br>
+                <ul>
+                    <?php foreach ($error as $value):?>
+                        <li><?= $value ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
         </div>
-    </div> 
-    <?php endif; ?>  
+        <?php endif; ?>
 
-    <?php elseif(isset($values)): ?>
+<?php elseif(isset($values)): ?>
 
     <form action="" method="post" enctype="multipart/form-data" role="form">
         <div class="input-group">
@@ -166,13 +178,25 @@
             <input id="url" type="text" name="url" value="<?= $values['spo_url'] ?>" placeholder="Site web du sponsor" class="form-control text-left">
         </div>
         <span class="help-block"></span>
-        <h5><strong>Veuillez sélectionner une photo à ajouter à votre profil.</strong></h5>
+        <h5><strong>Veuillez sélectionner une photo à ajouter à votre profil (optionnel).</strong></h5>
         <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-picture-o fa-fw"></i></span>
             <input id="avatar" type="file" name="avatar" class="form-control text-left">
         </div>
+
+        <?php if ($_SESSION['user']['use_role_opt1'] === '2'): ?>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-globe fa-fw"></i></span>
+            <select name="type" id="type">
+                <?php foreach ($listTypeSponsor as $type): ?>
+                    <option value="<?= $type['id'] ?>"><?= $type['typ_spon_name'] ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+        <?php endif; ?>
+
         <span class="help-block"></span>
-        <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Sponsor" href="#"><i class="fa fa-user fa-fw"></i> Editer un sponsor</button>
+        <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Sponsor" href="#"><i class="fa fa-user fa-fw"></i> Editer Sponsor</button>
         <br>
         <h4>Une fois l'édition validée, vous serez redirigé vers la page d'accueil.</h4>
     </form>

@@ -105,8 +105,8 @@
                     <li><a href="<?= $this->url('sponsor_liste')?>">SPONSORS</a></li>
                     <li><a href="<?= $this->url('galerie_liste')?>">GALERIE</a></li>
                     <li><a href="#">SHOP</a></li>
-                    <li><a href="#">CHARITÉ</a></li>
-                    <li><a href="#">ABOUT US</a></li>
+                    <li><a href="<?= $this->url('default_charite')?>">CHARITÉ</a></li>
+                    <li><a href="<?= $this->url('default_aboutus')?>">ABOUT US</a></li>
                 </ul>
             </div>
         </div>
