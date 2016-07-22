@@ -18,6 +18,11 @@ class DefaultController extends Controller {
         $this->show('default/contact');
     }
 
+
+    public function confirmation(){
+    	$this->show ('default_confirmation');
+    }
+
     public function allowTo($roles){
         if (!is_array($roles)){
             $roles = [$roles];
