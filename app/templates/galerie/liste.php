@@ -14,7 +14,7 @@
 						</li>
 						<li class="list-group-item">
 							<a  href="<?= $this->url('galerie_update', ['id'=>$value['id']]) ?>"><button class="btn btn-default btn-sm">Modifier</button></a>
-							<a  href="<?= $this->url('galerie_delete', ['id'=>$value['id']]) ?>"><button class="btn btn-default btn-sm">Delete</button></a>
+							<a  href="<?= $this->url('galerie_deleteConfirmation', ['id'=>$value['id']]) ?>"><button class="btn btn-default btn-sm">Delete</button></a>
 						</li>
 					</ul>
 			<?php endforeach ?>

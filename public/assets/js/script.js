@@ -2,18 +2,17 @@ var locationLat=0;
 var locationLng=0;
 var adressValue = '';
 
+jQuery('#map').hide();
+
 function initMap() {
 
     jQuery('#button').click(function (event){
-        adressValue = jQuery('#adresse').val();
-        //console.log(adressValue);
+        adressValue = jQuery('#address').val();
+        jQuery('#map').show();
 
         jQuery.get( "https://maps.googleapis.com/maps/api/geocode/json?address="+ adressValue+"&key=AIzaSyAs9-9EPpqbSPCd1_r5_lgpmNjc6EuR6Xg", function(json, textStatus) {
             locationLat = json.results[0].geometry.location.lat;
             locationLng = json.results[0].geometry.location.lng;
-
-            //console.log(locationLat);
-            //console.log(locationLng);
 
             var concours = {lat: 49.5030743, lng: 6.2818691};
             var pos = {lat: locationLat, lng: locationLng};
@@ -68,5 +67,38 @@ function initMap() {
         } );
     });
 
+    var posStat = {lat: 49.6119523, lng: 6.075476500000036};
 
+    var styleArray = [
+        {
+            featureType: "all",
+            stylers: [
+                { saturation: -80 }
+            ]
+        },{
+            featureType: "road.arterial",
+            elementType: "geometry",
+            stylers: [
+                { hue: "#00ffee" },
+                { saturation: 50 }
+            ]
+        },{
+            featureType: "poi.business",
+            elementType: "labels",
+            stylers: [
+                { visibility: "off" }
+            ]
+        }
+    ];
+
+    var map2 = new google.maps.Map(document.getElementById('mapStatic'), {
+        center: posStat,
+        scrollwheel: true,
+        zoom: 16
+    });
+
+    var marker = new google.maps.Marker({
+        position: posStat,
+        map: map2
+    });
 }
