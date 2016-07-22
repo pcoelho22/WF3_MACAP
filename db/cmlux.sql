@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost
--- Généré le :  Jeu 21 Juillet 2016 à 11:11
+-- Généré le :  Ven 22 Juillet 2016 à 15:49
 -- Version du serveur :  5.7.13-log
 -- Version de PHP :  5.6.21
 
@@ -30,9 +30,9 @@ CREATE TABLE `contenus` (
   `id` int(11) NOT NULL,
   `con_type` varchar(45) NOT NULL,
   `con_title` varchar(45) NOT NULL,
-  `con_date_start` varchar(45) NOT NULL,
-  `con_date_end` varchar(45) NOT NULL,
-  `con_synopsis` varchar(45) NOT NULL,
+  `con_date_start` varchar(45) DEFAULT NULL,
+  `con_date_end` varchar(45) DEFAULT NULL,
+  `con_synopsis` varchar(200) NOT NULL,
   `con_description` text,
   `con_avatar` varchar(150) NOT NULL,
   `con_gallery` varchar(45) DEFAULT NULL,
@@ -46,11 +46,11 @@ CREATE TABLE `contenus` (
 --
 
 INSERT INTO `contenus` (`id`, `con_type`, `con_title`, `con_date_start`, `con_date_end`, `con_synopsis`, `con_description`, `con_avatar`, `con_gallery`, `users_id`, `users_role_id`, `contenus_type_id`) VALUES
-(2, 'News', 'Test Patrick Modifiééééé', '2016-07-06', '2016-07-21', 'Test petite phrase modifié', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\nLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '/patrickPHP/WF3_MACAP/public/upload/news/logo1.jpg', 'patrick', 1, 2, 1),
-(4, 'Events', 'Sueca - sobe e desce - Poker', '2016-07-28', '2016-07-30', 'Comes e bebes à parte', 'Comes e bebes à parte zerzerzzerzer azerzae', 'upload/0xQ2eVOWWk-tmwY3rIIRq.jpg', NULL, 2, 2, 3),
-(5, 'Events', 'Bilhar de bolso', '2016-07-14', '2016-10-20', 'Desafio total', 'Desafio total  todas as Bolas nos buracos ', 'upload/0xQ2eVOWWk-gmwY3rIIRq.jpg', NULL, 1, 2, 3),
-(21, 'Reportages', 'Nova rep', '2016-07-15', '2016-07-23', 'pequena reportagem', 'GRANDE REPORTAGEM', '/patrickPHP/WF3_MACAP/public/upload/reportages/logo1.jpg', NULL, 1, 1, 2),
-(35, 'Reportages', 'rep teste', '2016-07-21', '2016-07-23', 'zada', 'qsdqsd', 'upload/reportages/PnvZxpvbiqGp5aQtl84t.jpg', NULL, 1, 1, 2);
+(2, 'News', 'Test Patrick Modifiééééé', '01/01/2016', '01/01/2016', 'Test petite phrase modifié', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\nLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '/patrickPHP/WF3_MACAP/public/upload/news/logo1.jpg', 'patrick', 1, 2, 1),
+(4, 'Events', 'Sueca - sobe e desce - Poker', '2016-07-07', '2016-07-22', 'Comes e bebes à parte', 'Comes e bebes à parte zerzerzzerzer azerzae', '/patrickPHP/WF3_MACAP/public/upload/events/02.jpg', NULL, 2, 2, 3),
+(21, 'Reportages', 'Nova rep', '01/01/2016', '01/01/2016', 'pequena reportagem', 'GRANDE REPORTAGEM', '/patrickPHP/WF3_MACAP/public/upload/reportages/logo1.jpg', NULL, 1, 1, 2),
+(39, 'News', 'noticia teste', '01/01/2016', '01/01/2016', 'bbebebebebe', 'hkzherozehruzehfouusdhfushdfqshsduqhiguhdqipfghdfpiughdfhgmdfhgpoh ohfgpouqhd piurehgodfhg opdroughq eoeghqdrpog hpdofgh pdofgh pordq', '/upload/default/avatar.png', NULL, 1, 1, 1),
+(40, 'Events', 'Luxembourg Grand Tour Casino 2000', '27/08/2016 00:00:00', '27/08/2015 00:00:00', 'Rally au départ du Casino 2000 à Mondorf les Bains', 'Inscription\n07:00 - 08:30\nGalerie CASINO 2000\nRue Th. Flammang, L-5618 Mondorf-Les-Bains;\n\nDépart Etape 1\n08:30 - 09h30\nDépart du 1er concurrent, Etape 1\nGalerie CASINO 2000\nRue Th. Flammang, L-5618 Mondorf-Les-Bains;', '/patrickPHP/WF3_MACAP/public/upload/events/rally2016.jpg', NULL, 2, 2, 3);
 
 -- --------------------------------------------------------
 
@@ -104,13 +104,13 @@ INSERT INTO `contenus_type` (`id`, `ty_name`, `ty_description`) VALUES
 
 CREATE TABLE `exposants` (
   `id` int(11) NOT NULL,
-  `exp_name_exposants` varchar(45) NOT NULL,
+  `exp_name_eposants` varchar(45) NOT NULL,
   `exp_name_in_charge` varchar(45) NOT NULL,
   `exp_firs_name_in_charge` varchar(45) NOT NULL,
-  `exp_address` varchar(45) NOT NULL,
+  `exp_adress` varchar(45) NOT NULL,
   `exp_city` varchar(45) NOT NULL,
   `exp_post_code` varchar(45) NOT NULL,
-  `spo_country` varchar(45) NOT NULL,
+  `spo_Country` varchar(45) NOT NULL,
   `exp_phone` varchar(45) NOT NULL,
   `exp_mobile` varchar(45) DEFAULT NULL,
   `exp_fax` varchar(45) DEFAULT NULL,
@@ -118,7 +118,7 @@ CREATE TABLE `exposants` (
   `exp_email_general` varchar(45) DEFAULT NULL,
   `exp_avatar` varchar(45) DEFAULT NULL,
   `exp_gallery` varchar(45) DEFAULT NULL,
-  `exp_description_exposants` varchar(45) DEFAULT NULL,
+  `exp__description_sponsors` varchar(45) DEFAULT NULL,
   `exp_url` varchar(45) DEFAULT NULL,
   `exp_pagote` varchar(45) DEFAULT NULL,
   `users_id` int(11) NOT NULL
@@ -145,7 +145,7 @@ CREATE TABLE `exposants_has_typ_exposants` (
 CREATE TABLE `galeries` (
   `id` int(11) NOT NULL,
   `gal_name` varchar(45) NOT NULL,
-  `gal_path` varchar(150) NOT NULL,
+  `gal_path` varchar(150) DEFAULT NULL,
   `gal_legend` varchar(45) DEFAULT NULL,
   `gal_order` varchar(45) DEFAULT NULL,
   `gal_description` varchar(45) DEFAULT NULL
@@ -170,7 +170,7 @@ INSERT INTO `galeries` (`id`, `gal_name`, `gal_path`, `gal_legend`, `gal_order`,
 (12, 'Classic_Days_2015_2', '/assets/Concours-mondorf/Classic_Days_2015_2/', 'Classic Days 2015 partie 2', NULL, NULL),
 (13, 'Luxembourg_Grand_Tour_2015', '/assets/Concours-mondorf/Luxembourg_Grand_Tour_2015/', 'Luxembourg Grand Tour 2015', NULL, NULL),
 (14, 'MaW_CE1_2014', '/assets/Concours-mondorf/MaW_CE1_2014/', 'MaW_CE1_2014', NULL, NULL),
-(15, 'MaW_CE2_2014', '/assets/Concours-mondorf/MaW_CE2_2014/', 'MaW_CE2_2014', NULL, NULL),
+(15, 'MaW_CE2_2014', '/assets/Concours-mondorf/MaW_CE2_2014/', 'MaW_CE2_2014', NULL, 'Deuxième partie de la galerie'),
 (16, 'MaW_LGT_2014', '/assets/Concours-mondorf/MaW_LGT_2014/', 'MaW_LGT_2014', NULL, NULL);
 
 -- --------------------------------------------------------
@@ -1778,7 +1778,7 @@ CREATE TABLE `participants` (
   `id` int(11) NOT NULL,
   `par_name` varchar(45) NOT NULL,
   `par_first_name` varchar(45) NOT NULL,
-  `par_address` varchar(45) DEFAULT NULL,
+  `par_adress` varchar(45) DEFAULT NULL,
   `par_city` varchar(45) DEFAULT NULL,
   `par_post_code` varchar(45) DEFAULT NULL,
   `par_country` varchar(45) DEFAULT NULL,
@@ -3408,7 +3408,7 @@ CREATE TABLE `sponsors` (
   `spo_fax` varchar(45) DEFAULT NULL,
   `spo_email_incharge` varchar(45) NOT NULL,
   `spo_email_general` varchar(45) DEFAULT NULL,
-  `spo_avatar` varchar(45) DEFAULT NULL,
+  `spo_avatar` varchar(200) DEFAULT NULL,
   `spo_gallery` varchar(45) DEFAULT NULL,
   `spo_url` varchar(45) DEFAULT NULL,
   `users_id` int(11) NOT NULL
@@ -3451,6 +3451,17 @@ CREATE TABLE `typ_sponsors` (
   `users_role_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Contenu de la table `typ_sponsors`
+--
+
+INSERT INTO `typ_sponsors` (`id`, `typ_spon_name`, `typ_spon_description`, `users_role_id`) VALUES
+(1, 'Premium Sponsors', 'Sponsors premium', 5),
+(2, 'Automotive Sponsors', 'Constructeurs automobile', 5),
+(3, 'Sponsors', 'divers sponsors tous types', 5),
+(4, 'Media Partners', 'sponsors en relation à la presse', 5),
+(5, 'Friends', 'Sponsors simple', 5);
+
 -- --------------------------------------------------------
 
 --
@@ -3469,23 +3480,25 @@ CREATE TABLE `users` (
   `use_fax` varchar(45) NOT NULL,
   `use_email` varchar(45) NOT NULL,
   `use_password` varchar(60) NOT NULL,
-  `use_token` varchar(60) DEFAULT NULL,
   `use_date_creation` date DEFAULT NULL,
   `use_type` varchar(45) DEFAULT NULL,
   `use_role_opt1` varchar(45) DEFAULT NULL,
-  `use_role_opt2` varchar(45) DEFAULT NULL
+  `use_role_opt2` varchar(45) DEFAULT NULL,
+  `use_token` varchar(60) DEFAULT NULL,
+  `userscol` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tables pour l''inscription des participants, représentants ou demandeurs pour des exposants ou sponsors';
 
 --
 -- Contenu de la table `users`
 --
 
-INSERT INTO `users` (`id`, `use_userName`, `use_name`, `use_first_name`, `use_address`, `use_post_code`, `use_city`, `use_phone`, `use_fax`, `use_email`, `use_password`, `use_token`, `use_date_creation`, `use_type`, `use_role_opt1`, `use_role_opt2`) VALUES
-(3, 'raven095', 'Reuter', 'Marc', '4a rue du cimetière', '3350', 'Leudelange', '621149680', '', 'marc.reuter095@gmail.com', '$2y$10$Le3vp0KfS2zId6WIl9k7Eu2rYyF583oIikZRJiUVQyyU2LJ509Hsi', NULL, '2016-07-14', NULL, '2', NULL),
-(4, 'pcoelho', 'Coelho', 'Patrick', '39 rue Sigefroi', '3280', 'Bettembourg', '00352621000000', '', 'pcoelho@psgroup.lu', '$2y$10$ycfmnFQfGzVpYh20VKACn.MqYEMBtrzfdfQZZcDeLZ5so5c.iVh72', '', '2016-07-14', NULL, '2', NULL),
-(5, 'pfabri', 'Fabri', 'Paul', '2, rue Jean Engling', '1466', 'Luxembourg', '00352-661400070', '', 'prfabri@yahoo.fr', '$2y$10$r.wOx/rY9pVmJiYY.jyil.aIPIFxEfLH.RRV4zSM9FDD1BpYYKlX6', '', '2016-07-18', NULL, '2', NULL),
-(6, 'Claudio', 'Raimundo', 'Claudio', '226B, route d\'Arlon', '8010', 'Strassen', '691462124', '691462124', 'craimundo75@gmail.com', '$2y$10$Pv3CoPJhzIrD2NlfIRLXY.WfeybGGWteZI1W3efM4.MvCzPUPBOaa', NULL, '2016-07-19', NULL, '2', NULL),
-(7, 'Kcarneiro', 'Dias', 'Adelino', '4, Impasse Bedigem', 'L-9160', 'Ingeldorf', '621359937', '', 'kcarneiro74pro@gmail.com', '$2y$10$x/hb3xY31VDIGuV2HP2BOuNNTxfFMuxBeb/KX3zNECCNdAPF80sFe', NULL, '2016-07-20', NULL, '2', NULL);
+INSERT INTO `users` (`id`, `use_userName`, `use_name`, `use_first_name`, `use_address`, `use_post_code`, `use_city`, `use_phone`, `use_fax`, `use_email`, `use_password`, `use_date_creation`, `use_type`, `use_role_opt1`, `use_role_opt2`, `use_token`, `userscol`) VALUES
+(3, 'raven095', 'Reuter', '', '', '3350', 'Leudelange', '621149680', '', 'marc.reuter095@gmail.com', '$2y$10$Le3vp0KfS2zId6WIl9k7Eu2rYyF583oIikZRJiUVQyyU2LJ509Hsi', '2016-07-14', NULL, '2', NULL, NULL, NULL),
+(4, 'pcoelho', 'Coelho', '', '', '3280', 'Bettembourg', '00352621000000', '', 'pcoelho@psgroup.lu', '$2y$10$simc/cLDdC4x4RCRrXlheO46x17in4reZIpawMnbaaMpOrbLoBPB6', '2016-07-14', NULL, '2', NULL, '', NULL),
+(5, 'pfabri', 'Fabri', '', '', '1466', 'Luxembourg', '00352-661400070', '', 'prfabri@yahoo.fr', '$2y$10$r.wOx/rY9pVmJiYY.jyil.aIPIFxEfLH.RRV4zSM9FDD1BpYYKlX6', '2016-07-18', NULL, '2', NULL, '', NULL),
+(6, 'Claudio', 'Raimundo', '', '', '8010', 'Strassen', '691462124', '691462124', 'craimundo75@gmail.com', '$2y$10$Pv3CoPJhzIrD2NlfIRLXY.WfeybGGWteZI1W3efM4.MvCzPUPBOaa', '2016-07-19', NULL, '2', NULL, NULL, NULL),
+(7, 'Kcarneiro', 'Dias', '', '', 'L-9160', 'Ingeldorf', '621359937', '', 'kcarneiro74pro@gmail.com', '$2y$10$x/hb3xY31VDIGuV2HP2BOuNNTxfFMuxBeb/KX3zNECCNdAPF80sFe', '2016-07-20', NULL, '2', NULL, NULL, NULL),
+(8, 'awetz', 'Wetz', 'Albert', 'rue Riberspont', '3489', 'Dudelange', '00352621157010', '', 'albert@concours-monodorf.lu', '$2y$10$1Klc6QJF7fB5uUsPGgpR0eHLBjfhMmwFsuLBbph3jg//1FwPGD65a', '2016-07-22', NULL, '1', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -3535,6 +3548,13 @@ CREATE TABLE `users_has_role` (
   `users_id` int(11) NOT NULL,
   `role_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `users_has_role`
+--
+
+INSERT INTO `users_has_role` (`users_id`, `role_id`) VALUES
+(8, 1);
 
 -- --------------------------------------------------------
 
@@ -3738,7 +3758,7 @@ ALTER TABLE `users_has_sponsors`
 -- AUTO_INCREMENT pour la table `contenus`
 --
 ALTER TABLE `contenus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 --
 -- AUTO_INCREMENT pour la table `contenus_has_galeries`
 --
@@ -3758,7 +3778,7 @@ ALTER TABLE `exposants`
 -- AUTO_INCREMENT pour la table `galeries`
 --
 ALTER TABLE `galeries`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT pour la table `magazine`
 --
@@ -3793,12 +3813,12 @@ ALTER TABLE `typ_exposants`
 -- AUTO_INCREMENT pour la table `typ_sponsors`
 --
 ALTER TABLE `typ_sponsors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- Contraintes pour les tables exportées
 --

@@ -36,10 +36,12 @@ class GalerieController extends Controller {
         $this->show('galerie/photos',['photosGalerie' => $photosGalerieId, 'eventsIdGaleries'=> $galerieID]);
     }
      public function add(){
+        $this->allowTo('2');
         $this->show('galerie/add');
     }
 
     public function addVal(){
+        $this->allowTo('2');
         $galerieManager = new GalerieManager();
 
         $titreVal = false;
@@ -91,16 +93,24 @@ class GalerieController extends Controller {
         }
     }
 
+    public function deleteConfirmation($id){
+        $this->allowTo('2');
+        $galerieManager = new GalerieManager();
+        $galerieDetailsId = $galerieManager->find($id);
+        //debug($galerieDetailsId);
+        $this->show('default/confirmation', ['galerieDetails' => $galerieDetailsId]);
+    }
+   
     public function delete($id){
-
+        $this->allowTo('2');
         $galerieManager = new GalerieManager();
         $galerieManager->delete($id);
-
+              
         $this->redirectToRoute('galerie_liste');
     }
 
     public function update($id){
-
+        $this->allowTo('2');
         $galerieManager = new GalerieManager();
         $galerieId = $galerieManager->find($id);
 
@@ -108,8 +118,8 @@ class GalerieController extends Controller {
     }
 
     public function updateVal($id){
+        $this->allowTo('2');
         $galerieManager = new GalerieManager();
-
         $titreVal = false;
         $legendVal = false;
         $descriptionVal= false;
