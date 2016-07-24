@@ -1,40 +1,54 @@
 <?php $this->layout('layout', ['title' => 'Créer une galerie']) ?>
 
 <?php $this->start('main_content') ?>
-<h2>Crée une galerie</h2>
-<?php
-if (isset($error)) {
-    debug($error);
-}
-//debug($_POST);
-//debug($_FILES);
-?>
-<?php if (isset($vals)): ?>
+<h2>Créer une galerie</h2>
+<div class="row">
+    <div class="col-md-6 text-left">
+    <?php if (isset($vals)): ?>
+        <form action="" method="post" enctype="multipart/form-data">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-tags fa-fw" aria-hidden="true"></i></span>
+                <input id="titre" type="text" name="titre" value="<?= $vals['gal_name'] ?>" required="" placeholder="Titre" class="form-control text-left">
+            </div>
+            <span class="help-block"></span>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-tags fa-fw" aria-hidden="true"></i></span>
+                <input id="legend" type="text" name="legend" value="<?= $vals['gal_legend'] ?>" required="" placeholder="Legend" class="form-control text-left">
+            </div>
+            <span class="help-block"></span>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-align-left"></i></span>
+                <textarea id="description" type="text" name="description" rows="10" value="<?= $vals['gal_description'] ?>" placeholder="Description" class="form-control text-left"></textarea>
+            </div>
+            <span class="help-block"></span>
+            <button class="btn btn-primary btn-sm active" type="submit" value="Créer la galerie" href="#"><i class="fa fa-sign-in fa-fw"></i> Créer la galerie</button>
+        </form>
+        <?php if (isset($error)) {
+            debug($error);
+        }
+        //debug($_POST);
+        //debug($_FILES);
+        ?>
+    </div>
+    <?php else: ?>
     <form action="" method="post" enctype="multipart/form-data">
-        <label for="titre">Titre</label></br>
-        <input id="titre" type="text" name="titre" value="<?= $vals['gal_name'] ?>"></br></br>
-
-        <label for="legend">Legend</label></br>
-        <input id="legend" type="text" name="legend" value="<?= $vals['gal_legend'] ?>"></br></br>
-
-        <label for="description">Description</label></br>
-        <textarea name="description" id="description" cols="30" rows="10"><?= $vals['gal_description'] ?></textarea></br></br>
-
-        <input type="submit" value="Créer la galerie"></br></br>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-tags fa-fw" aria-hidden="true"></i></span>
+            <input id="titre" type="text" name="titre" value="" required="" placeholder="Titre" class="form-control text-left">
+        </div>
+        <span class="help-block"></span>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-tags fa-fw" aria-hidden="true"></i></span>
+            <input id="legend" type="text" name="legend" value="" required="" placeholder="Legend" class="form-control text-left">
+        </div>
+        <span class="help-block"></span>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-align-left"></i></span>
+            <textarea id="description" type="text" name="description" rows="10" value="" placeholder="Description" class="form-control text-left"></textarea>
+        </div>
+        <span class="help-block"></span>
+        <button class="btn btn-primary btn-sm active" type="submit" value="Créer la galerie" href="#"><i class="fa fa-pencil fa-fw"></i> Créer la galerie</button>
     </form>
-<?php else: ?>
-    <form action="" method="post" enctype="multipart/form-data">
-        <label for="titre">Titre</label></br>
-        <input id="titre" type="text" name="titre" value=""></br></br>
-
-        <label for="legend">Legend</label></br>
-        <input id="legend" type="text" name="legend" value=""></br></br>
-
-        <label for="description">Description</label></br>
-        <textarea name="description" id="description" cols="30" rows="10"></textarea></br></br>
-
-        <input type="submit" value="Créer la galerie"></br></br>
-    </form>
-<?php endif; ?>
-
+    <?php endif; ?>
+</div>
 <?php $this->stop('main_content') ?>
