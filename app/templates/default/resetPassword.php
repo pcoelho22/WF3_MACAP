@@ -9,7 +9,7 @@
 			<span class="help-block"></span>
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-lock fa-fw" aria-hidden="true"></i></span>
-                <input type="password" name="password" value="" required="" placeholder="Introduisez votre nouveau mot de passe" class="form-control text-left">
+                <input type="password" name="password" value="" required="" placeholder="Introduisez votre nouveau mot de passe (minumum 6 charactères avec au moins 1 majuscule et 1 chiffre)" class="form-control text-left">
             </div>
             <span class="help-block"></span>
             <div class="input-group">

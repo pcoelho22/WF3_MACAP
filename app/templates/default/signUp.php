@@ -2,7 +2,7 @@
 
 <?php $this->start('main_content') ?>
 
-<h1>Création de votre compte</h1>
+<h2>Création de votre compte</h2>
 <h4>Créez votre compte en complétant le formulaire ci-dessous.</h4>
 <div class="row">
 
