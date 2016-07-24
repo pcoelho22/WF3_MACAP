@@ -2,7 +2,7 @@
 
 <?php $this->start('main_content') ?>
 
-<h1>Login</h1>
+<h2>Login</h2>
 <div class="row">
     <div class="col-md-6 text-left">
 
