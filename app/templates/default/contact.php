@@ -23,7 +23,7 @@
             <input id="address" type="text" name="address" placeholder="Votre adresse" class="form-control text-left">
         </div>
         <span class="help-block"></span>
-        <button class="btn btn-primary btn-sm active" type="submit"><i class="fa fa-location-arrow"></i> Générer votre initnéraire</button>
+        <button class="btn btn-primary btn-sm active" type="button" id="button"><i class="fa fa-location-arrow"></i> Générer votre initnéraire</button>
     </form>
     <div id="map" class="col-sm-5 center-block"></div>
 </div>
