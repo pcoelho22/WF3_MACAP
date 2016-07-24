@@ -85,7 +85,7 @@
                 <input id="url" type="text" name="url" value="<?= $vals['url'] ?>" placeholder="Ex: http://www.votresite.com"><br/><br/>
 
                 <span class="help-block"></span>
-                <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Exposant" href="#"><i class="fa fa-user fa-fw"></i> Editer Exposant</button>
+                <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Exposant" href="#"><i class="fa fa-pencil-square-o"></i> Editer Exposant</button>
                 <br>
                 <h4>Une fois l'édition validée, vous serez redirigé vers la page d'accueil.</h4>
             </form>
@@ -184,7 +184,7 @@
                 <input id="avatar" type="file" name="avatar" class="form-control text-left">
             </div>
             <span class="help-block"></span>
-            <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Exposant" href="#"><i class="fa fa-user fa-fw"></i> Editer Exposant</button>
+            <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Exposant" href="#"><i class="fa fa-pencil-square-o fa-fw"></i>Editer Exposant</button>
             <br>
             <h4>Une fois l'édition validée, vous serez redirigé vers la page d'accueil.</h4>
         </form>

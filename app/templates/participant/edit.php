@@ -58,7 +58,7 @@
                     <input id="avatar" type="file" name="avatar" value="<?= $vals['email'] ?>" placeholder="Veuillez ajouter une photo" class="form-control text-left">
                 </div>
                 <span class="help-block"></span>
-                <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Participant" href="#"><i class="fa fa-user fa-fw"></i> Editer Participant</button>
+                <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Participant" href="#"><i class="fa fa-pencil-square-o fa-fw"></i>Editer Participant</button>
                 <br>
                 <h4>Une fois l'édition validée, vous serez redirigé vers la page d'accueil.</h4>
             </form>
@@ -132,7 +132,7 @@
                 <input id="avatar" type="file" name="avatar" value="<?= $vals['email'] ?>" placeholder="Veuillez ajouter une photo" class="form-control text-left">
             </div>
             <span class="help-block"></span>
-            <button class="btn btn-primary btn-sm active" type="submit" value="Editer Participant" href="#"><i class="fa fa-user fa-fw"></i> Editer Participant</button>
+            <button class="btn btn-primary btn-sm active" type="submit" value="Editer Participant" href="#"><i class="fa fa-pencil-square-o fa-fw"></i>Editer Participant</button>
             <br>
             <h4>Une fois l'édition validée, vous serez redirigé vers la page d'accueil.</h4>
         </form>

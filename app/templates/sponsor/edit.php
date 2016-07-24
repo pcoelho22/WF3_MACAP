@@ -90,7 +90,7 @@
                 <?php endif; ?>
 
                 <span class="help-block"></span>
-                <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Sponsor" href="#"><i class="fa fa-user fa-fw"></i> Editer Sponsor</button>
+                <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Sponsor" href="#"><i class="fa fa-pencil-square-o fa-fw"></i> Editer Sponsor</button>
                 <br>
                 <h4>Une fois l'édition validée, vous serez redirigé vers la page d'accueil.</h4>
             </form>
@@ -196,7 +196,7 @@
             <?php endif; ?>
 
             <span class="help-block"></span>
-            <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Sponsor" href="#"><i class="fa fa-pencil-square-o"></i> Editer Sponsor</button>
+            <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Sponsor" href="#"><i class="fa fa-pencil-square-o fa-fw"></i>Editer Sponsor</button>
             <br>
             <h4>Une fois l'édition validée, vous serez redirigé vers la page d'accueil.</h4>
         </form>

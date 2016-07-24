@@ -55,7 +55,6 @@
                                     <a href="<?= $this->url('user_login') ?>"><button type="button" class="btn btn-default btn-sm"><span class="fa fa-sign-in" aria-hidden="true"></span> Login</button></a>
                                 </li>
                             </ul>
-                            <a href="<?= $this->url('default_contact') ?>"><button type="button" class="btn btn-default btn-sm"><span class="fa fa-phone" aria-hidden="true"></span> Nous contacter</button></a>
                         <?php else: ?>
                             <div class="no-margin-top small">
                                 <ul class="list-inline no-margin-top small">
@@ -124,7 +123,7 @@
                     <div class="col-sm-4 text-center">
                         <br>
                         <ul class="list-inline small">
-                            <li><a href="" class="link-internal grey small"><button type="button" class="btn btn-default btn-sm"><span class="fa fa-home" aria-hidden="true"></span> Top</button></a></li>
+                            <li><a class="btn btn-default btn-sm" href="<?= $this->url('default_contact') ?>"><span class="fa fa-phone" aria-hidden="true"></span> Nous contacter</a></li>
                         </ul>
                     </div>
 
