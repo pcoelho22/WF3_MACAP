@@ -126,13 +126,13 @@
             </div>
             <span class="help-block"></span>
             <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-home fa-fw" aria-hidden="true"></i></span>
-                <input id="city" type="text" name="city" value="" placeholder="Ville" class="form-control text-left">
+                <span class="input-group-addon"><i class="fa fa-tags fa-fw" aria-hidden="true"></i></span>
+                <input id="postCode" type="text" name="postCode" value="" placeholder="Code postal" class="form-control text-left">
             </div>
             <span class="help-block"></span>
             <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-tags fa-fw" aria-hidden="true"></i></span>
-                <input id="postCode" type="text" name="postCode" value="" placeholder="Code postal" class="form-control text-left">
+                <span class="input-group-addon"><i class="fa fa-home fa-fw" aria-hidden="true"></i></span>
+                <input id="city" type="text" name="city" value="" placeholder="Ville" class="form-control text-left">
             </div>
             <span class="help-block"></span>
             <div class="input-group">

@@ -58,17 +58,13 @@
                         <?php else: ?>
                             <div class="no-margin-top small">
                                 <ul class="list-inline no-margin-top small">
-
                                     <li>
                                         <h4><img src="<?= $this->assetUrl('img/avatar.png') ?>" alt="avatar" width="30px" height="32px"> <?= $_SESSION['user']['use_userName'] ?></h4>
                                     </li>
-
                                     <li class="no-margin-top">
                                         <a class="btn btn-link btn-md" href="<?= $this->url('user_logout') ?>"><span class="fa fa-power-off" aria-hidden="true"></span> Se déconnecter</a>
                                     </li>
                                 </ul>
-
-
                             </div>
 
                         <?php endif; ?>
