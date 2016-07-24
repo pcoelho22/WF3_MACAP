@@ -18,6 +18,7 @@ class UserController extends Controller {
     public function logOut() {
         $authManager = new AuthentificationManager();
         $authManager->logUserOut();
+        unset($_SESSION['roles']);
         $this->redirectToRoute('user_login');
     }
     
@@ -28,17 +29,23 @@ class UserController extends Controller {
     public function loginVal() {
         $usernameOrEmail = isset($_POST['usernameOrEmail']) ? trim(strip_tags($_POST['usernameOrEmail'])) : '';
         $password = isset($_POST['password']) ? trim(strip_tags($_POST['password'])) : '';
-
+        
         $authManager = new AuthentificationManager();
         $usr_id = $authManager->isValidLoginInfo($usernameOrEmail, $password);
-
+        
+        $userHasRoleManager = new UserHasRoleManager();
+        
         if ($usr_id === 0) {
             $erreur = "Login ou Mot de passe invalide";
             $this->show('default/login', ["erreur"=>$erreur]);
         } 
         else {
             $userManager = new UserManager();
+            $userRoles = $userHasRoleManager->getUserRoles($usr_id);
             $authManager->logUserIn($userManager->find($usr_id));
+            foreach ($userRoles as $key => $value) {
+                $_SESSION['roles'][] = $value['role_id'];   
+            }
             $this->redirectToRoute('home');
         }
     }
