@@ -7,7 +7,7 @@
     </div>
 </div>
 <div class="row" style="margin-bottom: 35px">
-    <div class="col-sm-6 col-sm-offset-3 text-center"><h2>Nous exauçons les voeux d'enfant atteints de maladies graves</h2></div>
+    <div class="col-sm-6 col-sm-offset-3 text-center"><h2>Nous exauçons les voeux d'enfants atteints de maladies graves</h2></div>
     <h2 class="col-sm-4 col-sm-offset-4 text-center"><strong>Faites un don!</strong></h2>
 </div>
 <div class="row">
