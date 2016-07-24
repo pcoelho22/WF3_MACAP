@@ -6,10 +6,10 @@
     <h1 class="col-sm-2 col-sm-offset-5 text-center"><strong>2016</strong></h1>
 </div>
 <div class="row" style="margin-bottom: 35px">
-    <div class="col-sm-3 col-sm-offset-3 text-center">
+    <div class="col-sm-3 col-sm-offset-3 text-right">
         <img src="<?= $this->assetUrl('img/marcel.jpg')?>" style="width: 170px; height: 170px;" alt="image" class="img-responsive"><br/>Marcel HAGENDOORN
     </div>
-    <div class="col-sm-3 text-center">
+    <div class="col-sm-3 text-left">
         <img src="<?= $this->assetUrl('img/albert.jpg')?>" style="width: 170px; height: 170px;" alt="image" class="img-responsive"><br/>Albert WETZ
     </div>
 </div>

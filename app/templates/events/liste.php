@@ -17,8 +17,8 @@
 						<a href="<?= $this->url('events_eventsDetails',['id'=>$value['id']]) ?>">Title: <?= $value['con_title'].'<br/> '.'Synopsis: '.$value['con_synopsis']?></a>
 					</li>
 					<li class="list-group-item">
-						<a  href="<?= $this->url('events_update', ['id'=>$value['id']]) ?>"><button class="btn btn-default btn-sm">Modifier</button></a>
-						<a  href="<?= $this->url('events_delete', ['id'=>$value['id']]) ?>"><button class="btn btn-default btn-sm">Delete</button></a>
+						<a  href="<?= $this->url('events_update', ['id'=>$value['id']]) ?>"><button class="btn btn-default btn-sm"><i class="fa fa-pencil"></i> Modifier</button></a>
+						<a  href="<?= $this->url('events_delete', ['id'=>$value['id']]) ?>"><button class="btn btn-default btn-sm"><i class="fa fa-trash-o"></i> Supprimer</button></a>
 					</li>
 				</ul>
 			<?php endforeach ?>
