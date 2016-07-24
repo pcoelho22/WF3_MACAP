@@ -3,7 +3,7 @@
 <?php $this->start('main_content') ?>
 <h2>Nous trouver</h2>
 <div class="row">
-    <div class="col-sm-4 text-center">
+    <div class="col-md-4 text-center">
         <span class="help-block"></span>
         <div id="mapStatic" class="center-block"></div>
     </div>
@@ -18,7 +18,7 @@
         <span class="help-block"></span>
         <button class="btn btn-primary btn-sm active" type="button" id="button"><i class="fa fa-location-arrow"></i> Générer votre initnéraire</button>
     </div>
-    <div class="col-sm-4 text-center">
+    <div class="col-md-4 text-center">
         <span class="help-block"></span>
         <div id="map" class="center-block"></div>
     </div>

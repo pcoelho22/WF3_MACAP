@@ -84,7 +84,7 @@
             <span class="help-block"></span>
             <button class="btn btn-primary btn-sm active" type="submit" value="Créer mon compte" href="#"><i class="fa fa-user fa-fw"></i> Créer mon compte</button>
             <span class="help-block"></span>
-            <h4>Une fois l'inscription validée, vous serez redirigé vers la page d'accueil</h4>
+            <h4>Une fois l'inscription validée, vous serez redirigé vers la page d'accueil.</h4>
         </form>
     </div>
 
