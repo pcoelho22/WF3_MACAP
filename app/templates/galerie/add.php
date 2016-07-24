@@ -3,11 +3,12 @@
 <?php $this->start('main_content') ?>
 <h2>Crée une galerie</h2>
 <?php
-if (isset($error)){
+if (isset($error)) {
     debug($error);
 }
 //debug($_POST);
-//debug($_FILES);?>
+//debug($_FILES);
+?>
 <?php if (isset($vals)): ?>
     <form action="" method="post" enctype="multipart/form-data">
         <label for="titre">Titre</label></br>
@@ -27,7 +28,7 @@ if (isset($error)){
         <input id="titre" type="text" name="titre" value=""></br></br>
 
         <label for="legend">Legend</label></br>
-         <input id="legend" type="text" name="legend" value=""></br></br>
+        <input id="legend" type="text" name="legend" value=""></br></br>
 
         <label for="description">Description</label></br>
         <textarea name="description" id="description" cols="30" rows="10"></textarea></br></br>

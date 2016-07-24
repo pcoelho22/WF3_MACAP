@@ -3,14 +3,16 @@
 <?php $this->start('main_content') ?>
 <div class="row" style="margin-bottom: 35px">
    <h1 class="col-sm-8 col-sm-offset-2 text-uppercase text-center">luxembourg classic days & concours d'élégance</h1>
-    <h1 class="col-sm-2 col-sm-offset-5 text-center"><strong>2016</strong></h1>
+    <h1 class="col-sm-2 col-xs-offset-5 text-center"><strong>2016</strong></h1>
 </div>
 <div class="row" style="margin-bottom: 35px">
-    <div class="col-sm-3 col-sm-offset-3 text-center">
-        <img src="<?= $this->assetUrl('img/marcel.jpg')?>" style="width: 170px; height: 170px;" alt="image" class="img-responsive"><br/>Marcel HAGENDOORN
+    <div class="col-xs-3 col-xs-offset-3 text-center">
+            <img src="<?= $this->assetUrl('img/marcel.jpg')?>" style="width: 170px; height: 170px;" alt="" class="img-responsive">
+            <p>Marcel HAGENDOORN</p>
     </div>
-    <div class="col-sm-3 text-center">
-        <img src="<?= $this->assetUrl('img/albert.jpg')?>" style="width: 170px; height: 170px;" alt="image" class="img-responsive"><br/>Albert WETZ
+    <div class="col-xs-3 text-center">
+            <img src="<?= $this->assetUrl('img/albert.jpg')?>" style="width: 170px; height: 170px;" alt="" class="img-responsive">
+            <p>Albert WETZ</p>
     </div>
 </div>
 

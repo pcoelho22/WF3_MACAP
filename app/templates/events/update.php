@@ -1,12 +1,11 @@
 <?php $this->layout('layout', ['title' => 'Modifier un event']) ?>
 
 <?php $this->start('main_content') ?>
-<?php 
-
+<?php
 //debug($_POST);
-
-//debug($_FILES); ?>
-<?php if (isset($eventsDetails)):?>
+//debug($_FILES); 
+?>
+<?php if (isset($eventsDetails)): ?>
     <form action="" method="post" enctype="multipart/form-data">
         <label for="titre">Titre</label></br>
         <input id="titre" type="text" name="titre" value="<?= $eventsDetails['con_title'] ?>"></br></br>
@@ -30,7 +29,7 @@
 
         <input type="submit" value="Modifier l'event"></br></br>
     </form>
-    <?php elseif(isset($vals)): ?>
+<?php elseif (isset($vals)): ?>
     <?php debug($error); ?>
     <?php debug($vals); ?>
     <form action="" method="post" enctype="multipart/form-data">
@@ -54,5 +53,5 @@
 
         <input type="submit" value="Modifier l'event"></br></br>
     </form>
-    <?php endif;?>
+<?php endif; ?>
 <?php $this->stop('main_content') ?>
