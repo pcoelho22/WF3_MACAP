@@ -12,9 +12,11 @@
 
     <input type="submit" value="Changer de mot de passe">
 </form>
-<?php if (isset($error)){
-    foreach ($error as $value){
+<?php
+if (isset($error)) {
+    foreach ($error as $value) {
         echo $value;
     }
-} ?>
+}
+?>
 <?php $this->stop('main_content') ?>

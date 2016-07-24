@@ -2,7 +2,8 @@
 
 <?php $this->start('main_content') ?>
 <h2>Modifié les informations de votre compte</h2>
-<?php if (isset($error)){
+<?php
+if (isset($error)) {
     debug($error);
 }
 debug($_POST);
@@ -43,7 +44,7 @@ debug($_POST);
 
         <input type="submit" value="Valider les modifications">
     </form>
-    <?php elseif(isset($values)): ?>
+<?php elseif (isset($values)): ?>
     <?php debug($values); ?>
     <form action="" method="post">
 

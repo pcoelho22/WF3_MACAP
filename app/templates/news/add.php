@@ -3,11 +3,12 @@
 <?php $this->start('main_content') ?>
 <h2>Crée une news</h2>
 <?php
-if (isset($error)){
+if (isset($error)) {
     debug($error);
 }
 //debug($_POST);
-//debug($_FILES);?>
+//debug($_FILES);
+?>
 <?php if (isset($vals)): ?>
     <form action="" method="post" enctype="multipart/form-data">
         <label for="titre">Titre</label></br>
