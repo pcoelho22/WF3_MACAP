@@ -34,12 +34,13 @@ class NewsController extends Controller {
     }
 
     public function add(){
+        $this->allowTo('2');
         $this->show('news/add');
     }
 
     public function addVal(){
+        $this->allowTo('2');
         $newsManager = new NewsManager();
-
         $string = StringUtils::randomString(10);
         $string2 = StringUtils::randomString(10);
 
@@ -164,7 +165,7 @@ class NewsController extends Controller {
     }
 
     public function deleteConfirmation($id){
-
+        $this->allowTo('2');
         $newsManager = new NewsManager();
         $newsDetailsId = $newsManager->find($id);
         //debug($newsDetailsId);
@@ -172,7 +173,7 @@ class NewsController extends Controller {
     }
    
     public function delete($id){
-
+        $this->allowTo('2');
         $newsManager = new NewsManager();
         $newsManager->delete($id);
               
@@ -181,7 +182,7 @@ class NewsController extends Controller {
    
 
     public function update($id){
-
+        $this->allowTo('2');
         $newsManager = new NewsManager();
         $newsDetailsId = $newsManager->find($id);
 
@@ -189,8 +190,8 @@ class NewsController extends Controller {
     }
 
     public function updateVal($id){
+        $this->allowTo('2');
         $newsManager = new NewsManager();
-
         $string = StringUtils::randomString(10);
         $string2 = StringUtils::randomString(10);
 
