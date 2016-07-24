@@ -116,35 +116,41 @@
             <?= $this->section('main_content') ?>
         </div>
         <footer id="footer">
-                <div class="row"> 
+            <div class="container">
+                <div class="row">
                     <div class="col-sm-4 text-center">
                         <br>
-                        <a class="btn btn-default btn-sm" href="<?= $this->url('default_contact') ?>"><span class="fa fa-phone fa-fw" aria-hidden="true"></span>Nous contacter</a>
+                        <ul class="list-inline small">
+                            <li><a class="btn btn-default btn-sm" href="<?= $this->url('default_contact') ?>"><span class="fa fa-phone" aria-hidden="true"></span> Nous contacter</a></li>
+                        </ul>
                     </div>
 
-                    <div class="col-sm-8 text-center">
+                    <div class="col-md-4 text-center">
                         <div class="set squared icon-inflate">
-                            <a href="https://fr-fr.facebook.com/ConcoursMondorf/ " target="_blank" class="social facebook">Facebook</a>
+                            <a href="https://fr-fr.facebook.com/" target="_blank" class="social facebook">Facebook</a>
                             <a href="https://twitter.com/GD_Luxembourg" target="_blank" class="social twitter">Twitter</a>
                             <a href="https://plus.google.com/explore" target="_blank" class="social google-plus">Google+</a>
                             <a href="https://www.instagram.com/" target="_blank" class="social instagram">Instagram</a>
                             <a href="https://www.youtube.com/" target="_blank" class="social youtube">Youtube</a>
                         </div>
-                    </div>     
+                    </div>
                     <div class="col-sm-4 text-center">
-                            <a href="http://www.make-a-wish.lu/" target="_blank"><img alt="" src="<?= $this->assetUrl('img/MAW.jpg') ?>"></a>
+                        <ul class="list-inline small">
+                            <li><a href="http://www.make-a-wish.lu/" target="_blank"><img src="<?= $this->assetUrl('img/MAW.jpg') ?>" class="img-responsive"></a></li>
+                        </ul>
                     </div>
                 </div>
                 <div class='row'>
                     <div class="col-12 text-center">
                         <ul class="list-inline no-margin-bottom small">
-                            <li><a href="<?= $this->url('default_contact') ?>" class="small" target="_blank">Contact Us</a></li>
+                            <li><a href="/contact us" class="small" target="_blank">Contact Us</a></li>
                             <li><a href="/terms-conditions" class="small" target="self">Terms &amp; Conditions</a></li>
-                            <li><a href="/en/sitemap" class="small">Site Map</a></li>
-                        </ul>               
+                            <li><a href="/en/sitemap" class="small" target="self">Site Map</a></li>
+                        </ul>
                         <small><a href="http://www.mc-app.eu" class="small" target="self">© McAPP 2016</a></small>
                     </div>
                 </div>
+            </div>
         </footer>
     </body>
 </html>

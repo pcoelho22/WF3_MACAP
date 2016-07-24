@@ -76,10 +76,6 @@
                 <span class="input-group-addon"><i class="fa fa-globe"></i></span>
                 <input id="url" type="text" name="url" value="<?= $vals['url'] ?>" placeholder="Site web de l'exposant" class="form-control text-left">
             </div>
-
-            <label for="url">Site internet</label><br/>
-            <input id="url" type="text" name="url" value="<?= $vals['url'] ?>" placeholder="Ex: http://www.votresite.com"><br/><br/>
-
             <span class="help-block"></span>
             <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Exposant" href="#"><i class="fa fa-user fa-fw"></i> Ajouter Exposant</button>
             <br>

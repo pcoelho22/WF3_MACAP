@@ -67,7 +67,6 @@
                                         <a class="btn btn-link btn-md" href="<?= $this->url('user_logout') ?>"><span class="fa fa-power-off" aria-hidden="true"></span> Se déconnecter</a>
                                     </li>
                                 </ul>
-                                <a href="<?= $this->url('default_contact') ?>"><button type="button" class="btn btn-default btn-sm"><span class="fa fa-phone" aria-hidden="true"></span> Nous contacter</button></a>
                             </div>
 
                         <?php endif; ?>
