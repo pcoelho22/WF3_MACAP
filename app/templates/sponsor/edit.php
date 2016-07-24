@@ -77,10 +77,10 @@
                     <span class="input-group-addon"><i class="fa fa-picture-o fa-fw"></i></span>
                     <input id="avatar" type="file" name="avatar" class="form-control text-left">
                 </div>
-
-                <?php if ($_SESSION['users']['use_role_opt1'] === '2'): ?>
+                 <span class="help-block"></span>
+                <?php if ($_SESSION['user']['use_role_opt1'] === '2'): ?> 
                     <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-globe fa-fw"></i></span>
+                        <span class="input-group-addon"><i class="fa fa-folder-o fa-fw"></i></span>
                         <select name="type" id="type">
                             <?php foreach ($listTypeSponsor as $type): ?>
                                 <option value="<?= $type['id'] ?>"><?= $type['typ_spon_name'] ?></option>
@@ -183,10 +183,10 @@
                 <span class="input-group-addon"><i class="fa fa-picture-o fa-fw"></i></span>
                 <input id="avatar" type="file" name="avatar" class="form-control text-left">
             </div>
-
-            <?php if ($_SESSION['user']['use_role_opt1'] === '2'): ?>
+            <span class="help-block"></span>
+            <?php if ($_SESSION['user']['use_role_opt1'] === '2'): ?> 
                 <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-globe fa-fw"></i></span>
+                    <span class="input-group-addon"><i class="fa fa-folder-o fa-fw"></i></span>
                     <select name="type" id="type">
                         <?php foreach ($listTypeSponsor as $type): ?>
                             <option value="<?= $type['id'] ?>"><?= $type['typ_spon_name'] ?></option>
@@ -196,7 +196,7 @@
             <?php endif; ?>
 
             <span class="help-block"></span>
-            <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Sponsor" href="#"><i class="fa fa-user fa-fw"></i> Editer Sponsor</button>
+            <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Sponsor" href="#"><i class="fa fa-pencil-square-o"></i> Editer Sponsor</button>
             <br>
             <h4>Une fois l'édition validée, vous serez redirigé vers la page d'accueil.</h4>
         </form>
