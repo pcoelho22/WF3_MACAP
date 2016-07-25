@@ -10,12 +10,12 @@
                     <span class="input-group-addon"><i class="fa fa-globe fa-fw" aria-hidden="true"></i></span>
                     <input id="mag_name" type="text" name="mag_name" value="<?= $vals['mag_name'] ?>" placeholder="Nom du magazine" class="form-control text-left">
                 </div>
-                <h5><strong>Veuillez sélectionner le magazine pdf a ajouter</strong></h5>
+                <h5><strong>Veuillez sélectionner le magazine pdf a modifier (optionnelle)</strong></h5>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-picture-o fa-fw"></i></span>
                     <input id="magazinePdf" type="file" name="mazinePdf" class="form-control text-left">
                 </div>
-                <h5><strong>Veuillez sélectionner la couverture du magazine a ajouter</strong></h5>
+                <h5><strong>Veuillez sélectionner la couverture du magazine a modifier (optionnelle)</strong></h5>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-picture-o fa-fw"></i></span>
                     <input id="magazineCouv" type="file" name="magazineCouv" class="form-control text-left">
