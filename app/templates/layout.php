@@ -63,15 +63,18 @@
                                     <li>
                                         <h4><img alt="image" src="<?= $this->assetUrl('img/avatar.png') ?>" alt="avatar" width="30px" height="32px"> <?= $_SESSION['user']['use_userName'] ?></h4>
                                     </li>
-
+                                    <?php if($_SESSION['user']['use_role_opt1'] === '2'): ?>
+                                    <li>
+                                        <a class="btn btn-default btn-md" href="<?= $this->url('admin_home') ?>">Menu administrateur</a>
+                                    </li>
+                                    <?php endif; ?>
                                     <li class="no-margin-top">
                                         <a class="btn btn-default btn-sm" href="<?= $this->url('user_logout') ?>"><span class="fa fa-power-off fa-fw" aria-hidden="true"></span> Se déconnecter</a>   
                                     <li>
                                         <a class="btn btn-default btn-sm" href="<?= $this->url('user_edit') ?>"><span class="fa fa-pencil fa-fw" aria-hidden="true"></span> Editer votre profil</a>
                                     </li>
-                                <?php if(isset($_SESSION['roles'])): ?>
-                                    </li>
-                                <?php if (in_array('3', $_SESSION['roles'])): ?>
+                                    <?php if(isset($_SESSION['roles'])): ?>
+                                        <?php if (in_array('3', $_SESSION['roles'])): ?>
                                     <li>
                                         <a class="btn btn-link btn-md" href="<?= $this->url('participant_edit') ?>">editer votre profil de participant</a>
                                     </li>
