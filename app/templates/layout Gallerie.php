@@ -144,7 +144,7 @@
                             <li><a href="/terms-conditions" class="small" target="self">Terms &amp; Conditions</a></li>
                             <li><a href="/en/sitemap" class="small" target="self">Site Map</a></li>
                         </ul>               
-                        <small><a href="http://www.mc-app.eu" class="small" target="self">© McAPP 2016</a></small>
+                        <a href="http://www.mc-app.eu" class="small" target="self">© Designed by McAPP 2016</a>
                     </div>
                 </div>
             </div>

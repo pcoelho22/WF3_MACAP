@@ -1,4 +1,4 @@
-<?php $this->layout('layoutContact', ['title' => 'Liste des Sponsors du site']) ?>
+<?php $this->layout('layout', ['title' => 'Liste des Sponsors du site']) ?>
 
 <?php $this->start('main_content') ?>
 <h2>Liste des Sponsors du site</h2>
