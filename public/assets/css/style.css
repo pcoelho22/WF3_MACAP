@@ -319,4 +319,9 @@ a.youtube:after {
   vertical-align: middle;
   align-self: center;
 }
+/**************Page confirmation****************/
+
+#attention {
+  text-align: center;
+}
 
