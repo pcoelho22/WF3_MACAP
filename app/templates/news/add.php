@@ -38,7 +38,7 @@ if (isset($error)) {
                 <textarea id="description" type="text" name="description" rows="10" value="<?= $vals['con_description'] ?>" placeholder="Description" class="form-control text-left"></textarea>
             </div>
             <span class="help-block"></span>
-            <h5><strong>Veuillez sélectionner une photo à ajouter(optionnel).</strong></h5>
+            <h5><strong>Veuillez sélectionner une photo à ajouter.</strong></h5>
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-picture-o fa-fw"></i></span>
                 <input id="avatar" type="file" name="avatar" class="form-control text-left">
@@ -74,7 +74,7 @@ if (isset($error)) {
             <textarea id="description" type="text" name="description" rows="10" value="" placeholder="Description" class="form-control text-left"></textarea>
         </div>
         <span class="help-block"></span>
-        <h5><strong>Veuillez sélectionner une photo à ajouter(optionnel).</strong></h5>
+        <h5><strong>Veuillez sélectionner une photo à ajouter.</strong></h5>
         <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-picture-o fa-fw"></i></span>
             <input id="avatar" type="file" name="avatar" class="form-control text-left">

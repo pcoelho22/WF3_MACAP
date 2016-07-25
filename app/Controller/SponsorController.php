@@ -24,6 +24,8 @@ class SponsorController extends Controller {
         $this->allowTo('2');
         $sponsorManager = new SponsorManager();
         $sponsorManager->delete($id);
+        $userHasRoleManager = new UserHasRoleManager();
+        $userHasRoleManager->deleteSponsor($id);
         $this->redirectToRoute('home');
     }
     
@@ -250,7 +252,7 @@ class SponsorController extends Controller {
         $typeSponsor = new TypeSponsorManager();
         $listTypeSponsor = $typeSponsor->findAll();
 
-        $values = $sponsorManager->find($_SESSION['user']['id']);
+        $values = $sponsorManager->findSponsorInfo($_SESSION['user']['id']);
         $this->show('sponsor/edit',['values'=>$values, 'listTypeSponsor'=>$listTypeSponsor]);
     }
     

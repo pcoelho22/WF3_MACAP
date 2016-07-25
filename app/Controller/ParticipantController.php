@@ -14,6 +14,8 @@ class ParticipantController extends Controller {
         $this->allowTo('2');
         $participantManager = new ParticipantManager();
         $participantManager->delete($id);
+        $userHasRoleManager = new UserHasRoleManager();
+        $userHasRoleManager->deleteParticipant($id);
         $this->redirectToRoute('home');
     }
     
@@ -166,7 +168,7 @@ class ParticipantController extends Controller {
         $defaultController = new DefaultController();
         $defaultController->allowTo([AuthorizationManager::ROLEADMIN, AuthorizationManager::ROLEPARTICIPANT]);
         $participantManager = new ParticipantManager();
-        $values = $participantManager->find($_SESSION['user']['id']);
+        $values = $participantManager->findParticipantInfo($_SESSION['user']['id']);
         $this->show('participant/edit',['values'=>$values]);
     }
     

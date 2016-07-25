@@ -29,6 +29,7 @@
 
     </head>
     <body>
+        <!-- <?php debug($_SESSION); ?> -->
         <header>
             <div class="container">
                 <div class="row"> 
@@ -62,10 +63,33 @@
                                     <li>
                                         <h4><img alt="image" src="<?= $this->assetUrl('img/avatar.png') ?>" alt="avatar" width="30px" height="32px"> <?= $_SESSION['user']['use_userName'] ?></h4>
                                     </li>
-
-                                    <li class="no-margin-top">
-                                        <a class="btn btn-link btn-md" href="<?= $this->url('user_logout') ?>"><span class="fa fa-power-off" aria-hidden="true"></span> Se déconnecter</a>
+                                    <?php if($_SESSION['user']['use_role_opt1'] === '2'): ?>
+                                    <li>
+                                        <a class="btn btn-default btn-md" href="<?= $this->url('admin_home') ?>">Menu administrateur</a>
                                     </li>
+                                    <?php endif; ?>
+                                    <li class="no-margin-top">
+                                        <a class="btn btn-default btn-sm" href="<?= $this->url('user_logout') ?>"><span class="fa fa-power-off fa-fw" aria-hidden="true"></span> Se déconnecter</a>   
+                                    <li>
+                                        <a class="btn btn-default btn-sm" href="<?= $this->url('user_edit') ?>"><span class="fa fa-pencil fa-fw" aria-hidden="true"></span> Editer votre profil</a>
+                                    </li>
+                                    <?php if(isset($_SESSION['roles'])): ?>
+                                        <?php if (in_array('3', $_SESSION['roles'])): ?>
+                                    <li>
+                                        <a class="btn btn-link btn-md" href="<?= $this->url('participant_edit') ?>">editer votre profil de participant</a>
+                                    </li>
+                                <?php endif; ?>
+                                    <?php if (in_array('4', $_SESSION['roles'])): ?>
+                                    <li>
+                                        <a class="btn btn-link btn-md" href="<?= $this->url('exposant_edit') ?>">editer votre profil d'exposant</a>
+                                    </li>
+                                <?php endif; ?>
+                                    <?php if (in_array('5', $_SESSION['roles'])): ?>
+                                    <li>
+                                        <a class="btn btn-link btn-md" href="<?= $this->url('sponsor_edit') ?>">editer votre profil de sponsor</a>
+                                    </li>
+                                <?php endif; ?>
+                            <?php endif; ?>
                                 </ul>
                             </div>
 
@@ -103,7 +127,7 @@
                             </li>          
                             <li><a href="<?= $this->url('sponsor_liste') ?>">SPONSORS</a></li>
                             <li><a href="<?= $this->url('galerie_liste') ?>">GALERIE</a></li>
-                            <li><a href="#">SHOP</a></li>
+                            <li><a href="<?= $this->url('default_shop') ?>">SHOP</a></li>
                             <li><a href="<?= $this->url('default_charite') ?>">CHARITÉ</a></li>
                             <li><a href="<?= $this->url('default_aboutus') ?>">ABOUT US</a></li>
                         </ul>
@@ -143,14 +167,17 @@
                 <div class='row'>
                     <div class="col-12 text-center">
                         <ul class="list-inline no-margin-bottom small">
-                            <li><a href="/contact us" class="small" target="_blank">Contact Us</a></li>
-                            <li><a href="/terms-conditions" class="small" target="self">Terms &amp; Conditions</a></li>
-                            <li><a href="/en/sitemap" class="small" target="self">Site Map</a></li>
+                            <li><a href="<?= $this->url('default_termsandconditions') ?>" class="small" target="self">Terms &amp; Conditions</a></li>
+                            <li><a href="<?= $this->url('default_sitemap') ?>" class="small" target="self">Site Map</a></li>
                         </ul>
-                        <small><a href="http://www.mc-app.eu" class="small" target="self">© McAPP 2016</a></small>
+                        <a href="http://www.mc-app.eu" class="small" target="self">© Designed by McAPP 2016</a>
                     </div>
                 </div>
             </div>
         </footer>
+        <!-- Button -->
+        <div onclick="ScrollTop()" id="top-btn">
+          <i class="fa fa-angle-up"></i>
+        </div>
     </body>
 </html>

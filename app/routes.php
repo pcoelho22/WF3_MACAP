@@ -54,7 +54,9 @@ $w_routes = array(
 
     ["GET", "/magazine/", "Magazine#liste", "magazine_liste"],
     ["GET", "/magazine/add", "Magazine#add", "magazine_add"],
+    ["POST", "/magazine/add", "Magazine#addVal", "magazine_addval"],
     ["GET", "/magazine/update/[i:id]", "Magazine#update", "magazine_update"],
+    ["POST", "/magazine/update/[i:id]", "Magazine#updateVal", "magazine_updateval"],
     ["GET", "/magazine/delete/[i:id]", "Magazine#delete", "magazine_delete"],
     
     ["GET", "/exposant/add", "Exposant#add", "exposant_add"],
@@ -96,4 +98,15 @@ $w_routes = array(
 
     ["GET", "/aboutUs/", "Default#aboutUs", "default_aboutus"],
 
+    ["GET", "/siteMap", "Default#mapSite", "default_sitemap"],
+
+    ["GET", "/shop", "Default#shop", "default_shop"],
+
+    ["GET", "/termsAndConditions", "Default#termsAndConditions", "default_termsandconditions"],
+
+    ["GET", "/admin/", "Admin#adminHome", "admin_home"],
+    ["GET", "/admin/users", "Admin#adminListeUsers", "admin_listeUsers"],
+    ["GET", "/admin/exposants", "Admin#adminListeExposants", "admin_listeExposants"],
+    ["GET", "/admin/participants", "Admin#adminListeParticipant", "admin_listeParticipants"],
+    ["GET", "/admin/sponsors", "Admin#adminListeSponsors", "admin_listeSponsors"],
 );

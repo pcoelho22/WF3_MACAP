@@ -14,6 +14,8 @@ class ExposantController extends Controller {
         $this->allowTo('2');
         $exposantManager = new ExposantManager();
         $exposantManager->delete($id);
+        $userHasRoleManager = new UserHasRoleManager();
+        $userHasRoleManager->deleteExposant($id);
         $this->redirectToRoute('home');
     }
 
@@ -222,7 +224,7 @@ class ExposantController extends Controller {
         $defaultController = new DefaultController();
         $defaultController->allowTo([AuthorizationManager::ROLEADMIN, AuthorizationManager::ROLEEXPOSANT]);
         $exposantManager = new ExposantManager();
-        $values = $exposantManager->find($_SESSION['user']['id']);
+        $values = $exposantManager->findExposantInfo($_SESSION['user']['id']);
         $this->show('exposant/edit',['values'=>$values]);
     }
 

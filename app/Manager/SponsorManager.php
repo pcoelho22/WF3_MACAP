@@ -29,6 +29,19 @@ class SponsorManager extends \W\Manager\Manager{
 
         return $sth->fetch();
     }
+
+    public function findSponsorInfo($id){
+        if (!is_numeric($id)){
+            return false;
+        }
+
+        $sql = "SELECT * FROM " . $this->table . " WHERE users_id = :id LIMIT 1";
+        $sth = $this->dbh->prepare($sql);
+        $sth->bindValue(":id", $id);
+        $sth->execute();
+
+        return $sth->fetch();
+    }
 }
 
     
