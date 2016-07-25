@@ -1,7 +1,6 @@
 <?php $this->layout('layout', ['title' => 'Modifier une news']) ?>
 
 <?php $this->start('main_content') ?>
-<?php //debug($_FILES); ?>
 <div class="row">
     <div class="col-md-6 text-left">
     <?php if (isset($newsDetails)): ?>
@@ -40,9 +39,8 @@
             <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter une news" href="#"><i class="fa fa-pencil fa-fw"></i> Modifier la news</button>
         </form>
     </div>
-<?php elseif (isset($vals)): ?>
-    <?php debug($error); ?>
-    <?php debug($vals); ?>
+    
+    <?php elseif (isset($vals)): ?>
     <form action="" method="post" enctype="multipart/form-data">
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-tags fa-fw" aria-hidden="true"></i></span>
