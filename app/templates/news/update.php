@@ -2,7 +2,7 @@
 
 <?php $this->start('main_content') ?>
 <?php //debug($_FILES); ?>
-<?php if (isset($newsDetails)):?>
+<?php if (isset($newsDetails)): ?>
     <form action="" method="post" enctype="multipart/form-data">
         <label for="titre">Titre</label></br>
         <input id="titre" type="text" name="titre" value="<?= $newsDetails['con_title'] ?>"></br></br>
@@ -24,7 +24,7 @@
 
         <input type="submit" value="Modifier la news"></br></br>
     </form>
-    <?php elseif(isset($vals)): ?>
+<?php elseif (isset($vals)): ?>
     <?php debug($error); ?>
     <?php debug($vals); ?>
     <form action="" method="post" enctype="multipart/form-data">
@@ -48,5 +48,5 @@
 
         <input type="submit" value="Modifier la news"></br></br>
     </form>
-    <?php endif;?>
+<?php endif; ?>
 <?php $this->stop('main_content') ?>
