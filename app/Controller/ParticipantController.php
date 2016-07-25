@@ -14,6 +14,8 @@ class ParticipantController extends Controller {
         $this->allowTo('2');
         $participantManager = new ParticipantManager();
         $participantManager->delete($id);
+        $userHasRoleManager = new UserHasRoleManager();
+        $userHasRoleManager->deleteParticipant($id);
         $this->redirectToRoute('home');
     }
     
