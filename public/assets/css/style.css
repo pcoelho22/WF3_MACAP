@@ -313,3 +313,10 @@ a.youtube:after {
   border: 2px solid #11639b;
 }
 
+/**************Page sponsors****************/
+
+#sponsorLogos img{
+  vertical-align: middle;
+  align-self: center;
+}
+

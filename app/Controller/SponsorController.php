@@ -7,6 +7,8 @@ use \W\Security\StringUtils;
 use Manager\SponsorManager;
 use \Manager\AuthorizationManager;
 use \Manager\UserHasRoleManager;
+use \Manager\SponsorHasTypeSponsorManager;
+use \Manager\TypeSponsorManager;
 
 class SponsorController extends Controller {
     
@@ -27,13 +29,20 @@ class SponsorController extends Controller {
     
     public function add() {
         $this->allowTo('2');
-        $this->show('sponsor/add');
+
+        $typeSponsor = new TypeSponsorManager();
+        $listTypeSponsor = $typeSponsor->findAll();
+
+        $this->show('sponsor/add', ['listTypeSponsor'=>$listTypeSponsor]);
 
     }  
     
     public function addVal() {
         $sponsorManager = new SponsorManager();
         $this->allowTo('2');
+
+        $typeSponsor = new TypeSponsorManager();
+        $listTypeSponsor = $typeSponsor->findAll();
          
         $nameSponsorVal = false;
         $lastNameInChargeVal = false;
@@ -47,11 +56,12 @@ class SponsorController extends Controller {
         $emailInChargeVal = false;
         $emailGeneralVal = false;
         $urlVal = false;
+        $typeVal = false;
 
         $nameSponsor = isset($_POST['nameSponsor']) ? trim(strip_tags($_POST['nameSponsor'])) : '';
         $lastNameInCharge = isset($_POST['lastNameInCharge']) ? trim(strip_tags($_POST['lastNameInCharge'])) : '';
         $firstNameInCharge = isset($_POST['firstNameInCharge']) ? trim(strip_tags($_POST['firstNameInCharge'])) : '';
-        $adress = isset($_POST['adress']) ? trim(strip_tags($_POST['adress'])) : '';
+        $adress = isset($_POST['address']) ? trim(strip_tags($_POST['address'])) : '';
         $city = isset($_POST['city']) ? trim(strip_tags($_POST['city'])) : '';
         $zip = isset($_POST['postCode']) ? trim(strip_tags($_POST['postCode'])) : '';
         $country = isset($_POST['country']) ? trim(strip_tags($_POST['country'])) : '';
@@ -61,6 +71,7 @@ class SponsorController extends Controller {
         $emailInCharge = isset($_POST['emailInCharge']) ? trim(strip_tags($_POST['emailInCharge'])) : '';
         $emailGeneral = isset($_POST['emailGeneral']) ? trim(strip_tags($_POST['emailGeneral'])) : '';
         $url = isset($_POST['url']) ? trim(strip_tags($_POST['url'])) : '';
+        $type = isset($_POST['type']) ? trim(strip_tags($_POST['type'])) : '';
 
         $phone = str_replace(' ','',$phone);
         $fax = str_replace(' ','',$fax);
@@ -97,11 +108,11 @@ class SponsorController extends Controller {
 
         if (strlen($adress) >= 5) {
             $adressVal = true;
-            $vals['adress'] = $adress;
+            $vals['address'] = $adress;
         }
         else{
             $error[] = "veuillez indiquez l'adresse de l'exposant";
-            $vals['adress'] = '';
+            $vals['address'] = '';
         }
         
         if (strlen($city) >= 5) {
@@ -183,8 +194,18 @@ class SponsorController extends Controller {
             $vals['url'] = '';
         }
 
-        if ($nameSponsorVal && $lastNameInChargeVal && $firstNameInChargeVal && $adressVal && $cityVal && $zipVal && $countryVal && $phoneVal && $mobileVal && $emailGeneralVal && $emailInChargeVal && $urlVal){
+        if ($type != '') {
+            $typeVal = true;
+            $vals['type'] = 'selected';
+        }
+        else{
+            $error[] = "veuillez cocher un type de sponsor";
+            $vals['type'] = '';
+        }
+
+        if ($nameSponsorVal && $lastNameInChargeVal && $firstNameInChargeVal && $adressVal && $cityVal && $zipVal && $countryVal && $phoneVal && $mobileVal && $emailGeneralVal && $emailInChargeVal && $urlVal && $typeVal){
             $userId = $sponsorManager->getUserId($emailInCharge);
+
             if ($sponsorManager->insert([
                     'spo_name_sponsors' => $nameSponsor,
                     'spo_name_in_charge' => $lastNameInCharge,
@@ -205,16 +226,19 @@ class SponsorController extends Controller {
 
                 $userHasRoleManager = new UserHasRoleManager();
                 $userHasRoleManager->insert(['users_id'=>$userId['id'], 'role_id'=>AuthorizationManager::ROLESPONSOR]);
+                $sponsorId = $sponsorManager->getSponsorId($emailInCharge);
+                $sponsorHasTypeManage = new SponsorHasTypeSponsorManager();
+                $sponsorHasTypeManage->insert(['sponsors_id'=>$sponsorId['id'], 'sponsors_users_id'=>$userId['id'], 'typ_sponsors_id'=>$type]);
+
                 $this->redirectToRoute('home');
             }
             else{
                 $error[] = "requete fail";
-                $this->show('sponsor/add', ["error"=>$error, "vals"=>$vals]);
+                $this->show('sponsor/add', ["error"=>$error, "vals"=>$vals, 'listTypeSponsor'=>$listTypeSponsor]);
             }
         }
         else{
-            $error[] = "fail inconnu";
-            $this->show('sponsor/add', ["error"=>$error, "vals"=>$vals]);
+            $this->show('sponsor/add', ["error"=>$error, "vals"=>$vals, 'listTypeSponsor'=>$listTypeSponsor]);
         }
     }
     
@@ -222,14 +246,22 @@ class SponsorController extends Controller {
         $defaultController = new DefaultController();
         $defaultController->allowTo([AuthorizationManager::ROLEADMIN, AuthorizationManager::ROLESPONSOR]);
         $sponsorManager = new SponsorManager();
+
+        $typeSponsor = new TypeSponsorManager();
+        $listTypeSponsor = $typeSponsor->findAll();
+
         $values = $sponsorManager->find($_SESSION['user']['id']);
-        $this->show('sponsor/edit',['values'=>$values]);
+        $this->show('sponsor/edit',['values'=>$values, 'listTypeSponsor'=>$listTypeSponsor]);
     }
     
     public function editVal() {
         $defaultController = new DefaultController();
         $defaultController->allowTo([AuthorizationManager::ROLEADMIN, AuthorizationManager::ROLESPONSOR]);
         $sponsorManager = new SponsorManager();
+
+        $typeSponsor = new TypeSponsorManager();
+        $listTypeSponsor = $typeSponsor->findAll();
+
         $extensionAutorisees = array('jpg', 'jpeg', 'png', 'gif');
         $nameSponsorVal = false;
         $lastNameInChargeVal = false;
@@ -251,7 +283,7 @@ class SponsorController extends Controller {
         $nameSponsor = isset($_POST['nameSponsor']) ? trim(strip_tags($_POST['nameSponsor'])) : '';
         $lastNameInCharge = isset($_POST['lastNameInCharge']) ? trim(strip_tags($_POST['lastNameInCharge'])) : '';
         $firstNameInCharge = isset($_POST['firstNameInCharge']) ? trim(strip_tags($_POST['firstNameInCharge'])) : '';
-        $adress = isset($_POST['adress']) ? trim(strip_tags($_POST['adress'])) : '';
+        $adress = isset($_POST['address']) ? trim(strip_tags($_POST['address'])) : '';
         $city = isset($_POST['city']) ? trim(strip_tags($_POST['city'])) : '';
         $zip = isset($_POST['postCode']) ? trim(strip_tags($_POST['postCode'])) : '';
         $country = isset($_POST['country']) ? trim(strip_tags($_POST['country'])) : '';
@@ -261,6 +293,7 @@ class SponsorController extends Controller {
         $emailInCharge = isset($_POST['emailInCharge']) ? trim(strip_tags($_POST['emailInCharge'])) : '';
         $emailGeneral = isset($_POST['emailGeneral']) ? trim(strip_tags($_POST['emailGeneral'])) : '';
         $url = isset($_POST['url']) ? trim(strip_tags($_POST['url'])) : '';
+        $type = isset($_POST['type']) ? trim(strip_tags($_POST['type'])) : ' ';
 
         $phone = str_replace(' ','',$phone);
         $fax = str_replace(' ','',$fax);
@@ -381,6 +414,14 @@ class SponsorController extends Controller {
         else {
             $error[] = 'url invalide';
             $vals['spo_url'] = '';
+        }
+
+        if ($type != '') {
+            $vals['type'] = 'selected';
+        }
+        else{
+            $error[] = "veuillez cocher un type de sponsor";
+            $vals['type'] = '';
         }
 
         if (!empty($_FILES['avatar']['name'])) {
@@ -418,12 +459,11 @@ class SponsorController extends Controller {
             }
             else{
                 $error[] = "requete fail";
-                $this->show('sponsor/edit', ["error"=>$error, "vals"=>$vals]);
+                $this->show('sponsor/edit', ["error"=>$error, "vals"=>$vals, 'listTypeSponsor'=>$listTypeSponsor]);
             }
         }
         else{
-            $error[] = "fail inconnu";
-            $this->show('sponsor/edit', ["error"=>$error, "vals"=>$vals]);
+            $this->show('sponsor/edit', ["error"=>$error, "vals"=>$vals, 'listTypeSponsor'=>$listTypeSponsor]);
         }
         
     }
@@ -431,13 +471,21 @@ class SponsorController extends Controller {
     public function adminEdit($id) {
         $this->allowTo(['2']);
         $sponsorManager = new SponsorManager();
+
+        $typeSponsor = new TypeSponsorManager();
+        $listTypeSponsor = $typeSponsor->findAll();
+
         $values = $sponsorManager->find($id);
-        $this->show('sponsor/edit',['values'=>$values]);
+        $this->show('sponsor/edit',['values'=>$values, 'listTypeSponsor'=>$listTypeSponsor]);
     }
 
     public function adminEditVal($id) {
-        $sponsorManager = new SponsorManager();
         $this->allowTo(['2']);
+        $sponsorManager = new SponsorManager();
+
+        $typeSponsor = new TypeSponsorManager();
+        $listTypeSponsor = $typeSponsor->findAll();
+
         $extensionAutorisees = array('jpg', 'jpeg', 'png', 'gif');
         $nameSponsorVal = false;
         $lastNameInChargeVal = false;
@@ -452,6 +500,7 @@ class SponsorController extends Controller {
         $emailGeneralVal = false;
         $urlVal = false;
         $photoVal = true;
+        $typeVal = false;
 
         $string = StringUtils::randomString(10);
         $string2 = StringUtils::randomString(10);
@@ -469,6 +518,7 @@ class SponsorController extends Controller {
         $emailInCharge = isset($_POST['emailInCharge']) ? trim(strip_tags($_POST['emailInCharge'])) : '';
         $emailGeneral = isset($_POST['emailGeneral']) ? trim(strip_tags($_POST['emailGeneral'])) : '';
         $url = isset($_POST['url']) ? trim(strip_tags($_POST['url'])) : '';
+        $type = isset($_POST['type']) ? trim(strip_tags($_POST['type'])) : '';
 
         $phone = str_replace(' ','',$phone);
         $fax = str_replace(' ','',$fax);
@@ -591,6 +641,15 @@ class SponsorController extends Controller {
             $vals['spo_url'] = '';
         }
 
+        if ($type != '') {
+            $typeVal = true;
+            $vals['type'] = 'selected';
+        }
+        else{
+            $error[] = "veuillez cocher un type de sponsor";
+            $vals['type'] = '';
+        }
+
         if (!empty($_FILES['avatar']['name'])) {
             foreach ($_FILES as $key => $fichier) {
                 // Je teste si le fichier a été uploadé
@@ -618,7 +677,7 @@ class SponsorController extends Controller {
             }
         }
 
-        if ($nameSponsorVal && $lastNameInChargeVal && $firstNameInChargeVal && $adressVal && $cityVal && $zipVal && $countryVal && $phoneVal && $mobileVal && $emailGeneralVal && $emailInChargeVal && $urlVal && $photoVal){
+        if ($nameSponsorVal && $lastNameInChargeVal && $firstNameInChargeVal && $adressVal && $cityVal && $zipVal && $countryVal && $phoneVal && $mobileVal && $emailGeneralVal && $emailInChargeVal && $urlVal && $photoVal && $typeVal){
 
             if ($sponsorManager->update($vals,$id)) {
                 move_uploaded_file($fichier['tmp_name'],TMP.'/upload/sponsors/'.$string.$string2.'.'.$extension);
@@ -626,12 +685,11 @@ class SponsorController extends Controller {
             }
             else{
                 $error[] = "requete fail";
-                $this->show('sponsor/edit', ["error"=>$error, "vals"=>$vals]);
+                $this->show('sponsor/edit', ["error"=>$error, "vals"=>$vals,'listTypeSponsor'=>$listTypeSponsor]);
             }
         }
         else{
-            $error[] = "fail inconnu";
-            $this->show('sponsor/edit', ["error"=>$error, "vals"=>$vals]);
+            $this->show('sponsor/edit', ["error"=>$error, "vals"=>$vals, 'listTypeSponsor'=>$listTypeSponsor]);
         }
 
     }

@@ -1,4 +1,4 @@
-<?php $this->layout('layout',['title' => "Charité"]) ?>
+<?php $this->layout('layout', ['title' => "Charité"]) ?>
 
 <?php $this->start('main_content') ?>
 <div class="row">
@@ -7,7 +7,7 @@
     </div>
 </div>
 <div class="row" style="margin-bottom: 35px">
-    <div class="col-sm-6 col-sm-offset-3 text-center"><h2>Nous exauçons les voeux d'enfant atteints de maladies graves</h2></div>
+    <div class="col-sm-6 col-sm-offset-3 text-center"><h2>Nous exauçons les voeux d'enfants atteints de maladies graves</h2></div>
     <h2 class="col-sm-4 col-sm-offset-4 text-center"><strong>Faites un don!</strong></h2>
 </div>
 <div class="row">
@@ -22,10 +22,10 @@
     </div>
     <div class="col-sm-4 text-center">
         <p><strong>Banque:</strong><br/>Spuerkees<br/>
-        <strong>BIC:</strong><br/>BCEELULL<br/>
-        <strong>IBAN:</strong><br/>LU20-0019-3755-7632-7000<br/>
-        <strong>Bénéficiaire:</strong><br/>Make-A-Wish&reg; Luxembourg Asbl<br/>
-        <strong>Référence:</strong><br/>Votre nom et adresse</p>
+            <strong>BIC:</strong><br/>BCEELULL<br/>
+            <strong>IBAN:</strong><br/>LU20-0019-3755-7632-7000<br/>
+            <strong>Bénéficiaire:</strong><br/>Make-A-Wish&reg; Luxembourg Asbl<br/>
+            <strong>Référence:</strong><br/>Votre nom et adresse</p>
     </div>
 </div>
 <?php $this->stop('main_content') ?>

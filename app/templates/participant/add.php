@@ -1,13 +1,12 @@
 <?php $this->layout('layout', ['title' => 'Ajouter un participant']) ?>
 
 <?php $this->start('main_content') ?>
-<h1>Ajouter un participant</h1>
+<h2>Ajouter un participant</h2>
 <div class="row">
 
     <div class="col-md-7 text-left">
         <?php if (isset($vals)): ?>
         <form action="" method="post" role="form">
-            <span class="help-block"></span>
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
                 <input id="lastname" type="text" name="lastName" value="<?= $vals['lastName'] ?>" required="" placeholder="Nom" class="form-control text-left">
@@ -65,7 +64,7 @@
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
             <strong>Erreur!</strong><br>
             <ul>
-                <?php foreach ($error as $value):?>
+                <?php foreach ($error as $value): ?>
                     <li><?= $value ?></li>
                 <?php endforeach; ?>    
             </ul>
@@ -74,7 +73,6 @@
     <?php endif; ?>
 
     <?php else: ?>
-
     <form action="" method="post" role="form">
         <span class="help-block"></span>
         <div class="input-group">
@@ -126,7 +124,6 @@
         <br>
         <h4>Une fois l'ajout validé, vous serez redirigé vers la page d'accueil.</h4>
     </form>
-
     <?php endif; ?>
 </div>
 <?php $this->stop('main_content') ?>
