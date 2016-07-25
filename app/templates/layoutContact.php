@@ -48,7 +48,7 @@
                         <?php if (!isset($_SESSION['user'])): ?>
                             <ul class="list-inline no-margin-top small">
 
-                                <li><a href="<?= $this->url('user_signup') ?>"><button type="button" class="btn btn-default btn-sm"><span class="fa fa-user" aria-hidden="true"></span> Register</button></a>
+                                <li><a href="<?= $this->url('user_signup') ?>"><button type="button" class="btn btn-default btn-sm"><span class="fa fa-user" aria-hidden="true"></span> Enregistrement</button></a>
                                 </li>
 
                                 <li class="no-margin-top small">
