@@ -164,7 +164,6 @@
                 <div class='row'>
                     <div class="col-12 text-center">
                         <ul class="list-inline no-margin-bottom small">
-                            <li><a href="/contact us" class="small" target="_blank">Contact Us</a></li>
                             <li><a href="<?= $this->url('default_termsandconditions') ?>" class="small" target="self">Terms &amp; Conditions</a></li>
                             <li><a href="<?= $this->url('default_sitemap') ?>" class="small" target="self">Site Map</a></li>
                         </ul>

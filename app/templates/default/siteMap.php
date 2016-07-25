@@ -3,6 +3,8 @@
 <?php $this->start('main_content') ?>
 <h2>Carte du site</h2>
 <div class="row">
-    <img class="img-responsive" src="<?= $this->assetUrl('img/plan_site_web.jpg') ?>" alt="">
+    <div class="col-sm-12">
+    	<img class="img-responsive center-block" src="<?= $this->assetUrl('img/plan_site_web.jpg') ?>" alt="">
+	</div>
 </div>
 <?php $this->stop('main_content') ?>
