@@ -32,7 +32,7 @@
         <header>
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-4 text-left">
+                    <div class="col-md-4 text-left">
                         <ul class="list-inline no-margin-top small">
                             <li><a href="http://www.gdc.lu/" target="_blank"><img src="<?= $this->assetUrl('img/GDCI_logo.jpg') ?>" class="img-responsive"></a></li>
                             <li><a href="http://www.fiva.org/newsite/" target="_blank"><img src="<?= $this->assetUrl('img/FIVA_logo.png') ?>" class="img-responsive"></a></li>
@@ -60,12 +60,32 @@
                                 <ul class="list-inline no-margin-top small">
 
                                     <li>
-                                        <h4><img src="<?= $this->assetUrl('img/avatar.png') ?>" alt="avatar" width="30px" height="32px"> <?= $_SESSION['user']['use_userName'] ?></h4>
+                                        <h4><img alt="image" src="<?= $this->assetUrl('img/avatar.png') ?>" alt="avatar" width="30px" height="32px"> <?= $_SESSION['user']['use_userName'] ?></h4>
                                     </li>
 
                                     <li class="no-margin-top">
-                                        <a class="btn btn-link btn-md" href="<?= $this->url('user_logout') ?>"><span class="fa fa-power-off" aria-hidden="true"></span> Se déconnecter</a>
+                                        <a class="btn btn-default btn-sm" href="<?= $this->url('user_logout') ?>"><span class="fa fa-power-off fa-fw" aria-hidden="true"></span> Se déconnecter</a>   
+                                    <li>
+                                        <a class="btn btn-default btn-sm" href="<?= $this->url('user_edit') ?>"><span class="fa fa-pencil fa-fw" aria-hidden="true"></span> Editer votre profil</a>
                                     </li>
+                                <?php if(isset($_SESSION['roles'])): ?>
+                                    </li>
+                                <?php if (in_array('3', $_SESSION['roles'])): ?>
+                                    <li>
+                                        <a class="btn btn-link btn-md" href="<?= $this->url('participant_edit') ?>">editer votre profil de participant</a>
+                                    </li>
+                                <?php endif; ?>
+                                    <?php if (in_array('4', $_SESSION['roles'])): ?>
+                                    <li>
+                                        <a class="btn btn-link btn-md" href="<?= $this->url('exposant_edit') ?>">editer votre profil d'exposant</a>
+                                    </li>
+                                <?php endif; ?>
+                                    <?php if (in_array('5', $_SESSION['roles'])): ?>
+                                    <li>
+                                        <a class="btn btn-link btn-md" href="<?= $this->url('sponsor_edit') ?>">editer votre profil de sponsor</a>
+                                    </li>
+                                <?php endif; ?>
+                            <?php endif; ?>
                                 </ul>
                             </div>
 
@@ -122,7 +142,7 @@
                     <div class="col-sm-4 text-center">
                         <br>
                         <ul class="list-inline small">
-                            <li><a class="btn btn-default btn-sm" href="<?= $this->url('default_contact') ?>"><span class="fa fa-phone" aria-hidden="true"></span> Nous contacter</a></li>
+                            <li><a class="btn btn-default btn-sm" href="<?= $this->url('home') ?>"><span class="fa fa-home" aria-hidden="true"></span> Home</a></li>
                         </ul>
                     </div>
 
