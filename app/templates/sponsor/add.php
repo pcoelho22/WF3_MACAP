@@ -72,6 +72,15 @@
                 <input id="url" type="text" name="url" value="<?= $vals['url'] ?>" placeholder="Site web de l'exposant" class="form-control text-left">
             </div>
             <span class="help-block"></span>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-globe fa-fw"></i></span>
+                <select name="type" id="type">
+                    <?php foreach ($listTypeSponsor as $type): ?>
+                        <option <?= $vals['type'] ?> value="<?= $type['id'] ?>"><?= $type['typ_spon_name'] ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            <span class="help-block"></span>
             <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Sponsor" href="#"><i class="fa fa-user fa-fw"></i> Ajouter Exposant</button>
             <br>
             <h4>Une fois l'ajout validé, vous serez redirigé vers la page d'accueil.</h4>
@@ -159,6 +168,17 @@
             <span class="input-group-addon"><i class="fa fa-globe fa-fw"></i></span>
             <input id="url" type="text" name="url" value="" placeholder="Site web du sponsor" class="form-control text-left">
         </div>
+
+        <span class="help-block"></span>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-globe fa-fw"></i></span>
+            <select name="type" id="type">
+                <?php foreach ($listTypeSponsor as $type): ?>
+                    <option value="<?= $type['id'] ?>"><?= $type['typ_spon_name'] ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+
         <span class="help-block"></span>
         <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Exposant" href="#"><i class="fa fa-user fa-fw"></i> Ajouter Sponsor</button>
         <br>
