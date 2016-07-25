@@ -172,5 +172,9 @@
                 </div>
             </div>
         </footer>
+        <!-- Button -->
+        <div onclick="ScrollTop()" id="top-btn">
+          <i class="fa fa-angle-up"></i>
+        </div>
     </body>
 </html>
