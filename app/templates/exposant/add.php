@@ -1,11 +1,11 @@
 <?php $this->layout('layout', ['title' => 'Ajouter un exposant']) ?>
 
 <?php $this->start('main_content') ?>
-<h1>Ajouter un exposant</h1>
+<h2>Ajouter un exposant</h2>
 <div class="row">
 
     <div class="col-md-7 text-left">
-    <?php if (isset($vals)): ?>
+        <?php if (isset($vals)): ?>
         <form action="" method="post" role="form">
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
@@ -32,10 +32,10 @@
                 <input id="postCode" type="text" name="postCode" value="<?= $vals['zip'] ?>" placeholder="Code postal" class="form-control text-left">
             </div>
             <span class="help-block"></span>
-        <div class="input-group">
-            <span class="input-group-addon"><i class="fa fa-home fa-fw" aria-hidden="true"></i></span>
-            <input id="city" type="text" name="city" value="<?= $vals['city'] ?>" placeholder="Ville" class="form-control text-left">
-        </div>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-home fa-fw" aria-hidden="true"></i></span>
+                <input id="city" type="text" name="city" value="<?= $vals['city'] ?>" placeholder="Ville" class="form-control text-left">
+            </div>
             <span class="help-block"></span>
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-globe fa-fw" aria-hidden="true"></i></span>
@@ -69,19 +69,13 @@
             <span class="help-block"></span>
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-align-left"></i></span>
-                <textarea id="description" type="email" name="description" rows="10" value="<?= $vals['description'] ?>" placeholder="Description" class="form-control text-left"></textarea>
+                <textarea id="description" type="text" name="description" rows="10" value="<?= $vals['description'] ?>" placeholder="Description" class="form-control text-left"></textarea>
             </div>
-            <label for="description">Description</label><br/>
-            <textarea id="description" name="description" rows="10" cols="40"><?= $vals['description'] ?></textarea><br/><br/>
             <span class="help-block"></span>
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-globe"></i></span>
                 <input id="url" type="text" name="url" value="<?= $vals['url'] ?>" placeholder="Site web de l'exposant" class="form-control text-left">
             </div>
-
-            <label for="url">Site internet</label><br/>
-            <input id="url" type="text" name="url" value="<?= $vals['url'] ?>" placeholder="Ex: http://www.votresite.com"><br/><br/>
-
             <span class="help-block"></span>
             <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Exposant" href="#"><i class="fa fa-user fa-fw"></i> Ajouter Exposant</button>
             <br>
@@ -95,7 +89,7 @@
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
             <strong>Erreur!</strong><br>
             <ul>
-                <?php foreach ($error as $value):?>
+                <?php foreach ($error as $value): ?>
                     <li><?= $value ?></li>
                 <?php endforeach; ?>    
             </ul>
@@ -104,7 +98,6 @@
     <?php endif; ?>   
 
     <?php else: ?>
-
     <form action="" method="post" role="form">
         <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
@@ -167,8 +160,8 @@
         </div>
         <span class="help-block"></span>
         <div class="input-group">
-            <span class="input-group-addon"><i class="fa fa-align-left fa-fw"></i></span>
-            <textarea id="description" type="email" name="description" rows="10" value="" placeholder="Description" class="form-control text-left"></textarea>
+            <span class="input-group-addon"><i class="fa fa-align-left"></i></span>
+            <textarea id="description" type="text" name="description" rows="10" value="" placeholder="Description" class="form-control text-left"></textarea>
         </div>
         <span class="help-block"></span>
         <div class="input-group">
@@ -180,7 +173,7 @@
         <br>
         <h4>Une fois l'ajout validé, vous serez redirigé vers la page d'accueil.</h4>
     </form>
-    
+
     <?php endif; ?>
 </div>
 <?php $this->stop('main_content') ?>
