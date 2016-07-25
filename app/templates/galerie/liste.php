@@ -6,7 +6,11 @@
     <div class="col-md-12 text-left">
         <ul class="list-group">
             <li class="list-group-item">
+<<<<<<< HEAD
                 <a class="btn btn-primary btn-sm" href="<?= $this->url('galerie_add') ?>"><span class="fa fa-pencil-square-o"></span> Ajouter une galerie</a>
+=======
+                <a class="btn btn-default btn-sm" href="<?= $this->url('galerie_add') ?>">Ajouter une reportages</a>
+>>>>>>> refs/remotes/origin/master
             </li>
         </ul>
         <?php foreach ($galerieListe as $key => $value) : ?>
@@ -17,8 +21,8 @@
                 <?php if (isset($_SESSION['user']['use_role_opt1'])): ?>
                     <?php if ($_SESSION['user']['use_role_opt1'] === '2'): ?>
                         <li class="list-group-item">
-                            <a class="btn btn-primary btn-sm" href="<?= $this->url('galerie_update', ['id' => $value['id']]) ?>"><span class="fa fa-pencil fa-fw"></span> Editer</a>
-                            <a class="btn btn-danger btn-sm" href="<?= $this->url('galerie_deleteConfirmation', ['id' => $value['id']]) ?>"><span class="fa fa-trash-o fa-fw"></span> Supprimer</a>
+                            <a class="btn btn-default btn-sm" href="<?= $this->url('galerie_update', ['id' => $value['id']]) ?>">Modifier</a>
+                            <a class="btn btn-default btn-sm" href="<?= $this->url('galerie_deleteConfirmation', ['id' => $value['id']]) ?>">Delete</a>
                         </li>
                     <?php endif; ?>
                 <?php endif; ?>
