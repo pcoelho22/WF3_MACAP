@@ -4,11 +4,13 @@
 	<h2>Liste des news</h2>
 	<div class="row">
 		<div class="col-md-12 text-left">
+					<ul class="list-group">
+						<li  class="list-group-item">
+							<a href="<?= $this->url('news_add') ?>"><button class="btn btn-default btn-sm" >Ajouter une news</button></a>
+						</li>
+					</ul>
 			<?php foreach ($newsListe as $key => $value) : ?>
 				<ul class="list-group">
-					<li class="list-group-item">
-						<a href="<?= $this->url('news_add') ?>"><button class="btn btn-default btn-sm" >Ajouter une news</button></a>
-					</li>
 					<li  class="list-group-item">
 						<img width="120px" heigth="120px" src="<?= $value['con_avatar']?>">
 						<div class="detailsTitleevents"><?= $value['con_title']?>
