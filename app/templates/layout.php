@@ -124,7 +124,7 @@
                             </li>          
                             <li><a href="<?= $this->url('sponsor_liste') ?>">SPONSORS</a></li>
                             <li><a href="<?= $this->url('galerie_liste') ?>">GALERIE</a></li>
-                            <li><a href="#">SHOP</a></li>
+                            <li><a href="<?= $this->url('default_shop') ?>">SHOP</a></li>
                             <li><a href="<?= $this->url('default_charite') ?>">CHARITÉ</a></li>
                             <li><a href="<?= $this->url('default_aboutus') ?>">ABOUT US</a></li>
                         </ul>
@@ -165,8 +165,8 @@
                     <div class="col-12 text-center">
                         <ul class="list-inline no-margin-bottom small">
                             <li><a href="/contact us" class="small" target="_blank">Contact Us</a></li>
-                            <li><a href="/terms-conditions" class="small" target="self">Terms &amp; Conditions</a></li>
-                            <li><a href="/en/sitemap" class="small" target="self">Site Map</a></li>
+                            <li><a href="<?= $this->url('default_termsandconditions') ?>" class="small" target="self">Terms &amp; Conditions</a></li>
+                            <li><a href="<?= $this->url('default_sitemap') ?>" class="small" target="self">Site Map</a></li>
                         </ul>
                         <small><a href="http://www.mc-app.eu" class="small" target="self">© McAPP 2016</a></small>
                     </div>

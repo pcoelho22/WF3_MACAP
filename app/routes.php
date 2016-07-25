@@ -97,4 +97,10 @@ $w_routes = array(
     ["GET", "/charite/", "Default#charite", "default_charite"],
 
     ["GET", "/aboutUs/", "Default#aboutUs", "default_aboutus"],
+
+    ["GET", "/siteMap", "Default#mapSite", "default_sitemap"],
+
+    ["GET", "/shop", "Default#shop", "default_shop"],
+
+    ["GET", "/termsAndConditions", "Default#termsAndConditions", "default_termsandconditions"],
 );
