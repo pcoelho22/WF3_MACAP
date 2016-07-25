@@ -1,7 +1,7 @@
 <?php $this->layout('layout', ['title' => 'Créer une galerie']) ?>
 
 <?php $this->start('main_content') ?>
-<h2>Créer une galerie</h2>
+<h2>Ajouter une galerie</h2>
 <div class="row">
     <div class="col-md-6 text-left">
     <?php if (isset($vals)): ?>
@@ -21,7 +21,7 @@
                 <textarea id="description" type="text" name="description" rows="10" value="<?= $vals['gal_description'] ?>" placeholder="Description" class="form-control text-left"></textarea>
             </div>
             <span class="help-block"></span>
-            <button class="btn btn-primary btn-sm active" type="submit" value="Créer la galerie" href="#"><i class="fa fa-sign-in fa-fw"></i> Créer la galerie</button>
+            <button class="btn btn-primary btn-sm active" type="submit" value="Créer la galerie" href="#"><i class="fa fa-pencil-square-o fa-fw"></i> Ajouter la galerie</button>
         </form>
         <?php if (isset($error)) {
             debug($error);
@@ -47,7 +47,7 @@
             <textarea id="description" type="text" name="description" rows="10" value="" placeholder="Description" class="form-control text-left"></textarea>
         </div>
         <span class="help-block"></span>
-        <button class="btn btn-primary btn-sm active" type="submit" value="Créer la galerie" href="#"><i class="fa fa-pencil fa-fw"></i> Créer la galerie</button>
+        <button class="btn btn-primary btn-sm active" type="submit" value="Créer la galerie" href="#"><i class="fa fa-pencil-square-o fa-fw"></i> Ajouter la galerie</button>
     </form>
     <?php endif; ?>
 </div>

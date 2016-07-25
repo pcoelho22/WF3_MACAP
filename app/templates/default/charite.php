@@ -3,7 +3,7 @@
 <?php $this->start('main_content') ?>
 <div class="row">
     <div class="col-sm-12">
-        <a href="http://www.make-a-wish.lu/" target="_blank"><img src="<?= $this->assetUrl('img/MAW.jpg') ?>" class="center-block" alt="image" ></a>
+        <a href="http://www.make-a-wish.lu/" target="_blank"><img src="<?= $this->assetUrl('img/MAWBIG.jpg') ?>" class="center-block" alt="image" ></a>
     </div>
 </div>
 

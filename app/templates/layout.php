@@ -49,7 +49,7 @@
                         <?php if (!isset($_SESSION['user'])): ?>
                             <ul class="list-inline no-margin-top small">
 
-                                <li><a class="btn btn-default btn-sm" href="<?= $this->url('user_signup') ?>"><span class="fa fa-user" aria-hidden="true"></span> Register</a>
+                                <li><a class="btn btn-default btn-sm" href="<?= $this->url('user_signup') ?>"><span class="fa fa-user" aria-hidden="true"></span> Enregistrement</a>
                                 </li>
 
                                 <li class="no-margin-top small">                
@@ -65,7 +65,7 @@
                                     </li>
                                     <?php if($_SESSION['user']['use_role_opt1'] === '2'): ?>
                                     <li>
-                                        <a class="btn btn-default btn-md" href="<?= $this->url('admin_home') ?>">Menu administrateur</a>
+                                        <a class="btn btn-success btn-sm" href="<?= $this->url('admin_home') ?>"><span class="fa fa-cog fa-fw" aria-hidden="true"></span>Menu administrateur</a>
                                     </li>
                                     <?php endif; ?>
                                     <li class="no-margin-top">
