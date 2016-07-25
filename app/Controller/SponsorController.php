@@ -24,6 +24,8 @@ class SponsorController extends Controller {
         $this->allowTo('2');
         $sponsorManager = new SponsorManager();
         $sponsorManager->delete($id);
+        $userHasRoleManager = new UserHasRoleManager();
+        $userHasRoleManager->deleteSponsor($id);
         $this->redirectToRoute('home');
     }
     
