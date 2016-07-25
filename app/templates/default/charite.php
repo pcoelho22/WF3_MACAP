@@ -2,10 +2,11 @@
 
 <?php $this->start('main_content') ?>
 <div class="row">
-    <div class="col-sm-4 col-sm-offset-4">
-        <img src="<?= $this->assetUrl('img/MAW.jpg') ?>" class="img-responsive" alt="image">
+    <div class="col-sm-12">
+        <a href="http://www.make-a-wish.lu/" target="_blank"><img src="<?= $this->assetUrl('img/MAW.jpg') ?>" class="center-block" alt="image" ></a>
     </div>
 </div>
+
 <div class="row" style="margin-bottom: 35px">
     <div class="col-sm-6 col-sm-offset-3 text-center"><h2>Nous exauçons les voeux d'enfants atteints de maladies graves</h2></div>
     <h2 class="col-sm-4 col-sm-offset-4 text-center"><strong>Faites un don!</strong></h2>
