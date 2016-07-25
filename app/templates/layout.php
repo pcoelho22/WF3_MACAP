@@ -29,7 +29,7 @@
 
     </head>
     <body>
-        <?php debug($_SESSION); ?>
+        <!-- <?php debug($_SESSION); ?> -->
         <header>
             <div class="container">
                 <div class="row"> 
@@ -65,9 +65,9 @@
                                     </li>
 
                                     <li class="no-margin-top">
-                                        <a class="btn btn-link btn-md" href="<?= $this->url('user_logout') ?>"><span class="fa fa-power-off" aria-hidden="true"></span> Se déconnecter</a>    
+                                        <a class="btn btn-default btn-sm" href="<?= $this->url('user_logout') ?>"><span class="fa fa-power-off fa-fw" aria-hidden="true"></span> Se déconnecter</a>   
                                     <li>
-                                        <a class="btn btn-link btn-md" href="<?= $this->url('user_edit') ?>">editer votre profil</a>
+                                        <a class="btn btn-default btn-sm" href="<?= $this->url('user_edit') ?>"><span class="fa fa-pencil fa-fw" aria-hidden="true"></span> Editer votre profil</a>
                                     </li>
                                 <?php if(isset($_SESSION['roles'])): ?>
                                     </li>
