@@ -59,8 +59,8 @@ class UserController extends Controller {
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'webdev.luxembourg@gmail.com';
-        $mail->Password = 'webforce3';
+        $mail->Username = 'concours.mondorf@gmail.com';
+        $mail->Password = 'Grandtour2016';
         $mail->SMTPSecure = 'tls';
         $mail->CharSet = 'UTF-8';
         $mail->Port = 587;
@@ -68,7 +68,7 @@ class UserController extends Controller {
         $mail->addAttachment($attachment2);
         $mail->addAttachment($attachment3);
         $mail->addAttachment($attachment4);
-        $mail->setFrom('webdev.luxembourg@gmail.com');
+        $mail->setFrom('concours.mondorf@gmail.com');
         $mail->addAddress($to);
         $mail->isHTML(true);
         $mail->Subject = $subject;

@@ -166,7 +166,7 @@ class ParticipantController extends Controller {
         $defaultController = new DefaultController();
         $defaultController->allowTo([AuthorizationManager::ROLEADMIN, AuthorizationManager::ROLEPARTICIPANT]);
         $participantManager = new ParticipantManager();
-        $values = $participantManager->find($_SESSION['user']['id']);
+        $values = $participantManager->findParticipantInfo($_SESSION['user']['id']);
         $this->show('participant/edit',['values'=>$values]);
     }
     
