@@ -4,11 +4,13 @@
 <h2>Liste de galeries</h2>
 <div class="row">
     <div class="col-md-12 text-left">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <a class="btn btn-primary btn-sm" href="<?= $this->url('galerie_add') ?>"><span class="fa fa-pencil-square-o"></span> Ajouter une galerie</a>
+            </li>
+        </ul>
         <?php foreach ($galerieListe as $key => $value) : ?>
             <ul class="list-group">
-                <li class="list-group-item">
-                    <a class="btn btn-primary btn-sm" href="<?= $this->url('galerie_add') ?>"><span class="fa fa-pencil-square-o"></span> Ajouter une galerie</a>
-                </li>
                 <li class="list-group-item">
                     <a href="<?= $this->url('galerie_photos', ['id' => $value['id']]) ?>"><?= $value['gal_name'] . '<br/> ' . $value['gal_legend'] ?></a>
                 </li>
@@ -23,5 +25,5 @@
             </ul>
         <?php endforeach ?>
     </div>
-</div>	
+</div>  
 <?php $this->stop('main_content') ?>
