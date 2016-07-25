@@ -21,7 +21,7 @@
             </div>
             <div class="col-sm-4 text-center">
                 <p><strong>Téléphone et E-Mail:</strong><br/>+352-314.595 <br/> <a href="mailto:info@make-a-wish.lu">info@make-a-wish.lu</a></p>
-                <p><strong>Internet et Facebook:</strong><br/><a href="http://www.make-a-wish.lu">www.make-a-wish.lu</a><br/><a href="http://www.facebook.com/makeawishluxembourg"><span class="fa fa-facebook-square fa-2x" aria-hidden="true"></span>/makeawishluxembourg</a></p>
+                <p><strong>Internet et Facebook:</strong><br/><a href="http://www.make-a-wish.lu">www.make-a-wish.lu</a><br/><a href="http://www.facebook.com/makeawishluxembourg"><span class="fa fa-facebook-square fa-2x" aria-hidden="true"></span> / makeawishluxembourg</a></p>
                 <p><strong>Copyright 2013</strong><br/>Make-A-Wish&reg; Luxembourg Asbl</p>
             </div>
             <div class="col-sm-4 text-center">
