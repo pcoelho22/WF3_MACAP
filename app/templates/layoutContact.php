@@ -67,7 +67,6 @@
                                         <a class="btn btn-link btn-md" href="<?= $this->url('user_logout') ?>"><span class="fa fa-power-off" aria-hidden="true"></span> Se déconnecter</a>
                                     </li>
                                 </ul>
-                                <a href="<?= $this->url('default_contact') ?>"><button type="button" class="btn btn-default btn-sm"><span class="fa fa-phone" aria-hidden="true"></span> Nous contacter</button></a>
                             </div>
 
                         <?php endif; ?>
@@ -129,7 +128,7 @@
 
                     <div class="col-md-4 text-center">
                         <div class="set squared icon-inflate">
-                            <a href="https://fr-fr.facebook.com/" target="_blank" class="social facebook">Facebook</a>
+                            <a href="http://www.facebook.com/concoursMondorf" target="_blank" class="social facebook">Facebook</a>
                             <a href="https://twitter.com/GD_Luxembourg" target="_blank" class="social twitter">Twitter</a>
                             <a href="https://plus.google.com/explore" target="_blank" class="social google-plus">Google+</a>
                             <a href="https://www.instagram.com/" target="_blank" class="social instagram">Instagram</a>

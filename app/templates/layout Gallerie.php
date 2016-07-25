@@ -125,7 +125,7 @@
 
                     <div class="col-md-4 text-center">
                         <div class="set squared icon-inflate">
-                            <a href="https://fr-fr.facebook.com/ConcoursMondorf/"target="_blank" class="social facebook">Facebook</a>
+                            <a href="http://www.facebook.com/concoursMondorf"target="_blank" class="social facebook">Facebook</a>
                             <a href="https://twitter.com/GD_Luxembourg" target="_blank" class="social twitter">Twitter</a>
                             <a href="https://plus.google.com/explore" target="_blank" class="social google-plus">Google+</a>
                             <a href="https://www.instagram.com/" target="_blank" class="social instagram">Instagram</a>

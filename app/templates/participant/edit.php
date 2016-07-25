@@ -1,13 +1,12 @@
 <?php $this->layout('layout', ['title' => 'Editer un participant']) ?>
 
 <?php $this->start('main_content') ?>
-<h1>Editer un participant</h1>
+<h2>Editer un participant</h2>
 <div class="row">
 
     <div class="col-md-7 text-left">
         <?php if (isset($vals)): ?>
             <form action="" method="post" enctype="multipart/form-data" role="form">
-                <span class="help-block"></span>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
                     <input id="lastname" type="text" name="lastName" value="<?= $vals['lastName'] ?>" required="" placeholder="Nom" class="form-control text-left">
@@ -63,7 +62,7 @@
                 <h4>Une fois l'édition validée, vous serez redirigé vers la page d'accueil.</h4>
             </form>
         </div>
-
+        
         <?php if (isset($error)): ?>
             <div class="col-md-5 text-left">
                 <div class="alert alert-danger fade in" rows="auto">
@@ -78,7 +77,7 @@
             </div> 
         <?php endif; ?>
 
-    <?php elseif (isset($values)): ?>
+        <?php elseif (isset($values)): ?>
 
         <form action="" method="post" enctype="multipart/form-data" role="form">
             <div class="input-group">
