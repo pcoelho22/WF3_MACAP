@@ -13,7 +13,7 @@
                 </div>
             </div>
             <div class="item">
-                <img src="<?= $this->assetUrl('img/Slider/pic5.jpg') ?>" class="img-responsive  img-rounded" alt="">
+                <img src="<?= $this->assetUrl('img/Slider/') ?>" class="img-responsive  img-rounded" alt="">
                 <div class="carousel-caption">
                     <h3>Retrocar</h3>
                     <p>Classic cars making history</p>
