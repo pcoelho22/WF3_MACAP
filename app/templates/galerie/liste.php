@@ -6,7 +6,11 @@
     <div class="col-md-12 text-left">
         <ul class="list-group">
             <li class="list-group-item">
+<<<<<<< HEAD
+                <a class="btn btn-primary btn-sm" href="<?= $this->url('galerie_add') ?>"><span class="fa fa-pencil-square-o"></span> Ajouter une galerie</a>
+=======
                 <a class="btn btn-default btn-sm" href="<?= $this->url('galerie_add') ?>">Ajouter une reportages</a>
+>>>>>>> refs/remotes/origin/master
             </li>
         </ul>
         <?php foreach ($galerieListe as $key => $value) : ?>
@@ -25,5 +29,5 @@
             </ul>
         <?php endforeach ?>
     </div>
-</div>	
+</div>  
 <?php $this->stop('main_content') ?>
