@@ -1,4 +1,4 @@
-<?php $this->layout('layoutContact', ['title' => 'Liste des Participants du site']) ?>
+<?php $this->layout('layout', ['title' => 'Liste des Participants du site']) ?>
 
 <?php $this->start('main_content') ?>
 <h2>Liste des Participants du site</h2>
