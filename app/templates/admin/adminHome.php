@@ -1,4 +1,4 @@
-<?php $this->layout('layoutContact', ['title' => 'Page Administrateur']) ?>
+<?php $this->layout('layout', ['title' => 'Page Administrateur']) ?>
 
 <?php $this->start('main_content') ?>
 <h2>Page admin</h2>
