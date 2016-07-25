@@ -65,6 +65,7 @@
                                     </li>
 
                                     <li class="no-margin-top">
+                                        <a class="btn btn-link btn-md" href="<?= $this->url('user_logout') ?>"><span class="fa fa-power-off" aria-hidden="true"></span> Se déconnecter</a>
                                         <a class="btn btn-link btn-md" href="<?= $this->url('user_logout') ?>"><span class="fa fa-power-off" aria-hidden="true"></span> Se déconnecter</a>    
                                     <li>
                                         <a class="btn btn-link btn-md" href="<?= $this->url('user_edit') ?>">editer votre profil</a>
