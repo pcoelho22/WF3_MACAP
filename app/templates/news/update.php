@@ -2,51 +2,81 @@
 
 <?php $this->start('main_content') ?>
 <?php //debug($_FILES); ?>
-<?php if (isset($newsDetails)):?>
-    <form action="" method="post" enctype="multipart/form-data">
-        <label for="titre">Titre</label></br>
-        <input id="titre" type="text" name="titre" value="<?= $newsDetails['con_title'] ?>"></br></br>
-
-        <label for="dateStart">Date de début</label></br>
-        <input id="dateStart" type="date" name="dateStart" value="<?= $newsDetails['con_date_start'] ?>"></br></br>
-
-        <label for="dateEnd">Date de fin</label></br>
-        <input id="dateEnd" type="date" name="dateEnd" value="<?= $newsDetails['con_date_end'] ?>"></br></br>
-
-        <label for="synopsis">Synopsis</label></br>
-        <textarea name="synopsis" id="synopsis" cols="30" rows="10"><?= $newsDetails['con_synopsis'] ?></textarea></br></br>
-
-        <label for="description">Description</label></br>
-        <textarea name="description" id="description" cols="30" rows="10"><?= $newsDetails['con_description'] ?></textarea></br></br>
-
-        <label for="avatar">Photo</label></br>
-        <input id="avatar" type="file" name="avatar"></br></br>
-
-        <input type="submit" value="Modifier la news"></br></br>
-    </form>
-    <?php elseif(isset($vals)): ?>
+<div class="row">
+    <div class="col-md-6 text-left">
+    <?php if (isset($newsDetails)): ?>
+        <form action="" method="post" enctype="multipart/form-data">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-tags fa-fw" aria-hidden="true"></i></span>
+                <input id="titre" type="text" name="titre" value="<?= $newsDetails['con_title'] ?>" required="" placeholder="Titre" class="form-control text-left">
+            </div>
+            <span class="help-block"></span>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i></span>
+                <input id="dateStart" type="date" name="dateStart" value="<?= $newsDetails['con_date_start'] ?>" required="" placeholder="Date de début jj/mm/aaaa" class="form-control text-left">
+            </div>
+            <span class="help-block"></span>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i></span>
+                <input id="dateEnd" type="date" name="dateEnd" value="<?= $newsDetails['con_date_end'] ?>" required="" placeholder="Date de fin jj/mm/aaaa" class="form-control text-left">
+            </div>
+             <span class="help-block"></span>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-align-left"></i></span>
+                <textarea id="synopsis" type="text" name="synopsis" rows="10" value="<?= $newsDetails['con_synopsis'] ?>" placeholder="Synopsis" class="form-control text-left"></textarea>
+            </div>
+            <span class="help-block"></span>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-align-left"></i></span>
+                <textarea id="description" type="text" name="description" rows="10" value="<?= $newsDetails['con_description'] ?>" placeholder="Description" class="form-control text-left"></textarea>
+            </div>
+            <span class="help-block"></span>
+            <h5><strong>Veuillez sélectionner une photo à ajouter(optionnel).</strong></h5>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-picture-o fa-fw"></i></span>
+                <input id="avatar" type="file" name="avatar" class="form-control text-left">
+            </div>
+            <span class="help-block"></span>
+            <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter une news" href="#"><i class="fa fa-pencil fa-fw"></i> Modifier la news</button>
+        </form>
+    </div>
+<?php elseif (isset($vals)): ?>
     <?php debug($error); ?>
     <?php debug($vals); ?>
     <form action="" method="post" enctype="multipart/form-data">
-        <label for="titre">Titre</label></br>
-        <input id="titre" type="text" name="titre" value="<?= $vals['con_title'] ?>"></br></br>
-
-        <label for="dateStart">Date de début</label></br>
-        <input id="dateStart" type="date" name="dateStart" value="<?= $vals['con_date_start'] ?>"></br></br>
-
-        <label for="dateEnd">Date de fin</label></br>
-        <input id="dateEnd" type="date" name="dateEnd" value="<?= $vals['con_date_end'] ?>"></br></br>
-
-        <label for="synopsis">Synopsis</label></br>
-        <textarea name="synopsis" id="synopsis" cols="30" rows="10"><?= $vals['con_synopsis'] ?></textarea></br></br>
-
-        <label for="description">Description</label></br>
-        <textarea name="description" id="description" cols="30" rows="10"><?= $vals['con_description'] ?></textarea></br></br>
-
-        <label for="avatar">Photo</label></br>
-        <input id="avatar" type="file" name="avatar"></br></br>
-
-        <input type="submit" value="Modifier la news"></br></br>
-    </form>
-    <?php endif;?>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-tags fa-fw" aria-hidden="true"></i></span>
+                <input id="titre" type="text" name="titre" value="<?= $vals['con_title'] ?>" required="" placeholder="Titre" class="form-control text-left">
+            </div>
+            <span class="help-block"></span>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i></span>
+                <input id="dateStart" type="date" name="dateStart" value="<?= $vals['con_date_start'] ?>" required="" placeholder="Date de début jj/mm/aaaa" class="form-control text-left">
+            </div>
+            <span class="help-block"></span>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i></span>
+                <input id="dateEnd" type="date" name="dateEnd" value="<?= $vals['con_date_end'] ?>" required="" placeholder="Date de fin jj/mm/aaaa" class="form-control text-left">
+            </div>
+            <span class="help-block"></span>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-align-left"></i></span>
+                <textarea id="synopsis" type="text" name="synopsis" rows="10" value="<?= $vals['con_synopsis'] ?>" placeholder="Synopsis" class="form-control text-left"></textarea>
+            </div>
+            <span class="help-block"></span>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-align-left"></i></span>
+                <textarea id="description" type="text" name="description" rows="10" value="<?= $vals['con_description'] ?>" placeholder="Description" class="form-control text-left"></textarea>
+            </div>
+            <span class="help-block"></span>
+            <h5><strong>Veuillez sélectionner une photo à ajouter(optionnel).</strong></h5>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-picture-o fa-fw"></i></span>
+                <input id="avatar" type="file" name="avatar" class="form-control text-left">
+            </div>
+            <span class="help-block"></span>
+            <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter une news" href="#"><i class="fa fa-pencil fa-fw"></i> Modifier la news</button>
+        </form>
+        <?php endif; ?>
+    </div>
 <?php $this->stop('main_content') ?>
