@@ -12,7 +12,7 @@
     <p><strong>Le Mondor-les-Bains Concours d'Elegance tient à remercier ses sponsors qui souscrivent généreusement à cet événement. Leur soutien financier important nous permet de maintenir notre engagement envers l'excellence et poursuivre nos efforts au profit de nos oeuvres de bienfaisance.</strong></p><br>
 </div>
 
-<div id="sponsorLogos" class="col-md-12 block-center">
+<div id="sponsorLogos" class="col-md-12 cente-block">
     <div class="col-md-12 text-center">
         <h4 class="background"><span><strong>Premium Sponsors</strong></span></h4><br>
     </div>

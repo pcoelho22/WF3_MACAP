@@ -18,6 +18,7 @@ class UserController extends Controller {
     public function logOut() {
         $authManager = new AuthentificationManager();
         $authManager->logUserOut();
+        unset($_SESSION['roles']);
         $this->redirectToRoute('user_login');
     }
     
@@ -28,17 +29,23 @@ class UserController extends Controller {
     public function loginVal() {
         $usernameOrEmail = isset($_POST['usernameOrEmail']) ? trim(strip_tags($_POST['usernameOrEmail'])) : '';
         $password = isset($_POST['password']) ? trim(strip_tags($_POST['password'])) : '';
-
+        
         $authManager = new AuthentificationManager();
         $usr_id = $authManager->isValidLoginInfo($usernameOrEmail, $password);
-
+        
+        $userHasRoleManager = new UserHasRoleManager();
+        
         if ($usr_id === 0) {
             $erreur = "Login ou Mot de passe invalide";
             $this->show('default/login', ["erreur"=>$erreur]);
         } 
         else {
             $userManager = new UserManager();
+            $userRoles = $userHasRoleManager->getUserRoles($usr_id);
             $authManager->logUserIn($userManager->find($usr_id));
+            foreach ($userRoles as $key => $value) {
+                $_SESSION['roles'][] = $value['role_id'];   
+            }
             $this->redirectToRoute('home');
         }
     }
@@ -52,8 +59,8 @@ class UserController extends Controller {
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'webdev.luxembourg@gmail.com';
-        $mail->Password = 'webforce3';
+        $mail->Username = 'concours.mondorf@gmail.com';
+        $mail->Password = 'Grandtour2016';
         $mail->SMTPSecure = 'tls';
         $mail->CharSet = 'UTF-8';
         $mail->Port = 587;
@@ -61,7 +68,7 @@ class UserController extends Controller {
         $mail->addAttachment($attachment2);
         $mail->addAttachment($attachment3);
         $mail->addAttachment($attachment4);
-        $mail->setFrom('webdev.luxembourg@gmail.com');
+        $mail->setFrom('concours.mondorf@gmail.com');
         $mail->addAddress($to);
         $mail->isHTML(true);
         $mail->Subject = $subject;
