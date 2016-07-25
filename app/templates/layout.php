@@ -29,6 +29,7 @@
 
     </head>
     <body>
+        <?php debug($_SESSION); ?>
         <header>
             <div class="container">
                 <div class="row"> 
@@ -65,7 +66,28 @@
 
                                     <li class="no-margin-top">
                                         <a class="btn btn-link btn-md" href="<?= $this->url('user_logout') ?>"><span class="fa fa-power-off" aria-hidden="true"></span> Se déconnecter</a>
+                                        <a class="btn btn-link btn-md" href="<?= $this->url('user_logout') ?>"><span class="fa fa-power-off" aria-hidden="true"></span> Se déconnecter</a>    
+                                    <li>
+                                        <a class="btn btn-link btn-md" href="<?= $this->url('user_edit') ?>">editer votre profil</a>
                                     </li>
+                                <?php if(isset($_SESSION['roles'])): ?>
+                                    </li>
+                                <?php if (in_array('3', $_SESSION['roles'])): ?>
+                                    <li>
+                                        <a class="btn btn-link btn-md" href="<?= $this->url('participant_edit') ?>">editer votre profil de participant</a>
+                                    </li>
+                                <?php endif; ?>
+                                    <?php if (in_array('4', $_SESSION['roles'])): ?>
+                                    <li>
+                                        <a class="btn btn-link btn-md" href="<?= $this->url('exposant_edit') ?>">editer votre profil d'exposant</a>
+                                    </li>
+                                <?php endif; ?>
+                                    <?php if (in_array('5', $_SESSION['roles'])): ?>
+                                    <li>
+                                        <a class="btn btn-link btn-md" href="<?= $this->url('sponsor_edit') ?>">editer votre profil de sponsor</a>
+                                    </li>
+                                <?php endif; ?>
+                            <?php endif; ?>
                                 </ul>
                             </div>
 

@@ -222,7 +222,7 @@ class ExposantController extends Controller {
         $defaultController = new DefaultController();
         $defaultController->allowTo([AuthorizationManager::ROLEADMIN, AuthorizationManager::ROLEEXPOSANT]);
         $exposantManager = new ExposantManager();
-        $values = $exposantManager->find($_SESSION['user']['id']);
+        $values = $exposantManager->findExposantInfo($_SESSION['user']['id']);
         $this->show('exposant/edit',['values'=>$values]);
     }
 
