@@ -1,4 +1,4 @@
-<?php $this->layout('layout', ['title' => 'Modifier une reportage']) ?>
+<?php $this->layout('layout', ['title' => 'Modifier un Reportage']) ?>
 
 <?php $this->start('main_content') ?>
 <h2>Modifier un Reportage</h2>
@@ -8,7 +8,7 @@
         <form action="" method="post" enctype="multipart/form-data">
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-tags fa-fw" aria-hidden="true"></i></span>
-                <input id="titre" type="text" name="titre" value="<?= $reportagesDetails['con_title'] ?>"  placeholder="Titre" class="form-control text-left">
+                <input id="titre" type="text" name="titre" value="<?= $reportagesDetails['con_title'] ?>" required="" placeholder="Titre" class="form-control text-left">
             </div>
             <span class="help-block"></span>
             <div class="input-group">
@@ -23,12 +23,12 @@
             <span class="help-block"></span>
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-align-left"></i></span>
-                <textarea id="synopsis" type="text" name="synopsis" rows="10" value="<?= $reportagesDetails['con_synopsis'] ?>" placeholder="Synopsis" class="form-control text-left"></textarea>
+                <textarea id="synopsis" name="synopsis" rows="10" placeholder="Synopsis" class="form-control text-left"><?= $reportagesDetails['con_synopsis'] ?></textarea>
             </div>
             <span class="help-block"></span>
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-align-left"></i></span>
-                <textarea id="description" type="text" name="description" rows="10" value="<?= $reportagesDetails['con_description'] ?>" placeholder="Description" class="form-control text-left"></textarea>
+                <textarea id="description" name="description" rows="10" placeholder="Description" class="form-control text-left"><?= $reportagesDetails['con_description'] ?></textarea>
             </div>
             <span class="help-block"></span>
             <h5><strong>Veuillez sélectionner une photo à ajouter(optionnel).</strong></h5>
@@ -60,12 +60,12 @@
             <span class="help-block"></span>
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-align-left"></i></span>
-                <textarea id="synopsis" type="text" name="synopsis" rows="10" value="<?= $vals['con_synopsis'] ?>" placeholder="Synopsis" class="form-control text-left"></textarea>
+                <textarea id="synopsis" name="synopsis" rows="10" placeholder="Synopsis" class="form-control text-left"><?= $vals['con_synopsis'] ?></textarea>
             </div>
             <span class="help-block"></span>
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-align-left"></i></span>
-                <textarea id="description" type="text" name="description" rows="10" value="<?= $vals['con_description'] ?>" placeholder="Description" class="form-control text-left"></textarea>
+                <textarea id="description" name="description" rows="10" placeholder="Description" class="form-control text-left"><?= $vals['con_description'] ?></textarea>
             </div>
             <span class="help-block"></span>
             <h5><strong>Veuillez sélectionner une photo à ajouter(optionnel).</strong></h5>

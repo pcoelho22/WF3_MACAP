@@ -1,4 +1,4 @@
-<?php $this->layout('layout', ['title' => 'Magazine']) ?>
+<?php $this->layout('layout', ['title' => 'Magazine!']) ?>
 
 <?php $this->start('main_content') ?>
 <h2>Liste des Magazines</h2>
@@ -8,7 +8,7 @@
         <?php if ($_SESSION['user']['use_role_opt1'] === '2'): ?>
         <ul class="list-group">
             <li class="list-group-item">
-                <a href="<?= $this->url('magazine_add') ?>"><button class="btn btn-primary btn-sm"><span class="fa fa-pencil-square-o"></span>Ajouter un magazine</button></a>
+                <a href="<?= $this->url('magazine_add') ?>"><button class="btn btn-primary btn-sm"><span class="fa fa-pencil-square-o"></span>Ajouter un Magazine</button></a>
             </li>
         </ul>
     </div>
