@@ -1,6 +1,6 @@
 <?php $this->layout('layout', ['title' => 'Magazine']) ?>
 <?php $this->start('main_content') ?>
-    <h2>Ajouter un magazine</h2>
+    <h2>Modifier un Magazine</h2>
     <div class="row">
         <div class="col-md-7 text-left">
             <?php if (isset($vals)): ?>
@@ -21,7 +21,7 @@
                     <input id="magazineCouv" type="file" name="magazineCouv" class="form-control text-left">
                 </div>
                 <span class="help-block"></span>
-                <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Participant" href="#"><i class="fa fa-user fa-fw"></i> Modifier Magazine</button>
+                <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Participant" href="#"><i class="fa fa-pencil fa-fw"></i> Modifier le Magazine</button>
                 <br>
                 <h4>Une fois la modification validée, vous serez redirigé vers la liste des magazines.</h4>
             </form>
@@ -59,7 +59,7 @@
                     <input id="magazineCouv" type="file" name="magazineCouv" class="form-control text-left">
                 </div>
                 <span class="help-block"></span>
-                <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Participant" href="#"><i class="fa fa-user fa-fw"></i> Modifier Magazine</button>
+                <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Participant" href="#"><i class="fa fa-pencil fa-fw"></i> Modifier le Magazine</button>
                 <br>
                 <h4>Une fois la modification validée, vous serez redirigé vers la liste des magazines.</h4>
             </form>

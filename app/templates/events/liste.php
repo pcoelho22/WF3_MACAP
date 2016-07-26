@@ -7,7 +7,7 @@
         <?php foreach ($eventsListe as $key => $value) : ?>
             <ul class="list-group">
                 <li class="list-group-item">
-                    <a class="btn btn-default btn-sm" href="<?= $this->url('events_add') ?>">Ajouter une news</a>
+                    <a class="btn btn-primary btn-sm" href="<?= $this->url('events_add') ?>"><span class="fa fa-pencil-square-o fa-fw"></span> Ajouter un event</a>
                 </li>
                 <li class="list-group-item">
                     <img alt="" src="<?= $value['con_avatar'] ?>" width="120" heigth="120">
@@ -19,8 +19,8 @@
                 <?php if (isset($_SESSION['user']['use_role_opt1'])): ?>
                     <?php if ($_SESSION['user']['use_role_opt1'] === '2'): ?>
                         <li class="list-group-item">
-                            <a class="btn btn-default btn-sm" href="<?= $this->url('events_update', ['id' => $value['id']]) ?>">Modifier</a>
-                            <a class="btn btn-default btn-sm" href="<?= $this->url('events_delete', ['id' => $value['id']]) ?>">Delete</a>
+                            <a class="btn btn-primary btn-sm" href="<?= $this->url('events_update', ['id' => $value['id']]) ?>"><span class="fa fa-pencil fa-fw"></span> Editer</a>
+                            <a class="btn btn-danger btn-sm" href="<?= $this->url('events_delete', ['id' => $value['id']]) ?>"><span class="fa fa-trash-o fa-fw"></span> Supprimer</a>
                         </li>
                     <?php endif; ?>
                 <?php endif; ?>
