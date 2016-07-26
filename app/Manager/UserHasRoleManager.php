@@ -22,6 +22,40 @@ class UserHasRoleManager extends \W\Manager\Manager{
         return $sth->fetchAll();
     }
 
+    public function deleteSponsor($id){
+        if (!is_numeric($id)){
+            return false;
+        }
+
+        $sql = "DELETE FROM " . $this->table . " WHERE id = :id AND role_id = ".AuthorizationManager::ROLESPONSOR;
+        $sth = $this->dbh->prepare($sql);
+        $sth->bindValue(":id", $id);
+        return $sth->execute();
+    }
+
+    public function deleteParticipant($id){
+        if (!is_numeric($id)){
+            return false;
+        }
+
+        $sql = "DELETE FROM " . $this->table . " WHERE id = :id AND role_id = ".AuthorizationManager::ROLEPARTICIPANT;
+        $sth = $this->dbh->prepare($sql);
+        $sth->bindValue(":id", $id);
+        return $sth->execute();
+    }
+
+    public function deleteExposant($id){
+        if (!is_numeric($id)){
+            return false;
+        }
+
+        $sql = "DELETE FROM " . $this->table . " WHERE id = :id AND role_id = ".AuthorizationManager::ROLEEXPOSANT;
+        $sth = $this->dbh->prepare($sql);
+        $sth->bindValue(":id", $id);
+        return $sth->execute();
+    }
+
+
 
 }
 

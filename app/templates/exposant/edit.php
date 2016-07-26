@@ -83,7 +83,7 @@
                 <input id="avatar" type="file" name="avatar" class="form-control text-left">
             </div>
             <span class="help-block"></span>
-            <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Exposant" href="#"><i class="fa fa-pencil-square-o fa-fw"></i>Editer Exposant</button>
+            <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Exposant" href="#"><i class="fa fa-pencil fa-fw"></i> Editer Exposant</button>
             <span class="help-block"></span>
             <h4>Une fois l'édition validée, vous serez redirigé vers la page d'accueil.</h4>
         </form>
@@ -182,7 +182,7 @@
             <input id="avatar" type="file" name="avatar" class="form-control text-left">
         </div>
         <span class="help-block"></span>
-        <button class="btn btn-primary btn-sm active" type="submit" value="Editer Exposant" href="#"><i class="fa fa-pencil-square-o fa-fw"></i>Editer Exposant</button>
+        <button class="btn btn-primary btn-sm active" type="submit" value="Editer Exposant" href="#"><i class="fa fa-pencil fa-fw"></i> Editer Exposant</button>
         <br>
         <h4>Une fois l'édition validée, vous serez redirigé vers la page d'accueil.</h4>
     </form>

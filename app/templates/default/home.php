@@ -3,47 +3,17 @@
 <?php $this->start('main_content') ?>
 <div class="row">
     <div id="carousel-example-generic" class="col-lg-12 carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-            <li data-target="#myCarousel" data-slide-to="3"></li>
-            <li data-target="#myCarousel" data-slide-to="4"></li>
-        </ol>
-
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
             <div class="item active">
-                <img src="<?= $this->assetUrl('img/pic4.jpg') ?>" class="img-responsive  img-rounded" alt="">
+                <img src="<?= $this->assetUrl('img/Slider/pic4.jpg') ?>" class="img-responsive  img-rounded" alt="">
                 <div class="carousel-caption">
                     <h3>Retrocar</h3>
                     <p>Classic cars making history</p>
                 </div>
             </div>
             <div class="item">
-                <img src="<?= $this->assetUrl('img/pic5.jpg') ?>" class="img-responsive  img-rounded" alt="">
-                <div class="carousel-caption">
-                    <h3>Retrocar</h3>
-                    <p>Classic cars making history</p>
-                </div>
-            </div>
-            <div class="item">
-                <img src="<?= $this->assetUrl('img/alfa.jpg') ?>" class="img-responsive  img-rounded" alt="">
-                <div class="carousel-caption">
-                    <h3>Retrocar</h3>
-                    <p>Classic cars making history</p>
-                </div>
-            </div>
-            <div class="item">
-                <img src="<?= $this->assetUrl('img/pic6.jpg') ?>" class="img-responsive  img-rounded" alt>
-                <div class="carousel-caption">
-                    <h3>Retrocar</h3>
-                    <p>Classic cars making history</p>
-                </div>
-            </div>
-            <div class="item">
-                <img src="<?= $this->assetUrl('img/pic7.jpg') ?>" class="img-responsive  img-rounded" alt>
+                <img src="<?= $this->assetUrl("img/Slider/") ?>" class="img-responsive  img-rounded" alt="">
                 <div class="carousel-caption">
                     <h3>Retrocar</h3>
                     <p>Classic cars making history</p>

@@ -44,4 +44,16 @@ class DefaultController extends Controller {
     public function aboutUS(){
         $this->show('default/aboutUs');
     }
+
+    public function mapSite(){
+        $this->show('default/siteMap');
+    }
+
+    public function termsAndConditions(){
+        $this->show('default/termsAndConditions');
+    }
+
+    public function shop(){
+        $this->show('default/shop');
+    }
 }

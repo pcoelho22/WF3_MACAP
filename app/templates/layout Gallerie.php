@@ -48,7 +48,7 @@
                         <?php if (!isset($_SESSION['user'])): ?>
                             <ul class="list-inline no-margin-top small">
 
-                                <li><a href="<?= $this->url('user_signup') ?>"><button type="button" class="btn btn-default btn-sm"><span class="fa fa-user" aria-hidden="true"></span> Register</button></a>
+                                <li><a href="<?= $this->url('user_signup') ?>"><button type="button" class="btn btn-default btn-sm"><span class="fa fa-user" aria-hidden="true"></span> Enregistrement</button></a>
                                 </li>
 
                                 <li class="no-margin-top small">                
@@ -141,11 +141,10 @@
                 <div class='row'>
                     <div class="col-12 text-center">
                         <ul class="list-inline no-margin-bottom small">
-                            <li><a href="/contact us" class="small" target="_blank">Contact Us</a></li>
                             <li><a href="/terms-conditions" class="small" target="self">Terms &amp; Conditions</a></li>
                             <li><a href="/en/sitemap" class="small" target="self">Site Map</a></li>
                         </ul>               
-                        <small><a href="http://www.mc-app.eu" class="small" target="self">© McAPP 2016</a></small>
+                        <a href="http://www.mc-app.eu" class="small" target="self">© Designed by McAPP 2016</a>
                     </div>
                 </div>
             </div>

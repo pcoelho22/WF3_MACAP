@@ -97,4 +97,16 @@ $w_routes = array(
     ["GET", "/charite/", "Default#charite", "default_charite"],
 
     ["GET", "/aboutUs/", "Default#aboutUs", "default_aboutus"],
+
+    ["GET", "/siteMap", "Default#mapSite", "default_sitemap"],
+
+    ["GET", "/shop", "Default#shop", "default_shop"],
+
+    ["GET", "/termsAndConditions", "Default#termsAndConditions", "default_termsandconditions"],
+
+    ["GET", "/admin/", "Admin#adminHome", "admin_home"],
+    ["GET", "/admin/users", "Admin#adminListeUsers", "admin_listeUsers"],
+    ["GET", "/admin/exposants", "Admin#adminListeExposants", "admin_listeExposants"],
+    ["GET", "/admin/participants", "Admin#adminListeParticipant", "admin_listeParticipants"],
+    ["GET", "/admin/sponsors", "Admin#adminListeSponsors", "admin_listeSponsors"],
 );
