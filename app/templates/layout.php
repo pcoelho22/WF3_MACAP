@@ -175,9 +175,11 @@
                 </div>
             </div>
         </footer>
-        <!-- Button -->
-        <div onclick="ScrollTop()" id="top-btn">
-          <i class="fa fa-angle-up"></i>
-        </div>
+
+        <!-- Button scroll to top -->
+        <div id='goTop'></div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script type="text/javascript" src="<?= $this->assetUrl('js/script.js') ?>"></script>
+        
     </body>
 </html>
