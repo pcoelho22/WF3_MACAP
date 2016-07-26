@@ -3,7 +3,22 @@
 <?php $this->start('main_content') ?>
 <h2>Modifier un Reportage</h2>
 <div class="row">
-    <div class="col-md-6 text-left">
+    <?php if (isset($error)): ?>
+    <div class="col-md-7 text-left">
+        <div class="alert alert-danger fade in" rows="auto">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Erreur!</strong><br>
+            <ul>
+                <?php foreach ($error as $value): ?>
+                    <li><?= $value ?></li>
+                <?php endforeach; ?>    
+            </ul>
+        </div>
+    </div> 
+    <?php endif; ?>    
+</div>
+<div class="row">
+    <div class="col-md-7 text-left">
         <?php if (isset($reportagesDetails)): ?>
         <form action="" method="post" enctype="multipart/form-data">
             <div class="input-group">
@@ -77,21 +92,6 @@
             <button class="btn btn-primary btn-sm active" type="submit"><i class="fa fa-pencil-square-o fa-fw"></i> Modifier le Reportage</button>
         </form>
     </div>
-    <?php if (isset($error)): ?>
-    <div class="col-md-6 text-left">
-        <div class="alert alert-danger fade in" rows="auto">
-            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            <strong>Erreur!</strong><br>
-            <ul>
-                <?php foreach ($error as $value): ?>
-                    <li><?= $value ?></li>
-                <?php endforeach; ?>    
-            </ul>
-        </div>
-    </div> 
-    <?php endif; ?> 
-
     <?php endif; ?>
-    
 </div>
 <?php $this->stop('main_content') ?>
