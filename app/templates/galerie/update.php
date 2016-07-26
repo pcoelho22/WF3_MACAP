@@ -1,7 +1,7 @@
 <?php $this->layout('layout', ['title' => 'Modifier une galerie']) ?>
 
 <?php $this->start('main_content') ?>
-<h2>Mise à jour de la galerie</h2>
+<h2>Modifier une galerie</h2>
 <?php
 //debug($_POST);
 //debug($_FILES); 

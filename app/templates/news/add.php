@@ -44,7 +44,7 @@ if (isset($error)) {
                 <input id="avatar" type="file" name="avatar" class="form-control text-left">
             </div>
             <span class="help-block"></span>
-            <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter une news" href="#"><i class="fa fa-pencil fa-fw"></i> Ajouter une news</button>
+            <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter une news" href="#"><i class="fa fa-pencil-square-o fa-fw"></i> Ajouter une news</button>
         </form>
     </div>
     <?php else: ?>
@@ -80,7 +80,7 @@ if (isset($error)) {
             <input id="avatar" type="file" name="avatar" class="form-control text-left">
         </div>
         <span class="help-block"></span>
-        <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter une news" href="#"><i class="fa fa-pencil fa-fw"></i> Ajouter une news</button>
+        <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter une news" href="#"><i class="fa fa-pencil-square-o fa-fw"></i> Ajouter une news</button>
     </form>
     <?php endif; ?>
 </div>

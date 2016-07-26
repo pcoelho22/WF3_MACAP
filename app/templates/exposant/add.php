@@ -1,7 +1,7 @@
 <?php $this->layout('layout', ['title' => 'Ajouter un exposant']) ?>
 
 <?php $this->start('main_content') ?>
-<h2>Ajouter un exposant</h2>
+<h2>Ajouter un Exposant</h2>
 <div class="row">
 
     <div class="col-md-7 text-left">
@@ -77,7 +77,7 @@
                 <input id="url" type="text" name="url" value="<?= $vals['url'] ?>" placeholder="Site web de l'exposant" class="form-control text-left">
             </div>
             <span class="help-block"></span>
-            <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Exposant" href="#"><i class="fa fa-user fa-fw"></i> Ajouter Exposant</button>
+            <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Exposant" href="#"><i class="fa fa-pencil-square-o fa-fw"></i> Ajouter l'Exposant</button>
             <br>
             <h4>Une fois l'ajout validé, vous serez redirigé vers la page d'accueil.</h4>
         </form>
@@ -169,7 +169,7 @@
             <input id="url" type="text" name="url" value="" placeholder="Site web de l'exposant" class="form-control text-left">
         </div>
         <span class="help-block"></span>
-        <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Exposant" href="#"><i class="fa fa-user fa-fw"></i> Ajouter Exposant</button>
+        <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Exposant" href="#"><i class="fa fa-pencil-square-o fa-fw"></i> Ajouter l'Exposant</button>
         <br>
         <h4>Une fois l'ajout validé, vous serez redirigé vers la page d'accueil.</h4>
     </form>
