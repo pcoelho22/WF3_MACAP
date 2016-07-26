@@ -1,7 +1,7 @@
 <?php $this->layout('layout', ['title' => 'Modifier un event']) ?>
 
 <?php $this->start('main_content') ?>
-<h2>Modifier l'Event</h2>
+<h2>Modifier un Event</h2>
 <?php
 //debug($_POST);
 //debug($_FILES); 
