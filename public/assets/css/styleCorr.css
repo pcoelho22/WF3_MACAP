@@ -1,0 +1,16 @@
+#blueimp-gallery>.indicator>li {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    margin: 6px 3px 0 3px;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    border: 1px solid transparent;
+    background: #ccc;
+    background: rgba(255,255,255,.25) center no-repeat;
+    border-radius: 5px;
+    box-shadow: 0 0 2px #000;
+    opacity: .5;
+    cursor: pointer;
+}

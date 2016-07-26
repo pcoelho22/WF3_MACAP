@@ -29,6 +29,7 @@
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
         <link rel="stylesheet" href="<?= $this->assetUrl('css/bootstrap-image-gallery.min.css')?>">
+        <link rel="stylesheet" type="text/css" href="<?= $this->assetUrl('css/styleCorr.css')?>">
 
     </head>
     <body>
