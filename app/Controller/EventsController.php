@@ -199,12 +199,16 @@ class EventsController extends Controller {
         $this->allowTo('2');
         $eventsManager = new EventsManager();
 
+        $string = StringUtils::randomString(10);
+        $string2 = StringUtils::randomString(10);
+
         $titreVal = false;
         $dateDebutVal = false;
         $dateFinVal = false;
         $synopsisVal = false;
         $descriptionVal= false;
         $dateDiffVal = false;
+        $photoVal = true;
         $extensionAutorisees = array('jpg', 'jpeg', 'png', 'gif');
         $error = array();
         $vals = array();
@@ -280,31 +284,24 @@ class EventsController extends Controller {
                         //if (substr($fichier['name'], -4) != '.php') {
                         if (in_array($extension, $extensionAutorisees)) {
                             // Je déplace le fichier uploadé au bon endroit
-                            if (move_uploaded_file($fichier['tmp_name'],'C:\xampp\htdocs\Back-end\Projet-Final\public\uplaod/'.$titre.$id.'.'.$extension)) {
-                                $titre = str_ireplace(" ", '', $titre);
-                                $photo = 'upload/'.$titre.$id.'.'.$extension;
-                                echo 'fichier téléversé<br />';
-                                $vals['con_avatar'] = $photo;
-                            }
-                            else {
-                                $error[] = 'une erreur est survenue';
-                            }
+                            $photo = 'upload/events/'.$string.$string2.'.'.$extension;
+                            $vals['con_avatar'] = $photo;
                         }
                         else {
+                            $photoVal = false;
                             $error[] = 'extension interdite';
                         }
                     }
                     else {
+                        $photoVal = false;
                         $error[] = 'fichier trop lourd';
                     }
                 }
             }
         }
-        else{
-            $error[] = 'Pas de fichier selectioné';
-        }
 
-        if ($titreVal && $dateDebutVal && $dateFinVal && $synopsisVal && $descriptionVal && $dateDiffVal){
+        if ($titreVal && $dateDebutVal && $dateFinVal && $synopsisVal && $descriptionVal && $dateDiffVal && $photoVal){
+            move_uploaded_file($fichier['tmp_name'],TMP.'/assets/upload/events/'.$string.$string2.'.'.$extension);
             $eventsManager->update($vals, $id);
             $this->redirectToRoute('events_liste');
             //$this->show('events/update', ['error' => $error, 'vals'=>$vals]);
