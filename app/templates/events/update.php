@@ -79,7 +79,7 @@
             <input id="avatar" type="file" name="avatar" class="form-control text-left">
         </div>
         <span class="help-block"></span>
-        <button class="btn btn-primary btn-sm active" type="submit" value="Modifier la galerie" href="#"><i class="fa fa-pencil fa-fw"></i> Modifier un Event</button>
+        <button class="btn btn-primary btn-sm active" type="submit" value="Modifier la galerie" href="#"><i class="fa fa-pencil fa-fw"></i> Modifier l' Event</button>
     </form>
     <?php endif; ?>
 </div>

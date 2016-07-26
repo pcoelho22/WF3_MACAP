@@ -229,4 +229,11 @@ class MagazineController extends Controller {
 
         $this->redirectToRoute('magazine_liste');
     }
+    public function deleteConfirmation($id){
+        $this->allowTo('2');
+        $magazineManager = new MagazineManager();
+        $magazineId = $magazineManager->find($id);
+        //debug($magazineId);
+        $this->show('default/confirmation', ['magazineId' => $magazineId]);
+    }
 }
