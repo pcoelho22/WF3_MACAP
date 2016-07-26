@@ -37,6 +37,11 @@ body{
 	height: auto;
 }
 
+/* Button contact us */
+#contactUs{
+    z-index: 5;
+}
+
 /* ------------------- Carousel Styling ------------------- */
 
 .carousel-inner {
@@ -368,6 +373,7 @@ a.youtube:after {
   -webkit-transition: all .8s;
   transition: all .8s;
 }
+
 /*******************************galerie photos**************************************/
 #galpho{
   width:180px;
