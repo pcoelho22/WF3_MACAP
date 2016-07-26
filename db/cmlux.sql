@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost
--- Généré le :  Ven 22 Juillet 2016 à 15:51
+-- Généré le :  Lun 25 Juillet 2016 à 16:12
 -- Version du serveur :  5.7.13-log
 -- Version de PHP :  5.6.21
 
@@ -171,7 +171,8 @@ INSERT INTO `galeries` (`id`, `gal_name`, `gal_path`, `gal_legend`, `gal_order`,
 (13, 'Luxembourg_Grand_Tour_2015', '/assets/Concours-mondorf/Luxembourg_Grand_Tour_2015/', 'Luxembourg Grand Tour 2015', NULL, NULL),
 (14, 'MaW_CE1_2014', '/assets/Concours-mondorf/MaW_CE1_2014/', 'MaW_CE1_2014', NULL, NULL),
 (15, 'MaW_CE2_2014', '/assets/Concours-mondorf/MaW_CE2_2014/', 'MaW_CE2_2014', NULL, 'Deuxième partie de la galerie'),
-(16, 'MaW_LGT_2014', '/assets/Concours-mondorf/MaW_LGT_2014/', 'MaW_LGT_2014', NULL, NULL);
+(16, 'MaW_LGT_2014', '/assets/Concours-mondorf/MaW_LGT_2014/', 'MaW_LGT_2014', NULL, NULL),
+(17, 'Slider', '/assets/img/Slider/', 'Photos banner HomePage', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1733,7 +1734,13 @@ INSERT INTO `galeries_has_photos` (`galeries_id`, `photos_id`) VALUES
 (16, 1547),
 (16, 1548),
 (16, 1549),
-(16, 1550);
+(16, 1550),
+(17, 1551),
+(17, 1552),
+(17, 1553),
+(17, 1554),
+(17, 1555),
+(17, 1556);
 
 -- --------------------------------------------------------
 
@@ -3363,7 +3370,13 @@ INSERT INTO `photos` (`id`, `pho_name`, `pho_path`, `pho_legend`, `pho_date`, `p
 (1547, 'Make_A_Wish_Luxembourg_Grand_Tour_2014_63.jpg', '/Concours-mondorf/MaW_LGT2014/Make_A_Wish_Luxembourg_Grand_Tour_2014_63.jpg', NULL, NULL, NULL),
 (1548, 'Make_A_Wish_Luxembourg_Grand_Tour_2014_64.jpg', '/Concours-mondorf/MaW_LGT2014/Make_A_Wish_Luxembourg_Grand_Tour_2014_64.jpg', NULL, NULL, NULL),
 (1549, 'Make_A_Wish_Luxembourg_Grand_Tour_2014_65.jpg', '/Concours-mondorf/MaW_LGT2014/Make_A_Wish_Luxembourg_Grand_Tour_2014_65.jpg', NULL, NULL, NULL),
-(1550, 'Make_A_Wish_Luxembourg_Grand_Tour_2014_66.jpg', '/Concours-mondorf/MaW_LGT2014/Make_A_Wish_Luxembourg_Grand_Tour_2014_66.jpg', NULL, NULL, NULL);
+(1550, 'Make_A_Wish_Luxembourg_Grand_Tour_2014_66.jpg', '/Concours-mondorf/MaW_LGT2014/Make_A_Wish_Luxembourg_Grand_Tour_2014_66.jpg', NULL, NULL, NULL),
+(1551, 'pic1.jpg', '/img/Slider/pic1.jpg', NULL, NULL, NULL),
+(1552, 'pic3.jp', '/img/Slider/pic3.jpg', NULL, NULL, NULL),
+(1553, 'pic4.jpg', '/img/Slider/pic4.jpg', NULL, NULL, NULL),
+(1554, 'pic5.jpg', '/img/Slider/pic5.jpg', NULL, NULL, NULL),
+(1555, 'pic6.jpg', '/img/Slider/pic6.jpg', NULL, NULL, NULL),
+(1556, 'pic7.jpg', '/img/Slider/pic7.jpg', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -3494,7 +3507,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `use_userName`, `use_name`, `use_first_name`, `use_address`, `use_post_code`, `use_city`, `use_phone`, `use_fax`, `use_email`, `use_password`, `use_date_creation`, `use_type`, `use_role_opt1`, `use_role_opt2`, `use_token`, `userscol`) VALUES
 (3, 'raven095', 'Reuter', '', '', '3350', 'Leudelange', '621149680', '', 'marc.reuter095@gmail.com', '$2y$10$Le3vp0KfS2zId6WIl9k7Eu2rYyF583oIikZRJiUVQyyU2LJ509Hsi', '2016-07-14', NULL, '2', NULL, NULL, NULL),
-(4, 'pcoelho', 'Coelho', '', '', '3280', 'Bettembourg', '00352621000000', '', 'pcoelho@psgroup.lu', '$2y$10$simc/cLDdC4x4RCRrXlheO46x17in4reZIpawMnbaaMpOrbLoBPB6', '2016-07-14', NULL, '2', NULL, '', NULL),
+(4, 'pcoelho', 'Coelho', 'Patrick', '6b rue Madame Mayrisch de St Hubert', '3489', 'Dudelange', '00352661707004', '', 'pcoelho@psgroup.lu', '$2y$10$1tdEXJCM1.bsmAWnSUXDoedGsgiCAYOBHezH7OhlQvgbnu/IpSlxe', '2016-07-14', NULL, '2', NULL, '', NULL),
 (5, 'pfabri', 'Fabri', '', '', '1466', 'Luxembourg', '00352-661400070', '', 'prfabri@yahoo.fr', '$2y$10$r.wOx/rY9pVmJiYY.jyil.aIPIFxEfLH.RRV4zSM9FDD1BpYYKlX6', '2016-07-18', NULL, '2', NULL, '', NULL),
 (6, 'Claudio', 'Raimundo', '', '', '8010', 'Strassen', '691462124', '691462124', 'craimundo75@gmail.com', '$2y$10$Pv3CoPJhzIrD2NlfIRLXY.WfeybGGWteZI1W3efM4.MvCzPUPBOaa', '2016-07-19', NULL, '2', NULL, NULL, NULL),
 (7, 'Kcarneiro', 'Dias', '', '', 'L-9160', 'Ingeldorf', '621359937', '', 'kcarneiro74pro@gmail.com', '$2y$10$x/hb3xY31VDIGuV2HP2BOuNNTxfFMuxBeb/KX3zNECCNdAPF80sFe', '2016-07-20', NULL, '2', NULL, NULL, NULL),
@@ -3793,7 +3806,7 @@ ALTER TABLE `participants`
 -- AUTO_INCREMENT pour la table `photos`
 --
 ALTER TABLE `photos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1551;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1557;
 --
 -- AUTO_INCREMENT pour la table `role`
 --
@@ -3902,3 +3915,5 @@ ALTER TABLE `users_has_sponsors`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+Contact GitHub API Training Shop Blog About
+© 2016 GitHub, Inc. Terms Privacy Security Status Help
