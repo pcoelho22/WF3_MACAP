@@ -1,4 +1,4 @@
-<?php $this->layout('layout', ['title' => 'News details']) ?>
+<?php $this->layout('layout', ['title' => 'News details!']) ?>
 
 <?php $this->start('main_content') ?>
 <h2>News details</h2>
@@ -23,5 +23,5 @@
         </div>
     </div>
 </ul>
-<a class="btn btn-default1" type="button" href="<?= $this->url('news_liste') ?>"><strong>&lt</strong> retour</a>
+<a class="btn btn-default1" type="button" href="<?= $this->url('news_liste') ?>"><strong>&lt</strong> Retour</a>
 <?php $this->stop('main_content') ?>
