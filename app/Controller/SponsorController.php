@@ -437,7 +437,7 @@ class SponsorController extends Controller {
                         $extension = strtolower(substr($filename, $dotPos+1));
                         if (in_array($extension, $extensionAutorisees)) {
                             // Je déplace le fichier uploadé au bon endroit
-                            $photo = '/upload/sponsors/'.$string.$string2.'.'.$extension;
+                            $photo = 'upload/sponsors/'.$string.$string2.'.'.$extension;
                             $vals['spo_avatar'] = $photo;
                         }
                         else {
@@ -456,7 +456,7 @@ class SponsorController extends Controller {
         if ($nameSponsorVal && $lastNameInChargeVal && $firstNameInChargeVal && $adressVal && $cityVal && $zipVal && $countryVal && $phoneVal && $mobileVal && $emailGeneralVal && $emailInChargeVal && $urlVal && $photoVal){
 
             if ($sponsorManager->update($vals,$_SESSION['user']['id'])) {
-                move_uploaded_file($fichier['tmp_name'],TMP.'/upload/sponsors/'.$string.$string2.'.'.$extension);
+                move_uploaded_file($fichier['tmp_name'],TMP.'/assets/upload/sponsors/'.$string.$string2.'.'.$extension);
                 $this->redirectToRoute('home');
             }
             else{
