@@ -1,4 +1,4 @@
-<?php $this->layout('layout', ['title' => 'Photos !']) ?>
+<?php $this->layout('layoutGallerie', ['title' => 'Photos !']) ?>
 
 <?php $this->start('main_content') ?>
 <h2>Photos de <?= $eventsIdGaleries['gal_name'] ?></h2>

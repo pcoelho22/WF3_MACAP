@@ -28,7 +28,7 @@
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
         <link rel="stylesheet" href="<?= $this->assetUrl('css/bootstrap-image-gallery.min.css')?>">
-        <link rel="stylesheet" type="text/css" href="<?= $this->assetUrl('css/styleCorr.css')?>">
+        
     </head>
     <body>
         <header>
