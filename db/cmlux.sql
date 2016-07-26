@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost
--- Généré le :  Lun 25 Juillet 2016 à 16:12
+-- Généré le :  Mar 26 Juillet 2016 à 10:31
 -- Version du serveur :  5.7.13-log
 -- Version de PHP :  5.6.21
 
@@ -48,9 +48,11 @@ CREATE TABLE `contenus` (
 INSERT INTO `contenus` (`id`, `con_type`, `con_title`, `con_date_start`, `con_date_end`, `con_synopsis`, `con_description`, `con_avatar`, `con_gallery`, `users_id`, `users_role_id`, `contenus_type_id`) VALUES
 (2, 'News', 'Test Patrick Modifiééééé', '01/01/2016', '01/01/2016', 'Test petite phrase modifié', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\nLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '/patrickPHP/WF3_MACAP/public/upload/news/logo1.jpg', 'patrick', 1, 2, 1),
 (4, 'Events', 'Sueca - sobe e desce - Poker', '2016-07-07', '2016-07-22', 'Comes e bebes à parte', 'Comes e bebes à parte zerzerzzerzer azerzae', '/patrickPHP/WF3_MACAP/public/upload/events/02.jpg', NULL, 2, 2, 3),
-(21, 'Reportages', 'Nova rep', '01/01/2016', '01/01/2016', 'pequena reportagem', 'GRANDE REPORTAGEM', '/patrickPHP/WF3_MACAP/public/upload/reportages/logo1.jpg', NULL, 1, 1, 2),
+(21, 'Reportages', 'Nova rep', '2016-07-07', '2016-07-15', 'fsdfsdfsdfsfs', 'fsdfsfffffffffffffff\r\nsfdsssssssss', '/patrickPHP/WF3_MACAP/public/upload/reportages/logo1.jpg', NULL, 1, 1, 2),
 (39, 'News', 'noticia teste', '01/01/2016', '01/01/2016', 'bbebebebebe', 'hkzherozehruzehfouusdhfushdfqshsduqhiguhdqipfghdfpiughdfhgmdfhgpoh ohfgpouqhd piurehgodfhg opdroughq eoeghqdrpog hpdofgh pdofgh pordq', '/upload/default/avatar.png', NULL, 1, 1, 1),
-(40, 'Events', 'Luxembourg Grand Tour Casino 2000', '27/08/2016 00:00:00', '27/08/2015 00:00:00', 'Rally au départ du Casino 2000 à Mondorf les Bains', 'Inscription\n07:00 - 08:30\nGalerie CASINO 2000\nRue Th. Flammang, L-5618 Mondorf-Les-Bains;\n\nDépart Etape 1\n08:30 - 09h30\nDépart du 1er concurrent, Etape 1\nGalerie CASINO 2000\nRue Th. Flammang, L-5618 Mondorf-Les-Bains;', '/patrickPHP/WF3_MACAP/public/upload/events/rally2016.jpg', NULL, 2, 2, 3);
+(40, 'Events', 'Luxembourg Grand Tour Casino 2000', '2016-07-27', '2016-07-29', '111111111111111111111111', '10fsdfkspjfpirjgofdsjgflkdjgkdlfjg\r\ng,dfkgjdfgjfdgjdkflgjdfg\r\ngfdgjnldfgjkfdjgkldfjgkdfjgd', '/patrickPHP/WF3_MACAP/public/upload/events/rally2016.jpg', NULL, 2, 2, 3),
+(42, 'Reportages', 'test Patrick Reportage', '2016-07-26', '2016-07-28', 'test description sommaire', 'Description détaillée du reportage\r\n\r\nVoir la mise en forme du texte si ok', 'upload/reportages/ED5Jhi42gWT-o5aoVdGF.jpg', NULL, 1, 1, 2),
+(43, 'News', 'Test Patrick News', '2016-07-26', '2016-07-28', 'Test descriptif rapide de la news', 'Description détaillée de la news\r\n\r\nFormatage du texte à verifier', '/upload/default/avatar.png', NULL, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -104,13 +106,13 @@ INSERT INTO `contenus_type` (`id`, `ty_name`, `ty_description`) VALUES
 
 CREATE TABLE `exposants` (
   `id` int(11) NOT NULL,
-  `exp_name_eposants` varchar(45) NOT NULL,
+  `exp_name_exposants` varchar(45) NOT NULL,
   `exp_name_in_charge` varchar(45) NOT NULL,
   `exp_firs_name_in_charge` varchar(45) NOT NULL,
-  `exp_adress` varchar(45) NOT NULL,
+  `exp_address` varchar(45) NOT NULL,
   `exp_city` varchar(45) NOT NULL,
   `exp_post_code` varchar(45) NOT NULL,
-  `spo_Country` varchar(45) NOT NULL,
+  `exp_country` varchar(45) NOT NULL,
   `exp_phone` varchar(45) NOT NULL,
   `exp_mobile` varchar(45) DEFAULT NULL,
   `exp_fax` varchar(45) DEFAULT NULL,
@@ -118,7 +120,7 @@ CREATE TABLE `exposants` (
   `exp_email_general` varchar(45) DEFAULT NULL,
   `exp_avatar` varchar(45) DEFAULT NULL,
   `exp_gallery` varchar(45) DEFAULT NULL,
-  `exp__description_sponsors` varchar(45) DEFAULT NULL,
+  `exp__description_exposants` varchar(45) DEFAULT NULL,
   `exp_url` varchar(45) DEFAULT NULL,
   `exp_pagote` varchar(45) DEFAULT NULL,
   `users_id` int(11) NOT NULL
@@ -1756,13 +1758,6 @@ CREATE TABLE `magazine` (
   `mag_date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Contenu de la table `magazine`
---
-
-INSERT INTO `magazine` (`id`, `mag_name`, `mag_path`, `mag_couverture`, `mag_date`) VALUES
-(1, 'Concours Mondorf-les-Bains 2015', 'WF3_MACAP/magazines/MAG_MAW_2016VersionFinaleALBERT.pdf', 'WF3_MACAP/magazines/couverture.jpg', '2016-07-14');
-
 -- --------------------------------------------------------
 
 --
@@ -1785,7 +1780,7 @@ CREATE TABLE `participants` (
   `id` int(11) NOT NULL,
   `par_name` varchar(45) NOT NULL,
   `par_first_name` varchar(45) NOT NULL,
-  `par_adress` varchar(45) DEFAULT NULL,
+  `par_address` varchar(45) DEFAULT NULL,
   `par_city` varchar(45) DEFAULT NULL,
   `par_post_code` varchar(45) DEFAULT NULL,
   `par_country` varchar(45) DEFAULT NULL,
@@ -3510,8 +3505,9 @@ INSERT INTO `users` (`id`, `use_userName`, `use_name`, `use_first_name`, `use_ad
 (4, 'pcoelho', 'Coelho', 'Patrick', '6b rue Madame Mayrisch de St Hubert', '3489', 'Dudelange', '00352661707004', '', 'pcoelho@psgroup.lu', '$2y$10$1tdEXJCM1.bsmAWnSUXDoedGsgiCAYOBHezH7OhlQvgbnu/IpSlxe', '2016-07-14', NULL, '2', NULL, '', NULL),
 (5, 'pfabri', 'Fabri', '', '', '1466', 'Luxembourg', '00352-661400070', '', 'prfabri@yahoo.fr', '$2y$10$r.wOx/rY9pVmJiYY.jyil.aIPIFxEfLH.RRV4zSM9FDD1BpYYKlX6', '2016-07-18', NULL, '2', NULL, '', NULL),
 (6, 'Claudio', 'Raimundo', '', '', '8010', 'Strassen', '691462124', '691462124', 'craimundo75@gmail.com', '$2y$10$Pv3CoPJhzIrD2NlfIRLXY.WfeybGGWteZI1W3efM4.MvCzPUPBOaa', '2016-07-19', NULL, '2', NULL, NULL, NULL),
-(7, 'Kcarneiro', 'Dias', '', '', 'L-9160', 'Ingeldorf', '621359937', '', 'kcarneiro74pro@gmail.com', '$2y$10$x/hb3xY31VDIGuV2HP2BOuNNTxfFMuxBeb/KX3zNECCNdAPF80sFe', '2016-07-20', NULL, '2', NULL, NULL, NULL),
-(8, 'awetz', 'Wetz', 'Albert', 'rue Riberspont', '3489', 'Dudelange', '00352621157010', '', 'albert@concours-monodorf.lu', '$2y$10$1Klc6QJF7fB5uUsPGgpR0eHLBjfhMmwFsuLBbph3jg//1FwPGD65a', '2016-07-22', NULL, '1', NULL, NULL, NULL);
+(7, 'Kcarneiro', 'Dias', '', '', 'L-9160', 'Ingeldorf', '621359937', '', 'kcarneiro74pro@gmail.com', '$2y$10$lIWhrrH.bKNwqRm2RSBl5.qI6O7Z.2xHRHKaYuo2ccz0JIA33cmBq', '2016-07-20', NULL, '2', NULL, '', NULL),
+(8, 'awetz', 'Wetz', 'Albert', 'rue Riberspont', '3489', 'Dudelange', '00352621157010', '', 'albert@concours-monodorf.lu', '$2y$10$1Klc6QJF7fB5uUsPGgpR0eHLBjfhMmwFsuLBbph3jg//1FwPGD65a', '2016-07-22', NULL, '1', NULL, NULL, NULL),
+(9, 'Marcel', 'Hagendoorn', 'Marcel', 'rue Strassen', '8077', 'Strassen', '00352621245274', '', 'marcel@concours-mondorf.lu', '$2y$10$l6KJYS0tQ4dFgAwYZTDYYuqz1rJEkPiirnlO5pMJaCW5RqPkSaWBK', '2016-07-26', '2', '2', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -3567,7 +3563,8 @@ CREATE TABLE `users_has_role` (
 --
 
 INSERT INTO `users_has_role` (`users_id`, `role_id`) VALUES
-(8, 1);
+(8, 1),
+(9, 1);
 
 -- --------------------------------------------------------
 
@@ -3771,7 +3768,7 @@ ALTER TABLE `users_has_sponsors`
 -- AUTO_INCREMENT pour la table `contenus`
 --
 ALTER TABLE `contenus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 --
 -- AUTO_INCREMENT pour la table `contenus_has_galeries`
 --
@@ -3831,7 +3828,7 @@ ALTER TABLE `typ_sponsors`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- Contraintes pour les tables exportées
 --
@@ -3915,5 +3912,3 @@ ALTER TABLE `users_has_sponsors`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-Contact GitHub API Training Shop Blog About
-© 2016 GitHub, Inc. Terms Privacy Security Status Help

@@ -1,4 +1,4 @@
-<?php $this->layout('layout', ['title' => 'News Details  !']) ?>
+<?php $this->layout('layout', ['title' => 'News details']) ?>
 
 <?php $this->start('main_content') ?>
 <h2>News details</h2>
