@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost
--- Généré le :  Mar 26 Juillet 2016 à 10:31
+-- Généré le :  Mar 26 Juillet 2016 à 16:35
 -- Version du serveur :  5.7.13-log
 -- Version de PHP :  5.6.21
 
@@ -30,8 +30,8 @@ CREATE TABLE `contenus` (
   `id` int(11) NOT NULL,
   `con_type` varchar(45) NOT NULL,
   `con_title` varchar(45) NOT NULL,
-  `con_date_start` varchar(45) DEFAULT NULL,
-  `con_date_end` varchar(45) DEFAULT NULL,
+  `con_date_start` date DEFAULT NULL,
+  `con_date_end` date DEFAULT NULL,
   `con_synopsis` varchar(200) NOT NULL,
   `con_description` text,
   `con_avatar` varchar(150) NOT NULL,
@@ -40,19 +40,6 @@ CREATE TABLE `contenus` (
   `users_role_id` int(11) NOT NULL,
   `contenus_type_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Données concernant les informations pour les news, events et reportages';
-
---
--- Contenu de la table `contenus`
---
-
-INSERT INTO `contenus` (`id`, `con_type`, `con_title`, `con_date_start`, `con_date_end`, `con_synopsis`, `con_description`, `con_avatar`, `con_gallery`, `users_id`, `users_role_id`, `contenus_type_id`) VALUES
-(2, 'News', 'Test Patrick Modifiééééé', '01/01/2016', '01/01/2016', 'Test petite phrase modifié', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.\r\nLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '/patrickPHP/WF3_MACAP/public/upload/news/logo1.jpg', 'patrick', 1, 2, 1),
-(4, 'Events', 'Sueca - sobe e desce - Poker', '2016-07-07', '2016-07-22', 'Comes e bebes à parte', 'Comes e bebes à parte zerzerzzerzer azerzae', '/patrickPHP/WF3_MACAP/public/upload/events/02.jpg', NULL, 2, 2, 3),
-(21, 'Reportages', 'Nova rep', '2016-07-07', '2016-07-15', 'fsdfsdfsdfsfs', 'fsdfsfffffffffffffff\r\nsfdsssssssss', '/patrickPHP/WF3_MACAP/public/upload/reportages/logo1.jpg', NULL, 1, 1, 2),
-(39, 'News', 'noticia teste', '01/01/2016', '01/01/2016', 'bbebebebebe', 'hkzherozehruzehfouusdhfushdfqshsduqhiguhdqipfghdfpiughdfhgmdfhgpoh ohfgpouqhd piurehgodfhg opdroughq eoeghqdrpog hpdofgh pdofgh pordq', '/upload/default/avatar.png', NULL, 1, 1, 1),
-(40, 'Events', 'Luxembourg Grand Tour Casino 2000', '2016-07-27', '2016-07-29', '111111111111111111111111', '10fsdfkspjfpirjgofdsjgflkdjgkdlfjg\r\ng,dfkgjdfgjfdgjdkflgjdfg\r\ngfdgjnldfgjkfdjgkldfjgkdfjgd', '/patrickPHP/WF3_MACAP/public/upload/events/rally2016.jpg', NULL, 2, 2, 3),
-(42, 'Reportages', 'test Patrick Reportage', '2016-07-26', '2016-07-28', 'test description sommaire', 'Description détaillée du reportage\r\n\r\nVoir la mise en forme du texte si ok', 'upload/reportages/ED5Jhi42gWT-o5aoVdGF.jpg', NULL, 1, 1, 2),
-(43, 'News', 'Test Patrick News', '2016-07-26', '2016-07-28', 'Test descriptif rapide de la news', 'Description détaillée de la news\r\n\r\nFormatage du texte à verifier', '/upload/default/avatar.png', NULL, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -71,10 +58,7 @@ CREATE TABLE `contenus_has_galeries` (
 --
 
 INSERT INTO `contenus_has_galeries` (`contenus_id`, `contenus_users_id`, `galeries_id`) VALUES
-(2, 1, 1),
-(5, 1, 1),
-(4, 2, 2),
-(5, 1, 2);
+(5, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -3768,7 +3752,7 @@ ALTER TABLE `users_has_sponsors`
 -- AUTO_INCREMENT pour la table `contenus`
 --
 ALTER TABLE `contenus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 --
 -- AUTO_INCREMENT pour la table `contenus_has_galeries`
 --
