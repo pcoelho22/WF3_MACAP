@@ -20,7 +20,7 @@
 	<li  class="list-group-item">
 		<a href="<?= $this->url('news_newsDetails',['id'=>$value['id']]) ?>">
 			<div class="row">
-				<img class="col-md-2 text-left" width="120px" heigth="120px" src="<?= $value['con_avatar']?>">
+				<img class="col-md-2 text-left" width="120px" heigth="120px" src="<?= $this->assetUrl($value['con_avatar'])?>">
 				<div class="col-md-10 text-left">
 					<h3><?= $value['con_title']?></h3>
 					<p><?= $value['con_synopsis']?></p>

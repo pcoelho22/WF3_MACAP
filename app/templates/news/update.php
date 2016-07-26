@@ -13,12 +13,12 @@
             <span class="help-block"></span>
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i></span>
-                <input id="dateStart" type="date" name="dateStart" value="<?= $newsDetails['con_date_start'] ?>" required="" placeholder="Date de début jj/mm/aaaa" class="form-control text-left">
+                <input id="dateStart" type="date" name="dateStart" value="<?= $newsDetails['con_date_start'] ?>" required="" placeholder="Date de début" class="form-control text-left">
             </div>
             <span class="help-block"></span>
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i></span>
-                <input id="dateEnd" type="date" name="dateEnd" value="<?= $newsDetails['con_date_end'] ?>" required="" placeholder="Date de fin jj/mm/aaaa" class="form-control text-left">
+                <input id="dateEnd" type="date" name="dateEnd" value="<?= $newsDetails['con_date_end'] ?>" required="" placeholder="Date de fin" class="form-control text-left">
             </div>
              <span class="help-block"></span>
             <div class="input-group">
@@ -37,7 +37,7 @@
                 <input id="avatar" type="file" name="avatar" class="form-control text-left">
             </div>
             <span class="help-block"></span>
-            <button class="btn btn-primary btn-sm active" type="submit"><i class="fa fa-pencil fa-fw"></i> Modifier la news</button>
+            <button class="btn btn-primary btn-sm active" type="submit"><i class="fa fa-pencil fa-fw"></i> Modifier la News</button>
         </form>
     </div>
     
@@ -50,12 +50,12 @@
             <span class="help-block"></span>
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i></span>
-                <input id="dateStart" type="date" name="dateStart" value="<?= $vals['con_date_start'] ?>" required="" placeholder="Date de début jj/mm/aaaa" class="form-control text-left">
+                <input id="dateStart" type="date" name="dateStart" value="<?= $vals['con_date_start'] ?>" required="" placeholder="Date de début" class="form-control text-left">
             </div>
             <span class="help-block"></span>
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i></span>
-                <input id="dateEnd" type="date" name="dateEnd" value="<?= $vals['con_date_end'] ?>" required="" placeholder="Date de fin jj/mm/aaaa" class="form-control text-left">
+                <input id="dateEnd" type="date" name="dateEnd" value="<?= $vals['con_date_end'] ?>" required="" placeholder="Date de fin" class="form-control text-left">
             </div>
             <span class="help-block"></span>
             <div class="input-group">
@@ -74,7 +74,7 @@
                 <input id="avatar" type="file" name="avatar" class="form-control text-left">
             </div>
             <span class="help-block"></span>
-            <button class="btn btn-primary btn-sm active" type="submit"><i class="fa fa-pencil fa-fw"></i> Modifier la news</button>
+            <button class="btn btn-primary btn-sm active" type="submit"><i class="fa fa-pencil fa-fw"></i> Modifier la News</button>
         </form>
     </div>
 

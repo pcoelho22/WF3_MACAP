@@ -28,7 +28,7 @@
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
         <link rel="stylesheet" href="<?= $this->assetUrl('css/bootstrap-image-gallery.min.css')?>">
-        <link rel="stylesheet" type="text/css" href="<?= $this->assetUrl('css/styleCorr.css')?>">
+        
     </head>
     <body>
         <header>
@@ -143,7 +143,7 @@
         <footer id="footer">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-4 text-center">
+                    <div id="contactUs" class="col-sm-4 text-center">
                         <br>
                         <ul class="list-inline small">
                             <li><a class="btn btn-default btn-sm" href="<?= $this->url('default_contact') ?>"><span class="fa fa-phone" aria-hidden="true"></span> Nous contacter</a></li>
