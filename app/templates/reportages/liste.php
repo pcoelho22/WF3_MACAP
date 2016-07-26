@@ -8,7 +8,7 @@
             <?php if ($_SESSION['user']['use_role_opt1'] === '2'): ?>
                 <ul class="list-group">
                     <li  class="list-group-item">
-                        <a href="<?= $this->url('reportages_add') ?>"><button class="btn btn-primary btn-sm"><span class="fa fa-pencil-square-o"></span>Ajouter une reportages</button></a>
+                        <a href="<?= $this->url('reportages_add') ?>"><button class="btn btn-primary btn-sm"><span class="fa fa-pencil-square-o"></span>Ajouter un reportage</button></a>
                     </li>
                 </ul>
             <?php endif; ?>
