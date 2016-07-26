@@ -4,7 +4,7 @@
 <h2>Photos de <?= $eventsIdGaleries['gal_name'] ?></h2>
 <?= $eventsIdGaleries['gal_description'] ?>
 <div id="links">
-	<ul><br/>
+	<ul>
 	    <?php foreach ($photosGalerie as $key => $value) : ?>
 			<li>
 				<a href="<?= $this->assetUrl($value['pho_path']) ?>" title="<?= $value['pho_name']?>" data-gallery>

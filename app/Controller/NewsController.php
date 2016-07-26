@@ -129,7 +129,7 @@ class NewsController extends Controller {
                             // Je déplace le fichier uploadé au bon endroit
 
 
-                                $photo = 'upload/'.$string.$string2.'.'.$extension;
+                                $photo = 'upload/news/'.$string.$string2.'.'.$extension;
                                 $photoVal = true;
                                 $vals['con_avatar'] = $photo;
 
@@ -149,12 +149,12 @@ class NewsController extends Controller {
         }
 
         if ($titreVal && $dateDebutVal && $dateFinVal && $synopsisVal && $descriptionVal && $photoVal && $dateDiffVal){
-            move_uploaded_file($fichier['tmp_name'],TMP.'/upload/'.$string.$string2.'.'.$extension);
+            move_uploaded_file($fichier['tmp_name'],TMP.'/assets/upload/news/'.$string.$string2.'.'.$extension);
             $vals['con_type'] = "News";
             $vals['users_id'] = 1;//user connecter
             $vals['users_role_id'] = 1;//role de l'user connecter
             $vals['contenus_type_id'] = 1;
-            $vals['con_avatar'] = '/upload/default/avatar.png';
+            $vals['con_avatar'] = $photo;
             $newsManager->insert($vals);
             $this->redirectToRoute('news_liste');
             //$this->show('news/update', ['error' => $error, 'vals'=>$vals]);
@@ -292,7 +292,7 @@ class NewsController extends Controller {
         }
 
         if ($titreVal && $dateDebutVal && $dateFinVal && $synopsisVal && $descriptionVal && $dateDiffVal && $photoVal){
-            move_uploaded_file($fichier['tmp_name'],TMP.'/upload/news/'.$string.$string2.'.'.$extension);
+            move_uploaded_file($fichier['tmp_name'],TMP.'/assets/upload/news/'.$string.$string2.'.'.$extension);
             $newsManager->update($vals, $id);
             $this->redirectToRoute('news_liste');
             //$this->show('news/update', ['error' => $error, 'vals'=>$vals]);

@@ -15,6 +15,7 @@
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
                 <input id="firstName" type="text" name="firstName" value="<?= $vals['use_first_name'] ?>" placeholder="Prénom" class="form-control text-left">
+            </div>
             <span class="help-block"></span>
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-road fa-fw" aria-hidden="true"></i></span>
@@ -53,11 +54,10 @@
             <span class="help-block"></span>
             <button class="btn btn-primary btn-sm active" type="submit" value="Valider les modifications" href="#"><i class="fa fa-pencil fa-fw"></i> Valider les modifications</button>
             <span class="help-block"></span>
-            <h4>Une fois les données modifiées, vous serez redirigé vers la page d'accueil</h4>
+            <h4>Une fois les données modifiées, vous serez redirigé vers la page d'accueil.</h4>
         </form>
     </div>
 
-    <span class="help-block"></span>
     <?php if (isset($error)): ?>
     <div class="col-md-5 text-left">
         <div class="alert alert-danger fade in" rows="auto">
@@ -122,9 +122,9 @@
             <span class="help-block"></span>
             <button class="btn btn-primary btn-sm active" type="submit" value="Valider les modifications" href="#"><i class="fa fa-pencil fa-fw"></i> Valider les modifications</button>
             <span class="help-block"></span>
-            <h4>Une fois les données modifiées, vous serez redirigé vers la page d'accueil</h4>
+            <h4>Une fois les données modifiées, vous serez redirigé vers la page d'accueil.</h4>
         </form>
-
+    </div>
     <?php endif; ?>
 </div>
 <?php $this->stop('main_content') ?>
