@@ -26,47 +26,74 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        
         <link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
         <link rel="stylesheet" href="<?= $this->assetUrl('css/bootstrap-image-gallery.min.css')?>">
+        <link rel="stylesheet" type="text/css" href="<?= $this->assetUrl('css/styleCorr.css')?>">
 
     </head>
     <body>
+        <!-- <?php debug($_SESSION); ?> -->
         <header>
             <div class="container">
                 <div class="row"> 
                     <div class="col-sm-4 text-left">
                         <ul class="list-inline no-margin-top small">
-                            <li><a href="http://www.gdc.lu/" target="_blank"><img src="<?= $this->assetUrl('img/GDCI_logo.jpg') ?>" class="img-responsive"></a></li>
-                            <li><a href="http://www.fiva.org/newsite/" target="_blank"><img src="<?= $this->assetUrl('img/FIVA_logo.png') ?>" class="img-responsive"></a></li>
+                            <li><a href="http://www.gdc.lu/" target="_blank"><img alt="" src="<?= $this->assetUrl('img/GDCI_logo.jpg') ?>" class="img-responsive"></a></li>
+                            <li><a href="http://www.fiva.org/newsite/" target="_blank"><img alt="" src="<?= $this->assetUrl('img/FIVA_logo.png') ?>" class="img-responsive"></a></li>
                         </ul>
                     </div>
 
                     <div class="col-md-4 text-center">                
                         <a id="mainLogo" class="logo">
-                            <img src="<?= $this->assetUrl('img/MondorfLogoLast.jpg') ?>" class="img-responsive"></a>     
+                            <img alt="image" src="<?= $this->assetUrl('img/MondorfLogoLast.jpg') ?>" class="img-responsive"></a>     
                     </div>
 
                     <div class="col-md-4 text-right">
                         <?php if (!isset($_SESSION['user'])): ?>
                             <ul class="list-inline no-margin-top small">
 
-                                <li><a href="<?= $this->url('user_signup') ?>"><button type="button" class="btn btn-default btn-sm"><span class="fa fa-user" aria-hidden="true"></span> Enregistrement</button></a>
+                                <li><a class="btn btn-default btn-sm" href="<?= $this->url('user_signup') ?>"><span class="fa fa-user" aria-hidden="true"></span> Enregistrement</a>
                                 </li>
 
                                 <li class="no-margin-top small">                
-                                    <a href="<?= $this->url('user_login') ?>"><button type="button" class="btn btn-default btn-sm"><span class="fa fa-sign-in" aria-hidden="true"></span> Login</button></a>
+                                    <a class="btn btn-default btn-sm" href="<?= $this->url('user_login') ?>"><span class="fa fa-sign-in" aria-hidden="true"></span> Login</a>
                                 </li>
                             </ul>
                         <?php else: ?>
                             <div class="no-margin-top small">
                                 <ul class="list-inline no-margin-top small">
+
                                     <li>
-                                        <h4><img src="<?= $this->assetUrl('img/avatar.png') ?>" alt="avatar" width="30px" height="32px"> <?= $_SESSION['user']['use_userName'] ?></h4>
+                                        <h4><img alt="image" src="<?= $this->assetUrl('img/avatar.png') ?>" alt="avatar" width="30px" height="32px"> <?= $_SESSION['user']['use_userName'] ?></h4>
                                     </li>
+                                    <?php if($_SESSION['user']['use_role_opt1'] === '2'): ?>
+                                    <li>
+                                        <a class="btn btn-success btn-sm" href="<?= $this->url('admin_home') ?>"><span class="fa fa-cog fa-fw" aria-hidden="true"></span>Menu administrateur</a>
+                                    </li>
+                                    <?php endif; ?>
                                     <li class="no-margin-top">
-                                        <a class="btn btn-link btn-md" href="<?= $this->url('user_logout') ?>"><span class="fa fa-power-off" aria-hidden="true"></span> Se déconnecter</a>
+                                        <a class="btn btn-default btn-sm" href="<?= $this->url('user_logout') ?>"><span class="fa fa-power-off fa-fw" aria-hidden="true"></span> Se déconnecter</a>   
+                                    <li>
+                                        <a class="btn btn-default btn-sm" href="<?= $this->url('user_edit') ?>"><span class="fa fa-pencil fa-fw" aria-hidden="true"></span> Editer votre profil</a>
                                     </li>
+                                    <?php if(isset($_SESSION['roles'])): ?>
+                                        <?php if (in_array('3', $_SESSION['roles'])): ?>
+                                    <li>
+                                        <a class="btn btn-link btn-md" href="<?= $this->url('participant_edit') ?>">editer votre profil de participant</a>
+                                    </li>
+                                <?php endif; ?>
+                                    <?php if (in_array('4', $_SESSION['roles'])): ?>
+                                    <li>
+                                        <a class="btn btn-link btn-md" href="<?= $this->url('exposant_edit') ?>">editer votre profil d'exposant</a>
+                                    </li>
+                                <?php endif; ?>
+                                    <?php if (in_array('5', $_SESSION['roles'])): ?>
+                                    <li>
+                                        <a class="btn btn-link btn-md" href="<?= $this->url('sponsor_edit') ?>">editer votre profil de sponsor</a>
+                                    </li>
+                                <?php endif; ?>
+                            <?php endif; ?>
                                 </ul>
                             </div>
 
@@ -104,9 +131,9 @@
                             </li>          
                             <li><a href="<?= $this->url('sponsor_liste') ?>">SPONSORS</a></li>
                             <li><a href="<?= $this->url('galerie_liste') ?>">GALERIE</a></li>
-                            <li><a href="#">SHOP</a></li>
-                            <li><a href="#">CHARITÉ</a></li>
-                            <li><a href="#">ABOUT US</a></li>
+                            <li><a href="<?= $this->url('default_shop') ?>">SHOP</a></li>
+                            <li><a href="<?= $this->url('default_charite') ?>">CHARITÉ</a></li>
+                            <li><a href="<?= $this->url('default_aboutus') ?>">ABOUT US</a></li>
                         </ul>
                     </div><!--/.nav-collapse -->
                 </div> <!-- /.container --> 
@@ -118,23 +145,23 @@
         </div>
         <footer id="footer">
             <div class="container">
-                <div class="row"> 
+                <div class="row">
                     <div class="col-sm-4 text-center">
                         <br>
                         <ul class="list-inline small">
-                            <li><a href="" class="link-internal grey small"><button type="button" class="btn btn-default btn-sm"><span class="fa fa-home" aria-hidden="true"></span> Top</button></a></li>                
+                            <li><a class="btn btn-default btn-sm" href="<?= $this->url('default_contact') ?>"><span class="fa fa-phone" aria-hidden="true"></span> Nous contacter</a></li>
                         </ul>
                     </div>
 
                     <div class="col-md-4 text-center">
                         <div class="set squared icon-inflate">
-                            <a href="http://www.facebook.com/concoursMondorf"target="_blank" class="social facebook">Facebook</a>
+                            <a href="http://www.facebook.com/concoursMondorf" target="_blank" class="social facebook">Facebook</a>
                             <a href="https://twitter.com/GD_Luxembourg" target="_blank" class="social twitter">Twitter</a>
                             <a href="https://plus.google.com/explore" target="_blank" class="social google-plus">Google+</a>
                             <a href="https://www.instagram.com/" target="_blank" class="social instagram">Instagram</a>
                             <a href="https://www.youtube.com/" target="_blank" class="social youtube">Youtube</a>
                         </div>
-                    </div>                      
+                    </div>
                     <div class="col-sm-4 text-center">
                         <ul class="list-inline small">
                             <li><a href="http://www.make-a-wish.lu/" target="_blank"><img src="<?= $this->assetUrl('img/MAW.jpg') ?>" class="img-responsive"></a></li>
@@ -144,16 +171,22 @@
                 <div class='row'>
                     <div class="col-12 text-center">
                         <ul class="list-inline no-margin-bottom small">
-                            <li><a href="/terms-conditions" class="small" target="self">Terms &amp; Conditions</a></li>
-                            <li><a href="/en/sitemap" class="small" target="self">Site Map</a></li>
-                        </ul>               
+                            <li><a href="<?= $this->url('default_termsandconditions') ?>" class="small" target="self">Terms &amp; Conditions</a></li>
+                            <li><a href="<?= $this->url('default_sitemap') ?>" class="small" target="self">Site Map</a></li>
+                        </ul>
                         <a href="http://www.mc-app.eu" class="small" target="self">© Designed by McAPP 2016</a>
                     </div>
                 </div>
             </div>
         </footer>
+
+        <!-- Button scroll to top -->
+        <div id='goTop'></div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script type="text/javascript" src="<?= $this->assetUrl('js/script.js') ?>"></script>
         <script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
         <script src="<?= $this->assetUrl('js/bootstrap-image-gallery.min.js')?>"></script>
+        
     </body>
 </html>
