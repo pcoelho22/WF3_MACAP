@@ -1,7 +1,7 @@
 <?php $this->layout('layout', ['title' => 'News Details  !']) ?>
 
 <?php $this->start('main_content') ?>
-<h2>Details</h2>
+<h2>News details</h2>
 <ul><br/>
     <div class="row">
         <div class="col-md-3 text-left">

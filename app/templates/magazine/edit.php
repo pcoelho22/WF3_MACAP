@@ -1,5 +1,6 @@
 <?php $this->layout('layout', ['title' => 'Magazine']) ?>
 <?php $this->start('main_content') ?>
+
     <h2>Modifier un Magazine</h2>
     <div class="row">
         <div class="col-md-7 text-left">

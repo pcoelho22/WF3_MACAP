@@ -35,22 +35,28 @@
 <br>
 <div class="row">
     <div class="col-md-4 text-center">
-        <div class="caption">
-            <img alt="" src="<?= $this->assetUrl('img/pic1.jpg') ?>" class="img-responsive img-rounded" />
-            <a href="<?= $this->url('news_liste') ?>"><h3>News</h3></a>
-        </div>
+        <a href="<?= $this->url('news_liste') ?>">
+            <div class="caption">
+                <img alt="" src="<?= $this->assetUrl('img/pic1.jpg') ?>" class="img-responsive img-rounded" />
+                <h3>News</h3>
+            </div>
+        </a>
     </div>
     <div class="col-md-4 text-center">
-        <div class="caption">
-            <img alt="" src="<?= $this->assetUrl('img/pic2.jpg') ?>" class="img-responsive img-rounded"/>
-            <a href="<?= $this->url('events_liste') ?>"><h3>Events</h3></a>
-        </div>
+        <a href="<?= $this->url('events_liste') ?>">
+            <div class="caption">
+                <img alt="" src="<?= $this->assetUrl('img/pic2.jpg') ?>" class="img-responsive img-rounded"/>
+                <h3>Events</h3>
+            </div>
+        </a>
     </div>
     <div class="col-md-4 text-center">
-        <div class="caption">
-            <img alt="" src="<?= $this->assetUrl('img/pic3.jpg') ?>" class="img-responsive img-rounded"/>
-            <a href="<?= $this->url('sponsor_liste') ?>"><h3>Sponsors</h3></a>
-        </div>
+        <a href="<?= $this->url('sponsor_liste') ?>">
+            <div class="caption">
+                <img alt="" src="<?= $this->assetUrl('img/pic3.jpg') ?>" class="img-responsive img-rounded"/>
+                <h3>Sponsors</h3>
+            </div>
+        </a>
     </div>
 </div>
 
