@@ -26,7 +26,7 @@
                 <?php if ($_SESSION['user']['use_role_opt1'] === '2'): ?>
                     <li class="list-group-item">
                         <a href="<?= $this->url('events_update', ['id' => $value['id']]) ?>"><button class="btn btn-primary btn-sm"><span class="fa fa-pencil fa-fw"></span>Editer</button></a>
-                        <a href="<?= $this->url('events_delete', ['id' => $value['id']]) ?>"><button class="btn btn-danger btn-sm"><span class="fa fa-trash-o fa-fw"></span>Supprimer</button></a>
+                        <a href="<?= $this->url('events_deleteConfirmation', ['id' => $value['id']]) ?>"><button class="btn btn-danger btn-sm"><span class="fa fa-trash-o fa-fw"></span>Supprimer</button></a>
                     </li>
                 <?php endif; ?>
             <?php endif; ?>

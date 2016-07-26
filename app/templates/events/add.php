@@ -66,12 +66,12 @@ if (isset($error)) {
         <span class="help-block"></span>
         <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-align-left"></i></span>
-            <textarea id="synopsis" type="text" name="synopsis" rows="10" placeholder="Synopsis" class="form-control text-left"></textarea>
+            <textarea id="synopsis" name="synopsis" rows="10" placeholder="Synopsis" class="form-control text-left"></textarea>
         </div>
         <span class="help-block"></span>
         <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-align-left"></i></span>
-            <textarea id="description" type="text" name="description" rows="10" placeholder="Description" class="form-control text-left"></textarea>
+            <textarea id="description" name="description" rows="10" placeholder="Description" class="form-control text-left"></textarea>
         </div>
         <span class="help-block"></span>
         <h5><strong>Veuillez sélectionner une photo à ajouter.</strong></h5>
