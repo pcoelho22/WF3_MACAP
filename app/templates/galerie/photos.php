@@ -8,7 +8,7 @@
 	    <?php foreach ($photosGalerie as $key => $value) : ?>
 			<li>
 				<a href="<?= $this->assetUrl($value['pho_path']) ?>" title="<?= $value['pho_name']?>" data-gallery>
-			    	<img width="600px" height="400px" class="img-responsive" src="<?= $this->assetUrl($value['pho_path']) ?>" alt>
+			    	<img width=600px height=400px class="img-responsive" src="<?= $this->assetUrl($value['pho_path']) ?>" alt>
 			    </a>
 			</li>
 
@@ -16,7 +16,7 @@
 	    <?php endforeach ?>
 	</ul>
 </div>
-<div id="blueimp-gallery" class="blueimp-gallery">
+<div id="blueimp-gallery" class="blueimp-gallery" data-use-bootstrap-modal="false">
     <!-- The container for the modal slides -->
     <div class="slides"></div>
     <!-- Controls for the borderless lightbox -->
