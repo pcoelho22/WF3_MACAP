@@ -23,5 +23,5 @@
         </div>
     </div>
 </ul>
-<a class="btn btn-default" type="button" href="<?= $this->url('reportages_liste') ?>">&lt; retour</a>
+<a class="btn btn-default" type="button" href="<?= $this->url('reportages_liste') ?>">&lt; Retour</a>
 <?php $this->stop('main_content') ?>

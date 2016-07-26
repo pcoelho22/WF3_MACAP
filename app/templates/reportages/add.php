@@ -1,7 +1,7 @@
 <?php $this->layout('layout', ['title' => 'Crée une reportage']) ?>
 
 <?php $this->start('main_content') ?>
-<h2>Ajouter un reportage</h2>
+<h2>Ajouter un Reportage</h2>
 <?php
 if (isset($error)) {
     debug($error);
