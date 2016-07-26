@@ -10,4 +10,17 @@ class PhotoManager extends \W\Manager\Manager{
         $this->setTable('photos');
     }
 
+    public function getPhotoSlider(){
+        $sql = "SELECT * 
+                FROM photos
+                JOIN galeries_has_photos ON galeries_has_photos.photos_id = photos.id
+                JOIN galeries ON galeries.id = galeries_has_photos.galeries_id
+                WHERE galeries.gal_name = 'Slider'";
+
+        $sth = $this->dbh->prepare($sql);
+        $sth->execute();
+
+        return $sth->fetchAll();
+    }
+
 }
