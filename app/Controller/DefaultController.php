@@ -4,6 +4,7 @@ namespace Controller;
 
 use \W\Controller\Controller;
 use \Manager\AuthorizationManager;
+use \Manager\PhotoManager;
 
 class DefaultController extends Controller {
 
@@ -11,7 +12,10 @@ class DefaultController extends Controller {
      * Page d'accueil par défaut
      */
     public function home() {
-        $this->show('default/home');
+        $photoManager=new PhotoManager();
+        $imageSlider=$photoManager->getPhotoSlider();
+        $this->show('default/home',['imageSlider'=>$imageSlider]);
+
     }
     
     public function contact() {
