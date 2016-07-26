@@ -643,7 +643,7 @@ class ExposantController extends Controller {
                         $dotPos = strrpos($filename, '.');
                         $extension = strtolower(substr($filename, $dotPos+1));
                         if (in_array($extension, $extensionAutorisees)) {
-                            $photo = '/upload/exposants/'.$string.$string2.'.'.$extension;
+                            $photo = 'upload/exposants/'.$string.$string2.'.'.$extension;
                             $vals['spo_avatar'] = $photo;
                         }
                         else {
@@ -678,7 +678,7 @@ class ExposantController extends Controller {
                 'exp_description_exposants' => $description,
                 'exp_url' => $url],
                 $id)) {
-                move_uploaded_file($fichier['tmp_name'],TMP.'/upload/exposants/'.$string.$string2.'.'.$extension);
+                move_uploaded_file($fichier['tmp_name'],TMP.'/assets/upload/exposants/'.$string.$string2.'.'.$extension);
                 $this->redirectToRoute('home');
             }
             else{
