@@ -26,8 +26,7 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        
-        
+
     </head>
     <body>
         <!-- <?php debug($_SESSION); ?> -->
@@ -176,12 +175,9 @@
                 </div>
             </div>
         </footer>
-
-        <!-- Button scroll to top -->
-        <div id='goTop' class="img-responsive"></div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        
-        <script type="text/javascript" src="<?= $this->assetUrl('js/script.js') ?>"></script>
-       
+        <!-- Button -->
+        <div onclick="ScrollTop()" id="top-btn">
+          <i class="fa fa-angle-up"></i>
+        </div>
     </body>
 </html>

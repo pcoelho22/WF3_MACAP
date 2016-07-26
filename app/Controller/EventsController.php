@@ -134,7 +134,7 @@ class EventsController extends Controller {
                             // Je déplace le fichier uploadé au bon endroit
 
 
-                                $photo = 'upload/events/'.$string.$string2.'.'.$extension;
+                                $photo = 'upload/'.$string.$string2.'.'.$extension;
                                 $photoVal = true;
                                 $vals['con_avatar'] = $photo;
 
@@ -154,7 +154,7 @@ class EventsController extends Controller {
         }
 
         if ($titreVal && $dateDebutVal && $dateFinVal && $synopsisVal && $descriptionVal && $photoVal && $dateDiffVal){
-            move_uploaded_file($fichier['tmp_name'],TMP.'/assets/upload/events/'.$string.$string2.'.'.$extension);
+            move_uploaded_file($fichier['tmp_name'],'C:\xampp\htdocs\Back-end\Projet-Final\public\uplaod/'.$string.$string2.'.'.$extension);
             $vals['con_type'] = "Events";
             $vals['users_id'] = 1;//user connecter
             $vals['users_role_id'] = 1;//role de l'user connecter

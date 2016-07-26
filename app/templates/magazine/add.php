@@ -5,6 +5,7 @@
     <div class="col-md-7 text-left">
         <?php if (isset($vals)): ?>
         <form action="" method="post" role="form" enctype="multipart/form-data">
+            <span class="help-block"></span>
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-globe fa-fw" aria-hidden="true"></i></span>
                 <input id="mag_name" type="text" name="mag_name" value="<?= $vals['mag_name'] ?>" placeholder="Nom du magazine" class="form-control text-left">
@@ -20,7 +21,7 @@
                 <input id="magazineCouv" type="file" name="magazineCouv" class="form-control text-left">
             </div>
             <span class="help-block"></span>
-            <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Participant" href="#"><i class="fa fa-pencil-square-o fa-fw"></i> Ajouter le Magazine</button>
+            <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Participant" href="#"><i class="fa fa-pencil-square-o fa-fw"></i> Ajouter un Magazine</button>
             <br>
             <h4>Une fois l'ajout validé, vous serez redirigé vers la liste des magazines.</h4>
         </form>
@@ -42,6 +43,7 @@
 
     <?php else: ?>
         <form action="" method="post" role="form" enctype="multipart/form-data">
+            <span class="help-block"></span>
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-globe fa-fw" aria-hidden="true"></i></span>
                 <input id="mag_name" type="text" name="mag_name" placeholder="Nom du magazine" class="form-control text-left">
@@ -57,7 +59,7 @@
                 <input id="magazineCouv" type="file" name="magazineCouv" class="form-control text-left">
             </div>
             <span class="help-block"></span>
-            <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Participant" href="#"><i class="fa fa-pencil-square-o fa-fw"></i> Ajouter le Magazine</button>
+            <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Participant" href="#"><i class="fa fa-pencil-square-o fa-fw"></i> Ajouter un Magazine</button>
             <br>
             <h4>Une fois l'ajout validé, vous serez redirigé vers la liste des magazines.</h4>
         </form>

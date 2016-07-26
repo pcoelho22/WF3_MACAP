@@ -2,7 +2,10 @@
 
 <?php $this->start('main_content') ?>
 <h2>Modifier un Event</h2>
-
+<?php
+//debug($_POST);
+//debug($_FILES); 
+?>
 <div class="row">
     <div class="col-md-6 text-left">
     <?php if (isset($eventsDetails)): ?>
@@ -42,7 +45,8 @@
         </form>
     </div>
     <?php elseif (isset($vals)): ?>
-
+    <?php debug($error); ?>
+    <?php debug($vals); ?>
     <form action="" method="post" enctype="multipart/form-data">
         <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-tags fa-fw" aria-hidden="true"></i></span>
@@ -75,23 +79,8 @@
             <input id="avatar" type="file" name="avatar" class="form-control text-left">
         </div>
         <span class="help-block"></span>
-        <button class="btn btn-primary btn-sm active" type="submit" value="Modifier la galerie" href="#"><i class="fa fa-pencil fa-fw"></i> Modifier l' Event</button>
+        <button class="btn btn-primary btn-sm active" type="submit" value="Modifier la galerie" href="#"><i class="fa fa-pencil fa-fw"></i> Modifier un Event</button>
     </form>
-
-    <?php if (isset($error)): ?>
-    <div class="col-md-5 text-left">
-        <div class="alert alert-danger fade in" rows="auto">
-            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            <strong>Erreur!</strong><br>
-            <ul>
-                <?php foreach ($error as $value): ?>
-                    <li><?= $value ?></li>
-                <?php endforeach; ?>    
-            </ul>
-        </div>
-    </div> 
-    <?php endif; ?> 
-    
     <?php endif; ?>
 </div>
 <?php $this->stop('main_content') ?>
