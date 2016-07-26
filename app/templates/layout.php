@@ -26,6 +26,10 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+        <link rel="stylesheet" href="<?= $this->assetUrl('css/bootstrap-image-gallery.min.css')?>">
+        <link rel="stylesheet" type="text/css" href="<?= $this->assetUrl('css/styleCorr.css')?>">
 
     </head>
     <body>
@@ -179,7 +183,10 @@
         <!-- Button scroll to top -->
         <div id='goTop'></div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script type="text/javascript" src="<?= $this->assetUrl('js/script.js') ?>"></script>
+        <script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+        <script src="<?= $this->assetUrl('js/bootstrap-image-gallery.min.js')?>"></script>
         
     </body>
 </html>
