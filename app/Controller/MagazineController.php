@@ -213,11 +213,11 @@ class MagazineController extends Controller {
             }
             else{
                 $error[] = "requete fail";
-                $this->show('magazine/add', ["error"=>$error, "vals"=>$vals]);
+                $this->show('magazine/edit', ["error"=>$error, "vals"=>$vals]);
             }
         }
         else{
-            $this->show('magazine/add', ["error"=>$error, "vals"=>$vals]);
+            $this->show('magazine/edit', ["error"=>$error, "vals"=>$vals]);
         }
     }
 
@@ -228,5 +228,12 @@ class MagazineController extends Controller {
         $magazineManager->delete($id);
 
         $this->redirectToRoute('magazine_liste');
+    }
+    public function deleteConfirmation($id){
+        $this->allowTo('2');
+        $magazineManager = new MagazineManager();
+        $magazineId = $magazineManager->find($id);
+        //debug($magazineId);
+        $this->show('default/confirmation', ['magazineId' => $magazineId]);
     }
 }

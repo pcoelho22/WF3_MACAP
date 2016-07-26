@@ -1,11 +1,8 @@
-<?php $this->layout('layout', ['title' => 'Modifier un event']) ?>
+<?php $this->layout('layout', ['title' => 'Modifier un Event']) ?>
 
 <?php $this->start('main_content') ?>
-<h2>Mise à jour des events</h2>
-<?php
-//debug($_POST);
-//debug($_FILES); 
-?>
+<h2>Modifier un Event</h2>
+
 <div class="row">
     <div class="col-md-6 text-left">
     <?php if (isset($eventsDetails)): ?>
@@ -27,12 +24,12 @@
             <span class="help-block"></span>
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-align-left"></i></span>
-                <textarea id="synopsis" type="text" name="synopsis" rows="10" value="<?= $eventsDetails['con_synopsis'] ?>" placeholder="Synopsis" class="form-control text-left"></textarea>
+                <textarea id="synopsis" name="synopsis" rows="10" placeholder="Synopsis" class="form-control text-left"><?= $eventsDetails['con_synopsis'] ?></textarea>
             </div>
             <span class="help-block"></span>
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-align-left"></i></span>
-                <textarea id="description" type="text" name="description" rows="10" value="<?= $eventsDetails['con_description'] ?>" placeholder="Description" class="form-control text-left"></textarea>
+                <textarea id="description" name="description" rows="10" placeholder="Description" class="form-control text-left"><?= $eventsDetails['con_description'] ?></textarea>
             </div>
             <span class="help-block"></span>
             <h5><strong>Veuillez sélectionner une photo à ajouter(optionnel).</strong></h5>
@@ -41,12 +38,11 @@
                 <input id="avatar" type="file" name="avatar" class="form-control text-left">
             </div>
             <span class="help-block"></span>
-            <button class="btn btn-primary btn-sm active" type="submit" value="Modifier la galerie" href="#"><i class="fa fa-pencil fa-fw"></i> Modifier un Event</button>
+            <button class="btn btn-primary btn-sm active" type="submit"><i class="fa fa-pencil fa-fw"></i> Modifier l'Event</button>
         </form>
     </div>
     <?php elseif (isset($vals)): ?>
-    <?php debug($error); ?>
-    <?php debug($vals); ?>
+
     <form action="" method="post" enctype="multipart/form-data">
         <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-tags fa-fw" aria-hidden="true"></i></span>
@@ -65,12 +61,12 @@
         <span class="help-block"></span>
         <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-align-left"></i></span>
-            <textarea id="synopsis" type="text" name="synopsis" rows="10" value="<?= $vals['con_synopsis'] ?>" placeholder="Synopsis" class="form-control text-left"></textarea>
+            <textarea id="synopsis" name="synopsis" rows="10" placeholder="Synopsis" class="form-control text-left"><?= $vals['con_synopsis'] ?></textarea>
         </div>
         <span class="help-block"></span>
         <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-align-left"></i></span>
-            <textarea id="description" type="text" name="description" rows="10" value="<?= $vals['con_description'] ?>" placeholder="Description" class="form-control text-left"></textarea>
+            <textarea id="description" name="description" rows="10" placeholder="Description" class="form-control text-left"><?= $vals['con_description'] ?></textarea>
         </div>
         <span class="help-block"></span>
         <h5><strong>Veuillez sélectionner une photo à ajouter(optionnel).</strong></h5>
@@ -79,8 +75,23 @@
             <input id="avatar" type="file" name="avatar" class="form-control text-left">
         </div>
         <span class="help-block"></span>
-        <button class="btn btn-primary btn-sm active" type="submit" value="Modifier la galerie" href="#"><i class="fa fa-pencil fa-fw"></i> Modifier un Event</button>
+        <button class="btn btn-primary btn-sm active" type="submit"><i class="fa fa-pencil fa-fw"></i> Modifier l'Event</button>
     </form>
+
+    <?php if (isset($error)): ?>
+    <div class="col-md-5 text-left">
+        <div class="alert alert-danger fade in" rows="auto">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Erreur!</strong><br>
+            <ul>
+                <?php foreach ($error as $value): ?>
+                    <li><?= $value ?></li>
+                <?php endforeach; ?>    
+            </ul>
+        </div>
+    </div> 
+    <?php endif; ?> 
+    
     <?php endif; ?>
 </div>
 <?php $this->stop('main_content') ?>
