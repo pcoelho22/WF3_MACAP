@@ -6,7 +6,7 @@
     <div class="col-md-12 text-left">
         <ul class="list-group">
             <li class="list-group-item">
-                <a class="btn btn-default btn-sm" href="<?= $this->url('galerie_add') ?>">Ajouter une gallerie</a>
+                <a class="btn btn-default btn-sm" href="<?= $this->url('galerie_add') ?>">Ajouter une reportages</a>
             </li>
         </ul>
         <?php foreach ($galerieListe as $key => $value) : ?>

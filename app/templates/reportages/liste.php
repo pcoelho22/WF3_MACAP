@@ -6,13 +6,11 @@
 
 <div class="row">
     <div class="col-md-12 text-left">
-        <ul class="list-group">
-           <li class="list-group-item">
-               <a class="btn btn-default btn-sm" href="<?= $this->url('reportages_add') ?>">Ajouter une reportage</a>
-           </li>
-        </ul>
         <?php foreach ($reportagesListe as $key => $value) : ?>
             <ul class="list-group">
+                <li class="list-group-item">
+                    <a class="btn btn-default btn-sm" href="<?= $this->url('reportages_add') ?>">Ajouter une reportages</a>
+                </li>
                 <li class="list-group-item">
                     <a href="<?= $this->url('reportages_reportagesDetails', ['id' => $value['id']]) ?>"><?= $value['con_type'] . '<br/> ' . $value['con_title'] . '<br/> ' . $value['con_synopsis'] ?></a>
                 </li>

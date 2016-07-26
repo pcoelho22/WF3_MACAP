@@ -3,13 +3,11 @@
 <h2>Liste des magazines disponible</h2>
 <div class="row">
     <div class="col-md-12 text-left">
-        <ul class="list-group">
-            <li class="list-group-item">
-                <a class="btn btn-default btn-sm" href="<?= $this->url('magazine_add') ?>">Ajouter un magazine</a>
-            </li>
-        </ul>
         <?php foreach ($magazineListe as $key => $value) : ?>
             <ul class="list-group">
+                <li class="list-group-item">
+                    <a class="btn btn-default btn-sm" href="<?= $this->url('magazine_add') ?>">Ajouter un magazine</a>
+                </li>
                 <li class="list-group-item">
                     <a href="<?= $this->assetUrl($value['mag_path']) ?>"><img width="300" height="400" alt="" src="<?= $this->assetUrl($value['mag_couverture']) ?>"></a>
                 </li>
