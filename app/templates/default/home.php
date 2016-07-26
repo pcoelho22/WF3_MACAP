@@ -6,7 +6,7 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
             <div class="item active img-responsive">
-                <img src="<?= $this->assetUrl('img/Slider/pic4.jpg') ?>" class="img-responsive img-rounded" alt="">
+                <img src="<?= $this->assetUrl('img/Slider/concours2017.jpg') ?>" class="img-responsive img-rounded" alt="">
                 <div class="carousel-caption">
                     <h3>Retrocar</h3>
                     <p>Classic cars making history</p>
