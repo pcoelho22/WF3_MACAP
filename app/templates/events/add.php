@@ -1,4 +1,4 @@
-<?php $this->layout('layout', ['title' => 'Crée un event']) ?>
+<?php $this->layout('layout', ['title' => 'Crée un Event']) ?>
 
 <?php $this->start('main_content') ?>
 <h2>Ajouter un Event</h2>
@@ -44,7 +44,7 @@ if (isset($error)) {
                 <input id="avatar" type="file" name="avatar" class="form-control text-left">
             </div>
             <span class="help-block"></span>
-            <button class="btn btn-primary btn-sm active" type="submit" value="Modifier la galerie" href="#"><i class="fa fa-pencil-square-o fa-fw"></i> Ajouter un Event</button>
+            <button class="btn btn-primary btn-sm active" type="submit"><i class="fa fa-pencil-square-o fa-fw"></i> Ajouter un Event</button>
         </form>
     </div>
     <?php else: ?>
@@ -80,7 +80,7 @@ if (isset($error)) {
             <input id="avatar" type="file" name="avatar" class="form-control text-left">
         </div>
         <span class="help-block"></span>
-        <button class="btn btn-primary btn-sm active" type="submit" value="Modifier la galerie" href="#"><i class="fa fa-pencil-square-o fa-fw"></i> Ajouter un Event</button>
+        <button class="btn btn-primary btn-sm active" type="submit"><i class="fa fa-pencil-square-o fa-fw"></i> Ajouter un Event</button>
     </form>
     <?php endif; ?>
 </div>

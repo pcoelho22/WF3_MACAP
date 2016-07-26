@@ -1,4 +1,4 @@
-<?php $this->layout('layout', ['title' => 'Crée une reportage']) ?>
+<?php $this->layout('layout', ['title' => 'Crée une Reportage']) ?>
 
 <?php $this->start('main_content') ?>
 <h2>Ajouter un Reportage</h2>
@@ -44,7 +44,11 @@ if (isset($error)) {
                 <input id="avatar" type="file" name="avatar" class="form-control text-left">
             </div>
             <span class="help-block"></span>
+<<<<<<< HEAD
             <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter une news" href="#"><i class="fa fa-pencil-square-o fa-fw"></i> Ajouter un Reportage</button>
+=======
+            <button class="btn btn-primary btn-sm active" type="submit"><i class="fa fa-pencil-square-o fa-fw"></i> Ajouter le Reportage</button>
+>>>>>>> refs/remotes/origin/Patrick
         </form>
     </div>
     <?php else: ?>
@@ -80,7 +84,11 @@ if (isset($error)) {
             <input id="avatar" type="file" name="avatar" class="form-control text-left">
         </div>
         <span class="help-block"></span>
+<<<<<<< HEAD
         <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter une news" href="#"><i class="fa fa-pencil-square-o fa-fw"></i> Ajouter un Reportage</button>
+=======
+        <button class="btn btn-primary btn-sm active" type="submit"><i class="fa fa-pencil-square-o fa-fw"></i> Ajouter le Reportage</button>
+>>>>>>> refs/remotes/origin/Patrick
     </form>
     <?php endif; ?>
 </div>

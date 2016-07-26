@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 <?php $this->layout('layout', ['title' => 'Magazine']) ?>
+=======
+<?php $this->layout('layout', ['title' => 'Magazine!']) ?>
+
+>>>>>>> refs/remotes/origin/Patrick
 <?php $this->start('main_content') ?>
 <h2>Liste des magazines disponible</h2>
 <div class="row">
@@ -19,6 +24,7 @@
             </li>
             <li  class="list-group-item">
                 <a href="<?= $this->assetUrl($value['mag_path']) ?>"><?= $value['mag_name'] . '<br/> ' . $value['mag_date'] ?></a>
+                <a href="<?= $this->url('magazine_add') ?>"><button class="btn btn-primary btn-sm"><span class="fa fa-pencil-square-o"></span>Ajouter un Magazine</button></a>
             </li>
             <?php if (isset($_SESSION['user']['use_role_opt1'])): ?>
             <?php if ($_SESSION['user']['use_role_opt1'] === '2'): ?>
