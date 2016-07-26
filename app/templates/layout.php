@@ -143,7 +143,7 @@
         <footer id="footer">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-4 text-center">
+                    <div id="contactUs" class="col-sm-4 text-center">
                         <br>
                         <ul class="list-inline small">
                             <li><a class="btn btn-default btn-sm" href="<?= $this->url('default_contact') ?>"><span class="fa fa-phone" aria-hidden="true"></span> Nous contacter</a></li>

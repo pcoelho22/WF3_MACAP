@@ -143,10 +143,10 @@
         <footer id="footer">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-4 text-center">
+                    <div id="contactUs" class="col-sm-4 text-center">
                         <br>
                         <ul class="list-inline small">
-                            <li><a class="btn btn-default btn-sm" href="<?= $this->url('home') ?>"><span class="fa fa-home" aria-hidden="true"></span> Home</a></li>
+                            <li><a class="btn btn-default btn-sm" href="<?= $this->url('default_contact') ?>"><span class="fa fa-phone" aria-hidden="true"></span> Nous contacter</a></li>
                         </ul>
                     </div>
 
@@ -168,7 +168,6 @@
                 <div class='row'>
                     <div class="col-12 text-center">
                         <ul class="list-inline no-margin-bottom small">
-                            <li><a href="/contact us" class="small" target="_blank">Contact Us</a></li>
                             <li><a href="<?= $this->url('default_termsandconditions') ?>" class="small" target="self">Terms &amp; Conditions</a></li>
                             <li><a href="<?= $this->url('default_sitemap') ?>" class="small" target="self">Site Map</a></li>
                         </ul>

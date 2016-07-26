@@ -141,7 +141,7 @@ class ReportagesController extends Controller {
         }
 
         if ($titreVal && $dateDebutVal && $dateFinVal && $synopsisVal && $descriptionVal && $photoVal && $dateDiffVal){
-            move_uploaded_file($fichier['tmp_name'],TMP.'/upload/reportages/'.$string.$string2.'.'.$extension);
+            move_uploaded_file($fichier['tmp_name'],TMP.'/assets/upload/reportages/'.$string.$string2.'.'.$extension);
             $vals['con_type'] = "Reportages";
             $vals['users_id'] = 1;//user connecter
             $vals['users_role_id'] = 1;//role de l'user connecter
@@ -281,7 +281,7 @@ class ReportagesController extends Controller {
         }
 
         if ($titreVal && $dateDebutVal && $dateFinVal && $synopsisVal && $descriptionVal && $dateDiffVal && $photoVal){
-            move_uploaded_file($fichier['tmp_name'],TMP.'/upload/reportages/'.$string.$string2.'.'.$extension);
+            move_uploaded_file($fichier['tmp_name'],TMP.'/assets/upload/reportages/'.$string.$string2.'.'.$extension);
             $reportagesManager->update($vals, $id);
             $this->redirectToRoute('reportages_liste');
             //$this->show('reportages/update', ['error' => $error, 'vals'=>$vals]);
