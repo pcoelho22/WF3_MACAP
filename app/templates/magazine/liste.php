@@ -1,6 +1,6 @@
 <?php $this->layout('layout', ['title' => 'Magazine']) ?>
 <?php $this->start('main_content') ?>
-<h2>Liste des magazines disponible</h2>
+<h2>Liste des Magazines</h2>
 <div class="row">
     <div class="col-md-12 text-left">
         <ul class="list-group">
@@ -24,7 +24,7 @@
             <?php if ($_SESSION['user']['use_role_opt1'] === '2'): ?>
             <li class="list-group-item">
                 <a class="btn btn-primary btn-sm" href="<?= $this->url('magazine_update', ['id' => $value['id']]) ?>"><span class="fa fa-pencil fa-fw"></span> Editer</a>
-                <a class="btn btn-danger btn-sm" href="<?= $this->url('magazine_delete', ['id' => $value['id']]) ?>"><span class="fa fa-trash-o fa-fw"></span> Supprimer</a>
+                <a class="btn btn-danger btn-sm" href="<?= $this->url('magazine_deleteConfirmation', ['id' => $value['id']]) ?>"><span class="fa fa-trash-o fa-fw"></span> Supprimer</a>
             </li>
             <?php endif; ?>
             <?php endif; ?>
