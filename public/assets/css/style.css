@@ -368,3 +368,12 @@ a.youtube:after {
   -webkit-transition: all .8s;
   transition: all .8s;
 }
+/*******************************galerie photos**************************************/
+#galpho{
+  width:180px;
+  height:120px;
+  display: inline-block;
+  float: left;
+  margin: 2px;
+  align-items: center; 
+}

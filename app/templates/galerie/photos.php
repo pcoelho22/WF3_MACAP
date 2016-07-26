@@ -8,11 +8,9 @@
 	    <?php foreach ($photosGalerie as $key => $value) : ?>
 			<li>
 				<a href="<?= $this->assetUrl($value['pho_path']) ?>" title="<?= $value['pho_name']?>" data-gallery>
-			    	<img width=600px height=400px class="img-responsive" src="<?= $this->assetUrl($value['pho_path']) ?>" alt>
+			    	<img id="galpho" class="img-responsive" src="<?= $this->assetUrl($value['pho_path']) ?>" alt>
 			    </a>
 			</li>
-
-	        <br/>
 	    <?php endforeach ?>
 	</ul>
 </div>
