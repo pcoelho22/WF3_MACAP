@@ -316,8 +316,18 @@ a.youtube:after {
 /**************Page sponsors****************/
 
 #sponsorLogos img{
-  vertical-align: middle;
-  align-self: center;
+  max-width: 150px;
+  min-width: 80px;
+  margin: auto;
+}
+.sponsors{
+  margin-top: 25px;
+}
+.sponsorLogo{
+  margin-top: 25px;
+}
+.sponsorsBreack{
+  margin-top: 25px;
 }
 /**************Page confirmation****************/
 
