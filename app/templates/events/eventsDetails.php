@@ -5,7 +5,7 @@
 <ul><br/>
     <div class="row">
         <div class="col-md-3 text-left">
-            <li><img class="avatar" src="<?= $eventsId['con_avatar'] ?>"></li>
+            <li><img class="avatar" src="<?= $this->assetUrl($eventsId['con_avatar']) ?>"></li>
         </div>
         <div class="col-md-8 text-left">
             <li><h3 class="detailsTitle"><?= $eventsId['con_title'] ?></h3></li>

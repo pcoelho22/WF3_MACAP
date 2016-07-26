@@ -2,13 +2,7 @@
 
 <?php $this->start('main_content') ?>
 <h2>Ajouter un Event</h2>
-<?php
-if (isset($error)) {
-    debug($error);
-}
-//debug($_POST);
-//debug($_FILES);
-?>
+
 <div class="row">
     <div class="col-md-6 text-left">
     <?php if (isset($vals)): ?>
@@ -47,6 +41,21 @@ if (isset($error)) {
             <button class="btn btn-primary btn-sm active" type="submit" value="Modifier la galerie" href="#"><i class="fa fa-pencil-square-o fa-fw"></i> Ajouter un Event</button>
         </form>
     </div>
+
+    <?php if (isset($error)): ?>
+    <div class="col-md-6 text-left">
+        <div class="alert alert-danger fade in" rows="auto">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Erreur!</strong><br>
+            <ul>
+                <?php foreach ($error as $value): ?>
+                    <li><?= $value ?></li>
+                <?php endforeach; ?>    
+            </ul>
+        </div>
+    </div> 
+    <?php endif; ?> 
+
     <?php else: ?>
     <form action="" method="post" enctype="multipart/form-data">
         <div class="input-group">
