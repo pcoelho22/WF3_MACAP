@@ -52,7 +52,7 @@
                 <input id="email" type="email" name="email" value="<?= $vals['email'] ?>" placeholder="Email" class="form-control text-left">
             </div>
             <span class="help-block"></span>
-            <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Participant" href="#"><i class="fa fa-user fa-fw"></i> Ajouter Participant</button>
+            <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Participant" href="#"><i class="fa fa-pencil-square-o fa-fw"></i> Ajouter un Participant</button>
             <br>
             <h4>Une fois l'ajout validé, vous serez redirigé vers la page d'accueil.</h4>
         </form>
@@ -120,7 +120,7 @@
             <input id="email" type="email" name="email" value="" placeholder="Email" class="form-control text-left">
         </div>
         <span class="help-block"></span>
-        <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Participant" href="#"><i class="fa fa-user fa-fw"></i> Ajouter Participant</button>
+        <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Participant" href="#"><i class="fa fa-pencil-square-o fa-fw"></i> Ajouter un Participant</button>
         <br>
         <h4>Une fois l'ajout validé, vous serez redirigé vers la page d'accueil.</h4>
     </form>

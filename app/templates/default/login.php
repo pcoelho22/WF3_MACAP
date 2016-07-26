@@ -5,7 +5,6 @@
 <h2>Login</h2>
 <div class="row">
     <div class="col-md-6 text-left">
-
         <form action="#" method="POST" role="form">
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
@@ -21,7 +20,7 @@
             <button class="btn btn-primary btn-sm active" type="submit" value="Login" href="#"><i class="fa fa-sign-in fa-fw"></i> Login</button>	
             <span class="help-block"></span>
             <p><a href="<?= $this->url('user_forgot') ?>" class="btn btn-default btn-sm">Forgot password?</a>
-                <a href="<?= $this->url('user_signup') ?>" class="btn btn-default btn-sm">Register</a></p>
+                <a href="<?= $this->url('user_signup') ?>" class="btn btn-default btn-sm"> Enregistrement</a></p>
         </form>
     </div>
 

@@ -3,7 +3,7 @@
 <?php $this->start('main_content') ?>
 <h1>Editer un sponsor</h1>
 <div class="row">
-    <?php debug($values); ?>
+    <!-- <?php debug($values); ?> -->
     <div class="col-md-7 text-left">
         <?php if (isset($vals)): ?>
             <form action="" method="post" enctype="multipart/form-data" role="form">
