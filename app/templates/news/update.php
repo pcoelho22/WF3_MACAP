@@ -1,6 +1,7 @@
-<?php $this->layout('layout', ['title' => 'Modifier une news']) ?>
+<?php $this->layout('layout', ['title' => 'Modifier une News']) ?>
 
 <?php $this->start('main_content') ?>
+<h2>Modifier une News</h2>
 <div class="row">
     <div class="col-md-6 text-left">
     <?php if (isset($newsDetails)): ?>
