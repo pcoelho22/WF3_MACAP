@@ -1,7 +1,7 @@
 <?php $this->layout('layout', ['title' => 'Modifier une reportage']) ?>
 
 <?php $this->start('main_content') ?>
-<h2>Modifier un reportage</h2>
+<h2>Modifier un Reportage</h2>
 <?php //debug($_FILES); ?>
 <div class="row">
     <div class="col-md-6 text-left">
@@ -32,7 +32,7 @@
                 <textarea id="description" type="text" name="description" rows="10" value="<?= $reportagesDetails['con_description'] ?>" placeholder="Description" class="form-control text-left"></textarea>
             </div>
             <span class="help-block"></span>
-            <h5><strong>Veuillez sélectionner une photo à ajouter.</strong></h5>
+            <h5><strong>Veuillez sélectionner une photo à ajouter(optionnel).</strong></h5>
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-picture-o fa-fw"></i></span>
                 <input id="avatar" type="file" name="avatar" class="form-control text-left">
@@ -70,7 +70,7 @@
             <textarea id="description" type="text" name="description" rows="10" value="<?= $vals['con_description'] ?>" placeholder="Description" class="form-control text-left"></textarea>
         </div>
         <span class="help-block"></span>
-        <h5><strong>Veuillez sélectionner une photo à ajouter.</strong></h5>
+        <h5><strong>Veuillez sélectionner une photo à ajouter(optionnel).</strong></h5>
         <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-picture-o fa-fw"></i></span>
             <input id="avatar" type="file" name="avatar" class="form-control text-left">
