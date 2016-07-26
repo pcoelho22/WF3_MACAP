@@ -14,3 +14,8 @@
     opacity: .5;
     cursor: pointer;
 }
+
+#blueimp-gallery>.indicator>li img {
+    max-width: 5%;
+    height: auto;
+}
