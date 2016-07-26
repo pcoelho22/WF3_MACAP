@@ -4,11 +4,13 @@
 <h2>Liste de events</h2>
 <div class="row">
     <div class="col-md-12 text-left">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <a class="btn btn-default btn-sm" href="<?= $this->url('events_add') ?>">Ajouter un événement</a>
+            </li>
+        </ul>
         <?php foreach ($eventsListe as $key => $value) : ?>
             <ul class="list-group">
-                <li class="list-group-item">
-                    <a class="btn btn-default btn-sm" href="<?= $this->url('events_add') ?>">Ajouter une news</a>
-                </li>
                 <li class="list-group-item">
                     <img alt="" src="<?= $value['con_avatar'] ?>" width="120" heigth="120">
                     <div class="detailsTitleevents"><?= $value['con_title'] ?></div>
