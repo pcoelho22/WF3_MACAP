@@ -213,11 +213,11 @@ class MagazineController extends Controller {
             }
             else{
                 $error[] = "requete fail";
-                $this->show('magazine/add', ["error"=>$error, "vals"=>$vals]);
+                $this->show('magazine/edit', ["error"=>$error, "vals"=>$vals]);
             }
         }
         else{
-            $this->show('magazine/add', ["error"=>$error, "vals"=>$vals]);
+            $this->show('magazine/edit', ["error"=>$error, "vals"=>$vals]);
         }
     }
 

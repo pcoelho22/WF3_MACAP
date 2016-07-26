@@ -124,7 +124,6 @@
             <span class="help-block"></span>
             <h4>Une fois les données modifiées, vous serez redirigé vers la page d'accueil</h4>
         </form>
-
     <?php endif; ?>
 </div>
 <?php $this->stop('main_content') ?>
