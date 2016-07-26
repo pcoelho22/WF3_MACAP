@@ -1,14 +1,14 @@
 <?php $this->layout('layout', ['title' => 'Events !']) ?>
 
 <?php $this->start('main_content') ?>
-<h2>Liste de events</h2>
+<h2>Liste de Events</h2>
 <div class="row">
     <div class="col-md-12 text-left">
     <?php if (isset($_SESSION['user']['use_role_opt1'])): ?>
         <?php if ($_SESSION['user']['use_role_opt1'] === '2'): ?>
             <ul class="list-group">
                 <li  class="list-group-item">
-                    <a href="<?= $this->url('events_add') ?>"><button class="btn btn-primary btn-sm"><span class="fa fa-pencil-square-o"></span>Ajouter un event</button></a>
+                    <a href="<?= $this->url('events_add') ?>"><button class="btn btn-primary btn-sm"><span class="fa fa-pencil-square-o"></span>Ajouter un Event</button></a>
                 </li>
             </ul>
          <?php endif; ?>

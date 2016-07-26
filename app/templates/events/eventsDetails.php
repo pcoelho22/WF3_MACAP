@@ -1,7 +1,7 @@
 <?php $this->layout('layout', ['title' => 'Events Details  !']) ?>
 
 <?php $this->start('main_content') ?>
-<h2>Details</h2>
+<h2>Event details</h2>
 <ul><br/>
     <div class="row">
         <div class="col-md-3 text-left">
@@ -23,12 +23,12 @@
         </div>
     </div>
 </ul>
-<h2>Liste de galeries associé au event <?= $eventsId['con_title'] ?></h2>
+<h2>Liste de galeries associé au Event <?= $eventsId['con_title'] ?></h2>
 <ul>
     <?php foreach ($eventsIdGaleires as $key => $value) : ?>
         <li><a href="<?= $this->url('galerie_photos', ['id' => $value['id']]) ?>"><?= $value['gal_name'] . '<br/> ' . $value['gal_legend'] ?></a></li><br/>
     <?php endforeach ?>
 </ul>
 
-<a class="btn btn-default1" href="<?= $this->url('events_liste') ?>"><strong>&lt</strong> retour</a>
+<a class="btn btn-default1" href="<?= $this->url('events_liste') ?>"><strong>&lt</strong> Retour</a>
 <?php $this->stop('main_content') ?>
