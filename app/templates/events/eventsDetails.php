@@ -30,5 +30,5 @@
     <?php endforeach ?>
 </ul>
 
-<a class="btn btn-default1" href="<?= $this->url('events_eventsDetails') ?>"><strong>&lt</strong> retour</a>
+<a class="btn btn-default1" href="<?= $this->url('events_liste') ?>"><strong>&lt</strong> retour</a>
 <?php $this->stop('main_content') ?>
