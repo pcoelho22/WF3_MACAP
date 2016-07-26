@@ -2,13 +2,7 @@
 
 <?php $this->start('main_content') ?>
 <h2>Ajouter un Reportage</h2>
-<?php
-if (isset($error)) {
-    debug($error);
-}
-//debug($_POST);
-//debug($_FILES);
-?>
+
 <div class="row">
     <div class="col-md-6 text-left">
         <?php if (isset($vals)): ?>
@@ -44,9 +38,24 @@ if (isset($error)) {
                 <input id="avatar" type="file" name="avatar" class="form-control text-left">
             </div>
             <span class="help-block"></span>
-            <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter une news" href="#"><i class="fa fa-pencil-square-o fa-fw"></i> Ajouter un Reportage</button>
+            <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter une news" href="#"><i class="fa fa-pencil-square-o fa-fw"></i> Ajouter le Reportage</button>
         </form>
     </div>
+
+    <?php if (isset($error)): ?>
+    <div class="col-md-5 text-left">
+        <div class="alert alert-danger fade in" rows="auto">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Erreur!</strong><br>
+            <ul>
+                <?php foreach ($error as $value): ?>
+                    <li><?= $value ?></li>
+                <?php endforeach; ?>    
+            </ul>
+        </div>
+    </div> 
+    <?php endif; ?> 
+
     <?php else: ?>
     <form action="" method="post" enctype="multipart/form-data">
         <div class="input-group">
@@ -80,7 +89,7 @@ if (isset($error)) {
             <input id="avatar" type="file" name="avatar" class="form-control text-left">
         </div>
         <span class="help-block"></span>
-        <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter une news" href="#"><i class="fa fa-pencil-square-o fa-fw"></i> Ajouter un Reportage</button>
+        <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter une news" href="#"><i class="fa fa-pencil-square-o fa-fw"></i> Ajouter le Reportage</button>
     </form>
     <?php endif; ?>
 </div>
