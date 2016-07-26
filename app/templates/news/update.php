@@ -23,12 +23,12 @@
              <span class="help-block"></span>
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-align-left"></i></span>
-                <textarea id="synopsis" type="text" name="synopsis" rows="10" value="<?= $newsDetails['con_synopsis'] ?>" placeholder="Synopsis" class="form-control text-left"></textarea>
+                <textarea id="synopsis" name="synopsis" rows="10" placeholder="Synopsis" class="form-control text-left"><?= $newsDetails['con_synopsis'] ?></textarea>
             </div>
             <span class="help-block"></span>
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-align-left"></i></span>
-                <textarea id="description" type="text" name="description" rows="10" value="<?= $newsDetails['con_description'] ?>" placeholder="Description" class="form-control text-left"></textarea>
+                <textarea id="description" name="description" rows="10" placeholder="Description" class="form-control text-left"><?= $newsDetails['con_description'] ?></textarea>
             </div>
             <span class="help-block"></span>
             <h5><strong>Veuillez sélectionner une photo à ajouter(optionnel).</strong></h5>
@@ -60,12 +60,12 @@
             <span class="help-block"></span>
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-align-left"></i></span>
-                <textarea id="synopsis" type="text" name="synopsis" rows="10" value="<?= $vals['con_synopsis'] ?>" placeholder="Synopsis" class="form-control text-left"></textarea>
+                <textarea id="synopsis"  name="synopsis" rows="10"  placeholder="Synopsis" class="form-control text-left"><?= $vals['con_synopsis'] ?></textarea>
             </div>
             <span class="help-block"></span>
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-align-left"></i></span>
-                <textarea id="description" type="text" name="description" rows="10" value="<?= $vals['con_description'] ?>" placeholder="Description" class="form-control text-left"></textarea>
+                <textarea id="description"  name="description" rows="10"  placeholder="Description" class="form-control text-left"><?= $vals['con_description'] ?></textarea>
             </div>
             <span class="help-block"></span>
             <h5><strong>Veuillez sélectionner une photo à ajouter(optionnel).</strong></h5>
