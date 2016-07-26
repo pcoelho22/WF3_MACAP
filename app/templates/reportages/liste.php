@@ -1,14 +1,14 @@
 <?php $this->layout('layout', ['title' => 'Reportages!']) ?>
 
 <?php $this->start('main_content') ?>
-<h2>Liste des reportages</h2>
+<h2>Liste des Reportages</h2>
 <div class="row">
     <div class="col-md-12 text-left">
     <?php if (isset($_SESSION['user']['use_role_opt1'])): ?>
     <?php if ($_SESSION['user']['use_role_opt1'] === '2'): ?>
         <ul class="list-group">
             <li  class="list-group-item">
-                <a href="<?= $this->url('reportages_add') ?>"><button class="btn btn-primary btn-sm"><span class="fa fa-pencil-square-o"></span>Ajouter un reportage</button></a>
+                <a href="<?= $this->url('reportages_add') ?>"><button class="btn btn-primary btn-sm"><span class="fa fa-pencil-square-o"></span>Ajouter un Reportage</button></a>
             </li>
         </ul>
     </div>

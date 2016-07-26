@@ -38,7 +38,7 @@
                 <input id="avatar" type="file" name="avatar" class="form-control text-left">
             </div>
             <span class="help-block"></span>
-            <button class="btn btn-primary btn-sm active" type="submit"><i class="fa fa-pencil-square-o fa-fw"></i> Ajouter la news</button>
+            <button class="btn btn-primary btn-sm active" type="submit"><i class="fa fa-pencil-square-o fa-fw"></i> Ajouter la News</button>
         </form>
     </div>
 
@@ -89,7 +89,7 @@
                 <input id="avatar" type="file" name="avatar" class="form-control text-left">
             </div>
             <span class="help-block"></span>
-            <button class="btn btn-primary btn-sm active" type="submit"><i class="fa fa-pencil-square-o fa-fw"></i> Ajouter la news</button>
+            <button class="btn btn-primary btn-sm active" type="submit"><i class="fa fa-pencil-square-o fa-fw"></i> Ajouter la News</button>
         </form>
     </div>
     <?php endif; ?>
