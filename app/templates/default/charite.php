@@ -11,7 +11,7 @@
 </div>
 <div class="row">
     <div class="col-sm-12">
-        <a href="http://www.make-a-wish.lu/en/kom-in-actie/donate/" target="_blank"><img src="<?= $this->assetUrl('img/Button-WL-DonateNow.jpg') ?>" class="center-block" alt="image"></a>
+        <a href="http://www.make-a-wish.lu/en/kom-in-actie/donate/" target="_blank"><img src="<?= $this->assetUrl('img/Button-WL-DonateNow.jpg') ?>" class="center-block img-responsive" style="width: 360px;" alt="image"></a>
     </div>
 </div>
 <span class="help-block"></span>
