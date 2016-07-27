@@ -42,7 +42,7 @@
 
                     <div class="col-md-4 text-center">                
                         <a id="mainLogo" class="logo">
-                            <img alt="image" src="<?= $this->assetUrl('img/MondorfLogoLast.jpg') ?>" class="img-responsive"></a>     
+                            <img alt="image" src="<?= $this->assetUrl('img/MondorfLogoLast.jpg') ?>" class="img-responsive center-block" style="width: 360px;"></a>     
                     </div>
 
                     <div class="col-md-4 text-right">
@@ -149,7 +149,7 @@
                         </ul>
                     </div>
 
-                    <div class="col-md-4 text-center">
+                    <div class="col-sm-4 text-center">
                         <div class="set squared icon-inflate">
                             <a href="http://www.facebook.com/concoursMondorf" target="_blank" class="social facebook">Facebook</a>
                             <a href="https://twitter.com/GD_Luxembourg" target="_blank" class="social twitter">Twitter</a>

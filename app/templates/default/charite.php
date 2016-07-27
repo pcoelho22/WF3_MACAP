@@ -6,12 +6,15 @@
         <a href="http://www.make-a-wish.lu/" target="_blank"><img src="<?= $this->assetUrl('img/MAWBIG.jpg') ?>" class="center-block" alt="image" ></a>
     </div>
 </div>
-
-<div class="row" style="margin-bottom: 35px">
+<div class="row">
     <div class="col-sm-6 col-sm-offset-3 text-center"><h2>Nous exauçons les voeux d'enfants atteints de maladies graves</h2></div>
-    <h2 class="col-sm-4 col-sm-offset-4 text-center"><strong>Faites un don!</strong></h2>
 </div>
-
+<div class="row">
+    <div class="col-sm-12">
+        <a href="http://www.make-a-wish.lu/en/kom-in-actie/donate/" target="_blank"><img src="<?= $this->assetUrl('img/Button-WL-DonateNow.jpg') ?>" class="center-block img-responsive" style="width: 360px;" alt="image"></a>
+    </div>
+</div>
+<span class="help-block"></span>
 <div class="panel panel-default">
     <div class="panel-heading">
         <div class="panel-body">

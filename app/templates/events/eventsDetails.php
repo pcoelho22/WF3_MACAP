@@ -23,7 +23,7 @@
         </div>
     </div>
 </ul>
-<h2>Liste de galeries associé au Event <?= $eventsId['con_title'] ?></h2>
+<h2>Liste de galeries associées aux Events <?= $eventsId['con_title'] ?></h2>
 <ul>
     <?php foreach ($eventsIdGaleires as $key => $value) : ?>
         <li><a href="<?= $this->url('galerie_photos', ['id' => $value['id']]) ?>"><?= $value['gal_name'] . '<br/> ' . $value['gal_legend'] ?></a></li><br/>
