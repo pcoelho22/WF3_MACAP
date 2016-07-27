@@ -64,7 +64,7 @@ class GalerieController extends Controller {
             $vals['gal_name'] = $titre;
         }
         else{
-            $error[] = 'veuillez entrer un titre';
+            $error[] = '- Veuillez entrer un titre!';
             $vals['gal_name'] = '';
         }
 
@@ -73,7 +73,7 @@ class GalerieController extends Controller {
             $vals['gal_legend'] = $legend;
         }
         else{
-            $error[] = 'veuillez entrer une legend';
+            $error[] = '- Veuillez entrer une légende!';
             $vals['gal_legend'] = '';
         }
 
@@ -82,7 +82,7 @@ class GalerieController extends Controller {
             $vals['gal_description'] = $description;
         }
         else{
-            $error[] = 'veuillez entrer une description';
+            $error[] = '- Veuillez entrer une description!';
             $vals['gal_description'] = '';
         }
 
@@ -140,7 +140,7 @@ class GalerieController extends Controller {
             $vals['gal_name'] = $titre;
         }
         else{
-            $error[] = 'veuillez entrer un titre';
+            $error[] = '- Veuillez entrer un titre!';
             $vals['gal_name'] = '';
         }
 
@@ -149,7 +149,7 @@ class GalerieController extends Controller {
             $vals['gal_legend'] = $legend;
         }
         else{
-            $error[] = 'veuillez entrer une legend';
+            $error[] = '- Veuillez entrer une légende!';
             $vals['gal_legend'] = '';
         }
 
@@ -158,7 +158,7 @@ class GalerieController extends Controller {
             $vals['gal_description'] = $description;
         }
         else{
-            $error[] = 'veuillez entrer une description';
+            $error[] = '- Veuillez entrer une description!';
             $vals['gal_description'] = '';
         }
 
