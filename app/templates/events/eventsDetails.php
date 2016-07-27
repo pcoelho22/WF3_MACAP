@@ -29,6 +29,10 @@
         <li><a href="<?= $this->url('galerie_photos', ['id' => $value['id']]) ?>"><?= $value['gal_name'] . '<br/> ' . $value['gal_legend'] ?></a></li><br/>
     <?php endforeach ?>
 </ul>
-
-<a class="btn btn-default1" href="<?= $this->url('events_liste') ?>"><strong>&lt</strong> Retour</a>
+</ul><div class="row">
+    <div class="col-sm-12">
+        <span class="help-block"></span>
+        <button class="btn btn-default btn-sm" type="button" href="<?= $this->url('events_liste') ?>"><i class="fa fa-angle-left fa-fw"></i> Retour</button>
+    </div>
+</div>
 <?php $this->stop('main_content') ?>
