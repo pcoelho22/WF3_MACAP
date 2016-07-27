@@ -23,5 +23,10 @@
         </div>
     </div>
 </ul>
-<a class="btn btn-default" type="button" href="<?= $this->url('reportages_liste') ?>">&lt; Retour</a>
+</ul><div class="row">
+    <div class="col-sm-12">
+        <span class="help-block"></span>
+        <button class="btn btn-default btn-sm" type="button" href="<?= $this->url('reportages_liste') ?>"><i class="fa fa-angle-left fa-fw"></i> Retour</button>
+    </div>
+</div>
 <?php $this->stop('main_content') ?>
