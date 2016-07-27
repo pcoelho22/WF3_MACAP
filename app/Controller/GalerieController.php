@@ -2,6 +2,7 @@
 
 namespace Controller;
 
+use Manager\PhotoManager;
 use \W\Controller\Controller;
 use \Manager\GalerieManager;
 use \Manager\GalerieHasPhotoManager;
@@ -14,11 +15,15 @@ class GalerieController extends Controller {
      */
     public function liste() {
     	$galerieManager = new GalerieManager();
+        $photoManager = new PhotoManager();
         $galerieListe = $galerieManager->findAll();
-        //debug($galerieListe);
+
+        foreach ($galerieListe as $galerie){
+            $firstPhoto[$galerie['id']] = $photoManager->getFirstImage($galerie['id']);
+        }
 
 		$this->show('galerie/liste',
-			['galerieListe' => $galerieListe]);
+			['galerieListe' => $galerieListe, 'firstPhoto' => $firstPhoto]);
     }
     /**
      * Page de photos de chaque galerie
