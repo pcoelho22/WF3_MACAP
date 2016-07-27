@@ -3,16 +3,24 @@
 <?php $this->start('main_content') ?>
 <h2>Photos de <?= $eventsIdGaleries['gal_name'] ?></h2>
 <?= $eventsIdGaleries['gal_description'] ?>
-<div id="links">
-	<ul>
-	    <?php foreach ($photosGalerie as $key => $value) : ?>
-			<li>
-				<a href="<?= $this->assetUrl($value['pho_path']) ?>" title="<?= $value['pho_name']?>" data-gallery>
-			    	<img id="galpho" class="img-responsive" src="<?= $this->assetUrl($value['pho_path']) ?>" alt>
-			    </a>
-			</li>
-	    <?php endforeach ?>
-	</ul>
+<div class="row">
+    <div id="links" class="col-sm-12">
+    	<ul>
+    	    <?php foreach ($photosGalerie as $key => $value) : ?>
+    			<li>
+    				<a href="<?= $this->assetUrl($value['pho_path']) ?>" title="<?= $value['pho_name']?>" data-gallery>
+    			    	<img id="galpho" class="center-block" src="<?= $this->assetUrl($value['pho_path']) ?>" alt>
+    			    </a>
+    			</li>
+    	    <?php endforeach ?>
+    	</ul>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <span class="help-block"></span>
+        <button class="btn btn-default btn-sm" type="button" href="<?= $this->url('galerie_liste') ?>"><i class="fa fa-angle-left fa-fw"></i> Retour</button>
+    </div>
 </div>
 <div id="blueimp-gallery" class="blueimp-gallery" data-use-bootstrap-modal="false">
     <!-- The container for the modal slides -->
