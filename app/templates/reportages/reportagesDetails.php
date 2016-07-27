@@ -5,7 +5,7 @@
 <ul><br/>
     <div class="row">
         <div class="col-md-3 text-left">
-            <li><img class="avatar" src="<?= $reportagesDetails['con_avatar'] ?>"></li>
+            <li><img class="avatar" src="<?= $this->assetUrl($reportagesDetails['con_avatar']) ?>"></li>
         </div>
         <div class="col-md-8 text-left">
             <li><h3 class="detailsTitle"><?= $reportagesDetails['con_title'] ?></h3></li>
@@ -23,5 +23,10 @@
         </div>
     </div>
 </ul>
-<a class="btn btn-default" type="button" href="<?= $this->url('reportages_liste') ?>">&lt; Retour</a>
+</ul><div class="row">
+    <div class="col-sm-12">
+        <span class="help-block"></span>
+         <a class="btn btn-default btn-sm" href="<?= $this->url('reportages_liste') ?>"><i class="fa fa-angle-left fa-fw"></i> Retour</a>
+    </div>
+</div>
 <?php $this->stop('main_content') ?>

@@ -53,6 +53,7 @@
                 <input id="avatar" type="file" name="avatar" class="form-control text-left">
             </div>
             <span class="help-block"></span>
+            <a class="btn btn-default btn-sm" href="<?= $this->url('events_liste') ?>"><i class="fa fa-angle-left fa-fw"></i> Retour</a>
             <button class="btn btn-primary btn-sm active" type="submit"><i class="fa fa-pencil fa-fw"></i> Modifier l'Event</button>
         </form>
     </div>
@@ -90,6 +91,7 @@
                 <input id="avatar" type="file" name="avatar" class="form-control text-left">
             </div>
             <span class="help-block"></span>
+            <a class="btn btn-default btn-sm" href="<?= $this->url('events_liste') ?>"><i class="fa fa-angle-left fa-fw"></i> Retour</a>
             <button class="btn btn-primary btn-sm active" type="submit"><i class="fa fa-pencil fa-fw"></i> Modifier l'Event</button>
         </form>
     </div>
