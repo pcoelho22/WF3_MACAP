@@ -3,7 +3,21 @@
 <?php $this->start('main_content') ?>
 <h2>Editer un participant</h2>
 <div class="row">
-
+    <?php if (isset($error)): ?>
+        <div class="col-md-7 text-left">
+            <div class="alert alert-danger fade in" rows="auto">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Erreur!</strong><br>
+                <ul>
+                    <?php foreach ($error as $value): ?>
+                        <li><?= $value ?></li>
+                    <?php endforeach; ?>    
+                </ul>
+            </div>
+        </div> 
+    <?php endif; ?>   
+</div>
+<div class="row">
     <div class="col-md-7 text-left">
         <?php if (isset($vals)): ?>
         <form action="" method="post" enctype="multipart/form-data" role="form">
@@ -63,22 +77,7 @@
         </form>
     </div>
         
-    <?php if (isset($error)): ?>
-        <div class="col-md-5 text-left">
-            <div class="alert alert-danger fade in" rows="auto">
-                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                <strong>Erreur!</strong><br>
-                <ul>
-                    <?php foreach ($error as $value): ?>
-                        <li><?= $value ?></li>
-                    <?php endforeach; ?>    
-                </ul>
-            </div>
-        </div> 
-    <?php endif; ?>
-
         <?php elseif (isset($values)): ?>
-
         <form action="" method="post" enctype="multipart/form-data" role="form">
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>

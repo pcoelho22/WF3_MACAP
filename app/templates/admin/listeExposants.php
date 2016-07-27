@@ -4,7 +4,7 @@
 <h2>Liste des Exposants</h2>
 <div class="row">
     <div class="col-md-12 text-left">
-        <a href="<?= $this->url('exposant_add') ?>" class="btn btn-primary btn-md">
+        <a href="<?= $this->url('exposant_add') ?>" class="btn btn-primary btn-sm">
         <span class="fa fa-pencil fa-fw"></span> Ajouter un Exposant
         </a>
         <ul class="list-inline no-margin-top small">
