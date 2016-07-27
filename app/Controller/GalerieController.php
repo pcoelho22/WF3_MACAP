@@ -167,4 +167,12 @@ class GalerieController extends Controller {
             $this->show('galerie/update', ['error' => $error, 'vals'=>$vals]);
         }
     }
+
+        public function getFirstPhoto($id){
+       
+        $photoManager = new PhotoManager();
+        $firstPhotoGalerie = $photoManager->getFirstPhoto($id);
+        debug($firstPhotoGalerie);
+        $this->show('galerie/liste', ['firstPhotoGalerie' => $firstPhotoGalerie]);
+    }
 }
