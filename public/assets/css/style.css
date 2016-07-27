@@ -390,3 +390,8 @@ a.youtube:after {
   margin: 2px;
   align-items: center; 
 }
+/*******************************galerie photos**************************************/
+
+.admBtn{
+  width: 250px;
+}
