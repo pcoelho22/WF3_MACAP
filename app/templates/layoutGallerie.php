@@ -80,17 +80,17 @@
                                     <?php if(isset($_SESSION['roles'])): ?>
                                         <?php if (in_array('3', $_SESSION['roles'])): ?>
                                     <li>
-                                        <a class="btn btn-link btn-md" href="<?= $this->url('participant_edit') ?>">editer votre profil de participant</a>
+                                        <a class="btn btn-default btn-sm" href="<?= $this->url('participant_edit') ?>">editer votre profil de participant</a>
                                     </li>
                                 <?php endif; ?>
                                     <?php if (in_array('4', $_SESSION['roles'])): ?>
                                     <li>
-                                        <a class="btn btn-link btn-md" href="<?= $this->url('exposant_edit') ?>">editer votre profil d'exposant</a>
+                                        <a class="btn btn-default btn-sm" href="<?= $this->url('exposant_edit') ?>">editer votre profil d'exposant</a>
                                     </li>
                                 <?php endif; ?>
                                     <?php if (in_array('5', $_SESSION['roles'])): ?>
                                     <li>
-                                        <a class="btn btn-link btn-md" href="<?= $this->url('sponsor_edit') ?>">editer votre profil de sponsor</a>
+                                        <a class="btn btn-default btn-sm" href="<?= $this->url('sponsor_edit') ?>">editer votre profil de sponsor</a>
                                     </li>
                                 <?php endif; ?>
                             <?php endif; ?>

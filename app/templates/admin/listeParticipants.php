@@ -10,7 +10,7 @@
         <ul class="no-margin-top">
             <?php foreach ($listeParticipants as $participants): ?>
                 <li>
-                    <p><?= $participants['par_first_name'].' '.$participants['use_name'] ?></p>
+                    <p><?= $participants['par_first_name'].' '.$participants['par_name'] ?></p>
                     <a href="<?= $this->url('participant_admin_edit',['id'=>$participants['id']]) ?>" class="btn btn-primary btn-sm">
                     <span class="fa fa-pencil fa-fw"></span> Editer
                     </a>
