@@ -91,6 +91,7 @@
                 <input id="url" type="text" name="url" value="<?= $vals['url'] ?>" placeholder="Site web de l'exposant" class="form-control text-left">
             </div>
             <span class="help-block"></span>
+            <a class="btn btn-default btn-sm" href="<?= $this->url('admin_listeExposants') ?>"><i class="fa fa-angle-left fa-fw"></i> Retour</a>
             <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Exposant" href="#"><i class="fa fa-pencil-square-o fa-fw"></i> Ajouter l'Exposant</button>
             <br>
             <h4>Une fois l'ajout validé, vous serez redirigé vers la page d'accueil.</h4>
@@ -169,6 +170,7 @@
                 <input id="url" type="text" name="url" value="" placeholder="Site web de l'exposant" class="form-control text-left">
             </div>
             <span class="help-block"></span>
+            <a class="btn btn-default btn-sm" href="<?= $this->url('admin_listeExposants') ?>"><i class="fa fa-angle-left fa-fw"></i> Retour</a>
             <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Exposant" href="#"><i class="fa fa-pencil-square-o fa-fw"></i> Ajouter l'Exposant</button>
             <br>
             <h4>Une fois l'ajout validé, vous serez redirigé vers la page d'accueil.</h4>

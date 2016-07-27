@@ -60,7 +60,7 @@ class ParticipantController extends Controller {
             $vals['lastName'] = $lastName;
         }
         else{
-            $error[] = 'veuillez indiquez le Nom de la personne en charge';
+            $error[] = '- Veuillez indiquer le nom du participant!';
             $vals['lastName'] = '';
         }
 
@@ -69,7 +69,7 @@ class ParticipantController extends Controller {
             $vals['firstName'] = $firstName;
         }
         else{
-            $error[] = "veuillez entrer le Prenom de la personne en charge";
+            $error[] = "- Veuillez entrer le prénom du participant!";
             $vals['firstName'] = '';
         }
 
@@ -78,7 +78,7 @@ class ParticipantController extends Controller {
             $vals['address'] = $address;
         }
         else{
-            $error[] = "veuillez indiquez l'addresse de l'exposant";
+            $error[] = "- Veuillez indiquer l'addresse du participant!";
             $vals['address'] = '';
         }
         
@@ -87,7 +87,7 @@ class ParticipantController extends Controller {
             $vals['city'] = $city;
         }
         else{
-            $error[] = "veuillez indiquez la ville de l'exposant";
+            $error[] = "- Veuillez indiquer la ville du participant!";
             $vals['city'] = '';
         }
         
@@ -96,7 +96,7 @@ class ParticipantController extends Controller {
             $vals['country'] = $country;
         }
         else{
-            $error[] = "veuillez un pays pour l'exposantt";
+            $error[] = "- Veuillez indiquer le pays du participant!";
             $vals['country'] = '';
         }
 
@@ -105,7 +105,7 @@ class ParticipantController extends Controller {
             $vals['zip'] = $zip;
         }
         else{
-            $error[] = 'veuillez indiquez votre Code postal';
+            $error[] = '- Veuillez indiquer un code postal!';
             $vals['zip'] = '';
         }
 
@@ -114,7 +114,7 @@ class ParticipantController extends Controller {
             $vals['phone'] = $phone;
         }
         else{
-            $error[] = 'veuillez entrer numero de telephone valide';
+            $error[] = '- Veuillez entrer un numéro de téléphone valide!';
             $vals['phone'] = '';
         }
 
@@ -130,7 +130,7 @@ class ParticipantController extends Controller {
             $vals['email'] = $email;
         }
         else {
-            $error[] = "l'email in charge entré n'est pas sous le bon format";
+            $error[] = "- L'email intégré n'est pas au bon format!";
             $vals['email'] = '';
         }
 
@@ -154,12 +154,11 @@ class ParticipantController extends Controller {
                 $this->redirectToRoute('home');
             }
             else{
-                $error[] = "requete fail";
+                $error[] = "- Requête non aboutie!";
                 $this->show('participant/add', ["error"=>$error, "vals"=>$vals]);
             }
         }
         else{
-            $error[] = "fail inconnu";
             $this->show('participant/add', ["error"=>$error, "vals"=>$vals]);
         }
     }
@@ -212,7 +211,7 @@ class ParticipantController extends Controller {
             $vals['lastName'] = $lastName;
         }
         else{
-            $error[] = 'veuillez indiquez le Nom de la personne en charge';
+            $error[] = '- Veuillez indiquer le nom de la personne en charge!';
             $vals['lastName'] = '';
         }
 
@@ -221,7 +220,7 @@ class ParticipantController extends Controller {
             $vals['firstName'] = $firstName;
         }
         else{
-            $error[] = "veuillez entrer le Prenom de la personne en charge";
+            $error[] = "- Veuillez entrer le prénom de la personne en charge!";
             $vals['firstName'] = '';
         }
 
@@ -230,7 +229,7 @@ class ParticipantController extends Controller {
             $vals['address'] = $address;
         }
         else{
-            $error[] = "veuillez indiquez l'addresse de l'exposant";
+            $error[] = "- Veuillez indiquer l'adresse du participant!";
             $vals['address'] = '';
         }
         
@@ -239,7 +238,7 @@ class ParticipantController extends Controller {
             $vals['city'] = $city;
         }
         else{
-            $error[] = "veuillez indiquez la ville de l'exposant";
+            $error[] = "- Veuillez indiquer la ville du participant!";
             $vals['city'] = '';
         }
         
@@ -248,7 +247,7 @@ class ParticipantController extends Controller {
             $vals['country'] = $country;
         }
         else{
-            $error[] = "veuillez un pays pour l'exposantt";
+            $error[] = "- Veuillez indiquer un pays pour le participant!";
             $vals['country'] = '';
         }
 
@@ -257,7 +256,7 @@ class ParticipantController extends Controller {
             $vals['zip'] = $zip;
         }
         else{
-            $error[] = 'veuillez indiquez votre Code postal';
+            $error[] = '- Veuillez indiquer un code postal!';
             $vals['zip'] = '';
         }
 
@@ -266,7 +265,7 @@ class ParticipantController extends Controller {
             $vals['phone'] = $phone;
         }
         else{
-            $error[] = 'veuillez entrer numero de telephone valide';
+            $error[] = '- Veuillez entrer numéro de téléphone valide!';
             $vals['phone'] = '';
         }
 
@@ -282,7 +281,7 @@ class ParticipantController extends Controller {
             $vals['email'] = $email;
         }
         else {
-            $error[] = "l'email in charge entré n'est pas sous le bon format";
+            $error[] = "- L'email intégré n'est pas au bon format!";
             $vals['email'] = '';
         }
 
@@ -301,12 +300,12 @@ class ParticipantController extends Controller {
                         }
                         else {
                             $photoVal = false;
-                            $error[] = 'extension interdite';
+                            $error[] = '- Extension de fichier interdite!';
                         }
                     }
                     else {
                         $photoVal = false;
-                        $error[] = 'fichier trop lourd';
+                        $error[] = '- Fichier trop volumineux!';
                     }
                 }
             }
@@ -334,12 +333,11 @@ class ParticipantController extends Controller {
                 $this->redirectToRoute('home');
             }
             else{
-                $error[] = "requete fail";
+                $error[] = "- Requête non aboutie!";
                 $this->show('participant/edit', ["error"=>$error, "vals"=>$vals]);
             }
         }
         else{
-            $error[] = "fail inconnu";
             $this->show('participant/edit', ["error"=>$error, "vals"=>$vals]);
         }
     }
@@ -390,7 +388,7 @@ class ParticipantController extends Controller {
             $vals['lastName'] = $lastName;
         }
         else{
-            $error[] = 'veuillez indiquez le Nom de la personne en charge';
+            $error[] = '- Veuillez indiquer un nom!';
             $vals['lastName'] = '';
         }
 
@@ -399,7 +397,7 @@ class ParticipantController extends Controller {
             $vals['firstName'] = $firstName;
         }
         else{
-            $error[] = "veuillez entrer le Prenom de la personne en charge";
+            $error[] = "- Veuillez entrer un prénom!";
             $vals['firstName'] = '';
         }
 
@@ -408,7 +406,7 @@ class ParticipantController extends Controller {
             $vals['address'] = $address;
         }
         else{
-            $error[] = "veuillez indiquez l'addresse de l'exposant";
+            $error[] = "- Veuillez indiquer l'adresse du participant!";
             $vals['address'] = '';
         }
 
@@ -417,7 +415,7 @@ class ParticipantController extends Controller {
             $vals['city'] = $city;
         }
         else{
-            $error[] = "veuillez indiquez la ville de l'exposant";
+            $error[] = "- Veuillez indiquer la ville du participant!";
             $vals['city'] = '';
         }
 
@@ -426,7 +424,7 @@ class ParticipantController extends Controller {
             $vals['country'] = $country;
         }
         else{
-            $error[] = "veuillez un pays pour l'exposantt";
+            $error[] = "- Veuillez indiquer un pays pour le participant!";
             $vals['country'] = '';
         }
 
@@ -435,7 +433,7 @@ class ParticipantController extends Controller {
             $vals['zip'] = $zip;
         }
         else{
-            $error[] = 'veuillez indiquez votre Code postal';
+            $error[] = '- Veuillez indiquer un code postal!';
             $vals['zip'] = '';
         }
 
@@ -444,7 +442,7 @@ class ParticipantController extends Controller {
             $vals['phone'] = $phone;
         }
         else{
-            $error[] = 'veuillez entrer numero de telephone valide';
+            $error[] = '- Veuillez entrer numéro de téléphone valide!';
             $vals['phone'] = '';
         }
 
@@ -460,7 +458,7 @@ class ParticipantController extends Controller {
             $vals['email'] = $email;
         }
         else {
-            $error[] = "l'email in charge entré n'est pas sous le bon format";
+            $error[] = "-L'email intégré n'est pas au bon format!"";
             $vals['email'] = '';
         }
 
@@ -479,19 +477,19 @@ class ParticipantController extends Controller {
                         }
                         else {
                             $photoVal = false;
-                            $error[] = 'extension interdite';
+                            $error[] = '- Extension de fichier interdite!';
                         }
                     }
                     else {
                         $photoVal = false;
-                        $error[] = 'fichier trop lourd';
+                        $error[] = '- Fichier trop volumineux!';
                     }
                 }
             }
         }
         /*else{
             $photoVal = false;
-            $error[] = 'Pas de fichier selectioné';
+            $error[] = '- Pas de fichier selectionné!';
         }*/
 
 
@@ -512,14 +510,12 @@ class ParticipantController extends Controller {
                 $this->redirectToRoute('home');
             }
             else{
-                $error[] = "requete fail";
                 $this->show('participant/edit', ["error"=>$error, "vals"=>$vals]);
             }
         }
         else{
-            $error[] = "fail inconnu";
             $this->show('participant/edit', ["error"=>$error, "vals"=>$vals]);
         }
     }
-    
+
 }

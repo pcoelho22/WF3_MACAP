@@ -2,6 +2,7 @@
 
 namespace Controller;
 
+use Manager\PhotoManager;
 use \W\Controller\Controller;
 use \Manager\GalerieManager;
 use \Manager\GalerieHasPhotoManager;
@@ -14,11 +15,15 @@ class GalerieController extends Controller {
      */
     public function liste() {
     	$galerieManager = new GalerieManager();
+        $photoManager = new PhotoManager();
         $galerieListe = $galerieManager->findAll();
-        //debug($galerieListe);
+
+        foreach ($galerieListe as $galerie){
+            $firstPhoto[$galerie['id']] = $photoManager->getFirstImage($galerie['id']);
+        }
 
 		$this->show('galerie/liste',
-			['galerieListe' => $galerieListe]);
+			['galerieListe' => $galerieListe, 'firstPhoto' => $firstPhoto]);
     }
     /**
      * Page de photos de chaque galerie
@@ -59,7 +64,7 @@ class GalerieController extends Controller {
             $vals['gal_name'] = $titre;
         }
         else{
-            $error[] = 'veuillez entrer un titre';
+            $error[] = '- Veuillez entrer un titre!';
             $vals['gal_name'] = '';
         }
 
@@ -68,7 +73,7 @@ class GalerieController extends Controller {
             $vals['gal_legend'] = $legend;
         }
         else{
-            $error[] = 'veuillez entrer une legend';
+            $error[] = '- Veuillez entrer une légende!';
             $vals['gal_legend'] = '';
         }
 
@@ -77,7 +82,7 @@ class GalerieController extends Controller {
             $vals['gal_description'] = $description;
         }
         else{
-            $error[] = 'veuillez entrer une description';
+            $error[] = '- Veuillez entrer une description!';
             $vals['gal_description'] = '';
         }
 
@@ -135,7 +140,7 @@ class GalerieController extends Controller {
             $vals['gal_name'] = $titre;
         }
         else{
-            $error[] = 'veuillez entrer un titre';
+            $error[] = '- Veuillez entrer un titre!';
             $vals['gal_name'] = '';
         }
 
@@ -144,7 +149,7 @@ class GalerieController extends Controller {
             $vals['gal_legend'] = $legend;
         }
         else{
-            $error[] = 'veuillez entrer une legend';
+            $error[] = '- Veuillez entrer une légende!';
             $vals['gal_legend'] = '';
         }
 
@@ -153,7 +158,7 @@ class GalerieController extends Controller {
             $vals['gal_description'] = $description;
         }
         else{
-            $error[] = 'veuillez entrer une description';
+            $error[] = '- Veuillez entrer une description!';
             $vals['gal_description'] = '';
         }
 
@@ -166,5 +171,13 @@ class GalerieController extends Controller {
         else{
             $this->show('galerie/update', ['error' => $error, 'vals'=>$vals]);
         }
+    }
+
+        public function getFirstPhoto($id){
+       
+        $photoManager = new PhotoManager();
+        $firstPhotoGalerie = $photoManager->getFirstPhoto($id);
+        debug($firstPhotoGalerie);
+        $this->show('galerie/liste', ['firstPhotoGalerie' => $firstPhotoGalerie]);
     }
 }

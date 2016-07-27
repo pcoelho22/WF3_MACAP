@@ -334,6 +334,13 @@ a.youtube:after {
 .sponsorsBreack{
   margin-top: 25px;
 }
+/****************Divider******************/
+.divider{
+  border-bottom: 2px solid #e92d3c;
+}
+.divider h3{
+  margin-bottom: -10px;
+}
 /**************Page confirmation****************/
 
 #attention {
@@ -382,4 +389,9 @@ a.youtube:after {
   float: left;
   margin: 2px;
   align-items: center; 
+}
+/*******************************galerie photos**************************************/
+
+.admBtn{
+  width: 250px;
 }
