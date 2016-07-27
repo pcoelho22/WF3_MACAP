@@ -13,8 +13,8 @@
     </div>
     <div class="row">
         <div class="col-md-12 text-justify">
-            <li><p class="detailsdate">Event Start: <?= $eventsId['con_date_start'] ?></p></li>
-            <li><p class="detailsdate2">Event End: <?= $eventsId['con_date_end'] ?></p></li>
+            <li><p class="detailsdate"><strong>Date de début de l'événement: </strong> <?= $eventsId['con_date_start'] ?></p></li>
+            <li><p class="detailsdate2"><strong>Date de fin de l'événement: </strong> <?= $eventsId['con_date_end'] ?></p></li>
         </div>
     </div>
     <div class="row">
