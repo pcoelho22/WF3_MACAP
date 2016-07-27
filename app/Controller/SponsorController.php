@@ -86,7 +86,7 @@ class SponsorController extends Controller {
             $vals['nameSponsor'] = $nameSponsor;    
         }
         else{
-            $error[] = "veuillez entrer le nom du sposnor";
+            $error[] = "- Veuillez entrer le nom du sponsor!";
             $vals['nameSponsor'] = '';
         }
 
@@ -95,7 +95,7 @@ class SponsorController extends Controller {
             $vals['lastNameInCharge'] = $lastNameInCharge;
         }
         else{
-            $error[] = 'veuillez indiquez le Nom de la personne en charge';
+            $error[] = '- Veuillez indiquer le nom de la personne en charge!';
             $vals['lastNameInCharge'] = '';
         }
 
@@ -104,7 +104,7 @@ class SponsorController extends Controller {
             $vals['firstNameInCharge'] = $firstNameInCharge;
         }
         else{
-            $error[] = "veuillez entrer le Prenom de la personne en charge";
+            $error[] = "- Veuillez undiquer le prénom de la personne en charge!";
             $vals['firstNameInCharge'] = '';
         }
 
@@ -113,7 +113,7 @@ class SponsorController extends Controller {
             $vals['address'] = $adress;
         }
         else{
-            $error[] = "veuillez indiquez l'adresse de l'exposant";
+            $error[] = "- Veuillez indiquer l'addresse du sponsor!";
             $vals['address'] = '';
         }
         
@@ -122,7 +122,7 @@ class SponsorController extends Controller {
             $vals['city'] = $city;
         }
         else{
-            $error[] = "veuillez indiquez la ville de l'exposant";
+            $error[] = "- Veuillez indiquer la ville du sponsor!";
             $vals['city'] = '';
         }
         
@@ -131,7 +131,7 @@ class SponsorController extends Controller {
             $vals['country'] = $country;
         }
         else{
-            $error[] = "veuillez un pays pour l'exposantt";
+            $error[] = "- Veuillez indiquer le pays du sponsor!";
             $vals['country'] = '';
         }
 
@@ -140,7 +140,7 @@ class SponsorController extends Controller {
             $vals['zip'] = $zip;
         }
         else{
-            $error[] = 'veuillez indiquez votre Code postal';
+            $error[] = '- Veuillez indiquer un code postal!';
             $vals['zip'] = '';
         }
 
@@ -149,7 +149,7 @@ class SponsorController extends Controller {
             $vals['phone'] = $phone;
         }
         else{
-            $error[] = 'veuillez entrer numero de telephone valide';
+            $error[] = '- Veuillez entrer un numéro de téléphone valide!';
             $vals['phone'] = '';
         }
         
@@ -158,7 +158,7 @@ class SponsorController extends Controller {
             $vals['mobile'] = $mobile;
         }
         else{
-            $error[] = 'veuillez entrer numero de telephone valide';
+            $error[] = '- Veuillez entrer un numéro de téléphone mobile valide!';
             $vals['mobile'] = '';
         }
 
@@ -174,7 +174,7 @@ class SponsorController extends Controller {
             $vals['emailInCharge'] = $emailInCharge;
         }
         else {
-            $error[] = "l'email in charge entré n'est pas sous le bon format";
+            $error[] = "- L'email de la personne en charge intégré n'est pas au bon format!";
             $vals['emailInCharge'] = '';
         }
         
@@ -183,7 +183,7 @@ class SponsorController extends Controller {
             $vals['emailGeneral'] = $emailGeneral;
         }
         else {
-            $error[] = "l'email general entré n'est pas sous le bon format";
+            $error[] = "- L'email général intégré n'est pas au bon format!";
             $vals['emailGeneral'] = '';
         }
         
@@ -192,7 +192,7 @@ class SponsorController extends Controller {
             $vals['url'] = $url;
         }
         else {
-            $error[] = 'url invalide';
+            $error[] = '- Adresse url invalide!';
             $vals['url'] = '';
         }
 
@@ -201,7 +201,7 @@ class SponsorController extends Controller {
             $vals['type'] = 'selected';
         }
         else{
-            $error[] = "veuillez cocher un type de sponsor";
+            $error[] = "- Veuillez cocher un type de sponsor!";
             $vals['type'] = '';
         }
 
@@ -235,7 +235,7 @@ class SponsorController extends Controller {
                 $this->redirectToRoute('home');
             }
             else{
-                $error[] = "requete fail";
+                $error[] = "- Requête non aboutie!";
                 $this->show('sponsor/add', ["error"=>$error, "vals"=>$vals, 'listTypeSponsor'=>$listTypeSponsor]);
             }
         }
@@ -308,7 +308,7 @@ class SponsorController extends Controller {
             $vals['spo_name_sponsors'] = $nameSponsor;
         }
         else{
-            $error[] = "veuillez entrer le nom du sposnor";
+            $error[] = "- Veuillez entrer le nom du sponsor!";
             $vals['spo_name_sponsors'] = '';
         }
 
@@ -317,7 +317,7 @@ class SponsorController extends Controller {
             $vals['spo_name_in_charge'] = $lastNameInCharge;
         }
         else{
-            $error[] = 'veuillez indiquez le Nom de la personne en charge';
+            $error[] = '- Veuillez indiquer le nom de la personne en charge!';
             $vals['spo_name_in_charge'] = '';
         }
 
@@ -326,7 +326,7 @@ class SponsorController extends Controller {
             $vals['spo_first_name_in_charge'] = $firstNameInCharge;
         }
         else{
-            $error[] = "veuillez entrer le Prenom de la personne en charge";
+            $error[] = "- Veuillez entrer le prénom de la personne en charge!";
             $vals['spo_first_name_in_charge'] = '';
         }
 
@@ -335,7 +335,7 @@ class SponsorController extends Controller {
             $vals['spo_address'] = $adress;
         }
         else{
-            $error[] = "veuillez indiquez l'adresse de l'exposant";
+            $error[] = "- Veuillez indiquer l'adresse du sponsor!";
             $vals['spo_address'] = '';
         }
         
@@ -344,7 +344,7 @@ class SponsorController extends Controller {
             $vals['spo_city'] = $city;
         }
         else{
-            $error[] = "veuillez indiquez la ville de l'exposant";
+            $error[] = "- Veuillez indiquer la ville du sponsor!";
             $vals['spo_city'] = '';
         }
         
@@ -353,7 +353,7 @@ class SponsorController extends Controller {
             $vals['spo_country'] = $country;
         }
         else{
-            $error[] = "veuillez un pays pour l'exposantt";
+            $error[] = "- Veuillez indiquer un pays pour le sponsor!";
             $vals['spo_country'] = '';
         }
 
@@ -362,7 +362,7 @@ class SponsorController extends Controller {
             $vals['spo_post_code'] = $zip;
         }
         else{
-            $error[] = 'veuillez indiquez votre Code postal';
+            $error[] = '- Veuillez indiquer un code postal!';
             $vals['spo_post_code'] = '';
         }
 
@@ -371,7 +371,7 @@ class SponsorController extends Controller {
             $vals['spo_phone'] = $phone;
         }
         else{
-            $error[] = 'veuillez entrer numero de telephone valide';
+            $error[] = '- Veuillez entrer un numéro de téléphone valide!';
             $vals['spo_phone'] = '';
         }
         
@@ -380,7 +380,7 @@ class SponsorController extends Controller {
             $vals['spo_mobile'] = $mobile;
         }
         else{
-            $error[] = 'veuillez entrer numero de telephone valide';
+            $error[] = '- Veuillez entrer un numéro de téléphone mobile valide!';
             $vals['spo_mobile'] = '';
         }
 
@@ -396,7 +396,7 @@ class SponsorController extends Controller {
             $vals['spo_email_incharge'] = $emailInCharge;
         }
         else {
-            $error[] = "l'email in charge entré n'est pas sous le bon format";
+            $error[] = "-L'email de la personne en charge intégré n'est pas au bon format!";
             $vals['spo_email_incharge'] = '';
         }
         
@@ -405,7 +405,7 @@ class SponsorController extends Controller {
             $vals['spo_email_general'] = $emailGeneral;
         }
         else {
-            $error[] = "l'email general entré n'est pas sous le bon format";
+            $error[] = "-L'email général intégré n'est pas au bon format!";
             $vals['spo_email_general'] = '';
         }
         
@@ -414,7 +414,7 @@ class SponsorController extends Controller {
             $vals['spo_url'] = $url;
         }
         else {
-            $error[] = 'url invalide';
+            $error[] = '- Adresse url invalide!';
             $vals['spo_url'] = '';
         }
 
@@ -422,7 +422,7 @@ class SponsorController extends Controller {
             $vals['type'] = 'selected';
         }
         else{
-            $error[] = "veuillez cocher un type de sponsor";
+            $error[] = "- Veuillez cocher un type de sponsor!";
             $vals['type'] = '';
         }
 
@@ -437,17 +437,17 @@ class SponsorController extends Controller {
                         $extension = strtolower(substr($filename, $dotPos+1));
                         if (in_array($extension, $extensionAutorisees)) {
                             // Je déplace le fichier uploadé au bon endroit
-                            $photo = 'upload/sponsors/'.$string.$string2.'.'.$extension;
+                            $photo = '/upload/sponsors/'.$string.$string2.'.'.$extension;
                             $vals['spo_avatar'] = $photo;
                         }
                         else {
                             $photoVal = false;
-                            $error[] = 'extension interdite';
+                            $error[] = '- Extension de fichier interdite!';
                         }
                     }
                     else {
                         $photoVal = false;
-                        $error[] = 'fichier trop lourd';
+                        $error[] = '- Fichier trop volumineux!';
                     }
                 }
             }
@@ -456,11 +456,11 @@ class SponsorController extends Controller {
         if ($nameSponsorVal && $lastNameInChargeVal && $firstNameInChargeVal && $adressVal && $cityVal && $zipVal && $countryVal && $phoneVal && $mobileVal && $emailGeneralVal && $emailInChargeVal && $urlVal && $photoVal){
 
             if ($sponsorManager->update($vals,$_SESSION['user']['id'])) {
-                move_uploaded_file($fichier['tmp_name'],TMP.'/assets/upload/sponsors/'.$string.$string2.'.'.$extension);
+                move_uploaded_file($fichier['tmp_name'],TMP.'/upload/sponsors/'.$string.$string2.'.'.$extension);
                 $this->redirectToRoute('home');
             }
             else{
-                $error[] = "requete fail";
+                $error[] = "- Requête non aboutie!";
                 $this->show('sponsor/edit', ["error"=>$error, "vals"=>$vals, 'listTypeSponsor'=>$listTypeSponsor]);
             }
         }
@@ -533,7 +533,7 @@ class SponsorController extends Controller {
             $vals['spo_name_sponsors'] = $nameSponsor;
         }
         else{
-            $error[] = "veuillez entrer le nom du sposnor";
+            $error[] = "- Veuillez entrer le nom du sponsor!";
             $vals['spo_name_sponsors'] = '';
         }
 
@@ -542,7 +542,7 @@ class SponsorController extends Controller {
             $vals['spo_name_in_charge'] = $lastNameInCharge;
         }
         else{
-            $error[] = 'veuillez indiquez le Nom de la personne en charge';
+            $error[] = '- Veuillez indiquez le nom de la personne en charge!';
             $vals['spo_name_in_charge'] = '';
         }
 
@@ -551,7 +551,7 @@ class SponsorController extends Controller {
             $vals['spo_first_name_in_charge'] = $firstNameInCharge;
         }
         else{
-            $error[] = "veuillez entrer le Prenom de la personne en charge";
+            $error[] = "- Veuillez entrer le prénom de la personne en charge!";
             $vals['spo_first_name_in_charge'] = '';
         }
 
@@ -560,7 +560,7 @@ class SponsorController extends Controller {
             $vals['spo_address'] = $adress;
         }
         else{
-            $error[] = "veuillez indiquez l'adresse de l'exposant";
+            $error[] = "- Veuillez indiquez l'adresse du sponsor!";
             $vals['spo_address'] = '';
         }
 
@@ -569,7 +569,7 @@ class SponsorController extends Controller {
             $vals['spo_city'] = $city;
         }
         else{
-            $error[] = "veuillez indiquez la ville de l'exposant";
+            $error[] = "- Veuillez indiquez la ville du sponsor!";
             $vals['spo_city'] = '';
         }
 
@@ -578,7 +578,7 @@ class SponsorController extends Controller {
             $vals['spo_country'] = $country;
         }
         else{
-            $error[] = "veuillez un pays pour l'exposantt";
+            $error[] = "- Veuillez indiquer le pays du sponsor!";
             $vals['spo_country'] = '';
         }
 
@@ -587,7 +587,7 @@ class SponsorController extends Controller {
             $vals['spo_post_code'] = $zip;
         }
         else{
-            $error[] = 'veuillez indiquez votre Code postal';
+            $error[] = '- Veuillez indiquer un code postal!';
             $vals['spo_post_code'] = '';
         }
 
@@ -596,7 +596,7 @@ class SponsorController extends Controller {
             $vals['spo_phone'] = $phone;
         }
         else{
-            $error[] = 'veuillez entrer numero de telephone valide';
+            $error[] = '- Veuillez entrer un numéro de téléphone valide!';
             $vals['spo_phone'] = '';
         }
 
@@ -605,7 +605,7 @@ class SponsorController extends Controller {
             $vals['spo_mobile'] = $mobile;
         }
         else{
-            $error[] = 'veuillez entrer numero de telephone valide';
+            $error[] = '- Veuillez entrer un numéro de téléphone mobile valide!';
             $vals['spo_mobile'] = '';
         }
 
@@ -621,7 +621,7 @@ class SponsorController extends Controller {
             $vals['spo_email_incharge'] = $emailInCharge;
         }
         else {
-            $error[] = "l'email in charge entré n'est pas sous le bon format";
+            $error[] = "- L'email de la personne en charge intégré n'est pas au bon format!";
             $vals['spo_email_incharge'] = '';
         }
 
@@ -630,7 +630,7 @@ class SponsorController extends Controller {
             $vals['spo_email_general'] = $emailGeneral;
         }
         else {
-            $error[] = "l'email general entré n'est pas sous le bon format";
+            $error[] = "- L'email général intégré n'est pas au bon format!";
             $vals['spo_email_general'] = '';
         }
 
@@ -639,7 +639,7 @@ class SponsorController extends Controller {
             $vals['spo_url'] = $url;
         }
         else {
-            $error[] = 'url invalide';
+            $error[] = '- Adresse url invalide!';
             $vals['spo_url'] = '';
         }
 
@@ -648,7 +648,7 @@ class SponsorController extends Controller {
             $vals['type'] = 'selected';
         }
         else{
-            $error[] = "veuillez cocher un type de sponsor";
+            $error[] = "- Veuillez cocher un type de sponsor!";
             $vals['type'] = '';
         }
 
@@ -663,17 +663,17 @@ class SponsorController extends Controller {
                         $extension = strtolower(substr($filename, $dotPos+1));
                         if (in_array($extension, $extensionAutorisees)) {
                             // Je déplace le fichier uploadé au bon endroit
-                            $photo = 'upload/sponsors/'.$string.$string2.'.'.$extension;
+                            $photo = '/upload/sponsors/'.$string.$string2.'.'.$extension;
                             $vals['spo_avatar'] = $photo;
                         }
                         else {
                             $photoVal = false;
-                            $error[] = 'extension interdite';
+                            $error[] = '- Extension de fichier interdite!';
                         }
                     }
                     else {
                         $photoVal = false;
-                        $error[] = 'fichier trop lourd';
+                        $error[] = '- Fichier trop volumineux!';
                     }
                 }
             }
@@ -682,11 +682,11 @@ class SponsorController extends Controller {
         if ($nameSponsorVal && $lastNameInChargeVal && $firstNameInChargeVal && $adressVal && $cityVal && $zipVal && $countryVal && $phoneVal && $mobileVal && $emailGeneralVal && $emailInChargeVal && $urlVal && $photoVal && $typeVal){
 
             if ($sponsorManager->update($vals,$id)) {
-                move_uploaded_file($fichier['tmp_name'],TMP.'/assets/upload/sponsors/'.$string.$string2.'.'.$extension);
+                move_uploaded_file($fichier['tmp_name'],TMP.'/upload/sponsors/'.$string.$string2.'.'.$extension);
                 $this->redirectToRoute('home');
             }
             else{
-                $error[] = "requete fail";
+                $error[] = "- Requête non aboutie!";
                 $this->show('sponsor/edit', ["error"=>$error, "vals"=>$vals,'listTypeSponsor'=>$listTypeSponsor]);
             }
         }

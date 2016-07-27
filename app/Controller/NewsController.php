@@ -66,7 +66,7 @@ class NewsController extends Controller {
             $vals['con_title'] = $titre;
         }
         else{
-            $error[] = 'veuillez entrer un titre';
+            $error[] = '- Veuillez entrer un titre!';
             $vals['con_title'] = '';
         }
 
@@ -76,7 +76,7 @@ class NewsController extends Controller {
         }
 
         else{
-            $error[] = 'veuillez entrer une date de debut';
+            $error[] = '- Veuillez entrer une date de début!';
             $vals['con_date_start'] = '';
         }
 
@@ -85,7 +85,7 @@ class NewsController extends Controller {
             $vals['con_date_end'] = $dateFin;
         }
         else{
-            $error[] = 'veuillez entrer une date de debut';
+            $error[] = '- Veuillez entrer une date de fin!';
             $vals['con_date_end'] = '';
         }
 
@@ -93,7 +93,7 @@ class NewsController extends Controller {
             $dateDiffVal = true;
         }
         else{
-            $error[] = 'veuillez entrer une date de debut plus petite que la date de fin';
+            $error[] = '- Veuillez entrer une date de début inférieure à la date de fin!';
         }
 
         if ($synopsis != '') {
@@ -101,7 +101,7 @@ class NewsController extends Controller {
             $vals['con_synopsis'] = $synopsis;
         }
         else{
-            $error[] = 'veuillez entrer une synopsis';
+            $error[] = '- Veuillez entrer un synopsis!';
             $vals['con_synopsis'] = '';
         }
 
@@ -110,7 +110,7 @@ class NewsController extends Controller {
             $vals['con_description'] = $description;
         }
         else{
-            $error[] = 'veuillez entrer une description';
+            $error[] = '- Veuillez entrer une description!';
             $vals['con_description'] = '';
         }
 
@@ -129,32 +129,32 @@ class NewsController extends Controller {
                             // Je déplace le fichier uploadé au bon endroit
 
 
-                                $photo = 'upload/news/'.$string.$string2.'.'.$extension;
+                                $photo = 'upload/'.$string.$string2.'.'.$extension;
                                 $photoVal = true;
                                 $vals['con_avatar'] = $photo;
 
                         }
                         else {
-                            $error[] = 'extension interdite';
+                            $error[] = '- Extension de fichier interdite!';
                         }
                     }
                     else {
-                        $error[] = 'fichier trop lourd';
+                        $error[] = '- Fichier trop volumineux!';
                     }
                 }
             }
         }
         else{
-            $error[] = 'Pas de fichier selectioné';
+            $error[] = '- Pas de fichier selectionné!';
         }
 
         if ($titreVal && $dateDebutVal && $dateFinVal && $synopsisVal && $descriptionVal && $photoVal && $dateDiffVal){
-            move_uploaded_file($fichier['tmp_name'],TMP.'/assets/upload/news/'.$string.$string2.'.'.$extension);
+            move_uploaded_file($fichier['tmp_name'],TMP.'/upload/'.$string.$string2.'.'.$extension);
             $vals['con_type'] = "News";
             $vals['users_id'] = 1;//user connecter
             $vals['users_role_id'] = 1;//role de l'user connecter
             $vals['contenus_type_id'] = 1;
-            $vals['con_avatar'] = $photo;
+            $vals['con_avatar'] = '/upload/default/avatar.png';
             $newsManager->insert($vals);
             $this->redirectToRoute('news_liste');
             //$this->show('news/update', ['error' => $error, 'vals'=>$vals]);
@@ -217,7 +217,7 @@ class NewsController extends Controller {
             $vals['con_title'] = $titre;
         }
         else{
-            $error[] = 'veuillez entrer un titre';
+            $error[] = '- Veuillez entrer un titre!';
             $vals['con_title'] = '';
         }
 
@@ -226,7 +226,7 @@ class NewsController extends Controller {
             $vals['con_date_start'] = $dateDebut;
         }
         else{
-            $error[] = 'veuillez entrer une date de debut';
+            $error[] = '- Veuillez entrer une date de début!';
             $vals['con_date_start'] = '';
         }
 
@@ -235,7 +235,7 @@ class NewsController extends Controller {
             $vals['con_date_end'] = $dateFin;
         }
         else{
-            $error[] = 'veuillez entrer une date de debut';
+            $error[] = '- Veuillez entrer une date de fin!';
             $vals['con_date_end'] = '';
         }
 
@@ -243,7 +243,7 @@ class NewsController extends Controller {
             $dateDiffVal = true;
         }
         else{
-            $error[] = 'veuillez entrer une date de debut plus petite que la date de fin';
+            $error[] = '- Veuillez entrer une date de début inférieure à la date de fin!';
         }
 
         if ($synopsis != '') {
@@ -251,7 +251,7 @@ class NewsController extends Controller {
             $vals['con_synopsis'] = $synopsis;
         }
         else{
-            $error[] = 'veuillez entrer une synopsis';
+            $error[] = '- Veuillez entrer un synopsis!';
             $vals['con_synopsis'] = '';
         }
 
@@ -260,7 +260,7 @@ class NewsController extends Controller {
             $vals['con_description'] = $description;
         }
         else{
-            $error[] = 'veuillez entrer une description';
+            $error[] = '- Veuillez entrer une description!';
             $vals['con_description'] = '';
         }
 
@@ -280,19 +280,19 @@ class NewsController extends Controller {
                         }
                         else {
                             $photoVal = false;
-                            $error[] = 'extension interdite';
+                            $error[] = '- Extension de fichier interdite!';
                         }
                     }
                     else {
                         $photoVal = false;
-                        $error[] = 'fichier trop lourd';
+                        $error[] = '- Fichier trop volumineux!';
                     }
                 }
             }
         }
 
         if ($titreVal && $dateDebutVal && $dateFinVal && $synopsisVal && $descriptionVal && $dateDiffVal && $photoVal){
-            move_uploaded_file($fichier['tmp_name'],TMP.'/assets/upload/news/'.$string.$string2.'.'.$extension);
+            move_uploaded_file($fichier['tmp_name'],TMP.'/upload/news/'.$string.$string2.'.'.$extension);
             $newsManager->update($vals, $id);
             $this->redirectToRoute('news_liste');
             //$this->show('news/update', ['error' => $error, 'vals'=>$vals]);
