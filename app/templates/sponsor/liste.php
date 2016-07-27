@@ -8,7 +8,7 @@
 </div>
 
 <div id="sponsorLogos" class="col-sm-12 text-center center-block">
-    <div class="col-sm-12 sponsorsBreack">
+    <div class="col-sm-12 sponsorsBreack divider">
         <h3><span><strong>Premium Sponsors</strong></span></h3><br>
     </div>
     <div class="row sponsors">
@@ -33,7 +33,7 @@
     </div>
 
 
-    <div class="col-sm-12 sponsorsBreack">
+    <div class="col-sm-12 sponsorsBreack divider">
         <h3><span><strong>Automotive Sponsors</strong></span></h3><br>
     </div>
     <div class="row sponsors">
@@ -84,7 +84,7 @@
             <a href="http://www.hdl.lu/" target="_blank"><img class="img-responsive" src="<?= $this->assetUrl('../assets/logo/automotive sponsors/HarleyDavidson_logo.png') ?>"></a>
         </div>
     </div>
-    <div class="col-sm-12 sponsorsBreack">
+    <div class="col-sm-12 sponsorsBreack divider">
         <h3><span><strong>Sponsors</strong></span></h3><br>
     </div>
     <div class="row sponsors">
@@ -146,7 +146,7 @@
         </div>
     </div>
    
-    <div class="col-sm-12 sponsorsBreack">
+    <div class="col-sm-12 sponsorsBreack divider">
         <h3><span><strong>Media Partners</strong></span></h3><br>
     </div>
     <div class="row sponsors">
@@ -171,7 +171,7 @@
     </div>
     <div class="row sponsors">
     </div>
-    <div class="col-sm-12 sponsorsBreack">
+    <div class="col-sm-12 sponsorsBreack divider">
         <h3><span><strong>Friends</strong></span></h3><br>
     </div>
     <div class="row sponsors">

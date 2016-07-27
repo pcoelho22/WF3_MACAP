@@ -11,8 +11,8 @@
             <?php foreach ($listeExposants as $exposant): ?>
                 <li>
                     <p><?= $exposant['exp_name_exposants']?></p>
-                    <a class="" href="<?= $this->url('exposant_admin_edit',['id'=>$exposant['id']]) ?>"> Editer</a>
-                    <a class="" href="<?= $this->url('exposant_delete',['id'=>$exposant['id']]) ?>"> Supprimer</a>
+                    <a class="btn btn-primary btn-sm" href="<?= $this->url('exposant_admin_edit',['id'=>$exposant['id']]) ?>"> Editer</a>
+                    <a class="btn btn-danger btn-sm" href="<?= $this->url('exposant_delete',['id'=>$exposant['id']]) ?>"> Supprimer</a>
                 </li>
             <?php endforeach; ?>
         </ul>
