@@ -36,7 +36,7 @@ class UserController extends Controller {
         $userHasRoleManager = new UserHasRoleManager();
         
         if ($usr_id === 0) {
-            $erreur = "Login ou Mot de passe invalide";
+            $erreur = "- Login ou mot de passe invalide!";
             $this->show('default/login', ["erreur"=>$erreur]);
         } 
         else {
@@ -127,7 +127,7 @@ class UserController extends Controller {
             }
         }
         else{
-            $error[] = 'username pas assez long ou trop long (de 5 a 45 characteères max)';
+            $error[] = '- Pseudo pas assez long ou trop long (de 5 a 45 charactères max)';
             $vals['username'] = '';
         }
 
@@ -136,7 +136,7 @@ class UserController extends Controller {
             $vals['lastName'] = $lastName;
         }
         else{
-            $error[] = 'veuillez indiquez votre Nom';
+            $error[] = '- Veuillez indiquer un nom!';
             $vals['lastName'] = '';
         }
 
@@ -145,7 +145,7 @@ class UserController extends Controller {
             $vals['firstName'] = $firstName;
         }
         else{
-            $error[] = "veuillez entrer votre Prenom";
+            $error[] = "- Veuillez entrer un prénom!";
             $vals['firstName'] = '';
         }
 
@@ -154,7 +154,7 @@ class UserController extends Controller {
             $vals['adress'] = $adress;
         }
         else{
-            $error[] = "veuillez indiquez votre adresse";
+            $error[] = "- Veuillez indiquer une addresse!";
             $vals['adress'] = '';
         }
 
@@ -163,7 +163,7 @@ class UserController extends Controller {
             $vals['city'] = $city;
         }
         else{
-            $error[] = "veuillez indiquez votre ville";
+            $error[] = "- Veuillez indiquer une ville!";
             $vals['city'] = '';
         }
 
@@ -172,7 +172,7 @@ class UserController extends Controller {
             $vals['zip'] = $zip;
         }
         else{
-            $error[] = 'veuillez indiquez votre Code postal';
+            $error[] = '- Veuillez indiquer un code postal!';
             $vals['zip'] = '';
         }
 
@@ -181,7 +181,7 @@ class UserController extends Controller {
             $vals['phone'] = $phone;
         }
         else{
-            $error[] = 'veuillez entrer numero de telephone valide';
+            $error[] = '- Veuillez entrer un numéro de téléphone valide!';
             $vals['phone'] = '';
         }
 
@@ -194,7 +194,7 @@ class UserController extends Controller {
 
         if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
             if ($userManager->emailExists($email) == true){
-                $error[] = 'email deja utilsé';
+                $error[] = '- Email déjà utilsé!';
                 $vals['email'] = '';
             }
             else{
@@ -203,7 +203,7 @@ class UserController extends Controller {
             }
         }
         else {
-            $error[] = "l'email entré n'est pas sous le bon format";
+            $error[] = "- L'email intégré n'est pas au bon format!";
             $vals['email'] = '';
         }
         if(preg_match('/^(?=.*\d)(?=.*[a-x])(?=.*[A-Z]).{6,}$/', $password)){
@@ -212,12 +212,12 @@ class UserController extends Controller {
                 $vals['password'] = $password;
             }
             else{
-                $error[] = "Mot de passe invalide";
+                $error[] = "- Mot de passe invalide!";
                 $vals['password'] = '';
             }
         }
         else{
-            $error[] = "Mot de passe invalide";
+            $error[] = "- Mot de passe invalide!";
             $vals['password'] = '';
         }
 
@@ -262,7 +262,7 @@ class UserController extends Controller {
             $vals['role']['exposant'] = '';
             $vals['role']['sponsor'] = '';
             $vals['role']['rally'] = '';
-            $error[] = "Veuillez cochez une case svp";
+            $error[] = "- Veuillez cochez une case svp!";
         }
 
         if ($usernameVal && $lastNameVal && $firstNameVal && $adressVal && $cityVal && $zipVal && $phoneVal && $mailVal && $passwordVal && $roleVal){
@@ -294,14 +294,14 @@ class UserController extends Controller {
         $token = $userManager->setToken($email);
 
         if ($token == false){
-            $error = "Email pas trouver";
+            $error = "- Email non répertorié!";
             $this->show('default/forgot', ['error'=>$error]);
         }
         else{
             $href = $this->generateUrl('user_passReset', ['token'=>$token]);
             $actual_link = "http://$_SERVER[HTTP_HOST]$href";
 
-            self::email($email, "Configurer votre nouveau mot de passe : <a href=\" $actual_link\">Ici</a>", 'Mot de passe oublier?');
+            self::email($email, "- Configurez votre nouveau mot de passe : <a href=\" $actual_link\">Ici</a>", '- Mot de passe oublié?');
             $this->redirectToRoute('user_login');
             echo $actual_link;
         }
@@ -352,7 +352,7 @@ class UserController extends Controller {
             $vals['use_name'] = $lastName;
         }
         else{
-            $error[] = 'veuillez indiquez votre Nom';
+            $error[] = '- Veuillez indiquer un nom!';
             $vals['use_name'] = '';
         }
 
@@ -361,7 +361,7 @@ class UserController extends Controller {
             $vals['use_first_name'] = $firstName;
         }
         else{
-            $error[] = "veuillez entrer votre Prenom";
+            $error[] = "- Veuillez indiquer un prénom!";
             $vals['use_first_name'] = '';
         }
 
@@ -370,7 +370,7 @@ class UserController extends Controller {
             $vals['use_address'] = $adress;
         }
         else{
-            $error[] = "veuillez indiquez votre adresse";
+            $error[] = "- Veuillez indiquer une adresse!";
             $vals['use_address'] = '';
         }
 
@@ -379,7 +379,7 @@ class UserController extends Controller {
             $vals['use_city'] = $city;
         }
         else{
-            $error[] = "veuillez indiquez votre ville";
+            $error[] = "- Veuillez indiquer une ville!";
             $vals['use_city'] = '';
         }
 
@@ -388,7 +388,7 @@ class UserController extends Controller {
             $vals['use_post_code'] = $zip;
         }
         else{
-            $error[] = 'veuillez indiquez votre Code postal';
+            $error[] = '- Veuillez indiquer un code postal!';
             $vals['use_post_code'] = '';
         }
 
@@ -397,7 +397,7 @@ class UserController extends Controller {
             $vals['use_phone'] = $phone;
         }
         else{
-            $error[] = 'veuillez entrer numero de telephone valide';
+            $error[] = '- Veuillez entrer numéro de téléphone valide!';
             $vals['use_phone'] = '';
         }
 
@@ -414,12 +414,12 @@ class UserController extends Controller {
                 $vals['use_password'] = $password;
             }
             else{
-                $error[] = "Mot de passe invalide";
+                $error[] = "- Mot de passe invalide!";
                 $vals['use_password'] = '';
             }
         }
         else{
-            $error[] = "Mot de passe invalide";
+            $error[] = "- Mot de passe invalide!";
             $vals['use_password'] = '';
         }
 
@@ -480,7 +480,7 @@ class UserController extends Controller {
             $vals['use_name'] = $lastName;
         }
         else{
-            $error[] = 'veuillez indiquez votre Nom';
+            $error[] = '- Veuillez indiquer un nom!';
             $vals['use_name'] = '';
         }
 
@@ -489,7 +489,7 @@ class UserController extends Controller {
             $vals['use_first_name'] = $firstName;
         }
         else{
-            $error[] = "veuillez entrer votre Prenom";
+            $error[] = "- Veuillez indiquer un prénom!";
             $vals['use_first_name'] = '';
         }
 
@@ -498,7 +498,7 @@ class UserController extends Controller {
             $vals['use_address'] = $adress;
         }
         else{
-            $error[] = "veuillez indiquez votre adresse";
+            $error[] = "- Veuillez indiquer une adresse!";
             $vals['use_address'] = '';
         }
 
@@ -507,7 +507,7 @@ class UserController extends Controller {
             $vals['use_city'] = $city;
         }
         else{
-            $error[] = "veuillez indiquez votre ville";
+            $error[] = "- Veuillez indiquer une ville!";
             $vals['use_city'] = '';
         }
 
@@ -516,7 +516,7 @@ class UserController extends Controller {
             $vals['use_post_code'] = $zip;
         }
         else{
-            $error[] = 'veuillez indiquez votre Code postal';
+            $error[] = '- Veuillez indiquer un code postal!';
             $vals['use_post_code'] = '';
         }
 
@@ -525,7 +525,7 @@ class UserController extends Controller {
             $vals['use_phone'] = $phone;
         }
         else{
-            $error[] = 'veuillez entrer numero de telephone valide';
+            $error[] = '- Veuillez entrer unnuméro de téléphone valide!';
             $vals['use_phone'] = '';
         }
 
@@ -542,12 +542,12 @@ class UserController extends Controller {
                 $vals['use_password'] = $password;
             }
             else{
-                $error[] = "Mot de passe invalide";
+                $error[] = "- Mot de passe invalide!";
                 $vals['use_password'] = '';
             }
         }
         else{
-            $error[] = "Mot de passe invalide";
+            $error[] = "- Mot de passe invalide!";
             $vals['use_password'] = '';
         }
 
@@ -580,11 +580,11 @@ class UserController extends Controller {
                 $passwordVal = true;
             }
             else{
-                $error[] = "Les deux mot de passe de ne sont pas les mêmes";
+                $error[] = "- Les deux mots de passe doivent être identiques!";
             }
         }
         else{
-            $error[] = "Mot de passe invalide";
+            $error[] = "- Mot de passe invalide!";
         }
         
         if ($passwordVal){
