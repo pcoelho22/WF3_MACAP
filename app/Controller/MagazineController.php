@@ -49,7 +49,7 @@ class MagazineController extends Controller {
             $vals['mag_name'] = $magName;
         }
         else{
-            $error[] = 'veuillez indiquez le nom du magazine';
+            $error[] = '- Veuillez indiquer le nom du magazine!';
             $vals['mag_name'] = '';
         }
 
@@ -66,16 +66,16 @@ class MagazineController extends Controller {
                             $mag_path = 'WF3_MACAP/magazines/'.$filenamePdf;
                         }
                         else {
-                            $error[] = 'extension interdite (uniquement du pdf)';
+                            $error[] = '- Extension de fichier interdite (uniquement du pdf)!';
                         }
                     }
                     else {
-                        $error[] = 'le magazine souhaiter est trop lourd';
+                        $error[] = '- Le magazine souhaité est trop volumineux!';
                     }
                 }
         }
         else{
-            $error[] = 'Pas de fichier magazine selectioné';
+            $error[] = '- Pas de fichier magazine selectioné!';
         }
 
         if (!empty($_FILES['magazineCouv']['name'])) {
@@ -91,16 +91,16 @@ class MagazineController extends Controller {
                             $mag_couverture = 'WF3_MACAP/magazines/'.$filenameImg;
                         }
                         else {
-                            $error[] = 'extension interdite (uniquement jpg, jpeg, png, gif)';
+                            $error[] = '- Extension de fichier interdite (uniquement jpg, jpeg, png, gif)!';
                         }
                     }
                     else {
-                        $error[] = 'la couverture du magazine souhaiter est trop lourde';
+                        $error[] = '- La couverture du magazine souhaité est trop volumineuse!';
                     }
                 }
         }
         else{
-            $error[] = 'Pas de couverture selectioné';
+            $error[] = '- Pas de couverture selectionnée!';
         }
 
         if ($magNameVal && $imgVal && $pdfVal){
@@ -114,7 +114,7 @@ class MagazineController extends Controller {
                 $this->redirectToRoute('magazine_liste');
             }
             else{
-                $error[] = "requete fail";
+                $error[] = "- Requête non aboutie!";
                 $this->show('magazine/add', ["error"=>$error, "vals"=>$vals]);
             }
         }
@@ -152,7 +152,7 @@ class MagazineController extends Controller {
             $vals['mag_name'] = $magName;
         }
         else{
-            $error[] = 'veuillez indiquez le nom du magazine';
+            $error[] = '- Veuillez indiquer le nom du magazine!';
             $vals['mag_name'] = '';
         }
 
@@ -170,12 +170,12 @@ class MagazineController extends Controller {
                     }
                     else {
                         $pdfVal = false;
-                        $error[] = 'extension interdite (uniquement du pdf)';
+                        $error[] = '- Extension de fichier interdite (uniquement du pdf)!';
                     }
                 }
                 else {
                     $pdfVal = false;
-                    $error[] = 'le magazine souhaiter est trop lourd';
+                    $error[] = '- Le magazine souhaité est trop volumineux!';
                 }
             }
         }
@@ -194,12 +194,12 @@ class MagazineController extends Controller {
                     }
                     else {
                         $imgVal = false;
-                        $error[] = 'extension interdite (uniquement jpg, jpeg, png, gif)';
+                        $error[] = '- Extension de fichier interdite (uniquement jpg, jpeg, png, gif)!';
                     }
                 }
                 else {
                     $imgVal = false;
-                    $error[] = 'la couverture du magazine souhaiter est trop lourde';
+                    $error[] = '- La couverture du magazine souhaité est trop volumineuse!';
                 }
             }
         }
@@ -212,7 +212,7 @@ class MagazineController extends Controller {
                 $this->redirectToRoute('magazine_liste');
             }
             else{
-                $error[] = "requete fail";
+                $error[] = "- Requête non aboutie!";
                 $this->show('magazine/edit', ["error"=>$error, "vals"=>$vals]);
             }
         }

@@ -36,6 +36,7 @@
                 <input id="magazineCouv" type="file" name="magazineCouv" class="form-control text-left">
             </div>
             <span class="help-block"></span>
+            <a class="btn btn-default btn-sm" href="<?= $this->url('magazine_liste') ?>"><i class="fa fa-angle-left fa-fw"></i> Retour</a>
             <button class="btn btn-primary btn-sm active" type="submit"><i class="fa fa-pencil fa-fw"></i> Modifier le Magazine</button>
             <br>
             <h4>Une fois la modification validée, vous serez redirigé vers la liste des magazines.</h4>
@@ -59,6 +60,7 @@
                 <input id="magazineCouv" type="file" name="magazineCouv" class="form-control text-left">
             </div>
             <span class="help-block"></span>
+            <a class="btn btn-default btn-sm" href="<?= $this->url('magazine_liste') ?>"><i class="fa fa-angle-left fa-fw"></i> Retour</a>
             <button class="btn btn-primary btn-sm active" type="submit"><i class="fa fa-pencil fa-fw"></i> Modifier le Magazine</button>
             <br>
             <h4>Une fois la modification validée, vous serez redirigé vers la liste des magazines.</h4>

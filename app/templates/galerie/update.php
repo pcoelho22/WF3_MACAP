@@ -36,6 +36,7 @@
                 <textarea id="description" name="description" rows="10" placeholder="Description" class="form-control text-left"><?= $galerieDetails['gal_description'] ?></textarea>
             </div>
             <span class="help-block"></span>
+            <a class="btn btn-default btn-sm" href="<?= $this->url('galerie_liste') ?>"><i class="fa fa-angle-left fa-fw"></i> Retour</a>
             <button class="btn btn-primary btn-sm active" type="submit"><i class="fa fa-pencil fa-fw"></i> Modifier la galerie</button>
         </form>
     </div>
@@ -57,6 +58,7 @@
                 <textarea id="description" name="description" rows="10" placeholder="Description" class="form-control text-left"><?= $vals['gal_description'] ?></textarea>
             </div>
             <span class="help-block"></span>
+            <a class="btn btn-default btn-sm" href="<?= $this->url('galerie_liste') ?>"><i class="fa fa-angle-left fa-fw"></i> Retour</a>
             <button class="btn btn-primary btn-sm active" type="submit"><i class="fa fa-pencil fa-fw"></i> Modifier la galerie</button>
         </form>
     </div>

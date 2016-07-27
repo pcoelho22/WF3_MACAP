@@ -66,6 +66,7 @@
                 <input id="email" type="email" name="email" value="<?= $vals['email'] ?>" placeholder="Email" class="form-control text-left">
             </div>
             <span class="help-block"></span>
+            <a class="btn btn-default btn-sm" href="<?= $this->url('admin_listeParticipants') ?>"><i class="fa fa-angle-left fa-fw"></i> Retour</a>
             <button class="btn btn-primary btn-sm active" type="submit"><i class="fa fa-pencil-square-o fa-fw"></i> Ajouter le Participant</button>
             <br>
             <h4>Une fois l'ajout validé, vous serez redirigé vers la page d'accueil.</h4>
@@ -120,6 +121,7 @@
                 <input id="email" type="email" name="email" value="" placeholder="Email" class="form-control text-left">
             </div>
             <span class="help-block"></span>
+            <a class="btn btn-default btn-sm" href="<?= $this->url('admin_listeParticipants') ?>"><i class="fa fa-angle-left fa-fw"></i> Retour</a>
             <button class="btn btn-primary btn-sm active" type="submit"><i class="fa fa-pencil-square-o fa-fw"></i> Ajouter le Participant</button>
             <br>
             <h4>Une fois l'ajout validé, vous serez redirigé vers la page d'accueil.</h4>
