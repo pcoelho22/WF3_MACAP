@@ -31,17 +31,17 @@
     <body>
         <header>
             <div class="container">
-                <div class="row">
-                    <div class="col-md-4 text-left">
+                <div class="row"> 
+                    <div class="col-sm-4 text-left">
                         <ul class="list-inline no-margin-top small">
                             <li><a href="http://www.gdc.lu/" target="_blank"><img src="<?= $this->assetUrl('img/GDCI_logo.jpg') ?>" class="img-responsive"></a></li>
                             <li><a href="http://www.fiva.org/newsite/" target="_blank"><img src="<?= $this->assetUrl('img/FIVA_logo.png') ?>" class="img-responsive"></a></li>
                         </ul>
                     </div>
 
-                    <div class="col-md-4 text-center">
+                    <div class="col-md-4 text-center">                
                         <a id="mainLogo" class="logo">
-                            <img src="<?= $this->assetUrl('img/MondorfLogoLast.jpg') ?>" class="img-responsive"></a>
+                            <img src="<?= $this->assetUrl('img/MondorfLogoLast.jpg') ?>" class="img-responsive"></a>     
                     </div>
 
                     <div class="col-md-4 text-right">
@@ -51,45 +51,19 @@
                                 <li><a href="<?= $this->url('user_signup') ?>"><button type="button" class="btn btn-default btn-sm"><span class="fa fa-user" aria-hidden="true"></span> Enregistrement</button></a>
                                 </li>
 
-                                <li class="no-margin-top small">
+                                <li class="no-margin-top small">                
                                     <a href="<?= $this->url('user_login') ?>"><button type="button" class="btn btn-default btn-sm"><span class="fa fa-sign-in" aria-hidden="true"></span> Login</button></a>
                                 </li>
                             </ul>
                         <?php else: ?>
                             <div class="no-margin-top small">
                                 <ul class="list-inline no-margin-top small">
-
                                     <li>
-                                        <h4><img alt="image" src="<?= $this->assetUrl('img/avatar.png') ?>" alt="avatar" width="30px" height="32px"> <?= $_SESSION['user']['use_userName'] ?></h4>
+                                        <h4><img src="<?= $this->assetUrl('img/avatar.png') ?>" alt="avatar" width="30px" height="32px"> <?= $_SESSION['user']['use_userName'] ?></h4>
                                     </li>
-                                    <?php if($_SESSION['user']['use_role_opt1'] === '2'): ?>
-                                        <li>
-                                            <a class="btn btn-default btn-md" href="<?= $this->url('admin_home') ?>">Menu administrateur</a>
-                                        </li>
-                                    <?php endif; ?>
                                     <li class="no-margin-top">
-                                        <a class="btn btn-default btn-sm" href="<?= $this->url('user_logout') ?>"><span class="fa fa-power-off fa-fw" aria-hidden="true"></span> Se déconnecter</a>   
-                                    <li>
-                                        <a class="btn btn-default btn-sm" href="<?= $this->url('user_edit') ?>"><span class="fa fa-pencil fa-fw" aria-hidden="true"></span> Editer votre profil</a>
+                                        <a class="btn btn-link btn-md" href="<?= $this->url('user_logout') ?>"><span class="fa fa-power-off" aria-hidden="true"></span> Se déconnecter</a>
                                     </li>
-                                <?php if(isset($_SESSION['roles'])): ?>
-                                    </li>
-                                <?php if (in_array('3', $_SESSION['roles'])): ?>
-                                    <li>
-                                        <a class="btn btn-default btn-sm" href="<?= $this->url('participant_edit') ?>">editer votre profil de participant</a>
-                                    </li>
-                                <?php endif; ?>
-                                    <?php if (in_array('4', $_SESSION['roles'])): ?>
-                                    <li>
-                                        <a class="btn btn-default btn-sm" href="<?= $this->url('exposant_edit') ?>">editer votre profil d'exposant</a>
-                                    </li>
-                                <?php endif; ?>
-                                    <?php if (in_array('5', $_SESSION['roles'])): ?>
-                                    <li>
-                                        <a class="btn btn-default btn-sm" href="<?= $this->url('sponsor_edit') ?>">editer votre profil de sponsor</a>
-                                    </li>
-                                <?php endif; ?>
-                            <?php endif; ?>
                                 </ul>
                             </div>
 
@@ -100,6 +74,7 @@
 
             <div class="navbar navbar-default" role="navigation">
                 <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
                             <span class="sr-only">Toggle navigation</span>
@@ -109,7 +84,7 @@
                         </button>
                         <div class="visible-xs">
                             <strong><a class="navbar-brand" href="<?= $this->url('home') ?>">concours-mondorf.lu</a></strong>
-                        </div>
+                        </div>  
                     </div>
 
                     <div class="collapse navbar-collapse" id="centerednav">
@@ -122,43 +97,41 @@
                                     <li><a href="<?= $this->url('news_liste') ?>">NEWS</a></li>
                                     <li><a href="<?= $this->url('reportages_liste') ?>">REPORTAGES</a></li>
                                     <li><a href="<?= $this->url('magazine_liste') ?>">MAGAZINE</a></li>
-                                </ul>
-                            </li>
+                                </ul>                 
+                            </li>          
                             <li><a href="<?= $this->url('sponsor_liste') ?>">SPONSORS</a></li>
                             <li><a href="<?= $this->url('galerie_liste') ?>">GALERIE</a></li>
                             <li><a href="#">SHOP</a></li>
-                            <li><a href="<?= $this->url('default_charite') ?>">CHARITÉ</a></li>
-                            <li><a href="<?= $this->url('default_aboutus') ?>">ABOUT US</a></li>
+                            <li><a href="#">CHARITÉ</a></li>
+                            <li><a href="#">ABOUT US</a></li>
                         </ul>
-                    </div>
-                </div>
+                    </div><!--/.nav-collapse -->
+                </div> <!-- /.container --> 
             </div>
         </header>
 
-
-        <section class="container">
+        <div class="container">
             <?= $this->section('main_content') ?>
-        </section>
-
+        </div>
         <footer id="footer">
             <div class="container">
-                <div class="row">
-                    <div id="contactUs" class="col-sm-4 text-center">
+                <div class="row"> 
+                    <div class="col-sm-4 text-center">
                         <br>
                         <ul class="list-inline small">
-                            <li><a class="btn btn-default btn-sm" href="<?= $this->url('default_contact') ?>"><span class="fa fa-phone" aria-hidden="true"></span> Nous contacter</a></li>
+                            <li><a href="" class="link-internal grey small"><button type="button" class="btn btn-default btn-sm"><span class="fa fa-home" aria-hidden="true"></span> Top</button></a></li>                
                         </ul>
                     </div>
 
                     <div class="col-md-4 text-center">
                         <div class="set squared icon-inflate">
-                            <a href="http://www.facebook.com/concoursMondorf" target="_blank" class="social facebook">Facebook</a>
+                            <a href="http://www.facebook.com/concoursMondorf"target="_blank" class="social facebook">Facebook</a>
                             <a href="https://twitter.com/GD_Luxembourg" target="_blank" class="social twitter">Twitter</a>
                             <a href="https://plus.google.com/explore" target="_blank" class="social google-plus">Google+</a>
                             <a href="https://www.instagram.com/" target="_blank" class="social instagram">Instagram</a>
                             <a href="https://www.youtube.com/" target="_blank" class="social youtube">Youtube</a>
                         </div>
-                    </div>
+                    </div>                      
                     <div class="col-sm-4 text-center">
                         <ul class="list-inline small">
                             <li><a href="http://www.make-a-wish.lu/" target="_blank"><img src="<?= $this->assetUrl('img/MAW.jpg') ?>" class="img-responsive"></a></li>
@@ -168,17 +141,15 @@
                 <div class='row'>
                     <div class="col-12 text-center">
                         <ul class="list-inline no-margin-bottom small">
-                            <li><a href="<?= $this->url('default_termsandconditions') ?>" class="small" target="self">Terms &amp; Conditions</a></li>
-                            <li><a href="<?= $this->url('default_sitemap') ?>" class="small" target="self">Site Map</a></li>
-                        </ul>
+                            <li><a href="/terms-conditions" class="small" target="self">Terms &amp; Conditions</a></li>
+                            <li><a href="/en/sitemap" class="small" target="self">Site Map</a></li>
+                        </ul>               
                         <a href="http://www.mc-app.eu" class="small" target="self">© Designed by McAPP 2016</a>
                     </div>
                 </div>
             </div>
         </footer>
-        <script async defer
-                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAs9-9EPpqbSPCd1_r5_lgpmNjc6EuR6Xg&callback=initMap">
-        </script>
-        <script type="text/javascript" src="<?= $this->assetUrl('js/script.js') ?>"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script type="text/javascript" src="jquery.gallery.js"></script>
     </body>
 </html>

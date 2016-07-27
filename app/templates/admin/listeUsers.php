@@ -1,7 +1,7 @@
 <?php $this->layout('layout', ['title' => 'Liste des Utilisateurs du site']) ?>
 
 <?php $this->start('main_content') ?>
-<h2>Liste des Utilisateurs</h2>
+<h2>Page Administration - Liste des Utilisateurs</h2>
 <div class="row">
 	<div class="col-md-12 text-left">
 	    <ul class="no-margin-top">
@@ -15,6 +15,7 @@
 	        </li>
 	        <?php endforeach; ?>
 	    </ul>
+    	<a class="btn btn-default btn-sm" href="<?= $this->url('admin_home') ?>"><i class="fa fa-angle-left fa-fw"></i> Retour</a>
     </div>
 </div>
 <?php $this->stop('main_content') ?>

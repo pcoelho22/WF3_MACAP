@@ -70,7 +70,7 @@ class ExposantController extends Controller {
             $vals['nameExposant'] = $nameExposant;    
         }
         else{
-            $error[] = "veuillez entrer le nom de l'exposant";
+            $error[] = "- Veuillez entrer le nom de l'exposant!";
             $vals['nameExposant'] = '';
         }
 
@@ -79,7 +79,7 @@ class ExposantController extends Controller {
             $vals['lastNameInCharge'] = $lastNameInCharge;
         }
         else{
-            $error[] = 'veuillez indiquez le Nom de la personne en charge';
+            $error[] = '- Veuillez indiquez le nom de la personne en charge!';
             $vals['lastNameInCharge'] = '';
         }
 
@@ -88,7 +88,7 @@ class ExposantController extends Controller {
             $vals['firstNameInCharge'] = $firstNameInCharge;
         }
         else{
-            $error[] = "veuillez entrer le Prenom de la personne en charge";
+            $error[] = "- Veuillez entrer le prénom de la personne en charge!";
             $vals['firstNameInCharge'] = '';
         }
 
@@ -97,8 +97,9 @@ class ExposantController extends Controller {
             $vals['address'] = $address;
         }
         else{
-            $error[] = "veuillez indiquez l'adresse de l'exposant";
-            $vals['address'] = '';
+
+            $error[] = "- Veuillez indiquez l'adresse de l'exposant!";
+            $vals['adress'] = '';
         }
         
         if (strlen($city) >= 5) {
@@ -106,7 +107,7 @@ class ExposantController extends Controller {
             $vals['city'] = $city;
         }
         else{
-            $error[] = "veuillez indiquez la ville de l'exposant";
+            $error[] = "- Veuillez indiquez la ville de l'exposant!";
             $vals['city'] = '';
         }
         
@@ -115,7 +116,7 @@ class ExposantController extends Controller {
             $vals['country'] = $country;
         }
         else{
-            $error[] = "veuillez un pays pour l'exposantt";
+            $error[] = "- Veuillez indiquer le pays de l'exposant!";
             $vals['country'] = '';
         }
 
@@ -124,7 +125,7 @@ class ExposantController extends Controller {
             $vals['zip'] = $zip;
         }
         else{
-            $error[] = 'veuillez indiquez votre Code postal';
+            $error[] = '- Veuillez indiquer un code postal!';
             $vals['zip'] = '';
         }
 
@@ -133,7 +134,7 @@ class ExposantController extends Controller {
             $vals['phone'] = $phone;
         }
         else{
-            $error[] = 'veuillez entrer numero de telephone valide';
+            $error[] = '- Veuillez entrer un numéro de téléphone valide!';
             $vals['phone'] = '';
         }
         
@@ -142,7 +143,7 @@ class ExposantController extends Controller {
             $vals['mobile'] = $mobile;
         }
         else{
-            $error[] = 'veuillez entrer numero de telephone valide';
+            $error[] = '- Veuillez entrer numéro de téléphone mobile valide!';
             $vals['mobile'] = '';
         }
 
@@ -158,7 +159,7 @@ class ExposantController extends Controller {
             $vals['emailInCharge'] = $emailInCharge;
         }
         else {
-            $error[] = "l'email in charge entré n'est pas sous le bon format";
+            $error[] = "- L'email de la personne en charge intégré n'est pas au bon format!";
             $vals['emailInCharge'] = '';
         }
         
@@ -167,7 +168,7 @@ class ExposantController extends Controller {
             $vals['emailGeneral'] = $emailGeneral;
         }
         else {
-            $error[] = "l'email general entré n'est pas sous le bon format";
+            $error[] = "- L'email général intégré n'est pas au bon format!";
             $vals['emailGeneral'] = '';
         }
         
@@ -176,7 +177,7 @@ class ExposantController extends Controller {
             $vals['description'] = $description;
         }
         else{
-            $error[] = 'veuillez entrer une desciption';
+            $error[] = '- Veuillez entrer une desciption!';
             $vals['description'] = '';
         }
         
@@ -185,7 +186,7 @@ class ExposantController extends Controller {
             $vals['url'] = $url;
         }
         else {
-            $error[] = 'url invalide';
+            $error[] = '- Adresse url invalide!';
             $vals['url'] = '';
         }
 
@@ -214,12 +215,11 @@ class ExposantController extends Controller {
                 $this->redirectToRoute('home');
             }
             else{
-                $error[] = "requete fail";
+                $error[] = "- Requête non aboutie!";
                 $this->show('exposant/add', ["error"=>$error, "vals"=>$vals]);
             }
         }
         else{
-            $error[] = "fail inconnu";
             $this->show('exposant/add', ["error"=>$error, "vals"=>$vals]);
         }
     }
@@ -281,7 +281,7 @@ class ExposantController extends Controller {
             $vals['nameExposant'] = $nameExposant;
         }
         else{
-            $error[] = "veuillez entrer le nom de l'exposant";
+            $error[] = "- Veuillez entrer le nom de l'exposant!";
             $vals['nameExposant'] = '';
         }
 
@@ -290,7 +290,7 @@ class ExposantController extends Controller {
             $vals['lastNameInCharge'] = $lastNameInCharge;
         }
         else{
-            $error[] = 'veuillez indiquez le Nom de la personne en charge';
+            $error[] = '- Veuillez indiquez le nom de la personne en charge!';
             $vals['lastNameInCharge'] = '';
         }
 
@@ -299,7 +299,7 @@ class ExposantController extends Controller {
             $vals['firstNameInCharge'] = $firstNameInCharge;
         }
         else{
-            $error[] = "veuillez entrer le Prenom de la personne en charge";
+            $error[] = "- Veuillez entrer le prénom de la personne en charge!";
             $vals['firstNameInCharge'] = '';
         }
 
@@ -308,7 +308,7 @@ class ExposantController extends Controller {
             $vals['address'] = $address;
         }
         else{
-            $error[] = "veuillez indiquez l'adresse de l'exposant";
+            $error[] = "- Veuillez indiquer l'adresse de l'exposant!";
             $vals['address'] = '';
         }
 
@@ -317,7 +317,7 @@ class ExposantController extends Controller {
             $vals['city'] = $city;
         }
         else{
-            $error[] = "veuillez indiquez la ville de l'exposant";
+            $error[] = "- Veuillez indiquer la ville de l'exposant!";
             $vals['city'] = '';
         }
 
@@ -326,7 +326,7 @@ class ExposantController extends Controller {
             $vals['country'] = $country;
         }
         else{
-            $error[] = "veuillez un pays pour l'exposantt";
+            $error[] = "- Veuillez indiquer le pays de l'exposant!";
             $vals['country'] = '';
         }
 
@@ -335,7 +335,7 @@ class ExposantController extends Controller {
             $vals['zip'] = $zip;
         }
         else{
-            $error[] = 'veuillez indiquez votre Code postal';
+            $error[] = '- Veuillez indiquer votre code postal!';
             $vals['zip'] = '';
         }
 
@@ -344,7 +344,7 @@ class ExposantController extends Controller {
             $vals['phone'] = $phone;
         }
         else{
-            $error[] = 'veuillez entrer numero de telephone valide';
+            $error[] = '- Veuillez entrer numéro de téléphone valide!';
             $vals['phone'] = '';
         }
 
@@ -353,7 +353,7 @@ class ExposantController extends Controller {
             $vals['mobile'] = $mobile;
         }
         else{
-            $error[] = 'veuillez entrer numero de telephone valide';
+            $error[] = '- Veuillez entrer numéro de téléphone mobile valide!';
             $vals['mobile'] = '';
         }
 
@@ -369,7 +369,7 @@ class ExposantController extends Controller {
             $vals['emailInCharge'] = $emailInCharge;
         }
         else {
-            $error[] = "l'email in charge entré n'est pas sous le bon format";
+            $error[] = "- L'email de la personne en charge intégré n'est pas au bon format!";
             $vals['emailInCharge'] = '';
         }
 
@@ -378,7 +378,7 @@ class ExposantController extends Controller {
             $vals['emailGeneral'] = $emailGeneral;
         }
         else {
-            $error[] = "l'email general entré n'est pas sous le bon format";
+            $error[] = "- L'email général intégré n'est pas au bon format!";
             $vals['emailGeneral'] = '';
         }
 
@@ -387,7 +387,7 @@ class ExposantController extends Controller {
             $vals['description'] = $description;
         }
         else{
-            $error[] = 'veuillez entrer une desciption';
+            $error[] = '- Veuillez entrer une desciption!';
             $vals['description'] = '';
         }
 
@@ -396,7 +396,7 @@ class ExposantController extends Controller {
             $vals['url'] = $url;
         }
         else {
-            $error[] = 'url invalide';
+            $error[] = '- Adresse url invalide!';
             $vals['url'] = '';
         }
 
@@ -410,17 +410,17 @@ class ExposantController extends Controller {
                         $dotPos = strrpos($filename, '.');
                         $extension = strtolower(substr($filename, $dotPos+1));
                         if (in_array($extension, $extensionAutorisees)) {
-                            $photo = 'upload/exposants/'.$string.$string2.'.'.$extension;
+                            $photo = '/upload/exposants/'.$string.$string2.'.'.$extension;
                             $vals['spo_avatar'] = $photo;
                         }
                         else {
                             $photoVal = false;
-                            $error[] = 'extension interdite';
+                            $error[] = '- Extension de fichier interdite!';
                         }
                     }
                     else {
                         $photoVal = false;
-                        $error[] = 'fichier trop lourd';
+                        $error[] = '- Fichier trop volumineux!';
                     }
                 }
             }
@@ -446,11 +446,14 @@ class ExposantController extends Controller {
                 'exp_url' => $url,
                 'users_id'=> $userId['id']],
                 $_SESSION['user']['id'])) {
-                move_uploaded_file($fichier['tmp_name'],TMP.'/assets/upload/exposants/'.$string.$string2.'.'.$extension);
+
+                move_uploaded_file($fichier['tmp_name'],TMP.'/upload/exposants/'.$string.$string2.'.'.$extension);
+                $userHasRoleManager = new UserHasRoleManager();
+                $userHasRoleManager->insert(['users_id'=>$userId['id'], 'role_id'=>AuthorizationManager::ROLEEXPOSANT]);
                 $this->redirectToRoute('home');
             }
             else{
-                $error[] = "requete fail";
+                $error[] = "- Requête non aboutie!";
                 $this->show('exposant/edit', ["error"=>$error, "vals"=>$vals]);
             }
         }
@@ -515,7 +518,7 @@ class ExposantController extends Controller {
             $vals['nameExposant'] = $nameExposant;    
         }
         else{
-            $error[] = "veuillez entrer le nom de l'exposant";
+            $error[] = "- Veuillez entrer le nom de l'exposant!";
             $vals['nameExposant'] = '';
         }
 
@@ -524,7 +527,7 @@ class ExposantController extends Controller {
             $vals['lastNameInCharge'] = $lastNameInCharge;
         }
         else{
-            $error[] = 'veuillez indiquez le Nom de la personne en charge';
+            $error[] = '- Veuillez indiquer le nom de la personne en charge!';
             $vals['lastNameInCharge'] = '';
         }
 
@@ -533,7 +536,7 @@ class ExposantController extends Controller {
             $vals['firstNameInCharge'] = $firstNameInCharge;
         }
         else{
-            $error[] = "veuillez entrer le Prenom de la personne en charge";
+            $error[] = "- Veuillez entrer le prénom de la personne en charge!";
             $vals['firstNameInCharge'] = '';
         }
 
@@ -542,7 +545,8 @@ class ExposantController extends Controller {
             $vals['address'] = $address;
         }
         else{
-            $error[] = "veuillez indiquez l'addresse de l'exposant";
+
+            $error[] = "- Veuillez indiquer l'adresse de l'exposant!";
             $vals['address'] = '';
         }
         
@@ -551,7 +555,7 @@ class ExposantController extends Controller {
             $vals['city'] = $city;
         }
         else{
-            $error[] = "veuillez indiquez la ville de l'exposant";
+            $error[] = "- Veuillez indiquer la ville de l'exposant!";
             $vals['city'] = '';
         }
         
@@ -560,7 +564,7 @@ class ExposantController extends Controller {
             $vals['country'] = $country;
         }
         else{
-            $error[] = "veuillez un pays pour l'exposantt";
+            $error[] = "- Veuillez indiquer le pays de l'exposant!";
             $vals['country'] = '';
         }
 
@@ -569,7 +573,7 @@ class ExposantController extends Controller {
             $vals['zip'] = $zip;
         }
         else{
-            $error[] = 'veuillez indiquez votre Code postal';
+            $error[] = '- Veuillez indiquer un code postal!';
             $vals['zip'] = '';
         }
 
@@ -578,7 +582,7 @@ class ExposantController extends Controller {
             $vals['phone'] = $phone;
         }
         else{
-            $error[] = 'veuillez entrer numero de telephone valide';
+            $error[] = '- Veuillez entrer numéro de téléphone valide!';
             $vals['phone'] = '';
         }
         
@@ -587,7 +591,7 @@ class ExposantController extends Controller {
             $vals['mobile'] = $mobile;
         }
         else{
-            $error[] = 'veuillez entrer numero de telephone valide';
+            $error[] = '- Veuillez entrer numéro de téléphone mobile valide!';
             $vals['mobile'] = '';
         }
 
@@ -603,7 +607,7 @@ class ExposantController extends Controller {
             $vals['emailInCharge'] = $emailInCharge;
         }
         else {
-            $error[] = "l'email in charge entré n'est pas sous le bon format";
+            $error[] = "-L'email de la personne en charge intégré n'est pas au bon format!";
             $vals['emailInCharge'] = '';
         }
         
@@ -612,7 +616,7 @@ class ExposantController extends Controller {
             $vals['emailGeneral'] = $emailGeneral;
         }
         else {
-            $error[] = "l'email general entré n'est pas sous le bon format";
+            $error[] = "-L'email général intégré n'est pas au bon format!";
             $vals['emailGeneral'] = '';
         }
         
@@ -621,7 +625,7 @@ class ExposantController extends Controller {
             $vals['description'] = $description;
         }
         else{
-            $error[] = 'veuillez entrer une desciption';
+            $error[] = '- Veuillez entrer une desciption!';
             $vals['description'] = '';
         }
         
@@ -630,7 +634,7 @@ class ExposantController extends Controller {
             $vals['url'] = $url;
         }
         else {
-            $error[] = 'url invalide';
+            $error[] = '- Adresse url invalide!';
             $vals['url'] = '';
         }
 
@@ -644,17 +648,17 @@ class ExposantController extends Controller {
                         $dotPos = strrpos($filename, '.');
                         $extension = strtolower(substr($filename, $dotPos+1));
                         if (in_array($extension, $extensionAutorisees)) {
-                            $photo = 'upload/exposants/'.$string.$string2.'.'.$extension;
+                            $photo = '/upload/exposants/'.$string.$string2.'.'.$extension;
                             $vals['spo_avatar'] = $photo;
                         }
                         else {
                             $photoVal = false;
-                            $error[] = 'extension interdite';
+                            $error[] = '- Extension de fichier interdite!';
                         }
                     }
                     else {
                         $photoVal = false;
-                        $error[] = 'fichier trop lourd';
+                        $error[] = '- Fichier trop volumineux!';
                     }
                 }
             }
@@ -679,11 +683,11 @@ class ExposantController extends Controller {
                 'exp_description_exposants' => $description,
                 'exp_url' => $url],
                 $id)) {
-                move_uploaded_file($fichier['tmp_name'],TMP.'/assets/upload/exposants/'.$string.$string2.'.'.$extension);
+                move_uploaded_file($fichier['tmp_name'],TMP.'/upload/exposants/'.$string.$string2.'.'.$extension);
                 $this->redirectToRoute('home');
             }
             else{
-                $error[] = "requete fail";
+                $error[] = "- Requête non aboutie!";
                 $this->show('exposant/edit', ["error"=>$error, "vals"=>$vals]);
             }
         }

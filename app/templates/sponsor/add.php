@@ -95,8 +95,9 @@
                 </select>
             </div>
             <span class="help-block"></span>
+            <a class="btn btn-default btn-sm" href="<?= $this->url('admin_listeSponsors') ?>"><i class="fa fa-angle-left fa-fw"></i> Retour</a>
             <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Sponsor" href="#"><i class="fa fa-user fa-fw"></i> Ajouter le Sponsor</button>
-            <br>
+  
             <h4>Une fois l'ajout validé, vous serez redirigé vers la page d'accueil.</h4>
         </form>
     </div>
@@ -179,6 +180,7 @@
             </div>
 
             <span class="help-block"></span>
+            <a class="btn btn-default btn-sm" href="<?= $this->url('admin_listeSponsors') ?>"><i class="fa fa-angle-left fa-fw"></i> Retour</a>
             <button class="btn btn-primary btn-sm active" type="submit" value="Ajouter Exposant" href="#"><i class="fa fa-user fa-fw"></i> Ajouter le Sponsor</button>
             <br>
             <h4>Une fois l'ajout validé, vous serez redirigé vers la page d'accueil.</h4>

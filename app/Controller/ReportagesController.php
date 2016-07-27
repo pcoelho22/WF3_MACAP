@@ -63,7 +63,7 @@ class ReportagesController extends Controller {
             $vals['con_title'] = $titre;
         }
         else{
-            $error[] = 'veuillez entrer un titre';
+            $error[] = '- Veuillez entrer un titre!';
             $vals['con_title'] = '';
         }
 
@@ -73,7 +73,7 @@ class ReportagesController extends Controller {
         }
 
         else{
-            $error[] = 'veuillez entrer une date de debut';
+            $error[] = '- Veuillez entrer une date de début!';
             $vals['con_date_start'] = '';
         }
 
@@ -82,7 +82,7 @@ class ReportagesController extends Controller {
             $vals['con_date_end'] = $dateFin;
         }
         else{
-            $error[] = 'veuillez entrer une date de debut';
+            $error[] = '- Veuillez entrer une date de fin!';
             $vals['con_date_end'] = '';
         }
 
@@ -90,7 +90,7 @@ class ReportagesController extends Controller {
             $dateDiffVal = true;
         }
         else{
-            $error[] = 'veuillez entrer une date de debut plus petite que la date de fin';
+            $error[] = '- Veuillez entrer une date de début inférieure à la date de fin!';
         }
 
         if ($synopsis != '') {
@@ -98,7 +98,7 @@ class ReportagesController extends Controller {
             $vals['con_synopsis'] = $synopsis;
         }
         else{
-            $error[] = 'veuillez entrer une synopsis';
+            $error[] = '- Veuillez entrer un synopsis!';
             $vals['con_synopsis'] = '';
         }
 
@@ -107,7 +107,7 @@ class ReportagesController extends Controller {
             $vals['con_description'] = $description;
         }
         else{
-            $error[] = 'veuillez entrer une description';
+            $error[] = '- Veuillez entrer une description!';
             $vals['con_description'] = '';
         }
 
@@ -127,17 +127,17 @@ class ReportagesController extends Controller {
 
                         }
                         else {
-                            $error[] = 'extension interdite';
+                            $error[] = '- Extension interdite!';
                         }
                     }
                     else {
-                        $error[] = 'fichier trop lourd';
+                        $error[] = '- Fichier trop volumineux!';
                     }
                 }
             }
         }
         else{
-            $error[] = 'Pas de fichier selectioné';
+            $error[] = '- Pas de fichier selectionné!';
         }
 
         if ($titreVal && $dateDebutVal && $dateFinVal && $synopsisVal && $descriptionVal && $photoVal && $dateDiffVal){
@@ -207,7 +207,7 @@ class ReportagesController extends Controller {
             $vals['con_title'] = $titre;
         }
         else{
-            $error[] = 'veuillez entrer un titre';
+            $error[] = '- Veuillez entrer un titre!';
             $vals['con_title'] = '';
         }
 
@@ -216,7 +216,7 @@ class ReportagesController extends Controller {
             $vals['con_date_start'] = $dateDebut;
         }
         else{
-            $error[] = 'veuillez entrer une date de debut';
+            $error[] = '- Veuillez entrer une date de début!';
             $vals['con_date_start'] = '';
         }
 
@@ -225,7 +225,7 @@ class ReportagesController extends Controller {
             $vals['con_date_end'] = $dateFin;
         }
         else{
-            $error[] = 'veuillez entrer une date de debut';
+            $error[] = '- Veuillez entrer une date de fin!';
             $vals['con_date_end'] = '';
         }
 
@@ -233,7 +233,7 @@ class ReportagesController extends Controller {
             $dateDiffVal = true;
         }
         else{
-            $error[] = 'veuillez entrer une date de debut plus petite que la date de fin';
+            $error[] = '- Veuillez entrer une date de début inférieur à la date de fin!';
         }
 
         if ($synopsis != '') {
@@ -241,7 +241,7 @@ class ReportagesController extends Controller {
             $vals['con_synopsis'] = $synopsis;
         }
         else{
-            $error[] = 'veuillez entrer une synopsis';
+            $error[] = '- Veuillez entrer un synopsis!';
             $vals['con_synopsis'] = '';
         }
 
@@ -250,7 +250,7 @@ class ReportagesController extends Controller {
             $vals['con_description'] = $description;
         }
         else{
-            $error[] = 'veuillez entrer une description';
+            $error[] = '- Veuillez entrer une description!';
             $vals['con_description'] = '';
         }
 
@@ -269,12 +269,12 @@ class ReportagesController extends Controller {
                         }
                         else {
                             $photoVal = false;
-                            $error[] = 'extension interdite';
+                            $error[] = '- Extension interdite!';
                         }
                     }
                     else {
                         $photoVal = false;
-                        $error[] = 'fichier trop lourd';
+                        $error[] = '- Fichier trop volumineux!';
                     }
                 }
             }
