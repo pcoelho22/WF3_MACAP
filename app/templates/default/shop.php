@@ -2,7 +2,9 @@
 
 <?php $this->start('main_content') ?>
 <div class="row">
-<h1 class="col-sm-12 text-center"><i class="fa fa-shopping-cart" aria-hidden="true"></i> EN CONSTRUCTION <i class="fa fa-shopping-cart" aria-hidden="true"></i></h1>
+	<div class="col-sm-12"></div>
+		<img src="<?= $this->assetUrl('img/page-underConstruction.png') ?>" class="center-block img-responsive" alt="image" style="width: 950px;">
+	</div>
 </div>
 
 <?php $this->stop('main_content') ?>
