@@ -20,7 +20,7 @@
     <li class="list-group-item">
         <a href="<?= $this->url('galerie_photos', ['id' => $value['id']]) ?>">
             <div class="row">
-                <img class="col-md-2 text-left" width="120px" heigth="120px" src="<?= $this->assetUrl($value['pho_path'])?>">
+                <img class="col-md-2 text-left" width="200" heigth="200" src="<?= $this->assetUrl($firstPhoto[$value['id']]['pho_path'])?>">
                 <div class="col-md-10 text-left">
                     <h3><?= $value['gal_name']?></h3>
                     <p><?=$value['gal_legend'] ?></p>
