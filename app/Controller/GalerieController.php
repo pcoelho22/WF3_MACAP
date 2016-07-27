@@ -13,12 +13,16 @@ class GalerieController extends Controller {
      * Page avec galerie de photos
      */
     public function liste() {
+        $firstPhoto = array();
     	$galerieManager = new GalerieManager();
         $galerieListe = $galerieManager->findAll();
-        //debug($galerieListe);
+
+        foreach ($galerieListe as $galId){
+            $firstPhoto[] = $galerieManager->getFirstImage($galId['id']);
+        }
 
 		$this->show('galerie/liste',
-			['galerieListe' => $galerieListe]);
+			['galerieListe' => $galerieListe, 'firstPhoto' => $firstPhoto]);
     }
     /**
      * Page de photos de chaque galerie
