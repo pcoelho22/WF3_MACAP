@@ -329,12 +329,30 @@ a.youtube:after {
 .sponsorsBreack{
   margin-top: 25px;
 }
-/****************Divider******************/
+/****************Divider******************//*
 .divider{
   border-bottom: 2px solid #e92d3c;
 }
 .divider h3{
   margin-bottom: -10px;
+}*/
+.group { 
+  display: table;
+  width: 100%;
+  font-size: 3em;
+}
+.item {
+  display: table-cell;
+}
+.text { 
+  white-space: nowrap;
+  width: 1%;
+  padding: 0 10px;
+}
+.line {
+  border-bottom: 2px solid #e92d3c;
+  position: relative;
+  top: -.5em;
 }
 /**************Page confirmation****************/
 
