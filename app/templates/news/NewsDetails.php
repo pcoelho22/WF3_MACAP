@@ -11,7 +11,7 @@
             </div>
 
             <div class="col-md-8">
-                <h2 class="detailsTitle"><?= $newsDetails['con_title'] ?></h2>
+                <h2><?= $newsDetails['con_title'] ?></h2>
                 <span class="help-block"></span>
             </div>
         </div>
@@ -29,7 +29,7 @@
     <div class="list-group-item">
         <div class="row">
             <div class="col-md-12 text-justify">
-                <p class="detailsText"><?= $newsDetails['con_description'] ?></p>
+                <p><?= $newsDetails['con_description'] ?></p>
             </div>
         </div>
     </div>
