@@ -29,7 +29,6 @@
 
     </head>
     <body>
-        <!-- <?php debug($_SESSION); ?> -->
         <header>
             <div class="container">
                 <div class="row"> 
@@ -175,9 +174,9 @@
                 </div>
             </div>
         </footer>
-        <!-- Button -->
-        <div onclick="ScrollTop()" id="top-btn">
-          <i class="fa fa-angle-up"></i>
-        </div>
+        <!-- Button scroll to top -->
+        <div id='goTop'></div>
+        <script type="text/javascript" src="<?= $this->assetUrl('js/script.js') ?>"></script>
+        
     </body>
 </html>

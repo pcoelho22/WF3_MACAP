@@ -1,16 +1,24 @@
-<?php $this->layout('layout', ['title' => 'Crée un Event']) ?>
+<?php $this->layout('layout', ['title' => 'Ajouter un Event']) ?>
 
 <?php $this->start('main_content') ?>
 <h2>Ajouter un Event</h2>
-<?php
-if (isset($error)) {
-    debug($error);
-}
-//debug($_POST);
-//debug($_FILES);
-?>
 <div class="row">
-    <div class="col-md-6 text-left">
+    <?php if (isset($error)): ?>
+    <div class="col-md-7 text-left">
+        <div class="alert alert-danger fade in" rows="auto">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Erreur!</strong><br>
+            <ul>
+                <?php foreach ($error as $value): ?>
+                    <li><?= $value ?></li>
+                <?php endforeach; ?>    
+            </ul>
+        </div>
+    </div> 
+    <?php endif; ?> 
+</div>
+<div class="row">
+    <div class="col-md-7 text-left">
     <?php if (isset($vals)): ?>
         <form action="" method="post" enctype="multipart/form-data">
             <div class="input-group">
@@ -66,12 +74,12 @@ if (isset($error)) {
         <span class="help-block"></span>
         <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-align-left"></i></span>
-            <textarea id="synopsis" type="text" name="synopsis" rows="10" placeholder="Synopsis" class="form-control text-left"></textarea>
+            <textarea id="synopsis" name="synopsis" rows="10" placeholder="Synopsis" class="form-control text-left"></textarea>
         </div>
         <span class="help-block"></span>
         <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-align-left"></i></span>
-            <textarea id="description" type="text" name="description" rows="10" placeholder="Description" class="form-control text-left"></textarea>
+            <textarea id="description" name="description" rows="10" placeholder="Description" class="form-control text-left"></textarea>
         </div>
         <span class="help-block"></span>
         <h5><strong>Veuillez sélectionner une photo à ajouter.</strong></h5>
@@ -82,6 +90,7 @@ if (isset($error)) {
         <span class="help-block"></span>
         <button class="btn btn-primary btn-sm active" type="submit"><i class="fa fa-pencil-square-o fa-fw"></i> Ajouter un Event</button>
     </form>
+    </div>
     <?php endif; ?>
 </div>
 <?php $this->stop('main_content') ?>
