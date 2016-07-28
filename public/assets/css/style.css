@@ -1,4 +1,11 @@
+@font-face {
+    font-family: "century-gothic";
+    src: url('../fonts/ufonts.com_century_gothic__2_.eot'); 
+    src: url('../fonts/ufonts.com_century-gothic.ttf') format('truetype');
+}
+
 body{
+  font-family: "century-gothic";
 	margin: auto;
 	padding-top: 30px;
 }
