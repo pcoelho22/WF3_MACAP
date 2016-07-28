@@ -15,17 +15,16 @@ class SponsorController extends Controller {
     public function liste() {
         $sponsorListeManager = new SponsorManager();
         $sponsorListe = $sponsorListeManager->findAll();
-        //debug($sponsorListe);
 
         $this->show('sponsor/liste',
             ['sponsorListe' => $sponsorListe]);
     }
     public function delete($id) {
         $this->allowTo('2');
-        $sponsorManager = new SponsorManager();
-        $sponsorManager->delete($id);
         $userHasRoleManager = new UserHasRoleManager();
         $userHasRoleManager->deleteSponsor($id);
+        $sponsorManager = new SponsorManager();
+        $sponsorManager->delete($id);
         $this->redirectToRoute('home');
     }
     

@@ -1,7 +1,7 @@
-<?php $this->layout('layout', ['title' => 'Reportages detailes!']) ?>
+<?php $this->layout('layout', ['title' => 'Details des Reportages']) ?>
 
 <?php $this->start('main_content') ?>
-<h2>Reportage details</h2>
+<h2>Détails des Reportages</h2>
 <ul><br/>
     <div class="row">
         <div class="col-md-3 text-left">

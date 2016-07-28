@@ -15,7 +15,7 @@
                     <span class="fa fa-pencil fa-fw"></span> Editer
                     </a>
                     <span class="help-block"></span>
-                    <a href="<?= $this->url('sponsor_delete',['id'=>$sponsor['id']]) ?>" class="btn btn-danger btn-sm">
+                    <a href="<?= $this->url('sponsor_delete',['id'=>$sponsor['users_id']]) ?>" class="btn btn-danger btn-sm">
                     <span class="fa fa-trash-o fa-fw"></span> Supprimer
                     </a>
                     <span class="help-block"></span>
