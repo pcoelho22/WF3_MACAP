@@ -22,7 +22,16 @@
             <li><p class="detailsText"><?= $newsDetails['con_description'] ?></p></li>
         </div>
     </div>
-</ul><div class="row">
+</ul>
+<?php if(isset($eventsIdGaleires['id'])): ?>
+<h2>Liste de galeries associées à <?= $newsDetails['con_title'] ?></h2>
+<ul>
+    <?php foreach ($eventsIdGaleires as $key => $value) : ?>
+        <li><a href="<?= $this->url('galerie_photos', ['id' => $value['id']]) ?>"><?= $value['gal_name'] . '<br/> ' . $value['gal_legend'] ?></a></li><br/>
+    <?php endforeach ?>
+</ul>
+<?php endif; ?> 
+<div class="row">
     <div class="col-sm-12">
         <span class="help-block"></span>
         <a class="btn btn-default btn-sm" href="<?= $this->url('news_liste') ?>"><i class="fa fa-angle-left fa-fw"></i> Retour</a>

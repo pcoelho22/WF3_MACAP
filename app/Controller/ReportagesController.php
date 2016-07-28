@@ -4,6 +4,7 @@ namespace Controller;
 
 use \W\Controller\Controller;
 use \Manager\ReportagesManager;
+use \Manager\ContenuHasGaleriesManager;
 use \W\Security\StringUtils;
 
 
@@ -27,7 +28,11 @@ class ReportagesController extends Controller {
         $reportagesDetailsId = $reportagesManager->find($id);
         //debug($reportagesDetailsId);
 
-        $this->show('reportages/reportagesDetails',['reportagesDetails' => $reportagesDetailsId]);
+        $contenuHasGaleriesManager = new ContenuHasGaleriesManager();
+        $galeriesId = $contenuHasGaleriesManager->findGaleriesId($id);
+        //debug($galeriesId);
+
+        $this->show('reportages/reportagesDetails',['reportagesDetails' => $reportagesDetailsId, 'galeriesId' => $galeriesId]);
     }
 
     public function add(){
