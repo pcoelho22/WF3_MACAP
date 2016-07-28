@@ -162,7 +162,7 @@
             <span class="help-block"></span>
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-align-left"></i></span>
-                <textarea id="description" type="text" name="description" rows="10" value="" placeholder="Description" class="form-control text-left"></textarea>
+                <textarea id="description" name="description" rows="10" placeholder="Description" class="form-control text-left"></textarea>
             </div>
             <span class="help-block"></span>
             <div class="input-group">

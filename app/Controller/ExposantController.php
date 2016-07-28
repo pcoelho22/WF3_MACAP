@@ -13,10 +13,10 @@ class ExposantController extends Controller {
     
     public function delete($id) {
         $this->allowTo('2');
-        $exposantManager = new ExposantManager();
-        $exposantManager->delete($id);
         $userHasRoleManager = new UserHasRoleManager();
         $userHasRoleManager->deleteExposant($id);
+        $exposantManager = new ExposantManager();
+        $exposantManager->delete($id);
         $this->redirectToRoute('home');
     }
 

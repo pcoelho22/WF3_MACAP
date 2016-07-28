@@ -16,6 +16,12 @@
     	</ul>
     </div>
 </div>
+<div class="row">
+    <div class="col-sm-12">
+        <span class="help-block"></span>
+        <a class="btn btn-default btn-sm" href="<?= $this->url('galerie_liste') ?>"><i class="fa fa-angle-left fa-fw"></i> Retour</a>
+    </div>
+</div>
 <div id="blueimp-gallery" class="blueimp-gallery" data-use-bootstrap-modal="false">
     <!-- The container for the modal slides -->
     <div class="slides"></div>

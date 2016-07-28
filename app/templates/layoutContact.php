@@ -176,6 +176,8 @@
                 </div>
             </div>
         </footer>
+        <!-- Button scroll to top -->
+        <div id='goTop'></div>
         <script async defer
                 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAs9-9EPpqbSPCd1_r5_lgpmNjc6EuR6Xg&callback=initMap">
         </script>
