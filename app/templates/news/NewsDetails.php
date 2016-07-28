@@ -39,6 +39,7 @@
         <h4>Liste de galeries associées à <?= $newsDetails['con_title'] ?></h4>
         <?php foreach ($galeriesId as $key => $value) : ?>
         <a href="<?= $this->url('galerie_photos', ['id' => $value['id']]) ?>"><?= $value['gal_name'] . '<br/> ' . $value['gal_legend'] ?></a>
+        <span class="help-block"></span>
         <?php endforeach ?>
     </div>
     <?php endif; ?> 
