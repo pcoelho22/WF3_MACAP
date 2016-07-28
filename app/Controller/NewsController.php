@@ -4,6 +4,7 @@ namespace Controller;
 
 use \W\Controller\Controller;
 use \Manager\NewsManager;
+use \Manager\ContenuHasGaleriesManager;
 use \W\Security\StringUtils;
 
 
@@ -30,7 +31,11 @@ class NewsController extends Controller {
 		$newsDetailsId = $newsManager->find($id);
         //debug($newsDetailsId);
 
-        $this->show('news/newsDetails',['newsDetails' => $newsDetailsId]);
+        $contenuHasGaleriesManager = new ContenuHasGaleriesManager();
+        $galeriesId = $contenuHasGaleriesManager->findGaleriesId($id);
+        //debug($galeriesId);
+
+        $this->show('news/newsDetails',['newsDetails' => $newsDetailsId, 'galeriesId' => $galeriesId]);
     }
 
     public function add(){
