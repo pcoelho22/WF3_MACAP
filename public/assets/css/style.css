@@ -337,3 +337,24 @@ a.youtube:after {
 .admBtn{
   width: 250px;
 }
+
+/****************Divider******************/
+
+.group { 
+  display: table;
+  width: 100%;
+  font-size: 3em;
+}
+.item {
+  display: table-cell;
+}
+.text { 
+  white-space: nowrap;
+  width: 1%;
+  padding: 0 10px;
+}
+.line {
+  border-bottom: 2px solid #e92d3c;
+  position: relative;
+  top: -.5em;
+}
