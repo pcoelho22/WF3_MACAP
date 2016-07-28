@@ -428,7 +428,7 @@ class ExposantController extends Controller {
 
         if ($nameExposantVal && $lastNameInChargeVal && $firstNameInChargeVal && $addressVal && $cityVal && $zipVal && $countryVal && $phoneVal && $mobileVal && $emailGeneralVal && $emailInChargeVal && $descriptionVal && $urlVal && $photoVal){
             $userId = $exposantManager->getUserId($emailInCharge);
-            if ($exposantManager->update([
+            if ($exposantManager->updateUser([
                 'exp_name_exposants' => $nameExposant,
                 'exp_name_in_charge' => $lastNameInCharge,
                 'exp_first_name_in_charge' => $firstNameInCharge,

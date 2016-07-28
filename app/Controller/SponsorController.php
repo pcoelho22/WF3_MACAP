@@ -446,7 +446,7 @@ class SponsorController extends Controller {
 
         if ($nameSponsorVal && $lastNameInChargeVal && $firstNameInChargeVal && $addressVal && $cityVal && $zipVal && $countryVal && $phoneVal && $mobileVal && $emailGeneralVal && $emailInChargeVal && $urlVal && $photoVal){
 
-            if ($sponsorManager->update($vals,$_SESSION['user']['id'])) {
+            if ($sponsorManager->updateUser($vals,$_SESSION['user']['id'])) {
                 move_uploaded_file($fichier['tmp_name'],TMP.'/upload/sponsors/'.$string.$string2.'.'.$extension);
                 $this->redirectToRoute('home');
             }

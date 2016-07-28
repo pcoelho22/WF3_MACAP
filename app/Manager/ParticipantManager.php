@@ -33,7 +33,7 @@ class ParticipantManager extends \W\Manager\Manager{
         return $sth->fetch();
     }
 
-    public function update(array $data, $id, $stripTags = true)
+    public function updateUser(array $data, $id, $stripTags = true)
     {
         if (!is_numeric($id)){
             return false;

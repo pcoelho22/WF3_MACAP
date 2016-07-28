@@ -313,7 +313,7 @@ class ParticipantController extends Controller {
 
         if ($lastNameVal && $firstNameVal && $addressVal && $cityVal && $zipVal && $countryVal && $phoneVal && $emailVal && $photoVal){
 
-            if ($participantManager->update($vals, $_SESSION['user']['id'])){
+            if ($participantManager->updateUser($vals, $_SESSION['user']['id'])){
                 move_uploaded_file($fichier['tmp_name'],TMP.'/upload/participants/'.$string.$string2.'.'.$extension);
                 $this->redirectToRoute('home');
             }
