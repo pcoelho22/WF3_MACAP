@@ -23,7 +23,15 @@
         </div>
     </div>
 </ul>
-</ul><div class="row">
+<?php if(isset($galeriesId['id'])): ?>
+<h2>Liste de galeries associées à <?= $reportagesDetails['con_title'] ?></h2>
+<ul>
+    <?php foreach ($galeriesId as $key => $value) : ?>
+        <li><a href="<?= $this->url('galerie_photos', ['id' => $value['id']]) ?>"><?= $value['gal_name'] . '<br/> ' . $value['gal_legend'] ?></a></li><br/>
+    <?php endforeach ?>
+</ul>
+<?php endif; ?> 
+<div class="row">
     <div class="col-sm-12">
         <span class="help-block"></span>
          <a class="btn btn-default btn-sm" href="<?= $this->url('reportages_liste') ?>"><i class="fa fa-angle-left fa-fw"></i> Retour</a>
