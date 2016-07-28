@@ -67,6 +67,11 @@ body{
 	border-bottom-right-radius: 6px;
 	border-bottom-left-radius: 6px;
 }
+@media screen and (max-width: 768px) {
+  .carousel-caption {
+  display: none;
+  }
+}
 .carousel-indicators {
 	position: absolute;
 	bottom: 0;
