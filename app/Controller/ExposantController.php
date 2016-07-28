@@ -7,6 +7,7 @@ use \W\Security\StringUtils;
 use Manager\ExposantManager;
 use \Manager\AuthorizationManager;
 use \Manager\UserHasRoleManager;
+use \Manager\ParticipantManager;
 
 class ExposantController extends Controller {
     
@@ -26,12 +27,13 @@ class ExposantController extends Controller {
     
     public function addVal() {
         $exposantManager = new ExposantManager();
+        $participantManager = new ParticipantManager();
         $this->allowTo('2');
 
         $nameExposantVal = false;
         $lastNameInChargeVal = false;
         $firstNameInChargeVal = false;
-        $adressVal = false;
+        $addressVal = false;
         $cityVal = false;
         $zipVal = false;
         $countryVal = false;
@@ -45,7 +47,7 @@ class ExposantController extends Controller {
         $nameExposant = isset($_POST['nameExposant']) ? trim(strip_tags($_POST['nameExposant'])) : '';
         $lastNameInCharge = isset($_POST['lastNameInCharge']) ? trim(strip_tags($_POST['lastNameInCharge'])) : '';
         $firstNameInCharge = isset($_POST['firstNameInCharge']) ? trim(strip_tags($_POST['firstNameInCharge'])) : '';
-        $adress = isset($_POST['adress']) ? trim(strip_tags($_POST['adress'])) : '';
+        $address = isset($_POST['address']) ? trim(strip_tags($_POST['address'])) : '';
         $city = isset($_POST['city']) ? trim(strip_tags($_POST['city'])) : '';
         $zip = isset($_POST['postCode']) ? trim(strip_tags($_POST['postCode'])) : '';
         $country = isset($_POST['country']) ? trim(strip_tags($_POST['country'])) : '';
@@ -90,11 +92,12 @@ class ExposantController extends Controller {
             $vals['firstNameInCharge'] = '';
         }
 
-        if (strlen($adress) >= 5) {
-            $adressVal = true;
-            $vals['adress'] = $adress;
+        if (strlen($address) >= 5) {
+            $addressVal = true;
+            $vals['address'] = $address;
         }
         else{
+
             $error[] = "- Veuillez indiquez l'adresse de l'exposant!";
             $vals['adress'] = '';
         }
@@ -187,13 +190,13 @@ class ExposantController extends Controller {
             $vals['url'] = '';
         }
 
-        if ($nameExposantVal && $lastNameInChargeVal && $firstNameInChargeVal && $adressVal && $cityVal && $zipVal && $countryVal && $phoneVal && $mobileVal && $emailGeneralVal && $emailInChargeVal && $descriptionVal && $urlVal){
-
+        if ($nameExposantVal && $lastNameInChargeVal && $firstNameInChargeVal && $addressVal && $cityVal && $zipVal && $countryVal && $phoneVal && $mobileVal && $emailGeneralVal && $emailInChargeVal && $descriptionVal && $urlVal){
+            $userId = $participantManager->getUserId($emailInCharge);
             if ($exposantManager->insert([
                     'exp_name_exposants' => $nameExposant,
                     'exp_name_in_charge' => $lastNameInCharge,
                     'exp_first_name_in_charge' => $firstNameInCharge,
-                    'exp_address' => $adress,
+                    'exp_address' => $address,
                     'exp_city' => $city,
                     'exp_post_code' => $zip,
                     'exp_country' => $country,
@@ -205,8 +208,10 @@ class ExposantController extends Controller {
                     'exp_description_exposants' => $description,
                     'exp_url' => $url,
                     'exp_avatar' => '/upload/default/avatar.png',
-                    'users_id' => 1]
+                    'users_id' => $userId['id']]
                 )) {
+                $userHasRoleManager = new UserHasRoleManager();
+                $userHasRoleManager->insert(['users_id'=>$userId['id'], 'role_id'=>AuthorizationManager::ROLEEXPOSANT]);
                 $this->redirectToRoute('home');
             }
             else{
@@ -235,7 +240,7 @@ class ExposantController extends Controller {
         $nameExposantVal = false;
         $lastNameInChargeVal = false;
         $firstNameInChargeVal = false;
-        $adressVal = false;
+        $addressVal = false;
         $cityVal = false;
         $zipVal = false;
         $countryVal = false;
@@ -253,7 +258,7 @@ class ExposantController extends Controller {
         $nameExposant = isset($_POST['nameExposant']) ? trim(strip_tags($_POST['nameExposant'])) : '';
         $lastNameInCharge = isset($_POST['lastNameInCharge']) ? trim(strip_tags($_POST['lastNameInCharge'])) : '';
         $firstNameInCharge = isset($_POST['firstNameInCharge']) ? trim(strip_tags($_POST['firstNameInCharge'])) : '';
-        $adress = isset($_POST['adress']) ? trim(strip_tags($_POST['adress'])) : '';
+        $address = isset($_POST['address']) ? trim(strip_tags($_POST['address'])) : '';
         $city = isset($_POST['city']) ? trim(strip_tags($_POST['city'])) : '';
         $zip = isset($_POST['postCode']) ? trim(strip_tags($_POST['postCode'])) : '';
         $country = isset($_POST['country']) ? trim(strip_tags($_POST['country'])) : '';
@@ -264,7 +269,6 @@ class ExposantController extends Controller {
         $emailGeneral = isset($_POST['emailGeneral']) ? trim(strip_tags($_POST['emailGeneral'])) : '';
         $description = isset($_POST['description']) ? trim(strip_tags($_POST['description'])) : '';
         $url = isset($_POST['url']) ? trim(strip_tags($_POST['url'])) : '';
-        $role = isset($_POST['role']) ? $_POST['role'] : array();
 
         $phone = str_replace(' ','',$phone);
         $fax = str_replace(' ','',$fax);
@@ -299,16 +303,16 @@ class ExposantController extends Controller {
             $vals['firstNameInCharge'] = '';
         }
 
-        if (strlen($adress) >= 5) {
-            $adressVal = true;
-            $vals['address'] = $adress;
+        if ($address != '') {
+            $addressVal = true;
+            $vals['address'] = $address;
         }
         else{
             $error[] = "- Veuillez indiquer l'adresse de l'exposant!";
             $vals['address'] = '';
         }
 
-        if (strlen($city) >= 5) {
+        if ($city != '') {
             $cityVal = true;
             $vals['city'] = $city;
         }
@@ -317,7 +321,7 @@ class ExposantController extends Controller {
             $vals['city'] = '';
         }
 
-        if (strlen($country) >= 5) {
+        if ($country != '') {
             $countryVal = true;
             $vals['country'] = $country;
         }
@@ -422,13 +426,13 @@ class ExposantController extends Controller {
             }
         }
 
-        if ($nameExposantVal && $lastNameInChargeVal && $firstNameInChargeVal && $adressVal && $cityVal && $zipVal && $countryVal && $phoneVal && $mobileVal && $emailGeneralVal && $emailInChargeVal && $descriptionVal && $urlVal && $photoVal){
+        if ($nameExposantVal && $lastNameInChargeVal && $firstNameInChargeVal && $addressVal && $cityVal && $zipVal && $countryVal && $phoneVal && $mobileVal && $emailGeneralVal && $emailInChargeVal && $descriptionVal && $urlVal && $photoVal){
             $userId = $exposantManager->getUserId($emailInCharge);
             if ($exposantManager->update([
                 'exp_name_exposants' => $nameExposant,
                 'exp_name_in_charge' => $lastNameInCharge,
                 'exp_first_name_in_charge' => $firstNameInCharge,
-                'exp_address' => $adress,
+                'exp_address' => $address,
                 'exp_city' => $city,
                 'exp_post_code' => $zip,
                 'exp_country' => $country,
@@ -442,6 +446,7 @@ class ExposantController extends Controller {
                 'exp_url' => $url,
                 'users_id'=> $userId['id']],
                 $_SESSION['user']['id'])) {
+
                 move_uploaded_file($fichier['tmp_name'],TMP.'/upload/exposants/'.$string.$string2.'.'.$extension);
                 $userHasRoleManager = new UserHasRoleManager();
                 $userHasRoleManager->insert(['users_id'=>$userId['id'], 'role_id'=>AuthorizationManager::ROLEEXPOSANT]);
@@ -471,7 +476,7 @@ class ExposantController extends Controller {
         $nameExposantVal = false;
         $lastNameInChargeVal = false;
         $firstNameInChargeVal = false;
-        $adressVal = false;
+        $addressVal = false;
         $cityVal = false;
         $zipVal = false;
         $countryVal = false;
@@ -489,7 +494,7 @@ class ExposantController extends Controller {
         $nameExposant = isset($_POST['nameExposant']) ? trim(strip_tags($_POST['nameExposant'])) : '';
         $lastNameInCharge = isset($_POST['lastNameInCharge']) ? trim(strip_tags($_POST['lastNameInCharge'])) : '';
         $firstNameInCharge = isset($_POST['firstNameInCharge']) ? trim(strip_tags($_POST['firstNameInCharge'])) : '';
-        $adress = isset($_POST['adress']) ? trim(strip_tags($_POST['adress'])) : '';
+        $address = isset($_POST['address']) ? trim(strip_tags($_POST['address'])) : '';
         $city = isset($_POST['city']) ? trim(strip_tags($_POST['city'])) : '';
         $zip = isset($_POST['postCode']) ? trim(strip_tags($_POST['postCode'])) : '';
         $country = isset($_POST['country']) ? trim(strip_tags($_POST['country'])) : '';
@@ -535,11 +540,12 @@ class ExposantController extends Controller {
             $vals['firstNameInCharge'] = '';
         }
 
-        if (strlen($adress) >= 5) {
-            $adressVal = true;
-            $vals['address'] = $adress;
+        if (strlen($address) >= 5) {
+            $addressVal = true;
+            $vals['address'] = $address;
         }
         else{
+
             $error[] = "- Veuillez indiquer l'adresse de l'exposant!";
             $vals['address'] = '';
         }
@@ -658,13 +664,13 @@ class ExposantController extends Controller {
             }
         }
 
-        if ($nameExposantVal && $lastNameInChargeVal && $firstNameInChargeVal && $adressVal && $cityVal && $zipVal && $countryVal && $phoneVal && $mobileVal && $emailGeneralVal && $emailInChargeVal && $descriptionVal && $urlVal && $photoVal){
+        if ($nameExposantVal && $lastNameInChargeVal && $firstNameInChargeVal && $addressVal && $cityVal && $zipVal && $countryVal && $phoneVal && $mobileVal && $emailGeneralVal && $emailInChargeVal && $descriptionVal && $urlVal && $photoVal){
 
             if ($exposantManager->update([
                 'exp_name_exposants' => $nameExposant,
                 'exp_name_in_charge' => $lastNameInCharge, 
                 'exp_first_name_in_charge' => $firstNameInCharge,
-                'exp_address' => $adress,
+                'exp_address' => $address,
                 'exp_city' => $city, 
                 'exp_post_code' => $zip, 
                 'exp_country' => $country,

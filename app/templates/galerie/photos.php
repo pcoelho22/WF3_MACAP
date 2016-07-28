@@ -3,25 +3,18 @@
 <?php $this->start('main_content') ?>
 <h2>Photos de <?= $eventsIdGaleries['gal_name'] ?></h2>
 <?= $eventsIdGaleries['gal_description'] ?>
-<<<<<<< HEAD
-<ul><br/>
-    <?php foreach ($photosGalerie as $key => $value) : ?>
-        <li><?= $value['pho_legend'] . '<br/> ' . $value['pho_name'] ?><br/><img src="<?= $this->assetUrl($value['pho_path']) ?>"></li><br/>
-    <?php endforeach ?>
-</ul>
-
-<?php $this->stop('main_content') ?>
-=======
-<div id="links">
-	<ul>
-	    <?php foreach ($photosGalerie as $key => $value) : ?>
-			<li>
-				<a href="<?= $this->assetUrl($value['pho_path']) ?>" title="<?= $value['pho_name']?>" data-gallery>
-			    	<img id="galpho" class="img-responsive" src="<?= $this->assetUrl($value['pho_path']) ?>" alt>
-			    </a>
-			</li>
-	    <?php endforeach ?>
-	</ul>
+<div class="row">
+    <div id="links" class="col-sm-12">
+    	<ul>
+    	    <?php foreach ($photosGalerie as $key => $value) : ?>
+    			<li>
+    				<a href="<?= $this->assetUrl($value['pho_path']) ?>" title="<?= $value['pho_name']?>" data-gallery>
+    			    	<img id="galpho" class="center-block" src="<?= $this->assetUrl($value['pho_path']) ?>" alt>
+    			    </a>
+    			</li>
+    	    <?php endforeach ?>
+    	</ul>
+    </div>
 </div>
 <div id="blueimp-gallery" class="blueimp-gallery" data-use-bootstrap-modal="false">
     <!-- The container for the modal slides -->
@@ -57,4 +50,3 @@
     </div>
 </div>
 	<?php $this->stop('main_content') ?>
->>>>>>> refs/remotes/origin/Patrick
