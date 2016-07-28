@@ -57,7 +57,7 @@ class MagazineController extends Controller {
                 // Je teste si le fichier a été uploadé
                 if (!empty($_FILES['magazinePdf']) && !empty($_FILES['magazinePdf']['name'])) {
                     print_r($_FILES['magazinePdf']);
-                    if ($_FILES['magazinePdf']['size'] <= 5000000) {
+                    if ($_FILES['magazinePdf']['size'] <= 50000000) {
                         $filenamePdf = $_FILES['magazinePdf']['name'];
                         $dotPos = strrpos($filenamePdf, '.');
                         $extension = strtolower(substr($filenamePdf, $dotPos+1));
@@ -160,7 +160,7 @@ class MagazineController extends Controller {
             // Je teste si le fichier a été uploadé
             if (!empty($_FILES['magazinePdf']) && !empty($_FILES['magazinePdf']['name'])) {
                 print_r($_FILES['magazinePdf']);
-                if ($_FILES['magazinePdf']['size'] <= 5000000) {
+                if ($_FILES['magazinePdf']['size'] <= 50000000) {
                     $filenamePdf = $_FILES['magazinePdf']['name'];
                     $dotPos = strrpos($filenamePdf, '.');
                     $extension = strtolower(substr($filenamePdf, $dotPos+1));
