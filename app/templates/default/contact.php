@@ -9,6 +9,7 @@
     </div>
     <div class="col-sm-4 text-center">
     <span class="help-block"></span>
+    <h4>Veuillez indiquer votre adresse de départ pour établir l'itinéraire vers le site du concours.</h4>
         <form action="" method="POST" role="form">
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-location-arrow"></i></span>
@@ -16,7 +17,7 @@
             </div>
         </form>
         <span class="help-block"></span>
-        <button class="btn btn-primary btn-sm active" type="button" id="button"><i class="fa fa-location-arrow"></i> Générer votre initnéraire</button>
+        <button class="btn btn-primary btn-sm active" type="button" id="button"><i class="fa fa-location-arrow"></i> Générer votre itinéraire</button>
     </div>
     <div class="col-md-4 text-center">
         <span class="help-block"></span>
@@ -33,9 +34,8 @@
             </div>
 
             <div class="col-sm-4 text-center">
+                <span class="help-block"></span>
                 <p><a href="mailto: info@concours-mondorf.lu">info@concours-mondorf.lu</a></p>
-                <p><a href="http://www.concours-mondorf.lu">www.concours-mondorf.lu</a></p>
-                <p><a href="http://www.facebook.com/concoursMondorf"><span class="fa fa-facebook-square fa-2x" aria-hidden="true"></span>/concoursMondorf</a></p>
             </div>
 
             <div class="col-sm-4 text-center">
