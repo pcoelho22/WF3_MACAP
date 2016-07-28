@@ -32,12 +32,12 @@
     </div>
 
 
-    <?php if(isset($galeriesId['id'])): ?>
+    <?php if(isset($galeriesId) && !empty($galeriesId)): ?>
     <div class="list-group-item">
-    <h4>Liste de galeries associées aux Events <?= $eventsId['con_title'] ?></h4>
+        <h4>Liste de galeries associées à <?= $eventsId['con_title'] ?></h4>
         <?php foreach ($galeriesId as $key => $value) : ?>
-            <a href="<?= $this->url('galerie_photos', ['id' => $value['id']]) ?>"><?= $value['gal_name'] . '<br/> ' . $value['gal_legend'] ?></a>
-            <span class="help-block"></span>
+        <a href="<?= $this->url('galerie_photos', ['id' => $value['id']]) ?>"><?= $value['gal_name'] . '<br/> ' . $value['gal_legend'] ?></a>
+        <span class="help-block"></span>
         <?php endforeach ?>
     </div>
     <?php endif; ?> 

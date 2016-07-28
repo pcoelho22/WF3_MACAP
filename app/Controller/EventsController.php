@@ -29,7 +29,7 @@ class EventsController extends Controller {
         
         $eventsManager = new EventsManager();
         $eventsDetailsId = $eventsManager->find($id);
-        //debug($eventsId);
+        //debug($eventsDetailsId);
 
         $contenuHasGaleriesManager = new ContenuHasGaleriesManager();
         $galeriesId = $contenuHasGaleriesManager->findGaleriesId($id);

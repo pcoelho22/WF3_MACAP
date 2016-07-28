@@ -34,14 +34,14 @@
         </div>
     </div>
 
+    <?php if(isset($galeriesId) && !empty($galeriesId)): ?>
     <div class="list-group-item">
         <h4>Liste de galeries associées à <?= $reportagesDetails['con_title'] ?></h4>
-        <?php if(isset($galeriesId['id'])): ?>
         <?php foreach ($galeriesId as $key => $value) : ?>
         <a href="<?= $this->url('galerie_photos', ['id' => $value['id']]) ?>"><?= $value['gal_name'] . '<br/> ' . $value['gal_legend'] ?></a>
         <?php endforeach ?>
-        <?php endif; ?> 
     </div>
+    <?php endif; ?> 
 </div>
 
 <div class="row">
