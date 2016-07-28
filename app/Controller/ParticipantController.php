@@ -208,7 +208,7 @@ class ParticipantController extends Controller {
         
         if ($lastName != '') {
             $lastNameVal = true;
-            $vals['lastName'] = $lastName;
+            $vals['par_name'] = $lastName;
         }
         else{
             $error[] = '- Veuillez indiquer le nom de la personne en charge!';
@@ -217,7 +217,7 @@ class ParticipantController extends Controller {
 
         if ($firstName != '') {
             $firstNameVal = true;
-            $vals['firstName'] = $firstName;
+            $vals['par_first_name'] = $firstName;
         }
         else{
             $error[] = "- Veuillez entrer le prénom de la personne en charge!";
@@ -226,7 +226,7 @@ class ParticipantController extends Controller {
 
         if (strlen($address) >= 5) {
             $addressVal = true;
-            $vals['address'] = $address;
+            $vals['par_address'] = $address;
         }
         else{
             $error[] = "- Veuillez indiquer l'adresse du participant!";
@@ -235,7 +235,7 @@ class ParticipantController extends Controller {
         
         if (strlen($city) >= 5) {
             $cityVal = true;
-            $vals['city'] = $city;
+            $vals['par_city'] = $city;
         }
         else{
             $error[] = "- Veuillez indiquer la ville du participant!";
@@ -244,7 +244,7 @@ class ParticipantController extends Controller {
         
         if (strlen($country) >= 5) {
             $countryVal = true;
-            $vals['country'] = $country;
+            $vals['par_country'] = $country;
         }
         else{
             $error[] = "- Veuillez indiquer un pays pour le participant!";
@@ -253,7 +253,7 @@ class ParticipantController extends Controller {
 
         if (strlen($zip) >= 3) {
             $zipVal = true;
-            $vals['zip'] = $zip;
+            $vals['par_post_code'] = $zip;
         }
         else{
             $error[] = '- Veuillez indiquer un code postal!';
@@ -262,7 +262,7 @@ class ParticipantController extends Controller {
 
         if (strlen($phone) >= 5) {
             $phoneVal = true;
-            $vals['phone'] = $phone;
+            $vals['par_phone'] = $phone;
         }
         else{
             $error[] = '- Veuillez entrer numéro de téléphone valide!';
@@ -270,15 +270,15 @@ class ParticipantController extends Controller {
         }
 
         if (strlen($fax) >= 5) {
-            $vals['fax'] = $fax;
+            $vals['par_fax'] = $fax;
         }
         else{
-            $vals['fax'] = '';
+            $vals['par_fax'] = '';
         }
 
         if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $emailVal = true;
-            $vals['email'] = $email;
+            $vals['par_email'] = $email;
         }
         else {
             $error[] = "- L'email intégré n'est pas au bon format!";
@@ -310,25 +310,10 @@ class ParticipantController extends Controller {
                 }
             }
         }
-        /*else{
-            $photoVal = false;
-            $error[] = 'Pas de fichier selectioné';
-        }*/
-
 
         if ($lastNameVal && $firstNameVal && $addressVal && $cityVal && $zipVal && $countryVal && $phoneVal && $emailVal && $photoVal){
 
-            if ($participantManager->update([
-                'par_name' => $lastName, 
-                'par_first_name' => $firstName, 
-                'par_address' => $address,
-                'par_city' => $city, 
-                'par_post_code' => $zip, 
-                'par_country' => $country, 
-                'par_phone' => $phone,
-                'par_fax' => $fax,
-                'par_avatar' => $photo,
-                'par_email' => $email], $_SESSION['user']['id'])){
+            if ($participantManager->update($vals, $_SESSION['user']['id'])){
                 move_uploaded_file($fichier['tmp_name'],TMP.'/upload/participants/'.$string.$string2.'.'.$extension);
                 $this->redirectToRoute('home');
             }
@@ -458,7 +443,7 @@ class ParticipantController extends Controller {
             $vals['email'] = $email;
         }
         else {
-            $error[] = "-L'email intégré n'est pas au bon format!"";
+            $error[] = "-L'email intégré n'est pas au bon format!";
             $vals['email'] = '';
         }
 

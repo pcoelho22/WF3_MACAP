@@ -42,6 +42,28 @@ class SponsorManager extends \W\Manager\Manager{
 
         return $sth->fetch();
     }
+
+    public function update(array $data, $id, $stripTags = true)
+    {
+        if (!is_numeric($id)){
+            return false;
+        }
+
+        $sql = "UPDATE " . $this->table . " SET ";
+        foreach($data as $key => $value){
+            $sql .= "$key = :$key, ";
+        }
+        $sql = substr($sql, 0, -2);
+        $sql .= " WHERE users_id = :id";
+
+        $sth = $this->dbh->prepare($sql);
+        foreach($data as $key => $value){
+            $value = ($stripTags) ? strip_tags($value) : $value;
+            $sth->bindValue(":".$key, $value);
+        }
+        $sth->bindValue(":id", $id);
+        return $sth->execute();
+    }
 }
 
     

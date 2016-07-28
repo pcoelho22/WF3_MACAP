@@ -49,7 +49,7 @@ class SponsorController extends Controller {
         $nameSponsorVal = false;
         $lastNameInChargeVal = false;
         $firstNameInChargeVal = false;
-        $adressVal = false;
+        $addressVal = false;
         $cityVal = false;
         $zipVal = false;
         $countryVal = false;
@@ -63,7 +63,7 @@ class SponsorController extends Controller {
         $nameSponsor = isset($_POST['nameSponsor']) ? trim(strip_tags($_POST['nameSponsor'])) : '';
         $lastNameInCharge = isset($_POST['lastNameInCharge']) ? trim(strip_tags($_POST['lastNameInCharge'])) : '';
         $firstNameInCharge = isset($_POST['firstNameInCharge']) ? trim(strip_tags($_POST['firstNameInCharge'])) : '';
-        $adress = isset($_POST['address']) ? trim(strip_tags($_POST['address'])) : '';
+        $address = isset($_POST['address']) ? trim(strip_tags($_POST['address'])) : '';
         $city = isset($_POST['city']) ? trim(strip_tags($_POST['city'])) : '';
         $zip = isset($_POST['postCode']) ? trim(strip_tags($_POST['postCode'])) : '';
         $country = isset($_POST['country']) ? trim(strip_tags($_POST['country'])) : '';
@@ -108,9 +108,9 @@ class SponsorController extends Controller {
             $vals['firstNameInCharge'] = '';
         }
 
-        if (strlen($adress) >= 5) {
-            $adressVal = true;
-            $vals['address'] = $adress;
+        if (strlen($address) >= 5) {
+            $addressVal = true;
+            $vals['address'] = $address;
         }
         else{
             $error[] = "- Veuillez indiquer l'addresse du sponsor!";
@@ -205,14 +205,14 @@ class SponsorController extends Controller {
             $vals['type'] = '';
         }
 
-        if ($nameSponsorVal && $lastNameInChargeVal && $firstNameInChargeVal && $adressVal && $cityVal && $zipVal && $countryVal && $phoneVal && $mobileVal && $emailGeneralVal && $emailInChargeVal && $urlVal && $typeVal){
+        if ($nameSponsorVal && $lastNameInChargeVal && $firstNameInChargeVal && $addressVal && $cityVal && $zipVal && $countryVal && $phoneVal && $mobileVal && $emailGeneralVal && $emailInChargeVal && $urlVal && $typeVal){
             $userId = $sponsorManager->getUserId($emailInCharge);
 
             if ($sponsorManager->insert([
                     'spo_name_sponsors' => $nameSponsor,
                     'spo_name_in_charge' => $lastNameInCharge,
                     'spo_first_name_in_charge' => $firstNameInCharge,
-                    'spo_address' => $adress,
+                    'spo_address' => $address,
                     'spo_city' => $city,
                     'spo_post_code' => $zip,
                     'spo_country' => $country,
@@ -268,7 +268,7 @@ class SponsorController extends Controller {
         $nameSponsorVal = false;
         $lastNameInChargeVal = false;
         $firstNameInChargeVal = false;
-        $adressVal = false;
+        $addressVal = false;
         $cityVal = false;
         $zipVal = false;
         $countryVal = false;
@@ -285,7 +285,7 @@ class SponsorController extends Controller {
         $nameSponsor = isset($_POST['nameSponsor']) ? trim(strip_tags($_POST['nameSponsor'])) : '';
         $lastNameInCharge = isset($_POST['lastNameInCharge']) ? trim(strip_tags($_POST['lastNameInCharge'])) : '';
         $firstNameInCharge = isset($_POST['firstNameInCharge']) ? trim(strip_tags($_POST['firstNameInCharge'])) : '';
-        $adress = isset($_POST['address']) ? trim(strip_tags($_POST['address'])) : '';
+        $address = isset($_POST['address']) ? trim(strip_tags($_POST['address'])) : '';
         $city = isset($_POST['city']) ? trim(strip_tags($_POST['city'])) : '';
         $zip = isset($_POST['postCode']) ? trim(strip_tags($_POST['postCode'])) : '';
         $country = isset($_POST['country']) ? trim(strip_tags($_POST['country'])) : '';
@@ -330,9 +330,9 @@ class SponsorController extends Controller {
             $vals['spo_first_name_in_charge'] = '';
         }
 
-        if (strlen($adress) >= 5) {
-            $adressVal = true;
-            $vals['spo_address'] = $adress;
+        if (strlen($address) >= 5) {
+            $addressVal = true;
+            $vals['spo_address'] = $address;
         }
         else{
             $error[] = "- Veuillez indiquer l'adresse du sponsor!";
@@ -418,14 +418,6 @@ class SponsorController extends Controller {
             $vals['spo_url'] = '';
         }
 
-        if ($type != '') {
-            $vals['type'] = 'selected';
-        }
-        else{
-            $error[] = "- Veuillez cocher un type de sponsor!";
-            $vals['type'] = '';
-        }
-
         if (!empty($_FILES['avatar']['name'])) {
             foreach ($_FILES as $key => $fichier) {
                 // Je teste si le fichier a été uploadé
@@ -437,7 +429,7 @@ class SponsorController extends Controller {
                         $extension = strtolower(substr($filename, $dotPos+1));
                         if (in_array($extension, $extensionAutorisees)) {
                             // Je déplace le fichier uploadé au bon endroit
-                            $photo = 'upload/sponsors/'.$string.$string2.'.'.$extension;
+                            $photo = '/upload/sponsors/'.$string.$string2.'.'.$extension;
                             $vals['spo_avatar'] = $photo;
                         }
                         else {
@@ -453,10 +445,10 @@ class SponsorController extends Controller {
             }
         }
 
-        if ($nameSponsorVal && $lastNameInChargeVal && $firstNameInChargeVal && $adressVal && $cityVal && $zipVal && $countryVal && $phoneVal && $mobileVal && $emailGeneralVal && $emailInChargeVal && $urlVal && $photoVal){
+        if ($nameSponsorVal && $lastNameInChargeVal && $firstNameInChargeVal && $addressVal && $cityVal && $zipVal && $countryVal && $phoneVal && $mobileVal && $emailGeneralVal && $emailInChargeVal && $urlVal && $photoVal){
 
             if ($sponsorManager->update($vals,$_SESSION['user']['id'])) {
-                move_uploaded_file($fichier['tmp_name'],TMP.'/assets/upload/sponsors/'.$string.$string2.'.'.$extension);
+                move_uploaded_file($fichier['tmp_name'],TMP.'/upload/sponsors/'.$string.$string2.'.'.$extension);
                 $this->redirectToRoute('home');
             }
             else{
@@ -492,7 +484,7 @@ class SponsorController extends Controller {
         $nameSponsorVal = false;
         $lastNameInChargeVal = false;
         $firstNameInChargeVal = false;
-        $adressVal = false;
+        $addressVal = false;
         $cityVal = false;
         $zipVal = false;
         $countryVal = false;
@@ -510,7 +502,7 @@ class SponsorController extends Controller {
         $nameSponsor = isset($_POST['nameSponsor']) ? trim(strip_tags($_POST['nameSponsor'])) : '';
         $lastNameInCharge = isset($_POST['lastNameInCharge']) ? trim(strip_tags($_POST['lastNameInCharge'])) : '';
         $firstNameInCharge = isset($_POST['firstNameInCharge']) ? trim(strip_tags($_POST['firstNameInCharge'])) : '';
-        $adress = isset($_POST['adress']) ? trim(strip_tags($_POST['adress'])) : '';
+        $address = isset($_POST['address']) ? trim(strip_tags($_POST['address'])) : '';
         $city = isset($_POST['city']) ? trim(strip_tags($_POST['city'])) : '';
         $zip = isset($_POST['postCode']) ? trim(strip_tags($_POST['postCode'])) : '';
         $country = isset($_POST['country']) ? trim(strip_tags($_POST['country'])) : '';
@@ -555,9 +547,9 @@ class SponsorController extends Controller {
             $vals['spo_first_name_in_charge'] = '';
         }
 
-        if (strlen($adress) >= 5) {
-            $adressVal = true;
-            $vals['spo_address'] = $adress;
+        if (strlen($address) >= 5) {
+            $addressVal = true;
+            $vals['spo_address'] = $address;
         }
         else{
             $error[] = "- Veuillez indiquez l'adresse du sponsor!";
@@ -645,7 +637,6 @@ class SponsorController extends Controller {
 
         if ($type != '') {
             $typeVal = true;
-            $vals['type'] = 'selected';
         }
         else{
             $error[] = "- Veuillez cocher un type de sponsor!";
@@ -663,7 +654,7 @@ class SponsorController extends Controller {
                         $extension = strtolower(substr($filename, $dotPos+1));
                         if (in_array($extension, $extensionAutorisees)) {
                             // Je déplace le fichier uploadé au bon endroit
-                            $photo = 'upload/sponsors/'.$string.$string2.'.'.$extension;
+                            $photo = '/upload/sponsors/'.$string.$string2.'.'.$extension;
                             $vals['spo_avatar'] = $photo;
                         }
                         else {
@@ -679,10 +670,10 @@ class SponsorController extends Controller {
             }
         }
 
-        if ($nameSponsorVal && $lastNameInChargeVal && $firstNameInChargeVal && $adressVal && $cityVal && $zipVal && $countryVal && $phoneVal && $mobileVal && $emailGeneralVal && $emailInChargeVal && $urlVal && $photoVal && $typeVal){
+        if ($nameSponsorVal && $lastNameInChargeVal && $firstNameInChargeVal && $addressVal && $cityVal && $zipVal && $countryVal && $phoneVal && $mobileVal && $emailGeneralVal && $emailInChargeVal && $urlVal && $photoVal && $typeVal){
 
             if ($sponsorManager->update($vals,$id)) {
-                move_uploaded_file($fichier['tmp_name'],TMP.'/assets/upload/sponsors/'.$string.$string2.'.'.$extension);
+                move_uploaded_file($fichier['tmp_name'],TMP.'/upload/sponsors/'.$string.$string2.'.'.$extension);
                 $this->redirectToRoute('home');
             }
             else{

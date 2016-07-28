@@ -409,14 +409,18 @@ class UserController extends Controller {
         }
 
         if(preg_match('/^(?=.*\d)(?=.*[a-x])(?=.*[A-Z]).{6,}$/', $password)){
-            if ($password != '' && $password == $passwordVerif) {
+            if ($password == $passwordVerif) {
                 $passwordVal = true;
                 $vals['use_password'] = $password;
+                $vals['use_password'] = password_hash($password, PASSWORD_BCRYPT);
             }
             else{
                 $error[] = "- Mot de passe invalide!";
                 $vals['use_password'] = '';
             }
+        }
+        elseif ($password == NULL && $passwordVerif == NULL){
+            $passwordVal = true;
         }
         else{
             $error[] = "- Mot de passe invalide!";
@@ -537,14 +541,18 @@ class UserController extends Controller {
         }
 
         if(preg_match('/^(?=.*\d)(?=.*[a-x])(?=.*[A-Z]).{6,}$/', $password)){
-            if ($password != '' && $password == $passwordVerif) {
+            if ($password == $passwordVerif) {
                 $passwordVal = true;
                 $vals['use_password'] = $password;
+                $vals['use_password'] = password_hash($password, PASSWORD_BCRYPT);
             }
             else{
                 $error[] = "- Mot de passe invalide!";
                 $vals['use_password'] = '';
             }
+        }
+        elseif ($password == NULL && $passwordVerif == NULL){
+            $passwordVal = true;
         }
         else{
             $error[] = "- Mot de passe invalide!";
@@ -553,8 +561,6 @@ class UserController extends Controller {
 
 
         if ($lastNameVal && $firstNameVal && $adressVal && $cityVal && $zipVal && $phoneVal && $passwordVal){
-            $vals['use_password'] = password_hash($password, PASSWORD_BCRYPT);
-
             if ($userManager->update($vals, $id)) {
                 $authManager->refreshUser();
                 $this->redirectToRoute('home');

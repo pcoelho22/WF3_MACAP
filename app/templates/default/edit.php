@@ -3,21 +3,7 @@
 <?php $this->start('main_content') ?>
 <h2>Modifier les informations de votre compte</h2>
 <div class="row">
-    <?php if (isset($error)): ?>
-    <div class="col-md-7 text-left">
-        <div class="alert alert-danger fade in" rows="auto">
-            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            <strong>Erreur!</strong><br>
-            <ul>
-                <?php foreach ($error as $value): ?>
-                    <li><?= $value ?></li>
-                <?php endforeach; ?>    
-            </ul>
-        </div>
-    </div> 
-    <?php endif; ?>
-</div>
-<div class="row">
+
     <div class="col-md-7 text-left">
         <?php if (isset($vals)): ?>
         <form action="" method="post" role="form">
@@ -29,7 +15,6 @@
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
                 <input id="firstName" type="text" name="firstName" value="<?= $vals['use_first_name'] ?>" placeholder="Prénom" class="form-control text-left">
-            </div>
             <span class="help-block"></span>
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-road fa-fw" aria-hidden="true"></i></span>
@@ -68,11 +53,27 @@
             <span class="help-block"></span>
             <button class="btn btn-primary btn-sm active" type="submit" value="Valider les modifications" href="#"><i class="fa fa-pencil fa-fw"></i> Valider les modifications</button>
             <span class="help-block"></span>
-            <h4>Une fois les données modifiées, vous serez redirigé vers la page d'accueil.</h4>
+            <h4>Une fois les données modifiées, vous serez redirigé vers la page d'accueil</h4>
         </form>
     </div>
 
+    <span class="help-block"></span>
+    <?php if (isset($error)): ?>
+    <div class="col-md-5 text-left">
+        <div class="alert alert-danger fade in" rows="auto">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Erreur!</strong><br>
+            <ul>
+                <?php foreach ($error as $value): ?>
+                    <li><?= $value ?></li>
+                <?php endforeach; ?>    
+            </ul>
+        </div>
+    </div> 
+    <?php endif; ?>
+
     <?php elseif (isset($values)): ?>
+
         <form action="#" method="post" role="form">
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
@@ -121,9 +122,9 @@
             <span class="help-block"></span>
             <button class="btn btn-primary btn-sm active" type="submit" value="Valider les modifications" href="#"><i class="fa fa-pencil fa-fw"></i> Valider les modifications</button>
             <span class="help-block"></span>
-            <h4>Une fois les données modifiées, vous serez redirigé vers la page d'accueil.</h4>
+            <h4>Une fois les données modifiées, vous serez redirigé vers la page d'accueil</h4>
         </form>
-    </div>
+
     <?php endif; ?>
 </div>
 <?php $this->stop('main_content') ?>

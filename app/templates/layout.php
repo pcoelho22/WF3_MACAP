@@ -26,11 +26,10 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
-        <link rel="stylesheet" href="<?= $this->assetUrl('css/bootstrap-image-gallery.min.css')?>">
-        
+
     </head>
     <body>
+        <!-- <?php debug($_SESSION); ?> -->
         <header>
             <div class="container">
                 <div class="row"> 
@@ -77,17 +76,17 @@
                                     <?php if(isset($_SESSION['roles'])): ?>
                                         <?php if (in_array('3', $_SESSION['roles'])): ?>
                                     <li>
-                                        <a class="btn btn-link btn-md" href="<?= $this->url('participant_edit') ?>">editer votre profil de participant</a>
+                                        <a class="btn btn-default btn-sm" href="<?= $this->url('participant_edit') ?>">editer votre profil de participant</a>
                                     </li>
                                 <?php endif; ?>
                                     <?php if (in_array('4', $_SESSION['roles'])): ?>
                                     <li>
-                                        <a class="btn btn-link btn-md" href="<?= $this->url('exposant_edit') ?>">editer votre profil d'exposant</a>
+                                        <a class="btn btn-default btn-sm" href="<?= $this->url('exposant_edit') ?>">editer votre profil d'exposant</a>
                                     </li>
                                 <?php endif; ?>
                                     <?php if (in_array('5', $_SESSION['roles'])): ?>
                                     <li>
-                                        <a class="btn btn-link btn-md" href="<?= $this->url('sponsor_edit') ?>">editer votre profil de sponsor</a>
+                                        <a class="btn btn-default btn-sm" href="<?= $this->url('sponsor_edit') ?>">editer votre profil de sponsor</a>
                                     </li>
                                 <?php endif; ?>
                             <?php endif; ?>
@@ -176,14 +175,9 @@
                 </div>
             </div>
         </footer>
-
-        <!-- Button scroll to top -->
-        <div id='goTop'></div>
-        <script type="text/javascript" src="<?= $this->assetUrl('js/script.js') ?>"></script>
-        <script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
-        <script src="<?= $this->assetUrl('js/bootstrap-image-gallery.min.js')?>"></script>
-
-        <script type="text/javascript" src="<?= $this->assetUrl('js/script.js') ?>"></script>
-       
+        <!-- Button -->
+        <div onclick="ScrollTop()" id="top-btn">
+          <i class="fa fa-angle-up"></i>
+        </div>
     </body>
 </html>
