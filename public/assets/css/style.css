@@ -1,4 +1,11 @@
+@font-face {
+    font-family: "century-gothic";
+    src: url('../fonts/ufonts.com_century_gothic__2_.eot'); 
+    src: url('../fonts/ufonts.com_century-gothic.ttf') format('truetype');
+}
+
 body{
+  font-family: "century-gothic";
 	margin: auto;
 	padding-top: 30px;
 }
@@ -59,6 +66,11 @@ body{
 	text-align: left;
 	border-bottom-right-radius: 6px;
 	border-bottom-left-radius: 6px;
+}
+@media screen and (max-width: 768px) {
+  .carousel-caption {
+  display: none;
+  }
 }
 .carousel-indicators {
 	position: absolute;
@@ -237,60 +249,6 @@ a.youtube:after {
 .icon-inflate a:hover {
   transform: scale(1.3);
 }
-/***********************News & Reportage Details************************/
-/*.detailsTitle{
-  color:#11639b;
-  font-size: 60px;
-  font-weight: bold;
-
-  position: absolute;
-
-  padding-top: auto;
-  display: inline;
-}*/
-.detailsTitleevents{
-  color:#11639b;
-  font-size: 48px;
-  font-weight: bold;
-
-  position: absolute;
-
-  padding-top: auto;
-  margin-top: 30px;
-  margin-left: 30px;
-  display: inline;
-}
-/*
-@media screen and (max-width: 400px) {
-  .detailsTitle{font-size: 24px;}
-}*/
-/*.detailsdate{
-  color: #11639b;
-  border-top: 2px solid #11639b;
-
-  padding-top: 10px;
-}*/
-/*.detailsdate2{
-  color: #11639b;
-}*/
-/*.detailsText{
-  clear: both;
-  display: block;
-
-  font-weight: bolder;
-  font-size: 16px;
-
-  padding-top: 50px;
-  border-top: 2px solid #11639b;
-}*/
-.btn-default1{
-  background-color:#e0e0e0;
-  border-color: #ccc;
-  color:black;
-}
-.btn-default1:hover{
-  background-color:#ccc;
-}
 
 /****************Page contact****************/
 #map{
@@ -307,11 +265,6 @@ a.youtube:after {
   width: 300px;
   height:200px;
 }
-/*@media screen and (min-width: 992px) {
-  .avatar{
-    float: left;
-  }
-}*/
 
 /**************Page sponsors****************/
 
@@ -329,31 +282,7 @@ a.youtube:after {
 .sponsorsBreack{
   margin-top: 25px;
 }
-/****************Divider******************//*
-.divider{
-  border-bottom: 2px solid #e92d3c;
-}
-.divider h3{
-  margin-bottom: -10px;
-}*/
-.group { 
-  display: table;
-  width: 100%;
-  font-size: 3em;
-}
-.item {
-  display: table-cell;
-}
-.text { 
-  white-space: nowrap;
-  width: 1%;
-  padding: 0 10px;
-}
-.line {
-  border-bottom: 2px solid #e92d3c;
-  position: relative;
-  top: -.5em;
-}
+
 /**************Page confirmation****************/
 
 #attention {
@@ -403,8 +332,29 @@ a.youtube:after {
   margin: 2px;
   align-items: center; 
 }
-/*******************************galerie photos**************************************/
+/*******************************admin**************************************/
 
 .admBtn{
   width: 250px;
+}
+
+/****************Divider******************/
+
+.group { 
+  display: table;
+  width: 100%;
+  font-size: 3em;
+}
+.item {
+  display: table-cell;
+}
+.text { 
+  white-space: nowrap;
+  width: 1%;
+  padding: 0 10px;
+}
+.line {
+  border-bottom: 2px solid #e92d3c;
+  position: relative;
+  top: -.5em;
 }

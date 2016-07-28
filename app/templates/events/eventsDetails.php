@@ -10,7 +10,7 @@
                 <span class="help-block"></span>
             </div>
             <div class="col-md-8">
-                <h2 class="detailsTitle"><?= $eventsId['con_title'] ?></h2>
+                <h2><?= $eventsId['con_title'] ?></h2>
                 <span class="help-block"></span>
             </div>
         </div>
@@ -26,7 +26,7 @@
     <div class="list-group-item">
         <div class="row">
             <div class="col-md-12 text-justify">
-                <p class="detailsText"><?= $eventsId['con_description'] ?></p>
+                <p><?= $eventsId['con_description'] ?></p>
             </div>
         </div>
     </div>
@@ -34,10 +34,10 @@
 
     <?php if(isset($galeriesId) && !empty($galeriesId)): ?>
     <div class="list-group-item">
-    <h4>Liste de galeries associées à <?= $eventsId['con_title'] ?></h4>
+        <h4>Liste de galeries associées à <?= $eventsId['con_title'] ?></h4>
         <?php foreach ($galeriesId as $key => $value) : ?>
-            <a href="<?= $this->url('galerie_photos', ['id' => $value['id']]) ?>"><?= $value['gal_name'] . '<br/> ' . $value['gal_legend'] ?></a>
-            <span class="help-block"></span>
+        <a href="<?= $this->url('galerie_photos', ['id' => $value['id']]) ?>"><?= $value['gal_name'] . '<br/> ' . $value['gal_legend'] ?></a>
+        <span class="help-block"></span>
         <?php endforeach ?>
     </div>
     <?php endif; ?> 

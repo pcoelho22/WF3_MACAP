@@ -11,7 +11,7 @@
             </div>
 
             <div class="col-md-8">
-                <h2 class="detailsTitle"><?= $newsDetails['con_title'] ?></h2>
+                <h2><?= $newsDetails['con_title'] ?></h2>
                 <span class="help-block"></span>
             </div>
         </div>
@@ -29,19 +29,20 @@
     <div class="list-group-item">
         <div class="row">
             <div class="col-md-12 text-justify">
-                <p class="detailsText"><?= $newsDetails['con_description'] ?></p>
+                <p><?= $newsDetails['con_description'] ?></p>
             </div>
         </div>
     </div>
 
+    <?php if(isset($galeriesId) && !empty($galeriesId)): ?>
     <div class="list-group-item">
         <h4>Liste de galeries associées à <?= $newsDetails['con_title'] ?></h4>
-        <?php if(isset($eventsIdGaleires['id'])): ?>
-            <?php foreach ($eventsIdGaleires as $key => $value) : ?>
-                <li><a href="<?= $this->url('galerie_photos', ['id' => $value['id']]) ?>"><?= $value['gal_name'] . '<br/> ' . $value['gal_legend'] ?></a></li><br/>
-            <?php endforeach ?>
-        <?php endif; ?> 
+        <?php foreach ($galeriesId as $key => $value) : ?>
+        <a href="<?= $this->url('galerie_photos', ['id' => $value['id']]) ?>"><?= $value['gal_name'] . '<br/> ' . $value['gal_legend'] ?></a>
+        <span class="help-block"></span>
+        <?php endforeach ?>
     </div>
+    <?php endif; ?> 
 </div>
 
 <div class="row">
