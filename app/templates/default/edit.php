@@ -3,7 +3,21 @@
 <?php $this->start('main_content') ?>
 <h2>Modifier les informations de votre compte</h2>
 <div class="row">
-
+    <?php if (isset($error)): ?>
+    <div class="col-md-7 text-left">
+        <div class="alert alert-danger fade in" rows="auto">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Erreur!</strong><br>
+            <ul>
+                <?php foreach ($error as $value): ?>
+                    <li><?= $value ?></li>
+                <?php endforeach; ?>    
+            </ul>
+        </div>
+    </div> 
+    <?php endif; ?>
+</div>
+<div class="row">
     <div class="col-md-7 text-left">
         <?php if (isset($vals)): ?>
         <form action="" method="post" role="form">
@@ -57,21 +71,6 @@
         </form>
     </div>
 
-    <span class="help-block"></span>
-    <?php if (isset($error)): ?>
-    <div class="col-md-5 text-left">
-        <div class="alert alert-danger fade in" rows="auto">
-            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            <strong>Erreur!</strong><br>
-            <ul>
-                <?php foreach ($error as $value): ?>
-                    <li><?= $value ?></li>
-                <?php endforeach; ?>    
-            </ul>
-        </div>
-    </div> 
-    <?php endif; ?>
-
     <?php elseif (isset($values)): ?>
 
         <form action="#" method="post" role="form">
@@ -124,7 +123,7 @@
             <span class="help-block"></span>
             <h4>Une fois les données modifiées, vous serez redirigé vers la page d'accueil</h4>
         </form>
-
+    </div>
     <?php endif; ?>
 </div>
 <?php $this->stop('main_content') ?>

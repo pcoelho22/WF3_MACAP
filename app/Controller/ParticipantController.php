@@ -12,10 +12,10 @@ class ParticipantController extends Controller {
     
     public function delete($id) {
         $this->allowTo('2');
-        $participantManager = new ParticipantManager();
-        $participantManager->delete($id);
         $userHasRoleManager = new UserHasRoleManager();
         $userHasRoleManager->deleteParticipant($id);
+        $participantManager = new ParticipantManager();
+        $participantManager->delete($id);
         $this->redirectToRoute('home');
     }
     
