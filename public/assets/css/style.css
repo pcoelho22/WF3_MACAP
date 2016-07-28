@@ -1,4 +1,11 @@
+@font-face {
+    font-family: "century-gothic";
+    src: url('../fonts/ufonts.com_century_gothic__2_.eot'); 
+    src: url('../fonts/ufonts.com_century-gothic.ttf') format('truetype');
+}
+
 body{
+  font-family: "century-gothic";
 	margin: auto;
 	padding-top: 30px;
 }
@@ -59,6 +66,11 @@ body{
 	text-align: left;
 	border-bottom-right-radius: 6px;
 	border-bottom-left-radius: 6px;
+}
+@media screen and (max-width: 768px) {
+  .carousel-caption {
+  display: none;
+  }
 }
 .carousel-indicators {
 	position: absolute;
@@ -324,4 +336,25 @@ a.youtube:after {
 
 .admBtn{
   width: 250px;
+}
+
+/****************Divider******************/
+
+.group { 
+  display: table;
+  width: 100%;
+  font-size: 3em;
+}
+.item {
+  display: table-cell;
+}
+.text { 
+  white-space: nowrap;
+  width: 1%;
+  padding: 0 10px;
+}
+.line {
+  border-bottom: 2px solid #e92d3c;
+  position: relative;
+  top: -.5em;
 }
