@@ -32,10 +32,10 @@ class EventsController extends Controller {
         //debug($eventsId);
 
         $contenuHasGaleriesManager = new ContenuHasGaleriesManager();
-        $eventsIdGaleires = $contenuHasGaleriesManager->findGaleriesId($id);
-        //debug($eventsIdGaleires);
+        $galeriesId = $contenuHasGaleriesManager->findGaleriesId($id);
+        //debug($galeriesId);
         
-        $this->show('events/eventsDetails',['eventsId' => $eventsDetailsId, 'eventsIdGaleires' => $eventsIdGaleires]);
+        $this->show('events/eventsDetails',['eventsId' => $eventsDetailsId, 'galeriesId' => $galeriesId]);
     }
     public function add(){
         $this->allowTo('2');
