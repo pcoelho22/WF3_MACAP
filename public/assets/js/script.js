@@ -103,82 +103,33 @@ function initMap() {
     });
 }
 
-/***********************bouton scroll to top*************************/
 
-(function ($) {
-    $.fn.goTop = function (options) {
+/* Activation du scroll to top 
+document.addEventListener("scroll", yScroll);
 
-        $.fn.goTop.defaults = {
-            appear: 200,
-            scrolltime: 800,
-            src: "glyphicon glyphicon-chevron-up",
-            width: 45,
-            place: "right",
-            fadein: 500,
-            fadeout: 500,
-            opacity: 0.5,
-            marginX: 2,
-            marginY: 2
-        };
+function yScroll() {
 
-        var opts = $.extend({}, $.fn.goTop.defaults, options);
+  var yPos = window.pageYOffset;
 
-        return this.each(function () {
-            var g = $(this);
-            g.html("<a id='goTopAnchor'><span id='goTopSpan' /></a>");
+  if (yPos > 10) {
+    document.getElementById("top-btn").style.bottom = "10px";
+  } else {
+    document.getElementById("top-btn").style.bottom = "-50px";
+  }
+}
 
-            var ga = g.children('a');
-            var gs = ga.children('span');
+function ScrollTop() {
 
-            var css = {
-                "position": "fixed",
-                "display": "block",
-                "width": "'" + opts.width + "px'",
-                "z-index": "9",
-                "bottom": opts.marginY + "%"
-            };
+  var i = window.pageYOffset;
 
-            css[opts.place === "left" ? "left" : "right"] = opts.marginX + "%";
-
-            g.css(css);
-
-            //opacity
-            ga.css("opacity", opts.opacity);
-            gs.addClass(opts.src);
-            gs.css("font-size", opts.width);
-            gs.hide();
-
-            //appear, fadein, fadeout
-            $(function () {
-                $(window).scroll(function () {
-                    if ($(this).scrollTop() > opts.appear) {
-                        gs.fadeIn(opts.fadein);
-                    }
-                    else {
-                        gs.fadeOut(opts.fadeout);
-                    }
-                });
-
-                //hover effect
-                $(ga).hover(function () {
-                    $(this).css("opacity", "1.0");
-                    $(this).css("cursor", "pointer");
-                }, function () {
-                    $(this).css("opacity", opts.opacity);
-                });
-
-                //scrolltime
-                $(ga).click(function () {
-                    $('body,html').animate({
-                        scrollTop: 0
-                    }, opts.scrolltime);
-                    return false;
-                });
-            });
-        });
-    };
-})(jQuery);
-
-$(function () {
-      $('#goTop').goTop();
-   });
+  var intervalTimer = setInterval(function() {
+    if (i > 0) {
+      window.scrollTo(0, i);
+      i -= 15;
+    } else {
+      document.getElementById("top-btn").style.bottom = "-50px";
+      clearInterval(intervalTimer);
+    }
+  }, 0.5);
+}
+*/
