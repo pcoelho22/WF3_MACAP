@@ -1,36 +1,49 @@
-<?php $this->layout('layout', ['title' => 'News details!']) ?>
+<?php $this->layout('layout', ['title' => 'Detail des News']) ?>
 
 <?php $this->start('main_content') ?>
-<h2>News details</h2>
-<ul><br/>
-    <div class="row">
-        <div class="col-md-3 text-left">
-            <li><img class="avatar" src="<?= $this->assetUrl($newsDetails['con_avatar']) ?>"></li>
-        </div>
-        <div class="col-md-8 text-left">
-            <li><h3 class="detailsTitle"><?= $newsDetails['con_title'] ?></h3></li>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12 text-justify">
-            <li><p class="detailsdate"><?= $newsDetails['con_date_start'] ?></p></li>
-            <li><p class="detailsdate2">Dernière mise à jour: <?= $newsDetails['con_date_end'] ?></p></li>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12 text-justify">
-            <li><p class="detailsText"><?= $newsDetails['con_description'] ?></p></li>
+<h2>Détail des News</h2>
+<div class="list-group">
+    <div class="list-group-item">
+        <div class="row">
+            <div class="col-md-4">
+                <img class="avatar img-responsive" src="<?= $this->assetUrl($newsDetails['con_avatar']) ?>">
+                <span class="help-block"></span>
+            </div>
+
+            <div class="col-md-8">
+                <h2 class="detailsTitle"><?= $newsDetails['con_title'] ?></h2>
+                <span class="help-block"></span>
+            </div>
         </div>
     </div>
-</ul>
-<?php if(isset($eventsIdGaleires['id'])): ?>
-<h2>Liste de galeries associées à <?= $newsDetails['con_title'] ?></h2>
-<ul>
-    <?php foreach ($eventsIdGaleires as $key => $value) : ?>
-        <li><a href="<?= $this->url('galerie_photos', ['id' => $value['id']]) ?>"><?= $value['gal_name'] . '<br/> ' . $value['gal_legend'] ?></a></li><br/>
-    <?php endforeach ?>
-</ul>
-<?php endif; ?> 
+
+    <div class="list-group-item">
+        <div class="row">
+            <div class="col-md-12 text-justify">
+                <p class="detailsdate"><strong><?= $newsDetails['con_date_start'] ?></strong></p>
+                <p class="detailsdate2"><strong>Dernière mise à jour: <?= $newsDetails['con_date_end'] ?></strong></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="list-group-item">
+        <div class="row">
+            <div class="col-md-12 text-justify">
+                <p class="detailsText"><?= $newsDetails['con_description'] ?></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="list-group-item">
+        <h4>Liste de galeries associées à <?= $newsDetails['con_title'] ?></h4>
+        <?php if(isset($eventsIdGaleires['id'])): ?>
+            <?php foreach ($eventsIdGaleires as $key => $value) : ?>
+                <li><a href="<?= $this->url('galerie_photos', ['id' => $value['id']]) ?>"><?= $value['gal_name'] . '<br/> ' . $value['gal_legend'] ?></a></li><br/>
+            <?php endforeach ?>
+        <?php endif; ?> 
+    </div>
+</div>
+
 <div class="row">
     <div class="col-sm-12">
         <span class="help-block"></span>
