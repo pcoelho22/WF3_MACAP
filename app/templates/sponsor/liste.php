@@ -8,8 +8,11 @@
 </div>
 
 <div id="sponsorLogos" class="col-sm-12 text-center center-block">
-    <div class="col-sm-12 sponsorsBreack divider">
-        <h3><span><strong>Premium Sponsors</strong></span></h3><br>
+    <div class="col-sm-12 sponsorsBreack group">
+        <div class="item line"></div>
+        <div class="item text"><h3><span><strong>Premium Sponsors</strong></span></h3></div>
+        <div class="item line"></div>
+    </div>
     </div>
     <div class="row sponsors">
         <div class="col-md-2 col-sm-6 sponsorLogo">
@@ -32,9 +35,10 @@
         </div>
     </div>
 
-
-    <div class="col-sm-12 sponsorsBreack divider">
-        <h3><span><strong>Automotive Sponsors</strong></span></h3><br>
+    <div class="col-sm-12 sponsorsBreack group">
+        <div class="item line"></div>
+        <div class="item text"><h3><span><strong>Automotive Sponsors</strong></span></h3></div>
+        <div class="item line"></div>
     </div>
     <div class="row sponsors">
         <div class="col-md-2 col-sm-6 sponsorLogo">
@@ -84,8 +88,10 @@
             <a href="http://www.hdl.lu/" target="_blank"><img class="img-responsive" src="<?= $this->assetUrl('../assets/logo/automotive sponsors/HarleyDavidson_logo.png') ?>"></a>
         </div>
     </div>
-    <div class="col-sm-12 sponsorsBreack divider">
-        <h3><span><strong>Sponsors</strong></span></h3><br>
+    <div class="col-sm-12 sponsorsBreack group">
+        <div class="item line"></div>
+        <div class="item text"><h3><span><strong>Sponsors</strong></span></h3></div>
+        <div class="item line"></div>
     </div>
     <div class="row sponsors">
         <div class="col-md-2 col-sm-6 sponsorLogo">
@@ -127,7 +133,6 @@
             <a href="http://www.ang.lu/" target="_blank"><img class="img-responsive" src="<?= $this->assetUrl('../assets/logo/sponsors/logo_ang.png') ?>"></a>
         </div>
     </div>
-
     <div class="row sponsors">
         <div class="col-md-2 col-sm-6 sponsorLogo">
             <a href="http://securitec.lu/" target="_blank"><img class="img-responsive" src="<?= $this->assetUrl('../assets/logo/sponsors/Securitec_logo.png') ?>"></a>
@@ -145,9 +150,10 @@
             <a href="http://www.mondorf-les-bains.lu/" target="_blank"><img class="img-responsive" src="<?= $this->assetUrl('../assets/logo/sponsors/logo-mondorf.png') ?>"></a>
         </div>
     </div>
-   
-    <div class="col-sm-12 sponsorsBreack divider">
-        <h3><span><strong>Media Partners</strong></span></h3><br>
+    <div class="col-sm-12 sponsorsBreack group">
+        <div class="item line"></div>
+        <div class="item text"><h3><span><strong>Media Partners</strong></span></h3></div>
+        <div class="item line"></div>
     </div>
     <div class="row sponsors">
         <div class="col-md-2 col-sm-6 sponsorLogo">
@@ -171,8 +177,10 @@
     </div>
     <div class="row sponsors">
     </div>
-    <div class="col-sm-12 sponsorsBreack divider">
-        <h3><span><strong>Friends</strong></span></h3><br>
+    <div class="col-sm-12 sponsorsBreack group">
+        <div class="item line"></div>
+        <div class="item text"><h3><span><strong>Friends</strong></span></h3></div>
+        <div class="item line"></div>
     </div>
     <div class="row sponsors">
         <div class="col-md-2 col-sm-6 sponsorLogo">
