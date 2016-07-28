@@ -15,7 +15,7 @@
             <span class="help-block"></span>
             <img src="<?= $this->assetUrl('img/albert.jpg')?>" style="width: 170px; height: 170px;" alt="" class="img-responsive img-thumbnail center-block">
             <p class="text-center">Albert WETZ</p>
-
+            <span class="help-block"></span>
             <p>C'est un grand honneur pour nous de vous accueillir à la 4ième édition du Make-A-Wish Concours d'Elégance & Luxembourg Classic Days 2016<br/>
             Cette manifestation de l'automobile et du lotocycle classe est un événement non-lucratif  créé afin de recueillir des fonds pour Make-A-Wish Luxembourg asbl, organisation qui exauce les voeux d'enfants aux Luxembourg, âgés entre 3 et 17 ansn atteints de maladies graves.<br/>
             La 3ième édition en 2015 fut de nouveau un grand succès.<br/>
@@ -25,6 +25,7 @@
             <p>Un GRAND MERCI à vous tous!</p>
             <p>Bienvenue au Make-A-Wish Concours d'Elégance & Luxembourg Classic Days 2016.</p>
             <p>Albert WETZ & Marcel HAGENDOORN</p>
+            <span class="help-block"></span>
         </div>
     </div>
 
@@ -33,7 +34,7 @@
             <span class="help-block"></span>
             <img src="<?= $this->assetUrl('img/marcel.jpg')?>" style="width: 170px; height: 170px;" alt="" class="img-responsive img-thumbnail center-block">
             <p class="text-center">Marcel HAGENDOORN</p>
-
+            <span class="help-block"></span>
             <p>It is a great honour for us to welcome you to the 4th edition of the Make-A-Wish Concours d'Elégance & Luxembourg Classic Days 2016. As you may be aware this event is based on a non-profit basis created to raise funds for Make-A-Wish Luxemboourg asbl, organisation that grants wihses of children livinf in Luxembourg, aged between 3 and 17 years, with life-threatening medical condition.<br/>
             The 3rd edition was a edition in 2015was a huge success again.<br/>
             We would like to mention some of the reasons taht contributed to this success: we were fortunates to have a lovely weather wich attracted 7000 visitors on the unique site of the Parc du Domaine thermale de Mondorf-les-Bains. They enjoyed about 140 cars and motorcylces ranging from 1898, so as entertainment adn fodd as well.<br/>
@@ -43,6 +44,7 @@
             <p>A BIG THANKS to all of you!</p>
             <p>Welcome to the Make-A-Wish COncours d'Elégance & Luxembourg Classic Days 2016.</p>
             <p>Albert WETZ & Marcel HAGENDOORN</p>
+            <span class="help-block"></span>
         </div>
     </div>
 </div>
@@ -55,8 +57,8 @@
             </div>
 
             <div class="col-sm-4 text-center">
+                <span class="help-block"></span>
                 <p><a href="mailto: info@concours-mondorf.lu" target="_blank">info@concours-mondorf.lu</a></p>
-                <p><a href="http://www.facebook.com/concoursMondorf" target="_blank"><span class="fa fa-facebook-square fa-2x" aria-hidden="true"></span>/concoursMondorf</a></p>
             </div>
 
             <div class="col-sm-4 text-center">
