@@ -21,7 +21,7 @@
 <div class="row">
     <div class="col-md-7 text-left">
         <?php if (isset($vals)): ?>
-        <form action="" method="post" role="form">
+        <form action="" method="post" role="form" enctype="multipart/form-data">
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user fa-fw" aria-hidden="true"></i></span>
                 <input id="nameExposant" type="text" name="nameExposant" value="<?= $vals['nameExposant'] ?>" required="" placeholder="Nom de l'exposant" class="form-control text-left">
@@ -84,7 +84,7 @@
             <span class="help-block"></span>
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-align-left"></i></span>
-                <textarea id="description" type="text" name="description" rows="10" value="<?= $vals['description'] ?>" placeholder="Description" class="form-control text-left"></textarea>
+                <textarea id="description" name="description" rows="10" placeholder="Description" class="form-control text-left"><?= $vals['description'] ?></textarea>
             </div>
             <span class="help-block"></span>
             <div class="input-group">
@@ -168,7 +168,7 @@
             <span class="help-block"></span>
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-align-left"></i></span>
-                <textarea id="description" type="text" name="description" rows="10" value="<?= $values['exp_description'] ?>" placeholder="Description" class="form-control text-left"></textarea>
+                <textarea id="description" name="description" rows="10" placeholder="Description" class="form-control text-left"><?= $values['exp_description_exposants'] ?></textarea>
             </div>
             <span class="help-block"></span>
             <div class="input-group">
