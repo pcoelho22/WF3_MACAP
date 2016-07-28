@@ -54,6 +54,18 @@ class ExposantManager extends \W\Manager\Manager{
         $sth->bindValue(":id", $id);
         return $sth->execute();
     }
+
+    public function delete($id)
+    {
+        if (!is_numeric($id)){
+            return false;
+        }
+
+        $sql = "DELETE FROM " . $this->table . " WHERE users_id = :id LIMIT 1";
+        $sth = $this->dbh->prepare($sql);
+        $sth->bindValue(":id", $id);
+        return $sth->execute();
+    }
 }
 
     
